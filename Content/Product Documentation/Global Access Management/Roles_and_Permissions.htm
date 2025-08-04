@@ -1,0 +1,1420 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Describes the default user roles, associated permissions, and guidelines for creating custom roles." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Roles and Permissions</h1>
+        <p>Automox supports the following role-based access controls (RBAC). The user roles and permissions are listed in the table.</p>
+        <h2>About global administrators</h2>
+        <ul>
+            <li><strong>Global Administrators</strong> have complete control of the Automox account. Organization Administrators only have control of the organization they are assigned to. You can assign an organization administrator access to the Global View, in which the permissions for the account management are excluded.<br /></li>
+            <li>It is recommended to keep the number of Global Administrators to a minimum.<br /></li>
+            <li><strong>Only Global Administrators can invite users to an account.<br /></strong>
+            </li>
+            <li><strong>Only Global Administrators can enable Ask Otto.</strong>
+            </li>
+        </ul>
+        <h2>Roles and permissions table</h2>
+        <table style="mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Columnhead" MadCap:pattern="5" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Columnhead-Header1">
+                        <p>Function</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p>Permissions</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p>Global Administrator</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p>Organization Administrator</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p>Organization Operator</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p>Patch Operator</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p>Helpdesk Operator</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p>Billing Administrator</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p>Read Only</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <th rowspan="2" class="TableStyle-ax_tables-BodyE-Columnhead-Body1">
+                        <p>Billing</p>
+                    </th>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Modify</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Read</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <th rowspan="4" class="TableStyle-ax_tables-BodyE-Columnhead-Body1">
+                        <p>Devices</p>
+                    </th>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Add</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Delete</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Manage</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Read</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <th rowspan="4" class="TableStyle-ax_tables-BodyE-Columnhead-Body1">
+                        <p>Groups</p>
+                    </th>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Create</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Delete</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Modify</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Read</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <th rowspan="2" class="TableStyle-ax_tables-BodyE-Columnhead-Body1">
+                        <p>Package (Software)</p>
+                    </th>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Manage (Patch/Update)</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Read</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <th rowspan="5" class="TableStyle-ax_tables-BodyE-Columnhead-Body1">
+                        <p>Patch Policy</p>
+                    </th>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Create</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Delete</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Modify</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Execute</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Read</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <th rowspan="4" class="TableStyle-ax_tables-BodyE-Columnhead-Body2">
+                        <p>RBAC Roles</p>
+                    </th>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Create</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Delete</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Modify</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Read</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <th rowspan="2" class="TableStyle-ax_tables-BodyE-Columnhead-Body2">
+                        <p>Remote Control</p>
+                    </th>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Manage Consent</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Access</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <th class="TableStyle-ax_tables-BodyE-Columnhead-Body2">
+                        <p>Reports</p>
+                    </th>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Read</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <th rowspan="5" class="TableStyle-ax_tables-BodyE-Columnhead-Body1">
+                        <p>Required Software Policy</p>
+                    </th>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Create</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Delete</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Modify</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Execute</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Read</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <th rowspan="2" class="TableStyle-ax_tables-BodyE-Columnhead-Body2">
+                        <p>SAML</p>
+                    </th>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Read</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Manage</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <th class="TableStyle-ax_tables-BodyE-Columnhead-Body2">
+                        <p>Software</p>
+                    </th>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Read</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <th rowspan="4" class="TableStyle-ax_tables-BodyE-Columnhead-Body1">
+                        <p>TFA (two-factor authentication)</p>
+                    </th>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Create</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Read</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Manage</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Delete</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <th rowspan="4" class="TableStyle-ax_tables-BodyE-Columnhead-Body1">
+                        <p>Users</p>
+                    </th>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Invite</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Delete</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Modify</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Read</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <th rowspan="5" class="TableStyle-ax_tables-BodyE-Columnhead-Body1">
+                        <p>Worklets</p>
+                    </th>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Create</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Delete</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Modify</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Execute</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Read</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <th rowspan="3" class="TableStyle-ax_tables-BodyE-Columnhead-Body2">
+                        <p>Organization</p>
+                    </th>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Manage</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Create</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>Read</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body2">
+                        <p>X</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Role Summaries</h2>
+        <ul>
+            <li><strong>Global Administrator</strong>: A global administrator has full administrative rights, and can manage consent for remote control, where your plan includes remote control.</li>
+            <li><strong>Organization Administrator</strong>: An organization administrator has full administrative rights to a specific organization. For organizations on a plan that includes remote control, this role can manage consent and access devices with remote control.</li>
+            <li><strong>Organization Operator</strong>: An organization operator can create, read, modify, and delete all policies and server groups for an organization(s). They can add, remove, and restart devices. This role is able to access remote control, if your plan includes it.</li>
+            <li><strong>Patch Operator</strong>: A patch operator can create, modify, and delete patch policies. They can view and run worklets and required software policies. They do not have permission to create or modify worklets and required software policies. They can view, but not manage devices.</li>
+            <li><strong>Billing Administrator</strong>: Provides full read rights in addition to the ability to view and edit billing information.</li>
+            <li><strong>Read Only</strong>: Provides full read rights to a specific organization.</li>
+            <li><strong>Helpdesk Operator</strong>: A helpdesk operator has full read rights in addition to the ability to conduct remote control sessions.</li>
+        </ul>
+        <p>The user can only modify user preferences, such as notifications and password.</p>
+        <h2>Access Within Organization</h2>
+        <p>Users can be given a role to access an organization with certain permissions. These permissions are then only related to the devices in that organization.</p>
+        <ul>
+            <li><strong>Ask Otto</strong>
+                <ul>
+                    <li>Enable Ask Otto: only global administrators</li>
+                    <li>Use Ask Otto: only global administrators,  organization administrators, and organization operators</li>
+                </ul>
+            </li>
+            <li><strong>Automated Vulnerability Remediation (AVR)</strong>
+                <ul>
+                    <li>Configure: global administrators, organization administrators, organization operators</li>
+                    <li>Remediate: global administrators, organization administrators, organization operators, and patch operators</li>
+                    <li>Read: global administrators, organization administrators, organization operators, patch operators, and read only users</li>
+                </ul>
+            </li>
+            <li><strong>Script Signing</strong>
+                <ul>
+                    <li>Modify: global administrators and organization administrators</li>
+                    <li>Read: global administrators, organization administrators, and organization operators</li>
+                </ul>
+            </li>
+            <li><strong>Secrets Management</strong>
+                <ul>
+                    <li>Create, Edit, Remove: global administrators, organization administrators, and organization operators</li>
+                </ul>
+            </li>
+        </ul>
+        <h2>API Keys</h2>
+        <p>All users can create, read, modify, delete, and decrypt (reveal) their own API keys.</p>
+        <p>These roles have permissions related to the API keys of others:</p>
+        <ul>
+            <li>Global administrators:<ul><li>&#160;read, modify, and delete API keys for users in all organization</li></ul></li>
+            <li>Organization administrators<ul><li>read, modify, and delete API keys for users in the organization that they have permissions to</li></ul></li>
+        </ul>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="Understanding_Global_Access_Management.htm">Understanding Global Access Management</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Managing_Organizations.htm">Managing Organizations</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Managing_Users.htm">Managing Users</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Global_Session_Settings.htm">Global Session Settings</MadCap:xref>
+            </li>
+        </ul>
+    </body>
+</html>

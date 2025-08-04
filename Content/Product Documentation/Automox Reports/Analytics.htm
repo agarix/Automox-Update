@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title>Analytics</title><title>Analytics</title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Access live dashboards and reports to track patching progress and identify security gaps." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Analytics</h1>
+        <p>You can access reports to track patching progress and identify security gaps. Browse prebuilt reports to analyze your device management data.</p>
+        <div class="prereqs"><b>Prerequisites</b>: You must have <b>Reports: Read</b> permissions for the organization you want to view analytics reports for. See <MadCap:xref href="../Global Access Management/Roles_and_Permissions.htm" alt="Roles and Permissions Management">Roles and Permissions Management</MadCap:xref>.</div>
+        <p>
+            <img src="../../Resources/Images/analytics-example.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <h2>Viewing Analytics Reports</h2>
+        <p>To view analytics reports, go to <b>Insights &gt; Analytics</b> in the console. These reports include data from all organizations that you have permissions to view.</p>
+        <p> From the Analytics view, you can perform the following actions:</p>
+        <ul>
+            <li><b>Filter: </b>Filter the available reports</li>
+            <li><b>Download PDF</b>: Download the data as a PDF</li>
+            <li><b>Present</b>:<b> </b>Present reports for larger, detailed views</li>
+            <li><b>Hover</b>: Hover over individual reports to view more information            </li>
+        </ul>
+        <h3>Filtering Reports</h3>
+        <p>You can apply several filters to refine the data shown in analytics reports. </p>
+        <p>
+            <img src="../../Resources/Images/analytics-filters.png" alt="analytics filters" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <p>These filters include the following:</p>
+        <ul>
+            <li><b>Organization</b>:  Currently, if you are logged into a specific organization, the reports will show data for <b>all</b> organizations you have permissions to view. Use the <b>Organization</b> filter to include or exclude organizations, depending on your permissions and preferences.</li>
+            <li><b>Severity: </b>Use the <b>Severity</b> filter to include or exclude specific CVSS&#160;severity levels. <br /><b>Note</b>: For more information, see <MadCap:xref href="#Understa">Understanding CVE Scoring and Severity Data</MadCap:xref>.</li>
+            <li><b>Install Date</b>: Use the <b>Install Date</b> filter to view analytics based on either a <b>rolling install date</b> or a <b>fixed date range</b>. Even though the date filter allows selection of a wider range, the report will only include up to <b>90 days of data</b>. Data beyond 90 days from the selected end date may not be available, even if included in your filter range.</li>
+            <li><b>Change value of Target MTTR</b>: Use this filter to select a target <b>Mean Time to Remediate (MTTR)</b> value between <b>1 and 30</b>.<br />See the <MadCap:xref href="#Glossary">Glossary</MadCap:xref> section for details.)</li>
+        </ul>
+        <div class="info"><b>Note</b>: Data in analytics reports is refreshed on a schedule.</div>
+        <br />
+        <div class="tip"><b>Tip</b>: If you close the information tiles that initially appear above the reports and would like to access them again, you must <b>clear your browser data</b>.</div>
+        <h3>Available Actions</h3>
+        <p>In addition to the <b>Download PDF</b> button available from the main Analytics landing page, you can interact with individual reports using the following actions:</p>
+        <ul>
+            <li><b>Present</b>: Opens the report in a larger, more detailed view for closer inspection</li>
+            <li><b>Download</b>: Exports the report in your preferred format: <b>CSV</b>,<b> PDF</b>,<b> XLSX</b>, or<b> PNG</b></li>
+            <li><b>Show Underlying Data</b>: Displays the detailed data that supports the report’s metrics</li>
+            <li><b>Explore</b>: Provides access to additional filters and customization options to refine the data further</li>
+        </ul>
+        <h3>Coming Soon:</h3>
+        <ul>
+            <li>Customization options for prebuilt reports</li>
+            <li>Cross-organizational analytics</li>
+        </ul>
+        <h2><a name="Types"></a>Types of Reports</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="#Mean">Mean Time to Remediate in Days (MTTR) Vulnerabilities</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="#MTTR3">MTTR Account Achievement</MadCap:xref> - Comparison against Target MTTR</li>
+            <li>
+                <MadCap:xref href="#Known">KEV Vulnerability Instances Remediated</MadCap:xref> - Vulnerability Instances Remediated</li>
+            <li>
+                <MadCap:xref href="#Vulnerab">Vulnerabilities Instances Remediated</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="#Remediat2">Remediation Trend by Vulnerability Instance</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="#MTTR4">MTTR Trend vs Number of Devices In Scope</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="#Projecte">Projected MTTR</MadCap:xref><![CDATA[
+            ]]></li>
+            <li>
+                <MadCap:xref href="#Active">Active Policies By Projected MTTR</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="#Top2">Top Active CVEs By Exposure In Days</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="#Vulnerab2">Vulnerabilities Remediated by Severity</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="#MTTR5">MTTR Target Breach by Exposure in Days</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="#Outstand">Outstanding Vulnerability Instances</MadCap:xref>
+            </li>
+        </ul>
+        <div class="info"><b>Note</b>: Additional report types will be introduced over time. As new reports become available, they will appear on the Analytics page without requiring any configuration changes.</div>
+        <h2><a name="Understa"></a>Understanding CVE Scoring and Severity Data</h2>
+        <p>Automox Analytics reports include CVE and CVSS Severity information to help you interpret vulnerabilities more effectively.</p>
+        <h3>CVSS Score</h3>
+        <p>The <b>CVSS Score</b> is a numerical value from <b>0 to 10</b> that represents a qualitative measure of severity.</p>
+        <p>Automox Analytics displays the <b>most current score availabl</b>e in this priority order:</p>
+        <ul>
+            <li><b>CVSSv4</b>
+            </li>
+            <li><b>CVSSv3</b>
+            </li>
+            <li><b>CVSSv2</b>
+            </li>
+        </ul>
+        <p>If no CVSS score is available, the system displays <b>NULL</b>.</p>
+        <h3>CVSS Severity</h3>
+        <p>The CVSS Severity is a text (string) representation of the numerical CVSS range that reflects the most recent severity available. If no severity is available, the value will be <b>NONE</b>.</p>
+        <div class="info"><b>Note</b>: For more information about CVSS and severity ratings, visit the <a href="https://nvd.nist.gov/vuln-metrics/cvss">National Vulnerability Database.</a></div>
+        <h2>Report Calculation Methodology</h2>
+        <p>This section explains how analytics calculates metrics for each report using defined formulas and associated variables.</p>
+        <h3><a name="Mean"></a>Mean Time to Remediate in Days (MTTR)</h3>
+        <ul>
+            <li><![CDATA[
+                ]]><b>Formula </b><MadCap:xref href="#MTTR2" style="font-weight: normal;">MTTR</MadCap:xref>: <code>SUM ( </code><code href="#Day"><MadCap:xref href="#Day" style="font-weight: normal;">Day Diff</MadCap:xref> </code><code>) / </code><code href="#Remediat"><MadCap:xref href="#Remediat" style="font-weight: normal;">Remediation Count</MadCap:xref></code></li>
+            <li><b>Variables</b>: Average Day Diff, Install Date</li>
+            <li><b>Description</b>: Displays the average number of days it takes to remediate a vulnerability instance using <b>Created At</b> (Release date of the package) and <b>Install Timestamp</b> (The timestamp of the scan after package was installed). This answer also compares data to the previous month's data.</li>
+        </ul>
+        <h3><a name="MTTR3"></a>MTTR Account Achievement </h3>
+        <p>Comparison to Target MTTR</p>
+        <ul>
+            <li><b>Formula </b>
+                <MadCap:xref href="#MTTR" style="font-weight: normal;">MTTR Achievement</MadCap:xref>: <code>Target MTTR / </code><code href="#MTTR2"><MadCap:xref href="#MTTR2" style="font-weight: normal;">MTTR</MadCap:xref></code></li>
+        </ul>
+        <ul>
+            <li><b>Variables</b>: MTTR Achievement, Install Date</li>
+            <li><b>Description</b>: Compares the current MTTR to the <b>Target MTTR Parameter</b> defined by end user and displays a percentage rate of achievement. This answer also compares data to the previous month's data.</li>
+        </ul>
+        <h3><a name="Known"></a>KEV Vulnerability Instances Remediated</h3>
+        <p>  (KEV) Known Exploitable Vulnerabilities</p>
+        <ul MadCap:continue="true">
+            <li><b>Variables</b>: Unique Count of Vulnerability Instances, Known Exploitable Vulnerabilities, Install Date </li>
+            <li><b>Description</b>: Displays the number of  vulnerability instances with active exploits in the wild that have been remediated this month. This answer also compares data to the previous month's data.</li>
+        </ul>
+        <h3><a name="Vulnerab"></a>Vulnerability Instances Remediated</h3>
+        <ul>
+            <li><b>Variables</b>: Unique Count CVE ID, Install Date</li>
+            <li><b>Description</b>: Displays the number of vulnerability instances that have been installed during the install date filter. This also provides comparative analytics for current vs previous month's data.</li>
+        </ul>
+        <h3><a name="Remediat2"></a>Remediation Trend by Vulnerability Instance</h3>
+        <ul>
+            <li><b>Variables</b>: Unique Count Vulnerability Instance, Install Date, CVSS Severity</li>
+            <li style="font-weight: normal;"><b>Description</b>: Displays a weekly trend of remediated vulnerability instances by severity.</li>
+        </ul>
+        <h3><a name="MTTR4"></a>MTTR Trend vs Number of Devices In Scope</h3>
+        <ul>
+            <li><b>Variables</b>: Average Day Diff, Install Date, Unique Count of Devices</li>
+            <li style="font-weight: normal;"><b>Description</b>: Displays a weekly trend of MTTR and devices in scope.</li>
+        </ul>
+        <h3><a name="Projecte"></a>Projected MTTR </h3>
+        <p>Anticipated MTTR based on active policy schedule pattern</p>
+        <ul>
+            <li><b>Variables</b>: Average Days Between Active Policy Schedules</li>
+            <li><b>Description</b>: Provides the projected MTTR based on active patch policy schedules.</li>
+        </ul>
+        <h3><a name="Active"></a>Active Policies By Projected MTTR</h3>
+        <ul>
+            <li><b>Variables</b>: Policy Name, Average Days Between Schedules</li>
+            <li><b>Description</b>: Provides a ranked list of patch policies with the largest gap in schedules.</li>
+        </ul>
+        <h3><a name="Top2"></a>Top Active CVEs By Exposure In Days</h3>
+        <ul>
+            <li><b>Formula</b> <MadCap:xref href="#Days" style="font-weight: normal;">Days Exposed</MadCap:xref>: <code>CURRENT_DATE - Package Version Created At</code></li>
+        </ul>
+        <ul>
+            <li><b>Variables</b>: Max Days Exposed, CVE ID, CVSS Severity</li>
+            <li><b>Description</b>: Displays the top 10 CVEs based on active exposure in days. Conditional logic for the colors will be Yellow to Red. Any CVE with a maximum exposure in days greater than 90 days will be red.</li>
+        </ul>
+        <h3><a name="Vulnerab2"></a>Vulnerabilities Remediated by Severity</h3>
+        <ul>
+            <li><b>Variables</b>: Unique Count Vulnerability Instances, Severity</li>
+            <li><b>Description</b>: Displays a total count of installed vulnerability instances based on the <b>Install Date</b> filter.</li>
+        </ul>
+        <h3><a name="MTTR5"></a>MTTR Target Breach by Exposure in Days</h3>
+        <ul>
+            <li><b>Variables</b>: Package Display Name, Severity, Max Exposure in Days &gt; Target MTTR</li>
+            <li><b>Description</b>: Provides the top packages in breach of the <b>MTTR Target</b> sorted by exposure in days. Conditional color scheming is based on <b>CVSS Severity</b>.</li>
+        </ul>
+        <h3><a name="Outstand"></a>Outstanding Vulnerability Instances</h3>
+        <ul>
+            <li><b>Variables</b>: Unique Count of Vulnerability Instances, CVSS Severity</li>
+            <li><b>Description</b>: Displays the total number of vulnerability instances that are outstanding in the environment over all time.</li>
+        </ul>
+        <h2>Strategies for Improving Metrics</h2>
+        <p>You can use insights from the reports to take targeted actions that reduce risk and improve your organization's performance against key metrics. This section provides a few examples to illustrate how to interpret report data and act on it.</p>
+        <div class="tip">The screenshots in this section highlight how specific reports can uncover actionable trends. Use these examples as guidance for identifying your own areas of improvement.</div>
+        <ul>
+            <li><b>Active Policies By Projected MTTR</b>: This report helps you identify policies with large gaps between scheduled runs. If you notice long intervals for certain policies, consider adjusting their schedules to reduce patching delays. Reducing the time between executions can help you get ahead of vulnerabilities and decrease your overall MTTR.<br /><img src="../../Resources/Images/example-active-policies.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li>
+        </ul>
+        <ul>
+            <li><b>Outstanding Vulnerability Instances</b>: Use this report to determine if there’s a high number of unresolved vulnerabilities—in the following example we show those with High or Medium severity. If your environment shows elevated counts for these severities, you may need to refine your policies to target them more aggressively and close the gap on remediations.<br /><img src="../../Resources/Images/example-outstanding-vuln.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li>
+        </ul>
+        <ul>
+            <li><b>MTTR Account Achievement</b>: This report helps you monitor whether your remediation efforts align with the Target MTTR Parameter. If the percentage is low, focus on reducing delays in the patch deployment cycle and consider streamlining approvals or improving device readiness.
+			<br /><img src="../../Resources/Images/example-mttr-achieve.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li>
+        </ul>
+        <h2><a name="Glossary"></a>Glossary</h2>
+        <ul>
+            <li><b>Known Exploitable Vulnerability (KEV)</b>: A CVE (Common Vulnerabilities and Exposures) that has documented evidence of active exploitation in the wild. These vulnerabilities are typically listed in authoritative sources such as the CISA KEV catalog and represent higher risk due to confirmed use in real-world attacks.</li>
+        </ul>
+        <ul>
+            <li><b>Vulnerability Instance</b>: A specific occurrence of a security vulnerability (CVE) on a device or package. Device, Package, Version, and Install Date (historical trend) are attributes that make up this occurrence</li>
+        </ul>
+        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" style="width: 220px;" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">Formula</th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">Definition</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1"><a name="Day"></a>Day Diff</td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1"><code>diff_days ( Install Date , Created At )</code>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2"><a name="Days"></a>Days Exposed</td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p><code>diff_days ( CURRENT DATE, Created At )</code>
+                        </p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1"><a name="Remediat"></a>Remediation Count</td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1"><code>Unique count ( Vulnerability Instance)</code>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2"><a name="MTTR2"></a>MTTR</td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2"><code>sum ( Day Diff ) / Remediation Count</code>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1"><a name="MTTR"></a>MTTR Achievement</td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1"><code>Target MTTR / MTTR</code>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="Creating_Reports.htm">Creating Reports</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Policy_Results_Report.htm">Policy Results Report</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Data_Extracts.htm">Data Extracts</MadCap:xref>
+            </li>
+            <li><a href="https://developer.automox.com/openapi/axconsole/operation/createExtract/" rel="nofollow">Automox Console API: Create a new Data Extract</a>
+            </li>
+        </ul>
+    </body>
+    <p>
+    </p>
+</html>

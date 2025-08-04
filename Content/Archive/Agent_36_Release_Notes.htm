@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+    </head>
+    <body>
+        <h1>Agent 36 Release Notes</h1>
+        <p>Agent 36 is now available to download in the Automox console. This release is for <strong>Mac&#160;devices only</strong>.</p>
+        <h2>New</h2>
+        <p>Enhanced patching capabilities for all supported macOS operating systems (Intel &amp; Apple Silicon). To reiterate, these operating systems are supported:</p>
+        <ul>
+            <li>macOS 10.15 &#160;<strong>Catalina</strong> (Intel)</li>
+            <li>macOS 11.x &#160;<strong>Big Sur</strong> (Intel &amp; Apple Silicon)</li>
+            <li>macOS 12.x &#160;<strong>Monterey</strong> (Intel &amp; Apple Silicon)</li>
+        </ul>
+        <h2>Update</h2>
+        <p>The commands to enable the Automox Service Account for patching Apple Silicon devices have changed.</p>
+        <p>IMPORTANT: The old flags will no longer work on Agent 36. Please review our updated documentation: <MadCap:xref href="../../Agents/Agent Installation/Install_and_Configure_Automox_Agent_for_Apple_Silicon_Devices.htm">Install and Configure Automox Agent for Apple Silicon Devices</MadCap:xref>.</p>
+        <ul>
+            <li><strong>New Flags:</strong><code>--automox-service-account &lt;enable|disable&gt;</code>
+                <br /><code>--automox-user-prompt &lt;enable|disable&gt;</code>
+            </li>
+        </ul>
+        <h2>Update&#160;</h2>
+        <p>After running the <code>--automox-user-prompt enable</code> command, you will immediately see the user prompt requesting a password. You do not have to wait for a device scan.&#160;</p>
+        <h2>Bug Fixes</h2>
+        <ul>
+            <li>Reboot commands will no longer appear stuck on macOS devices</li>
+            <li>macOS Monterey can now be patched on Intel devices</li>
+            <li>Mac devices no longer reboot without notification on macOS updates</li>
+            <li>Mac devices reboot and log out users after macOS updates</li>
+            <li>The Automox Service Account password no longer rotates after every command which caused subsequent commands to fail</li>
+            <li>A user prompt for granting secure token access no longer appears twice in some conditions</li>
+        </ul>
+        <h2>Security</h2>
+        <p>General security improvements and enhancements.</p>
+        <h2>Known Issue&#160;</h2>
+        <p>When enabling the Automox Service Account user prompt via an SSH session, the user password prompt will close when the SSH session terminates or times out, but the user prompt process still runs.</p>
+        <ul>
+            <li><strong>Workaround:&#160;</strong>Do not enable the Automox Service Account via an SSH session. Use a worklet or MDM tool instead.</li>
+            <li><strong>Status:&#160;</strong>This will be fixed in a future release.</li>
+        </ul>
+        <h2>Known Issue</h2>
+        <p>If an administrator manually creates the Automox Service Account and then uses the <code>--automox-user-prompt enable</code> command to assign a secure token to that service account, the secure token access is not granted.</p>
+        <ul>
+            <li><strong>Workaround:</strong> Do not manually create a service account. Let the Automox agent create the service account by following the instructions in <MadCap:xref href="../../Agents/Agent Installation/Install_and_Configure_Automox_Agent_for_Apple_Silicon_Devices.htm">Install and Configure Automox Agent for Apple Silicon Devices</MadCap:xref>.</li>
+            <li><strong>Status:&#160;</strong>This will be addressed in a future release</li>
+        </ul>
+        <p>Automatic upgrades to Agent 36 are disabled for all Organizations until Wednesday, February 16th.</p>
+    </body>
+</html>

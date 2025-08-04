@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+    </head>
+    <body>
+        <h1>Agent 2.2.x - Coming Soon</h1>
+        <h2>Summary</h2>
+        <p>Automox Agent version 2.2.x contains the following additions and improvements:</p>
+        <h3>Improvements:</h3>
+        <ul>
+            <li>Enhanced the notification UI on macOS systems.</li>
+            <li>Hardened the backend Automox agent to server communication flow to help resolve issues with agents disconnecting from the agent server.</li>
+        </ul>
+        <h3>Added</h3>
+        <ul>
+            <li>Added the ability for Administrators to create and surface custom notification messages into the Automox Tray.</li>
+            <li>Added an end-user notification within the Automox Tray to inform an end user if the system is off-line.</li>
+        </ul>
+        <h3>Bugfixes:</h3>
+        <ul>
+            <li>Resolved an issue where a newly created policy incorrectly reports compliant prior to verifying .</li>
+            <li>Resolved an issue where the Automox Tray was ACKing an end-user action which could result in the associated reboot or patch not completing.</li>
+            <li>Resolved an issue where a system reboot would not clear the Automox tray notification for action required by the end-user.</li>
+            <li>Resolved an issue where if a reboot command is initiated early via the agent, failed to send, or failed to complete successfully, the tray notification could be delayed and continue to show that it is processing.</li>
+            <li>Resolved a potential issue in the Automox Tray where if the notification window is zoomed, or the text size enlarged, the button on the bottom of the window could be cut off. This was resolved in the Automox Agent Version 2.1.45.</li>
+        </ul>
+    </body>
+</html>

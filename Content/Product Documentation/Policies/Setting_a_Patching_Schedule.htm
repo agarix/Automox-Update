@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="This document describes how to set a patching schedule for a policy or Worklet." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Setting a Patching Schedule</h1>
+        <p>A schedule is required for any policy or worklet.</p>
+        <h2 id="SettingaPatchingSchedule-SettingaSchedule">Setting a Schedule</h2>
+        <p>You can set a schedule from any policy or worklet page.</p>
+        <ol start="1">
+            <li>From the <b>Automate → Policies</b> page, click<b> Create Policy</b>.</li>
+            <li>Select the type of policy you want to create.</li>
+            <li>From the <b>Schedule</b> area of the Create Policy or Create Worklet page, you can click <b>Select All</b> to automatically preselect all months, weeks, and days.</li>
+            <li>Adjust the schedule selection as needed by deselecting any specific fields that do not apply. The calendar preview updates accordingly.</li>
+        </ol>
+        <p>
+            <img src="../../Resources/Images/schedule.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <h2>Setting the Scheduled Start Time</h2>
+        <p>You can set the start time for the policy to either be local or UTC time.</p>
+        <h3>Local Time of Device</h3>
+        <p>Select<b>&#160;Local Time Of Device</b> if you want the policy to start the update according to the time zone where the device is located. Use the drop-down list to set the start time.</p>
+        <p>
+            <img src="../../Resources/Images/schedule-local.png" />
+        </p>
+        <p>When multiple devices in different time zones are associated with the policy, the time of the update starts according to the time zone of each device.</p>
+        <h3>UTC</h3>
+        <p>Select UTC if you want the policy to start the update at the same universal time for all the devices associated with the policy. Use the drop-down list to set the UTC start time. When multiple devices in different time zones are associated with the policy, the time of the update starts according to the UTC setting. All devices are updated at the same time, regardless of time zone.</p>
+        <p>
+            <img src="../../Resources/Images/schedule-utc.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <div class="info"><b>Note</b>: Scheduling according to UTC means finding the least disruptive time for the patch. The local time zones for users should be considered. At the same time, this type of scheduling could be used when there is an outage or maintenance window and the policy needs to start at a very precise time that spans across time zones.</div>
+        <h3>Handling missed patches</h3>
+        <p>You can decide how you want the device to patch if a configured patch time is missed. By selecting the checkbox after Scheduled Start Time, the device will patch the next time it checks in.</p>
+        <p>
+            <img src="../../Resources/Images/schedule-missed-patches.png" />
+        </p>
+        <p>Complete any other options according to the policy or worklet you are creating or editing and select <b>Create Policy</b> or <b>Save Policy</b>.</p>
+        <h2>Related Topics</h2>
+        <ul>
+            <li><a href="https://patch.automox.com/video-automox-product-feature-global-scheduling" rel="nofollow">How to Use Global Scheduling in Automox Patch Management</a>
+            </li>
+            <li>See our <a href="https://community.automox.com/community-worklets-12" rel="nofollow">Community discussions</a> around worklets</li>
+        </ul>
+    </body>
+</html>

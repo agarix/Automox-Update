@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+    </head>
+    <body>
+        <h1>June 2024 Release Notes</h1>
+        <h2>June 28, 2024</h2>
+        <p>Added:</p>
+        <ul>
+            <li><strong>Audit Trail API</strong> is now available:<ul><li><a href="https://developer.automox.com/openapi/audit-trail/overview/" rel="nofollow">Audit Trail REST API</a></li><li><a href="https://developer.automox.com/developer-portal/ocsf-schema-overview/" rel="nofollow">OCSF Schema Overview</a></li><li><a href="https://developer.automox.com/developer-portal/ocsf-classes-events/" rel="nofollow">OCSF Class Events</a></li></ul></li>
+            <li><strong>Third-Party Software</strong>: You can now set <strong>overrides</strong> for how third-party software packages that won't patch while running are handled. To do this, use the new Worklets available in our Worklets Catalog. Refer to Third-Party Patching Overrides</li>
+            <li>To be able to use the worklet for macOS, you will need an identifier for the software packages called Bundle Names. See Naming Scheme for Third-Party Software Packages</li>
+        </ul>
+        <p>Updated:</p>
+        <ul>
+            <li>The current <strong>search</strong> scope for the Device Explorer table is limited to Custom Name, Device Name, and Device UUID. See Device Explorer.</li>
+        </ul>
+        <p>Bugfixes:</p>
+        <ul>
+            <li>Fixed an issue in which the Device Explorer was not showing all devices from the Group attribute.</li>
+            <li>Fixed odd behavior related to the UseWUServer reg entry when switching the Automatic Updates settings in the Group settings.</li>
+            <li>Fixed an issue that a report incorrectly showed Chrome was patched.</li>
+            <li>We modified how we show the version of Zoom Outlook Plugin 32-bit.</li>
+            <li>Fixed how we cache the most recent version of Google Chrome for macOS and Windows.</li>
+        </ul>
+        <h2>June 21, 2024</h2>
+        <p>Added:</p>
+        <ul>
+            <li><strong>CSV Export</strong> is now available for the <strong>Policy Results Report</strong>. See Policy Results Report.</li>
+        </ul>
+        <p>Updated:</p>
+        <ul>
+            <li>Third-Party Supported Software: added details about support of <strong>PuTTY (Windows)</strong>. See new section: PuTTY (Windows).</li>
+            <li>Updated Device ID to <strong>Device UUID in the Device Explorer</strong> device query, table and export file. See Device Explorer.</li>
+            <li>The Device Details &gt; Troubleshooting now includes <strong>scan status</strong>: successful/failed. See Device Details.</li>
+        </ul>
+        <p>New Beta <MadCap:xref href="../Agent Release Notes/Agent_1_44_5_Release_Notes.htm">Agent 1.44.5 Release Notes</MadCap:xref>.</p>
+        <p>Bugfixes:</p>
+        <ul>
+            <li>Fixed issue in which Automated Vulnerability Remediation (AVR) was not linking hosts to their counterparts in Automox.</li>
+            <li>Fixed an issue in which soft deleted zones impacted the entitlement for non-deleted zones.</li>
+            <li>Fixed an issue in which updates were reported to the dashboard, but there were no updates to install.</li>
+            <li>Fixed an issue of missing severity data on the software section of the Device Details page.</li>
+            <li>Fixed an issue on the Device Details page in which the last user login showed a value of null.</li>
+            <li>Fixed pagination issue on Device Explorer page.</li>
+            <li>Fixed issue of agent disconnecting on Linux devices after upgrade.</li>
+        </ul>
+        <h2>June 14, 2024</h2>
+        <p>Updated:</p>
+        <p>Policy Results Report:</p>
+        <ul>
+            <li>We completely updated our Policy Results Report, which now provides historical data and includes data from all policy types: patch, required software, and Worklets. This report provides new status information, remediation worklet exit codes, error and log information.</li>
+        </ul>
+        <p>Bugfixes:</p>
+        <ul>
+            <li>We fixed an issue related to Device Explorer pagination.</li>
+            <li>We fixed an issue on the Device Details page related to the display of last user login date values.</li>
+            <li>We fixed an issue of missing severity data on the Device Details software section.</li>
+        </ul>
+    </body>
+</html>

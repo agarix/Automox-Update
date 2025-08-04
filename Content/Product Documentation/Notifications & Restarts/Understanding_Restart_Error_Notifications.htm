@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="This explains restart error notifications and provides examples" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Understanding Restart Error Notifications</h1>
+        <p>This article explains restart error notifications and provides examples that will help you understand how to interact with them.</p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/agent-version-req.flsnp" />
+        <h2>Allowing Notifications for macOS</h2>
+        <p>Generally, notifications automatically appear according to your system settings. For macOS, it is important that you allow notifications from the Automox Notifier.</p>
+        <p>To ensure you will receive notifications for macOS, follow these steps:</p>
+        <ol start="1">
+            <li>Go to <strong>System Settings </strong>(on older OSes, System Preferences) <strong>→ Notifications → Automox Notifier</strong>.</li>
+            <li>Enable <strong>Automox notifications</strong>.</li>
+            <li>Select either Banners or Alerts.<br /><br /><img src="../../Resources/Images/axnotifier-settings.png" style="width: 570px;height: 271px;" /><br /></li>
+        </ol>
+        <h2>Errors Occurring During the Restart Process</h2>
+        <p>Errors can occur, for example, when an Internet connection fails. For failures during the final notification flow (as described in <MadCap:xref href="Managing_End_User_Notifications.htm">Managing End-User Notifications</MadCap:xref>), the following types of notification messages can appear, depending on your OS.</p>
+        <h3>Windows failure notification</h3>
+        <p>In addition to the final notice, if a restart fails, an error message is displayed. You are notified to restart the device. This error message includes the policy name and ID for troubleshooting purposes. The following is an example of such a notification:</p>
+        <p>
+            <img src="../../Resources/Images/system-restart-failure-win.png" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <h3>macOS failure notification</h3>
+        <p>For macOS devices, when Automox notifications are enabled and the final notification flow fails, a System Restart Failure message is displayed. This error message includes the policy name and ID for troubleshooting purposes.</p>
+        <p>An example notification message can look like this:</p>
+        <p>
+            <img src="../../Resources/Images/system-restart-failure.png" />
+        </p>
+        <ul>
+            <li>You can right-click on the notification to view other native macOS options.<br /><br /><img src="../../Resources/Images/system-restart-failure-with-options.png" /><br /></li>
+        </ul>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="Managing_End_User_Notifications.htm">Managing End-User Notifications</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Using_Restart_Notifications.htm">Using Restart Notifications</MadCap:xref>
+            </li>
+        </ul>
+    </body>
+</html>

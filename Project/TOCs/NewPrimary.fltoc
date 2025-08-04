@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultToc
+  Version="1">
+  <TocEntry
+    Title="Product Documentation"
+    Class="tocSoftware"></TocEntry>
+  <TocEntry
+    Title="Release Notes"
+    Class="tocNotes">
+    <TocEntry
+      Title="Agent Release Notes"
+      Link="/Project/TOCs/SectionTOCs/AgentReleaseNotes.fltoc"></TocEntry>
+    <TocEntry
+      Title="Documentation Release Notes"
+      Link="/Project/TOCs/SectionTOCs/ReleaseNotes.fltoc"></TocEntry>
+  </TocEntry>
+  <TocEntry
+    Title="Getting Started"
+    Link="/Project/TOCs/SectionTOCs/GettingStarted.fltoc"
+    Class="tocStarted"></TocEntry>
+  <TocEntry
+    Title="Automox Console"
+    Link="/Project/TOCs/SectionTOCs/AutomoxConsole.fltoc"
+    Class="tocConsole"></TocEntry>
+  <TocEntry
+    Title="Advanced Agent Installation"
+    Link="/Project/TOCs/SectionTOCs/AdvancedAgentInstallation.fltoc"
+    Class="tocInstallation"></TocEntry>
+  <TocEntry
+    Title="Integrations"
+    Link="/Project/TOCs/SectionTOCs/Integrations.fltoc"
+    Class="tocIntegrate"></TocEntry>
+  <TocEntry
+    Title="Maintenance &amp; Agent Upgrade Policy "
+    Link="/Project/TOCs/SectionTOCs/Maintenance-Agent-Upgrade-Policy.fltoc"
+    Class="tocPolicies"></TocEntry>
+  <TocEntry
+    Title="Miscellaneous"
+    Link="/Project/TOCs/SectionTOCs/Miscellaneous.fltoc"
+    Class="tocMiscellaneous"></TocEntry>
+  <TocEntry
+    Title="Automox FAQs"
+    Link="/Content/Product Documentation/FAQs/Automox FAQs.htm"
+    Class="tocFaq" />
+</CatapultToc>

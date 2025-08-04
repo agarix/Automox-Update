@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" />
+        <script src="../../Resources/js/tabs.js" type="text/javascript">
+        </script>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Provides FAQs, known issues, and troubleshooting guidance related to [%=General.ProductName%] Remote Control." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Remote Control - FAQs, Known Issues, and Troubleshooting Guide</h1>
+        <ul class="tabs">
+            <li class="tab-link current" data-tab="tab-1">FAQs</li>
+            <li class="tab-link" data-tab="tab-2">Known Issues &amp; Caveats</li>
+            <li class="tab-link" data-tab="tab-3">Troubleshooting</li>
+        </ul>
+        <div class="tab-content current" id="tab-1">
+            <p>
+                <p>The following are common questions and answers about the Automox Remote Control Module.</p>
+                <div class="table-wrap">
+                    <table class="TableStyle-ax_tables" cellspacing="0" style="mc-table-style: url('../../Resources/TableStyles/ax_tables.css');">
+                        <colgroup>
+                            <col style="width: 480.0px;" />
+                            <col style="width: 600px;" />
+                        </colgroup>
+                        <thead>
+                            <tr class="TableStyle-ax_tables-Head-Header1">
+                                <th class="TableStyle-ax_tables-HeadE-Column1-Header1"><strong>Question</strong>
+                                </th>
+                                <th class="TableStyle-ax_tables-HeadD-Column1-Header1"><strong>Answer</strong>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="TableStyle-ax_tables-Body-Body1">
+                                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+									Does the remote access feature require the agent to be connected? Or can it be used to troubleshoot agent connectivity problems?
+								</td>
+                                <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+									Yes, it needs to be connected with the <MadCap:variable name="General.ProductName" /> agent.
+								</td>
+                            </tr>
+                            <tr class="TableStyle-ax_tables-Body-Body2">
+                                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+									How secure is the connection?
+								</td>
+                                <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                                    <p>We use Cloudflare to create a tunnel. After we establish the tunnel (between the local admin and remote device), we use encrypted WebSocket to encompass the TightVNC component into the remote device. There we use a proxy to decrypt WebSocket and transmit the VNC as part of regular TCP into the remote device.</p>
+                                    <p>Cloudflare Tunnel is tunneling software that lets us quickly secure and encrypt application traffic within our infrastructure. We will be able to hide our web server IP addresses, block direct attacks, and get back to delivering great applications.</p>
+                                    <p> The Tunnel daemon creates an encrypted tunnel between your origin, Automox, web server and Cloudflare’s nearest data center, all without opening any public inbound ports. After locking down all origin server ports and protocols, any requests on HTTP/S ports are dropped, including volumetric DDoS attacks. Data breach attempts—such as snooping of data in transit or brute force—are blocked entirely.</p>
+                                </td>
+                            </tr>
+                            <tr class="TableStyle-ax_tables-Body-Body1">
+                                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+									Who can access devices with Remote Control?
+								</td>
+                                <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                                    <ol start="1">
+                                        <li>
+											The device must be part of the organization that has the Pro package
+										</li>
+                                        <li>
+											Global Admin, Organization Admin, Organization operator, and Helpdesk operator
+											<ul><li>
+													The Automox agent must be installed on the device
+												</li></ul></li>
+                                    </ol>
+                                </td>
+                            </tr>
+                            <tr class="TableStyle-ax_tables-Body-Body2">
+                                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+									Can I use Remote Control to access servers?
+								</td>
+                                <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+									Automox Remote Control is currently not supported on servers.
+								</td>
+                            </tr>
+                            <tr class="TableStyle-ax_tables-Body-Body1">
+                                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+									What binaries are installed?
+								</td>
+                                <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                                    <p>
+                                        <img src="../../Resources/Images/Icons/Material Icons/warning_16dp_FFBE72_FILL1_wght100_GRAD0_opsz20.png" style="width: 22px;height: 22px;" /> In order for Automox Remote Control to function properly, TightVNC must not be installed on the target devices.</p>
+                                    <div class="info">
+                                        <p><strong>Note</strong>: For Windows only, when the session ends we remove the TightVNC.msi and TightVNC binary. We reinstall these for every session.</p>
+                                    </div>
+                                    <br /><strong>Windows</strong>:
+									<strong>x64</strong><ul><li>
+											tightvnc-2.8.85-gpl-setup-64bit.msi
+										</li><li>
+											cloudflared-windows-amd64.exe
+										</li><li>
+											remotecontrold.exe
+										</li></ul><strong>x86</strong><ul><li>
+											tightvnc-2.8.85-gpl-setup-32bit.msi
+										</li><li>
+											cloudflared-windows-386.exe
+										</li><li>
+											remotecontrold-386.exe
+										</li></ul><strong>macOS:</strong><ul><li>
+											cloudflared
+										</li><li>
+											dialog
+										</li><li>
+											osxvnc
+										</li><li>
+											RemoteControl
+										</li></ul></td>
+                            </tr>
+                            <tr class="TableStyle-ax_tables-Body-Body2">
+                                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+									What browsers are required to use Remote Control?
+								</td>
+                                <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                                    <ul>
+                                        <li>
+											Chrome 64
+										</li>
+                                        <li>
+											Firefox 79
+										</li>
+                                        <li>
+											Edge 79
+										</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr class="TableStyle-ax_tables-Body-Body1">
+                                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+									Can we shut off the remote controller feature?
+								</td>
+                                <td class="TableStyle-ax_tables-BodyD-Column1-Body1">To remove the remote control feature (Automox Assist) from your customized plan, contact <MadCap:variable name="General.ProductName" /> Support.								</td>
+                            </tr>
+                            <tr class="TableStyle-ax_tables-Body-Body2">
+                                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+									What permissions are required to change settings for consent notifications?
+								</td>
+                                <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+									Only Global and Organization Administrators can decide which devices need consent from the remote user before establishing the remote session.
+								</td>
+                            </tr>
+                            <tr class="TableStyle-ax_tables-Body-Body1">
+                                <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+									Where is the remote control log located?
+								</td>
+                                <td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+                                    <p>The Remote Control log named <strong>rc-module.log</strong> can be found at the following path:</p>
+                                    <p><strong>Windows</strong>:</p>
+                                    <p><code>C:\Program Files (x86)\Automox\modules\rc\</code>
+                                    </p>
+                                    <p><strong>macOS</strong>:</p>
+                                    <p><code>/usr/local/var/log/remotecontrold.log</code>
+                                    </p>
+                                    <p><strong>macOS Install Logs:</strong>
+                                    </p>
+                                    <p>
+                                        <ul>
+                                            <li><code>/Library/Application Support/Automox/modules/remotecontrol/install.log</code>
+                                            </li>
+                                            <li><code>alias rcdlog="sudo tail -f -n 100 /Library/Application Support/Automox/modules/remotecontrol/install.log /usr/local/var/log/remotecontrold.log"</code>
+                                            </li>
+                                        </ul>
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </p>
+        </div>
+        <div class="tab-content" id="tab-2">
+            <p>
+                <p>This table lists known issues or caveats related to using the remote control module on the different Windows or macOS devices.</p>
+                <div class="table-wrap">
+                    <table class="TableStyle-ax_tables" cellspacing="0" style="mc-table-style: url('../../Resources/TableStyles/ax_tables.css');">
+                        <thead>
+                            <tr class="TableStyle-ax_tables-Head-Header1">
+                                <th class="TableStyle-ax_tables-HeadE-Column1-Header1"><strong>Feature</strong>
+                                </th>
+                                <th class="TableStyle-ax_tables-HeadE-Column1-Header1"><strong>Windows</strong>
+                                </th>
+                                <th class="TableStyle-ax_tables-HeadD-Column1-Header1"><strong>macOS</strong>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="TableStyle-ax_tables-Body-Body1">
+                                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+									Versions
+								</td>
+                                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+									Win 10, Win 11
+								</td>
+                                <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+									macOS 12 (Monterey), macOS 13 (Ventura), macOS 14 (Sonoma), macOS 15 (Sequoia)
+								</td>
+                            </tr>
+                            <tr class="TableStyle-ax_tables-Body-Body2">
+                                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+									Consent
+								</td>
+                                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+									✅
+								</td>
+                                <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+									✅
+								</td>
+                            </tr>
+                            <tr class="TableStyle-ax_tables-Body-Body1">
+                                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+									Multiple Monitors
+								</td>
+                                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+									Zoom and Scroll all monitors
+								</td>
+                                <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+									Zoom and Scroll <strong>single</strong> monitor
+									<p><strong>Theprimary monitor is selected for Remote Control</strong>. This is configured in System Settings → Displays, and can be changed by the remote user.</p></td>
+                            </tr>
+                            <tr class="TableStyle-ax_tables-Body-Body2">
+                                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+									Resizing
+								</td>
+                                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+									✅
+								</td>
+                                <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+									✅
+								</td>
+                            </tr>
+                            <tr class="TableStyle-ax_tables-Body-Body1">
+                                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+									Logs
+								</td>
+                                <td class="TableStyle-ax_tables-BodyE-Column1-Body1"><code>C:\Program Files (x86)\Automox\modules\rc\rc-module.log</code>
+                                </td>
+                                <td class="TableStyle-ax_tables-BodyD-Column1-Body1"><code>/usr/local/var/log/remotecontrold.log</code>
+                                </td>
+                            </tr>
+                            <tr class="TableStyle-ax_tables-Body-Body2">
+                                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+									Permission
+								</td>
+                                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+									Automatically Enabled
+								</td>
+                                <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+									The remote user must enable two permissions: Accessibility and Screen Recording, (first time only)
+								</td>
+                            </tr>
+                            <tr class="TableStyle-ax_tables-Body-Body1">
+                                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+									Clipboard
+								</td>
+                                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+									&#160;
+                                </td>
+                                <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+									Copy by keystroke event only
+								</td>
+                            </tr>
+                            <tr class="TableStyle-ax_tables-Body-Body2">
+                                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+									On Disconnect*
+								</td>
+                                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+									VNC is uninstalled
+								</td>
+                                <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+									VNC is not accessible by logged-in user
+								</td>
+                            </tr>
+                            <tr class="TableStyle-ax_tables-Body-Body1">
+                                <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+									Special Keys
+								</td>
+                                <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+									✅
+								</td>
+                                <td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+									✅
+								</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </p>
+        </div>
+        <div class="tab-content" id="tab-3">
+            <p>
+                <p>We provide a set of documentation to help you navigate the use of the Automox Remote Control Module: <MadCap:xref href="Remote_Control_Module.htm">Remote Control Module</MadCap:xref>. If you need further assistance after referring to our documentation, please collect the information listed here for our Support Team and submit a <a href="https://help.automox.com/hc/en-us/requests/new" rel="nofollow">support ticket</a> in our Customer Portal:</p>
+                <ol start="1">
+                    <li>
+                        Is the device Windows or macOS?
+                    </li>
+                    <li>
+                        Is this a server?
+                        <div class="info"><p><strong>Note</strong>: While Automox’s Remote Control has been known to work on servers, we do not officially support servers at this time.</p></div></li>
+                    <li>
+                        Describe the behavior.
+                    </li>
+                    <li>
+                        When does the problem occur on the device?
+                        <ul><li>
+                                only on the <strong>first remote control session attempt</strong> or
+                            </li><li>
+                                on <strong>all subsequent attempts</strong></li></ul></li>
+                    <li>
+                        Is the issue occurring on <strong>all</strong> devices or <strong>only some</strong> devices?
+                    </li>
+                    <li>
+                        Is the problem <strong>intermittent</strong> or <strong>constant</strong>?
+                    </li>
+                    <li>
+                        Collect <strong>rc-module.log</strong> and <strong>agent logs</strong>.
+                    </li>
+                    <li>
+                        Check if a VPN or other service is blocking connection to <code>wss://{uuid}.rc.automox.net</code></li>
+                    <li>
+                        Check if a process is being terminated on the remote device:
+                        <ul><li>
+                                Commands to manually check processes:
+                                <ul><li>
+                                        tightvnc server: <code>Get-Process | Where {$_.Name -eq "tvnserver"}</code></li><li>
+                                        cloudflared: <code>Get-Process | Where {$_.Name -eq "cloudflared-windows-amd64"}</code></li><li>
+                                        remotecontrold: <code>Get-Process | Where {$_.Name -eq "remotecontrold"}</code></li></ul></li><li>
+                                Check processes before, after, and during the remote control session.
+                            </li><li><strong>Important: Gather screenshots to include in the support ticket</strong>.
+                            </li></ul></li>
+                    <li>
+                        Check if additional related traffic is being blocked by a firewall.
+                    </li>
+                    <li>
+                        What browser is the local (admin) device using? What version of that browser?
+                        <ul><li>
+                                noVNC uses many modern web technologies so a formal requirement list is not available. However these are the minimum versions we are currently aware of:
+                                <ul><li>
+                                        Chrome 64, Firefox 79, Edge 79
+                                    </li><li>
+                                        Link here: <a href="https://github.com/novnc/noVNC#browser-requirements" rel="nofollow">GitHub - novnc/noVNC: VNC client web application</a></li></ul></li></ul></li>
+                    <li>
+                        Does the current environment (local device (admin) browser, remote device or firewall) have software performing TLS Decryption/Inspection? Examples include <a href="https://www.netskope.com/solutions/ssl-decryption-appliances" rel="nofollow">Netskope</a>, <a href="https://www.zscaler.com/products/zscaler-internet-access" rel="nofollow">Zscaler</a>, and <a href="https://doc.sophos.com/nsg/sophos-firewall/19.5/Help/en-us/webhelp/onlinehelp/AdministratorHelp/Web/HowToArticles/WebProxyDPITLSDecryption/index.html" rel="nofollow">Sophos</a>.
+                    </li>
+                    <li>
+                        It is important to collect screenshots of the errors, and any relevant logs.
+                    </li>
+                </ol>
+            </p>
+        </div>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="../Agents/Agent Requirements/Agent_Firewall_Allowlisting_Rules.htm">Agent Firewall Allowlisting Rules</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Remote_Control_Module.htm">Remote Control Module</MadCap:xref>
+            </li>
+        </ul>
+        <MadCap:snippetBlock src="../../Resources/Snippets/submit-request.flsnp" />
+    </body>
+</html>

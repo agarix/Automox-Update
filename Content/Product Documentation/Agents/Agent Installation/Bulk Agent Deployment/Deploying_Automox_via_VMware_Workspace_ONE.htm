@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Explains how to deploy the [%=General.ProductName%] agent using VMWare Workspace ONE." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Deploying Automox via VMware Workspace ONE</h1>
+        <p>This document describes how to deploy the Automox agent through VMware Workspace ONE. The recommended deployment of the Automox agent consists of following 3 configurations.</p>
+        <h2>Create or Modify Existing Notification Profile</h2>
+        <p> Notification configuration profiles are supported by macOS, which ensures delivery of Automox notifications.</p>
+        <p>If no notification payload currently exists, create a new profile with Custom Settings using the following content to allow all Automox and Microsoft Office notification to run:</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: XML;">&lt;dict&gt;
+
+    &lt;key&gt;NotificationSettings&lt;/key&gt;
+
+    &lt;array&gt;
+
+        &lt;dict&gt;
+
+            &lt;key&gt;AlertType&lt;/key&gt;
+
+            &lt;integer&gt;2&lt;/integer&gt;
+
+            &lt;key&gt;BadgesEnabled&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;BundleIdentifier&lt;/key&gt;
+
+            &lt;string&gt;com.automox.automox-notifier&lt;/string&gt;
+
+            &lt;key&gt;CriticalAlertEnabled&lt;/key&gt;
+
+            &lt;false/&gt;
+
+            &lt;key&gt;GroupingType&lt;/key&gt;
+
+            &lt;integer&gt;0&lt;/integer&gt;
+
+            &lt;key&gt;NotificationsEnabled&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;ShowInLockScreen&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;ShowInNotificationCenter&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;SoundsEnabled&lt;/key&gt;
+
+            &lt;true/&gt;
+
+        &lt;/dict&gt;
+
+        &lt;dict&gt;
+
+            &lt;key&gt;AlertType&lt;/key&gt;
+
+            &lt;integer&gt;1&lt;/integer&gt;
+
+            &lt;key&gt;BadgesEnabled&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;BundleIdentifier&lt;/key&gt;
+
+            &lt;string&gt;com.microsoft.Word&lt;/string&gt;
+
+            &lt;key&gt;CriticalAlertEnabled&lt;/key&gt;
+
+            &lt;false/&gt;
+
+            &lt;key&gt;GroupingType&lt;/key&gt;
+
+            &lt;integer&gt;0&lt;/integer&gt;
+
+            &lt;key&gt;NotificationsEnabled&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;ShowInLockScreen&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;ShowInNotificationCenter&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;SoundsEnabled&lt;/key&gt;
+
+            &lt;true/&gt;
+
+        &lt;/dict&gt;
+
+        &lt;dict&gt;
+
+            &lt;key&gt;AlertType&lt;/key&gt;
+
+            &lt;integer&gt;1&lt;/integer&gt;
+
+            &lt;key&gt;BadgesEnabled&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;BundleIdentifier&lt;/key&gt;
+
+            &lt;string&gt;com.microsoft.Excel&lt;/string&gt;
+
+            &lt;key&gt;CriticalAlertEnabled&lt;/key&gt;
+
+            &lt;false/&gt;
+
+            &lt;key&gt;GroupingType&lt;/key&gt;
+
+            &lt;integer&gt;0&lt;/integer&gt;
+
+            &lt;key&gt;NotificationsEnabled&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;ShowInLockScreen&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;ShowInNotificationCenter&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;SoundsEnabled&lt;/key&gt;
+
+            &lt;true/&gt;
+
+        &lt;/dict&gt;
+
+        &lt;dict&gt;
+
+            &lt;key&gt;AlertType&lt;/key&gt;
+
+            &lt;integer&gt;1&lt;/integer&gt;
+
+            &lt;key&gt;BadgesEnabled&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;BundleIdentifier&lt;/key&gt;
+
+            &lt;string&gt;com.microsoft.Powerpoint&lt;/string&gt;
+
+            &lt;key&gt;CriticalAlertEnabled&lt;/key&gt;
+
+            &lt;false/&gt;
+
+            &lt;key&gt;GroupingType&lt;/key&gt;
+
+            &lt;integer&gt;0&lt;/integer&gt;
+
+            &lt;key&gt;NotificationsEnabled&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;ShowInLockScreen&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;ShowInNotificationCenter&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;SoundsEnabled&lt;/key&gt;
+
+            &lt;true/&gt;
+
+        &lt;/dict&gt;
+
+        &lt;dict&gt;
+
+            &lt;key&gt;AlertType&lt;/key&gt;
+
+            &lt;integer&gt;1&lt;/integer&gt;
+
+            &lt;key&gt;BadgesEnabled&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;BundleIdentifier&lt;/key&gt;
+
+            &lt;string&gt;com.microsoft.Outlook&lt;/string&gt;
+
+            &lt;key&gt;CriticalAlertEnabled&lt;/key&gt;
+
+            &lt;false/&gt;
+
+            &lt;key&gt;GroupingType&lt;/key&gt;
+
+            &lt;integer&gt;0&lt;/integer&gt;
+
+            &lt;key&gt;NotificationsEnabled&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;ShowInLockScreen&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;ShowInNotificationCenter&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;SoundsEnabled&lt;/key&gt;
+
+            &lt;true/&gt;
+
+        &lt;/dict&gt;
+
+        &lt;dict&gt;
+
+            &lt;key&gt;AlertType&lt;/key&gt;
+
+            &lt;integer&gt;1&lt;/integer&gt;
+
+            &lt;key&gt;BadgesEnabled&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;BundleIdentifier&lt;/key&gt;
+
+            &lt;string&gt;com.microsoft.onenote.mac&lt;/string&gt;
+
+            &lt;key&gt;CriticalAlertEnabled&lt;/key&gt;
+
+            &lt;false/&gt;
+
+            &lt;key&gt;GroupingType&lt;/key&gt;
+
+            &lt;integer&gt;0&lt;/integer&gt;
+
+            &lt;key&gt;NotificationsEnabled&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;ShowInLockScreen&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;ShowInNotificationCenter&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;SoundsEnabled&lt;/key&gt;
+
+            &lt;true/&gt;
+
+        &lt;/dict&gt;
+
+        &lt;dict&gt;
+
+            &lt;key&gt;AlertType&lt;/key&gt;
+
+            &lt;integer&gt;1&lt;/integer&gt;
+
+            &lt;key&gt;BadgesEnabled&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;BundleIdentifier&lt;/key&gt;
+
+            &lt;string&gt;com.microsoft.OneDrive&lt;/string&gt;
+
+            &lt;key&gt;CriticalAlertEnabled&lt;/key&gt;
+
+            &lt;false/&gt;
+
+            &lt;key&gt;GroupingType&lt;/key&gt;
+
+            &lt;integer&gt;0&lt;/integer&gt;
+
+            &lt;key&gt;NotificationsEnabled&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;ShowInLockScreen&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;ShowInNotificationCenter&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;SoundsEnabled&lt;/key&gt;
+
+            &lt;true/&gt;
+
+        &lt;/dict&gt;
+
+        &lt;dict&gt;
+
+            &lt;key&gt;AlertType&lt;/key&gt;
+
+            &lt;integer&gt;1&lt;/integer&gt;
+
+            &lt;key&gt;BadgesEnabled&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;BundleIdentifier&lt;/key&gt;
+
+            &lt;string&gt;com.microsoft.OneDrive-mac&lt;/string&gt;
+
+            &lt;key&gt;CriticalAlertEnabled&lt;/key&gt;
+
+            &lt;false/&gt;
+
+            &lt;key&gt;GroupingType&lt;/key&gt;
+
+            &lt;integer&gt;0&lt;/integer&gt;
+
+            &lt;key&gt;NotificationsEnabled&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;ShowInLockScreen&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;ShowInNotificationCenter&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;SoundsEnabled&lt;/key&gt;
+
+            &lt;true/&gt;
+
+        &lt;/dict&gt;
+
+        &lt;dict&gt;
+
+            &lt;key&gt;AlertType&lt;/key&gt;
+
+            &lt;integer&gt;1&lt;/integer&gt;
+
+            &lt;key&gt;BadgesEnabled&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;BundleIdentifier&lt;/key&gt;
+
+            &lt;string&gt;com.microsoft.autoupdate.fba&lt;/string&gt;
+
+            &lt;key&gt;CriticalAlertEnabled&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;GroupingType&lt;/key&gt;
+
+            &lt;integer&gt;0&lt;/integer&gt;
+
+            &lt;key&gt;NotificationsEnabled&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;ShowInLockScreen&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;ShowInNotificationCenter&lt;/key&gt;
+
+            &lt;true/&gt;
+
+            &lt;key&gt;SoundsEnabled&lt;/key&gt;
+
+            &lt;true/&gt;
+
+        &lt;/dict&gt;
+
+    &lt;/array&gt;
+
+    &lt;key&gt;PayloadDescription&lt;/key&gt;
+
+    &lt;string&gt;Configures notifications&lt;/string&gt;
+
+    &lt;key&gt;PayloadDisplayName&lt;/key&gt;
+
+    &lt;string&gt;Configures notifications&lt;/string&gt;
+
+    &lt;key&gt;PayloadIdentifier&lt;/key&gt;
+
+    &lt;string&gt;com.apple.notificationsettings.AE35A3DC-56BC-48EB-8C4D-F4C5AE4D1C5C&lt;/string&gt;
+
+    &lt;key&gt;PayloadType&lt;/key&gt;
+
+    &lt;string&gt;com.apple.notificationsettings&lt;/string&gt;
+
+    &lt;key&gt;PayloadUUID&lt;/key&gt;
+
+    &lt;string&gt;AE35A3DC-56BC-48EB-8C4D-F4C5AE4D1C5C&lt;/string&gt;
+
+    &lt;key&gt;PayloadVersion&lt;/key&gt;
+
+    &lt;integer&gt;1&lt;/integer&gt;
+
+&lt;/dict&gt;</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p>If you have an existing Notifications profile (macOS only supports a single notifications profiles), add the previous content in your existing NotificationSettings array.</p>
+        <p>
+            <img src="../../../../Resources/Images/vmware-custom-settings.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <h2>Create an Automox Privacy Preferences Profile</h2>
+        <p>Automox leverages the Microsoft AutoUpdate Tool to handle Microsoft Office updates. To ensure the Automox agent is also granted access to this, you must create a Privacy Preferences Profile.</p>
+        <ol start="1">
+            <li>Devices → Profiles and Resources → Profiles</li>
+            <li>Add Profile</li>
+            <li>Apple macOS</li>
+            <li>Device Profile</li>
+            <li>Select <strong>Privacy Preferences</strong></li>
+            <li>Add App</li>
+        </ol>
+        <p><strong>Identifier</strong>: <code>/usr/local/bin/amagent</code></p>
+        <p><strong>Identifier Type</strong>: <code>Path</code></p>
+        <p><strong>Code Requirement</strong>: <code>identifier "com.automox.agent" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = DAEQ58A4ES</code></p>
+        <p><strong>Static Code Validation</strong>: <code>Off</code></p>
+        <p><strong>Apple Events</strong>: <code>Allow</code></p>
+        <p><strong>Receiver Identifier</strong>: <code>com.microsoft.autoupdate2</code></p>
+        <p><strong>Receiver Identifier Type</strong>: <code>Bundle ID</code></p>
+        <p><strong>Receiver Code Requirement</strong>: <code>identifier "com.microsoft.autoupdate2" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = UBF8T346G9</code></p>
+        <div class="tip">For best results, be sure to install the latest version of the Automox agent.</div>
+        <h2>Deploy the Automox Agent as a Native Application</h2>
+        <ol start="1">
+            <li>Install the VMware Workspace ONE Admin Assistant <a href="https://docs.vmware.com/en/VMware-Workspace-ONE-UEM/1904/Software_Distribution/GUID-AWT-ADMINASSIST.html" rel="nofollow">https://docs.vmware.com/en/VMware-Workspace-ONE-UEM/1904/Software_Distribution/GUID-AWT-ADMINASSIST.html</a></li>
+            <li>Download the latest Automox Agent</li>
+            <li>Pull the Automox Agent pkg file into the Admin Assistant</li>
+            <li>Open the generated plist file<br /><img src="../../../../Resources/Images/vmware-open-plist.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /><br /></li>
+            <li>Find the <code>display_name</code> and <code>name</code> keys and remove the trailing version characters (they should simply read <code>AutomoxAgent</code>).<br />(Workspace ONE does not support dashes in display names)<br />Before:<br /><img src="../../../../Resources/Images/vmware-name-before.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /><br />After:<br /><img src="../../../../Resources/Images/vmware-name-after.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li>
+            <li>It is also recommended that the <code>version</code> keys are also modified to remove the “-” and just have “.” (example: 1.0.41). This will allow the version information to properly display in Workspace ONE.<br /><b>Note</b>: Do not modify the <code>installer_item_location</code> value as that points to the installer pkg file.</li>
+            <li>Save file.</li>
+            <li>Add a Native Application to Workspace ONE.</li>
+            <li>Upload the Automox pkg installer file.<br /><img src="../../../../Resources/Images/vmware-ax-pkginstall.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li>
+            <li>Upload the plist as the "Metadata File"<br /><img src="../../../../Resources/Images/vmware-plist-metadatafile.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li>
+            <li>For automated installations, add the following code to the "Post Install Script"<br /><MadCap:codeSnippet><MadCap:codeSnippetCopyButton /><MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">#!/bin/bash
+/usr/local/bin/amagent --setkey "ENTER_AUTOMOX_ACCESS_KEY_HERE"
+/usr/local/bin/amagent --setgrp "Default Group/ENTER_GROUP_NAME_HERE"
+sudo launchctl bootout system/com.automox.agent
+sudo launchctl bootstrap system /Library/LaunchDaemons/com.automox.agent.plist
+</MadCap:codeSnippetBody></MadCap:codeSnippet><br /><p><img src="../../../../Resources/Images/vmware-edit-installscript.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></p></li>
+        </ol>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Describes how to use a Manual Approval Policy." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Using a Manual Approval Policy</h1>
+        <p>The manual approval policy is used to install only packages that are approved by an administrator.</p>
+        <p>When you create a manual approval policy and associate it with a group, you can approve or reject packages that are available for approval.</p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/Prerequisites.flsnp" />
+        <h2>Manual Approval Policy page</h2>
+        <p>
+            <img src="../../Resources/Images/edit-manual-approval-policy.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <h3>Manage Approvals from the Package Ready For Approval page</h3>
+        <p>
+            <img src="../../Resources/Images/packages-ready-table.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <p>The basic manual patch approval process is as follows:</p>
+        <div class="prereqs"><strong>Prerequisites</strong>: This assumes that a manual policy already exists and is associated with a group. For information about creating a manual approval policy, see Creating a Manual Approval Policy in <MadCap:xref href="../Policies/Creating_a_Patch_Policy.htm">Creating a Patch Policy</MadCap:xref>.</div>
+        <ol start="1">
+            <li>Go to the <strong>Automate → Policies</strong> page and find the manual approval policy you want to approve patches for.</li>
+            <li>To see the list of packages, open the <strong>Packages Ready For Approval</strong> page:<ul><li>From the <strong>Policies</strong> page, click the Name of the policy to open the policy and click <strong>Manage Approvals</strong>, or</li><li>From the <strong>Policies</strong> page, click the <strong>Actions</strong> menu on right, and click <strong>Manage Approvals</strong>.<br /></li><li><strong>Note</strong>: The policy must be associated with at least one group for any packages to be available for approval.</li></ul></li>
+            <li>From the <strong>Packages Ready For Approval</strong> page, select the check box for the package and click <strong>Approve</strong> or <strong>Reject</strong>. You can do this for multiple packages at the same time.</li>
+            <li>When you select <strong>Approve</strong>, the software is approved for your policy and will be applied on your policy’s next scheduled update.</li>
+            <li>When you select <strong>Reject</strong>, the package is not scheduled for remediation and the software status changes to <strong>Rejected</strong>. You can use the filter on the left to view by OS or status.</li>
+        </ol>
+        <div class="info"><strong>Note</strong>: To search for specific packages by name use the general search box or filter by OS or Status.</div>
+    </body>
+</html>

@@ -1,0 +1,578 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultSkin
+  Version="6"
+  SkinType="WebHelp2"
+  ComponentType="MasterPage"
+  TemplateName="Fluid"
+  Comment="HTML5 Side Navigation skin"
+  EnableResponsiveOutput="True"
+  AutoSyncTOC="true"
+  CommentsInTopic="false"
+  DisplayCommunitySearchResults="false"
+  EmbedVisibleTocEntries="false"
+  LogoUrl="Content/Home.htm">
+  <WebHelpOptions
+    NavigationPanePosition="Right"
+    OffCanvasMenuStyle="Drilldown"
+    MainMenuPosition="Left"
+    EnableSticky="All" />
+  <Stylesheet>
+    <Styles>
+      <Style
+        Name="Logo">
+        <Properties>
+          <Property
+            Name="BackgroundImage">url('logolight.png')</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Side Navigation Menu Item (selected)">
+        <Properties>
+          <Property
+            Name="FontWeight">bold</Property>
+          <Property
+            Name="FontSize">1em</Property>
+          <Property
+            Name="BackgroundColor">#007ba1</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Search Input">
+        <Properties>
+          <Property
+            Name="Color">var(--Dark)</Property>
+          <Property
+            Name="BackgroundColor">#ffffff</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Search Filter Drop-down">
+        <Properties>
+          <Property
+            Name="BackgroundColor">var(--Lightest)</Property>
+          <Property
+            Name="Color">var(--Dark)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Search Auto-complete">
+        <Properties>
+          <Property
+            Name="BackgroundColor">var(--Lightest)</Property>
+          <Property
+            Name="BorderLeft">solid 1px var(--Dark)</Property>
+          <Property
+            Name="BorderRight">solid 1px var(--Dark)</Property>
+          <Property
+            Name="BorderTop">solid 1px var(--Dark)</Property>
+          <Property
+            Name="BorderBottom">solid 1px var(--Dark)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Search Auto-complete Item (selected)">
+        <Classes>
+          <StyleClass
+            Name="Project Content">
+            <Properties>
+              <Property
+                Name="BackgroundColor">var(--Light)</Property>
+            </Properties>
+          </StyleClass>
+          <StyleClass
+            Name="Search History">
+            <Properties>
+              <Property
+                Name="BackgroundColor">var(--Light)</Property>
+            </Properties>
+          </StyleClass>
+        </Classes>
+        <Properties>
+          <Property
+            Name="BackgroundColor">var(--Light)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Search Auto-complete Item: Description">
+        <Properties>
+          <Property
+            Name="Color">var(--Dark)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Side Navigation Menu Item">
+        <Classes>
+          <StyleClass
+            Name="Expander Icon">
+            <Properties>
+              <Property
+                Name="ExpanderBorderColor">var(--Medium)</Property>
+            </Properties>
+          </StyleClass>
+          <StyleClass
+            Name="1st Level">
+            <Properties>
+              <Property
+                Name="BorderBottom">none 0px var(--Dark)</Property>
+            </Properties>
+          </StyleClass>
+        </Classes>
+        <Properties>
+          <Property
+            Name="Color">var(--Lightest)</Property>
+          <Property
+            Name="BorderBottom">solid 1px #303335</Property>
+          <Property
+            Name="FontFamily">Roboto</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Search Heading">
+        <Properties>
+          <Property
+            Name="BorderBottom">solid 1px var(--Light)</Property>
+          <Property
+            Name="Color">var(--Dark)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Search Suggestion Link">
+        <Properties>
+          <Property
+            Name="Color">var(--Primary)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Search Result Link">
+        <Properties>
+          <Property
+            Name="Color">var(--Primary)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Search Result Link (active)">
+        <Properties>
+          <Property
+            Name="Color">var(--Primary)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Search Result Link (focus)">
+        <Properties>
+          <Property
+            Name="Color">var(--Primary)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Search Result Link (visited)">
+        <Properties>
+          <Property
+            Name="Color">var(--Primary)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Search Result Path">
+        <Properties>
+          <Property
+            Name="Color">var(--Primary)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Search Glossary Result">
+        <Properties>
+          <Property
+            Name="BoxShadowColor">var(--Medium)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Search Pagination Item">
+        <Properties>
+          <Property
+            Name="Color">var(--Primary)</Property>
+          <Property
+            Name="BorderLeft">solid 1px var(--Lightest)</Property>
+          <Property
+            Name="BorderRight">solid 1px var(--Lightest)</Property>
+          <Property
+            Name="BorderTop">solid 1px var(--Lightest)</Property>
+          <Property
+            Name="BorderBottom">solid 1px var(--Lightest)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Search Pagination Item (selected)">
+        <Properties>
+          <Property
+            Name="BorderTop">solid 1px var(--Light)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Search Pagination Item (hover)">
+        <Properties>
+          <Property
+            Name="BorderTop">solid 1px var(--Light)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Header">
+        <Properties>
+          <Property
+            Name="BackgroundColor">var(--Primary)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Search Micro Content Response Link">
+        <Properties>
+          <Property
+            Name="Color">var(--Primary)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Search Micro Content Response Path">
+        <Properties>
+          <Property
+            Name="Color">var(--Primary)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Search Micro Content Response Link (active)">
+        <Properties>
+          <Property
+            Name="Color">var(--Primary)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Search Micro Content Response Link (focus)">
+        <Properties>
+          <Property
+            Name="Color">var(--Primary)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Search Micro Content Response Link (hover)">
+        <Properties>
+          <Property
+            Name="Color">var(--Primary)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Search Micro Content Response Link (visited)">
+        <Properties>
+          <Property
+            Name="Color">var(--Primary)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Search Micro Content Response Button">
+        <Properties>
+          <Property
+            Name="BorderTop">solid 1px var(--Medium)</Property>
+          <Property
+            Name="BorderBottom">solid 1px var(--Medium)</Property>
+          <Property
+            Name="BackgroundRepeat">no-repeat</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Search Filter">
+        <Properties>
+          <Property
+            Name="BackgroundColor">var(--Lightest)</Property>
+          <Property
+            Name="BorderLeft">solid 1px var(--Darkest)</Property>
+          <Property
+            Name="BorderRight">solid 1px var(--Darkest)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Search Filter Drop-down (hover)">
+        <Properties>
+          <Property
+            Name="BackgroundColor">var(--Lightest)</Property>
+          <Property
+            Name="Color">var(--Darkest)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Search Auto-complete Item">
+        <Properties>
+          <Property
+            Name="Color">var(--Darkest)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Skip to Content">
+        <Properties>
+          <Property
+            Name="BackgroundColor">var(--Lightest)</Property>
+          <Property
+            Name="Color">var(--Dark)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Central Account Link">
+        <Properties>
+          <Property
+            Name="Color">var(--Light)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Central Account Menu">
+        <Properties>
+          <Property
+            Name="BackgroundColor">var(--Lightest)</Property>
+          <Property
+            Name="BoxShadowColor">var(--Light)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Central Account Menu Link">
+        <Properties>
+          <Property
+            Name="Color">var(--Dark)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Central Account Menu Separator">
+        <Properties>
+          <Property
+            Name="Color">var(--Light)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Side Navigation Menu">
+        <Properties>
+          <Property
+            Name="BackgroundColor">transparent</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Side Navigation Menu Item (hover)">
+        <Properties>
+          <Property
+            Name="BackgroundColor">#007ba1</Property>
+        </Properties>
+        <Classes>
+          <StyleClass
+            Name="Expander Icon">
+            <Properties>
+              <Property
+                Name="ExpanderBorderColor">#ffffff</Property>
+            </Properties>
+          </StyleClass>
+        </Classes>
+      </Style>
+      <Style
+        Name="Search Micro Content Result">
+        <Properties>
+          <Property
+            Name="BoxShadowColor">var(--Light)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Search Micro Content Phrase">
+        <Properties>
+          <Property
+            Name="Color">var(--Dark)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Search Micro Content Response Fade">
+        <Properties>
+          <Property
+            Name="BackgroundGradient">vertical transparent var(--Lightest)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Knowledge Panel Result">
+        <Properties>
+          <Property
+            Name="BoxShadowColor">var(--Light)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Knowledge Panel Phrase">
+        <Properties>
+          <Property
+            Name="Color">var(--Dark)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Knowledge Panel Truncated Response Button">
+        <Properties>
+          <Property
+            Name="BorderTop">solid 1px var(--Medium)</Property>
+          <Property
+            Name="BorderBottom">solid 1px var(--Medium)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Knowledge Panel Truncated Response Fade">
+        <Properties>
+          <Property
+            Name="BackgroundGradient">vertical transparent var(--Lightest)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Micro Content FAQ Item">
+        <Properties>
+          <Property
+            Name="BoxShadowColor">var(--Light)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Micro Content FAQ Phrase">
+        <Properties>
+          <Property
+            Name="Color">var(--Dark)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Micro Content Knowledge Item">
+        <Properties>
+          <Property
+            Name="BoxShadowColor">var(--Light)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Micro Content Knowledge Phrase">
+        <Properties>
+          <Property
+            Name="Color">var(--Dark)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Micro Content Knowledge Truncated Response Button">
+        <Properties>
+          <Property
+            Name="BorderTop">solid 1px var(--Medium)</Property>
+          <Property
+            Name="BorderBottom">solid 1px var(--Medium)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Micro Content Knowledge Truncated Response Fade">
+        <Properties>
+          <Property
+            Name="BackgroundGradient">vertical transparent var(--Lightest)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Micro Content Promotion Item">
+        <Properties>
+          <Property
+            Name="BoxShadowColor">var(--Light)</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Micro Content Promotion Phrase">
+        <Properties>
+          <Property
+            Name="Color">var(--Dark)</Property>
+        </Properties>
+      </Style>
+      <Medium
+        Name="Mobile">
+        <Style
+          Name="Skip to Content">
+          <Properties>
+            <Property
+              Name="BackgroundColor">var(--Lightest)</Property>
+            <Property
+              Name="Color">var(--Dark)</Property>
+          </Properties>
+        </Style>
+      </Medium>
+      <Medium
+        Name="Tablet">
+        <Style
+          Name="Search Auto-complete Item (selected)">
+          <Properties>
+            <Property
+              Name="BackgroundColor">var(--Light)</Property>
+          </Properties>
+        </Style>
+        <Style
+          Name="Navigation Panel">
+          <Properties>
+            <Property
+              Name="BackgroundColor">var(--Dark)</Property>
+          </Properties>
+        </Style>
+        <Style
+          Name="Navigation Panel Item">
+          <Properties>
+            <Property
+              Name="BorderBottom">solid 1px var(--Dark)</Property>
+            <Property
+              Name="Color">var(--Lightest)</Property>
+            <Property
+              Name="FontFamily">Roboto</Property>
+          </Properties>
+          <Classes>
+            <StyleClass
+              Name="Expander Icon">
+              <Properties>
+                <Property
+                  Name="ExpanderBorderColor">var(--Medium)</Property>
+              </Properties>
+            </StyleClass>
+          </Classes>
+        </Style>
+        <Style
+          Name="Navigation Panel Item (hover)">
+          <Properties>
+            <Property
+              Name="FontFamily">Roboto</Property>
+            <Property
+              Name="BackgroundColor">#007ba1</Property>
+            <Property
+              Name="Color">#ffffff</Property>
+          </Properties>
+        </Style>
+        <Style
+          Name="Skip to Content">
+          <Properties>
+            <Property
+              Name="BackgroundColor">var(--Lightest)</Property>
+            <Property
+              Name="Color">var(--Dark)</Property>
+          </Properties>
+        </Style>
+        <Style
+          Name="Search Pagination Item (selected)">
+          <Properties>
+            <Property
+              Name="BorderTop">solid 1px var(--Light)</Property>
+          </Properties>
+        </Style>
+        <Style
+          Name="Navigation Panel Item (selected)">
+          <Properties>
+            <Property
+              Name="BackgroundColor">#007ba1</Property>
+            <Property
+              Name="Color">#ffffff</Property>
+            <Property
+              Name="FontFamily">Roboto</Property>
+          </Properties>
+        </Style>
+        <Style
+          Name="Navigation Slide Out Button">
+          <Properties>
+            <Property
+              Name="BackgroundImage">url('Menu.png')</Property>
+          </Properties>
+        </Style>
+      </Medium>
+    </Styles>
+    <Stylesheet></Stylesheet>
+    <Resources>
+      <Resource
+        Name="logolight.png">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</Resource>
+      <Resource
+        Name="Menu.png">H4sIAAAAAAAEAOsM8HPn5ZLiYmBg4PX0cAkC0qkgzMEGJENqdM8DKc4Cj8hiBgZuYRBmZJg1RwIoyFgc5O7EsO6czEsghyXd0deRgWFjP/efRFYGBqZpni6OIRWMb++c7fZLlDj+8f6MJ3P36KilepkIfgraFLBNwzMoKTM1OTPzbfwHcYGgOK7EpTlHuoIOTejYFPDp1ozj74vOTb555s734nNz57W/X15XOuudZffrWfOq5717LcPJAAe3pIKMuVti4ueejKtbOH2ZTmGfxew5rV/PWx0q2bW1d1mPdfhcda2MI5arV3EuiXxnbR16YkNx1qmz6qqlHovvlD7TTpx26dgc5q+ld3a8tGPJ3LvZfqvGcs2N9T1XrpssmVt57tSVRXOW1ZTEcavWlMUtEXtq8nRnsaPGw4XFwa06xecs7E0ipLPtn7Zt3rvuec9th3NyhiH3S7YVX7n56szV+f8PGexdcdc/dL7Z9JBc5rtVYjstby3ug7uc1cS2RDLooPCW+pDtdrbXV0xfdqTijGN682aPqxPkfGdGXlE/FvbYwoJNLW7Vgqer2NRn9OXMiz5nJiqU7KG+/M6cYybnc9P7jLjmbbpmGRJ/vNfyT37e5s36IOd/5Diy6testi3Ch+8uXulq6fvzyR5Rrw7f/75ZgX7B8yyntwrJWV8P9fC5O194ds3sO8VlV7/m2G67JdrvIlO8bcWvnCenk+e9X7VveUzI14rYTXm+5u8SFd1F6l85r/ijyAxzfsKDFFmtb0WfJPINb61+NbXa8NCty9mx/4MD73M+n1p8vHJ50/J+Q+uaWz8XHZQMebH9SPebaysnvHjD6Sl7ySo8pPbRGY30d9m9xTv2vePIfVNQthwYtqkrN+/al5azda7EZSlv3VOZXnsUvzQHHDJ/XpsV+O7GK9OFLcu1LLZZRd3PmWB2te60crp/7Pmk5NXacx6fc0vds152v2ttck7pHcv3Nif+LlUT4975aPfdFkRSebD+F+vHVwpxBmH/d4D4nq5+LuucEpoAbrU7iQEDAAA=</Resource>
+    </Resources>
+  </Stylesheet>
+  <Strings />
+</CatapultSkin>

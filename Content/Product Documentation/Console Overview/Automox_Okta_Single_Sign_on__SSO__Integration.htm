@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Explains how to configure the [%=General.ProductName%] Okta SSO integration." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Automox Okta Single Sign-on (SSO) Integration</h1>
+        <p>You can configure single sign-on through Okta for all of your Automox users.</p>
+        <p>Automox integrates with Okta Identity Management through a series of simple steps. Automox also has a pending application available on the Okta app marketplace. This supports both service provider (SP) and identity provider (IdP) initiated sign on. Users can either click the Automox app on their Okta dashboard to sign in, or simply provide their email address on the sign in page to be redirected to Okta for authentication.</p>
+        <h2>Initial Setup</h2>
+        <p>To set up Okta, you need the following information from Automox:</p>
+        <ul>
+            <li>Your unique ACS URL</li>
+            <li>Entity ID&#160;</li>
+        </ul>
+        <MadCap:snippetBlock src="../../Resources/Snippets/Prerequisites.flsnp" />
+        <ol start="1">
+            <li>From the <strong>Settings → Security</strong> tab in your Automox console, click <strong>Enable</strong> on the SAML option.</li>
+            <li>This will load a window with the required ACS URL and Entity ID.<br /><br /><img src="../../Resources/Images/security-saml-orgid.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li>
+        </ol>
+        <div class="info">Keep this information in a tab for use during the Okta configuration.</div>
+        <h2>Okta Configuration</h2>
+        <p>As an Okta administrator, you can set up an integration to Automox following the normal Okta app creation steps.</p>
+        <ol start="1">
+            <li>Within the Okta Admin panel, select <strong>Applications → Add Application</strong>.<br /><br /><img src="../../Resources/Images/okta-config-add-app.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li>
+            <li>Search for Automox. If the application is not available, click <strong>Create New App</strong>.</li>
+            <li>From the platform menu, select <strong>Web</strong>.</li>
+            <li>For the sign on method, select <strong>SAML 2.0</strong>.<br /><br /><img src="../../Resources/Images/okta-config-saml20.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" /><br /></li>
+            <li>On the General Settings window, enter a name for the app.<br />(Optional) You can right-click and save the following Automox logo and upload it.<br /><br /><img src="../../Resources/Images/ax-logo.png" style="width: 54px;height: 41px;" /><br /><br /></li>
+            <li>For the SAML Settings window, you will need the customer ID (organization ID number) from the Automox console.<br /><br /><img src="../../Resources/Images/okta-saml-settings.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" /><br /><ul><li>Paste the Customer ID (this is the Org ID) into the <strong>Single sign-on URL</strong> field.</li><li>Select the check box for <strong>Use this for Recipient URL and Destination URL</strong>.</li><li>Paste the Entity ID into the <strong>Audience URI (SP Entity ID) field</strong>.&#160;</li><li>The Name ID format should be <strong>Unspecified</strong> and the Application username <strong>Okta username</strong>.&#160;<br /></li></ul></li>
+            <li>Automox supports custom attributes for <strong>first name</strong> and <strong>last name</strong>. To set these configurations, add an extra row in the Attribute Statements. The first row should include <strong>firstName</strong> in the first field, and <code>user.firstName</code> in the second field, while the second row should include <strong>lastName</strong> in the first field, and <code>user.lastName</code> in the second field. <strong>Note</strong>: In order to edit the attribute statements after initial setup, from the Okta developer dashboard, click <strong>Applications</strong>. Select the Automox Application and from the <strong>General</strong> tab click Edit on the SAML Settings section. Click <strong>Next</strong> and scroll down the page to find the Attribute Statements.<br /><br /><img src="../../Resources/Images/Okta-attributes.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" /><br /></li>
+            <li>From this page, you can download the Okta certificate that can be used to configure your application.</li>
+            <li>After you finish the configuration, go to the application's settings page.</li>
+            <li>There are two options available for configuring the integration.<ul><li>From the <strong>Sign On</strong> tab, click <strong>View Setup Instructions</strong>, which will open in a separate tab. From here, &#160;you can copy and paste the details required for Automox.</li><li>Download the Okta certificate and import the XML file to Automox.</li></ul></li>
+        </ol>
+        <h2>Automox Configuration</h2>
+        <p>Follow these instructions for the Automox console configuration.</p>
+        <div class="info">You will need the information from the View Setup Instructions tab to complete this section.</div>
+        <p>
+            <img src="../../Resources/Images/security-enable-saml.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <ol start="1">
+            <li>From the <strong>Settings → Security</strong> tab in your Automox console, click <strong>Enable</strong> on the SAML option.</li>
+            <li>In the Configure SAML window, paste the metadata based on the following mapping:<ul><li>Okta Identity Provider Single Sign-On URL = Login URL</li><li>Okta Identity Provider Issuer = Entity ID</li><li>Okta X.509 Certificate = x.509</li></ul></li>
+            <li>(Optional) You can provide a Logout URL that redirects users to a selected URL after logout. This is often a link to your internal Okta dashboard.</li>
+            <li>Automox also supports auto-provisioning for new users. If enabled, users can be added to the Automox app in Okta, and will have licenses created for them in Automox as they attempt first login. When SAML is enabled, inviting new users to Automox is restricted to provisioning. This configuration is highly recommended.</li>
+            <li>Click <strong>Save Configuration</strong> to enable SAML.</li>
+            <li>Add all required users to the Automox app in Okta to complete your setup.</li>
+        </ol>
+        <MadCap:snippetBlock src="../../Resources/Snippets/provision-users-from-idp.flsnp" />
+    </body>
+</html>

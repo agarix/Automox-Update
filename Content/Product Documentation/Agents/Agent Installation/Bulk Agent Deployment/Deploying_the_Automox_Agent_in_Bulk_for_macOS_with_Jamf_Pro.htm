@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Explains how to deploy the [%=General.ProductName%] agent in bulk, using Jamf Pro, for macOS devices." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Deploying the Automox Agent in Bulk for macOS with Jamf Pro</h1>
+        <p>This article describes how to deploy the Automox agent with Jamf Pro.</p>
+        <h2>Install with Automox agent installation package and post-install script</h2>
+        <p>Download the Automox agent installation package:</p>
+        <ol start="1">
+            <li>From the Automox console, select the <strong>Devices</strong> tab.</li>
+            <li>Click <strong>Add Devices</strong>.</li>
+            <li>Copy the user key from the Add Devices dialog window.</li>
+            <li>Select <strong>macOS</strong> as the operating system.&#160;</li>
+            <li>Click <strong>Download Installer</strong>.</li>
+        </ol>
+        <p>Download the <a href="https://patch.automox.com/rs/923-VQX-349/images/amagent_postinstall.sh" rel="nofollow">Automox post-install script</a>.</p>
+        <p>Update the post-install script:&#160;</p>
+        <ul>
+            <li>Add the access key you copied in the preceding operation to the accessKey variable in the script. This script is used in the following procedure:</li>
+        </ul>
+        <p>Deploy with Jamf:</p>
+        <ol start="1">
+            <li>Log in to your Jamf Pro server and go to <strong>Computers → Management Settings → Scripts</strong>.</li>
+            <li>Click the <strong>+ New&#160;</strong>button in the upper-right corner to create a new script.</li>
+            <li>In the <strong>General</strong> tab, enter your script name and select a category. Include whatever information or notes necessary for your organization.</li>
+            <li>In the <strong>Script</strong> tab, paste the contents of the post-install script that includes your user key.</li>
+            <li>In the <strong>Options</strong> tab, set the priority to <strong>After</strong>.</li>
+            <li>Click <strong>Save</strong> in the lower-right corner to save your script.<br /><strong>To add the Automox agent installer package, continue with these steps:</strong></li>
+            <li>Navigate to <strong>Computers → Management Settings</strong> and click <strong>Packages.</strong></li>
+            <li>To add a new package, click <strong>+ New</strong> in the upper-right corner<strong>.</strong></li>
+            <li>Enter a display name for the package and choose a category from the drop-down menu.</li>
+            <li>Click <b>Choose File</b> and upload the Automox agent installer that you downloaded from the Automox console.</li>
+            <li>Fill in any other field used by your organization and click <strong>Save</strong>. <br />After the package is uploaded and available, do the following:</li>
+            <li>To add a new policy, go to <strong>Computer → Policies</strong> and click <strong>+ New.</strong></li>
+            <li>Enter a name for the policy<strong>.</strong></li>
+            <li>Set the site, category, trigger, execution frequency, and other required fields.</li>
+            <li>Click <strong>Packages</strong> on the left and add the Automox agent installer package to the policy.</li>
+            <li>Click <strong>Scripts</strong> on the left and add the post-install script.</li>
+            <li>Set the priority of the script to <strong>After</strong>.</li>
+            <li>If you’ve created Smart Groups or extension attributes to detect the installation of the agent, then adding the Update Inventory option from the Maintenance section might be helpful. Otherwise, add a Scope and any desired Self Service or User Interaction settings and save your policy.</li>
+        </ol>
+        <p>The Automox agent will now start installing on your scoped Mac devices.</p>
+        <h2>Repackage the installer for use with Jamf Pro or other MDMs</h2>
+        <p>The Automox agent installer can be repackaged with a post-install script for use in Jamf Pro, Intune, other MDMs, or manually through a number of methods. The installer can be repackaged using <a href="https://www.jamf.com/products/jamf-composer/" rel="nofollow">Jamf Composer</a>, Packages, or other similar tools. In this example, we use <a href="https://github.com/packagesdev/packages" rel="nofollow">WhiteBox Packages</a>.</p>
+        <p>Download and install Packages from <a href="https://github.com/packagesdev/packages" rel="nofollow">https://github.com/packagesdev/packages</a> </p>
+        <p>Download the Automox agent installation package:</p>
+        <ol start="1">
+            <li>From the Automox console, select the <strong>Devices</strong> tab.</li>
+            <li>Click <strong>Add Devices</strong>.</li>
+            <li>Copy the user key from the Add Devices dialog window.</li>
+            <li>Select <strong>macOS</strong> as the operating system.</li>
+            <li>Click <strong>Download Installer</strong>.</li>
+        </ol>
+        <p>Download the <a href="https://patch.automox.com/rs/923-VQX-349/images/amagent_postinstall_for_packaging.sh" rel="nofollow">Automox post-install script for packaging</a>.</p>
+        <p>Update the post-install script:</p>
+        <ul>
+            <li>Add the access key you copied in the preceding operation to the accessKey variable in the script. This script is used in the following procedure:</li>
+        </ul>
+        <p>Repackage Automox installer using Packages:</p>
+        <ol start="1">
+            <li>On your computer, launch <strong>Packages</strong> and choose <strong>Raw Package</strong> as the template.</li>
+            <li>Click <strong>Next</strong>.</li>
+            <li>Enter a name and directory for your project, then click <strong>Create</strong>.</li>
+            <li>In the Settings tab, enter an identifier name and version for your installer package.</li>
+            <li>Select "<strong>Require admin password for installation</strong>".</li>
+            <li>In the Scripts tab, choose the updated post-install script under the Post-installation option.</li>
+            <li>Under Additional Resources click the <strong>+</strong> button and add the Automox agent installer.</li>
+            <li>Save the project.</li>
+            <li>From the menu bar, click <strong>Build</strong> and from the drop-down menu click <strong>Build</strong> again.</li>
+        </ol>
+        <p>After testing the repackaged installer, follow these steps:</p>
+        <ol start="1">
+            <li>Log in to your Jamf Pro server and go to <strong>Computers → Management Settings → Packages.</strong></li>
+            <li>Click the <strong>+ New</strong> button in the upper-right corner to add a new package.</li>
+            <li>Enter a display name for the package and choose a category from the drop-down menu.</li>
+            <li><strong>Click Choose File</strong> and upload the repackaged Automox agent installer.</li>
+            <li>Fill in any other field used by your organization and click <strong>Save</strong>.<br />After the package is uploaded and available, do the following:</li>
+            <li>To add a new policy, go to <strong>Computer → Policies</strong> and click <strong>+ New.</strong></li>
+            <li>Enter a name for the policy<strong>.</strong></li>
+            <li>Set the site, category, trigger, execution frequency, and other required fields.</li>
+            <li>Click <strong>Packages</strong> on the left and add the repackaged Automox agent installer package to the policy.</li>
+            <li>If you’ve created Smart Groups or extension attributes to detect the installation of the agent, then adding the Update Inventory option from the Maintenance section might be helpful. Otherwise, add a Scope and any desired Self Service or User Interaction settings and save your policy..</li>
+        </ol>
+        <p>The Automox agent will now start installing on your scoped Mac devices.</p>
+        <h2>Related Topics</h2>
+        <ul>
+            <li><a href="https://www.jamf.com/products/jamf-pro/" rel="nofollow">Jamf Pro</a>
+            </li>
+            <li>
+                <MadCap:xref href="Deploying_the_Automox_Agent_in_Bulk.htm">Deploying the Automox Agent in Bulk</MadCap:xref>
+            </li>
+        </ul>
+    </body>
+</html>

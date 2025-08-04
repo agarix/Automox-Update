@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="This describes how to create a duplicate, or clone, of a policy." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Cloning Policies</h1>
+        <p>You can clone individual policies from the <strong>Policies</strong> page. This allows you to create a duplicate, or clone, of a policy within the current organization or to one or more other organizations.</p>
+        <p>This action clones the device targeting, package targeting, schedule, and user notification configurations, if available. This does not clone the group settings. By default, the policy status is always Inactive.</p>
+        <div class="info"><b>Note</b>: Currently, it is not possible to clone required software policies or worklets.</div>
+        <p>You can also use the Automox API to clone policies. Refer to the <a href="http://developer.automox.com/" rel="nofollow">Automox Developer Portal</a> for more information.</p>
+        <div class="prereqs"><b>Prerequisites</b>: You must have permissions to create policies for the organization you are cloning to.</div>
+        <p>In the console, follow these steps to clone a policy to one or more organizations:</p>
+        <ol start="1">
+            <li>From the <strong>Policies</strong> page, find the policy you want to clone and select the <strong>Actions</strong> menu.</li>
+            <li>Click <strong>Clone Policy</strong>.&#160;&#160;</li>
+            <li>In the Clone Policy window, select the destination organization or organizations that you want to clone the policy to.</li>
+            <li>Click <strong>Clone Policy</strong>.<br />This creates a policy or policies with the prefix “Clone of” in the corresponding organizations that you chose to clone to. The name of the cloned policy also includes the time and date when the clone was created. <strong>Note</strong>: You can clone to the current organization.</li>
+            <li>In the next window, you can select a policy to immediately view or edit. This cloned policy opens in a new browser window. This shortcut allows you to easily open cloned policies in the corresponding organizations.</li>
+            <li>Click <strong>Done</strong> to return to the Policies page. </li>
+        </ol>
+        <div class="info"><strong>Note</strong>: Cloned policies require additional configuration before they are available to use. Select from the list of links in the cloned policies window to view each policy. You can also select the clone from the Policies page of the organization where it was created. Complete the desired configuration before you activate them. All cloned policies are inactive by default.</div>
+        <p>Example of a clone that was created in the current organization:</p>
+        <p>
+            <img src="../../Resources/Images/clone-policy.png" style="width: 1012px;height: 233px;" />
+        </p>
+        <h3>Completing the configuration of a cloned policy</h3>
+        <p>From the <strong>Policies</strong> page of the organization where you cloned a policy to, you will see the Name with the suffix “Clone of”. </p>
+        <p>In the previous example, the original policy is named <em>Accounts</em>. The cloned policy is <em>Clone of Accounts</em>. The new policy name includes the time and date of when the clone was created.</p>
+        <ol start="1">
+            <li>To edit the cloned policy, click the name of the policy.</li>
+            <li>In the Edit policy window, update the Policy Name. This must be a unique name within an organization.</li>
+            <li>Edit the following fields, as required:<ul><li>Change the Policy Status to <strong>Active</strong>.</li><li>To run the policy, you must associate groups with the policy. Click <strong>Associate Groups </strong>to assign group(s) to this policy.</li><li>Adjust the device targeting, package targeting, schedule, and user notifications, if applicable.</li></ul></li>
+            <li>Click <b>Save Policy</b>.</li>
+        </ol>
+        <h3>Searching for cloned policies</h3>
+        <p>If you closed the window with the list of cloned policies, but you want to finish a configuration or remove a cloned policy, follow these steps to find the cloned policy.</p>
+        <ol start="1">
+            <li>Go to the destination organization of the cloned policy.</li>
+            <li>Enter “Clone” in the search bar. </li>
+        </ol>
+        <p>All cloned policies appear in alphabetical order. You can decide to edit and save the clone under a different name, or remove the clone from the current organization.</p>
+        <p>
+            <img src="../../Resources/Images/search-clone.png" />
+        </p>
+        <h3>Removing a cloned policy</h3>
+        <p>You might want to remove a cloned policy that you no longer want to activate. This action will only remove the cloned policy from the current organization.</p>
+        <ol start="1">
+            <li>Go to the Policies page of the organization where the cloned policy is listed.</li>
+            <li>Click <strong>Actions → Remove Policy</strong>. </li>
+            <li>A warning message allows you to confirm the policy you are about to remove. Click <strong>Remove Policy</strong>.</li>
+        </ol>
+        <div class="info"><strong>Note</strong>: This action only removes a cloned policy from the current organization. It does not remove the same clone from other organizations.</div>
+    </body>
+</html>

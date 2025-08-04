@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultSkin
+  Version="6"
+  SkinType="Component"
+  Comment="HTML5 Menu skin"
+  ComponentType="Menu"
+  EnableResponsiveOutput="True">
+  <Stylesheet>
+    <Styles>
+      <Style
+        Name="Menu">
+        <Properties>
+          <Property
+            Name="BackgroundColor">transparent</Property>
+          <Property
+            Name="Color">#ffffff</Property>
+          <Property
+            Name="Width">100%</Property>
+          <Property
+            Name="PaddingLeft">0px</Property>
+          <Property
+            Name="PaddingRight">0px</Property>
+          <Property
+            Name="TextAlign">center</Property>
+          <Property
+            Name="PaddingTop">0px</Property>
+          <Property
+            Name="FontSize">1.1em</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Menu Item (hover)">
+        <Properties>
+          <Property
+            Name="BackgroundColor">transparent</Property>
+          <Property
+            Name="FontWeight">bold</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Menu Item">
+        <Classes>
+          <StyleClass
+            Name="1st Level">
+            <Properties>
+              <Property
+                Name="MarginTop">0px</Property>
+              <Property
+                Name="MarginBottom">0px</Property>
+              <Property
+                Name="PaddingBottom">0px</Property>
+              <Property
+                Name="PaddingTop">0px</Property>
+            </Properties>
+          </StyleClass>
+        </Classes>
+        <Properties>
+          <Property
+            Name="MarginTop">0px</Property>
+          <Property
+            Name="MarginBottom">10px</Property>
+        </Properties>
+      </Style>
+      <Medium
+        Name="Tablet">
+        <Style
+          Name="Menu">
+          <Properties>
+            <Property
+              Name="Display">none</Property>
+          </Properties>
+        </Style>
+      </Medium>
+    </Styles>
+    <Stylesheet></Stylesheet>
+  </Stylesheet>
+  <Strings />
+  <WebHelpOptions
+    EnableSticky="All" />
+</CatapultSkin>

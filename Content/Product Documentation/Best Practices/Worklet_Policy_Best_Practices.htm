@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Best practices for [%=General.ProductName%] Worklet policies." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Worklet Policy Best Practices</h1>
+        <p>Follow these best practices for effective use of Worklets.</p>
+        <div class="info"><strong>Note</strong>: The Evaluation code is run every time a device is scanned, even if a policy or worklet doesn't have an assigned schedule.</div>
+        <h2>Using Device Targeting</h2>
+        <p>Device targeting is recommended to ensure that a Worklet policy doesn't negatively impact an account compliance score.</p>
+        <div class="prereqs"><strong>Prerequisites</strong>: You have the required administrative permissions to manage Worklets.</div>
+        <ol start="1">
+            <li>Go to the <strong>Edit Worklet</strong> page of the policy.</li>
+            <li>Select <strong>Device Targeting</strong> and set the Attribute <strong>OS</strong> to match the operating system setting of the policy itself.<br /><br /><img src="../../Resources/Images/edit-worklet.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li>
+        </ol>
+        <p>This device targeting setting ensures that the Worklet policy runs against devices with the same OS. Otherwise, the policy would count against the compliance score due to any Worklet failures when run against devices with different OSes.</p>
+        <h2>Manually Running a Worklet</h2>
+        <p>If you want to manually run a Worklet and want to include the evaluation code, using the <strong>Run Policy</strong> option requires some additional actions.</p>
+        <p><strong>What to know</strong>: When you run a Worklet using the<strong> Run Policy</strong> option, the evaluation code is not executed. Only the remediation code is executed.</p>
+        <p><strong>Recommendation</strong>: When you are developing and testing a Worklet and want to include the evaluation code, follow these steps:</p>
+        <ol start="1">
+            <li>Schedule the Worklet policy to run 10 minutes from the current time.</li>
+            <li>Perform a device scan on the testing device to make it aware of the Worklet policy change.</li>
+            <li>Monitor the results.</li>
+        </ol>
+        <h3>PowerShell Examples</h3>
+        <p><strong>Evaluation Code:</strong>
+        </p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">&lt;#
+.SYNOPSIS
+    Worklet to test evaluation code
+    OS Support: Windows 8/10/11
+    Required modules: NONE
+
+.DESCRIPTION
+    This script does an evaluation test to check and see if a file exist on the endpoint. If it doesn't, it will create them.
+
+.REQUIREMENTS
+PowerShell 2.0
+
+.EXAMPLE
+
+.NOTES
+    Author          :Robert Eickleberry
+    Modified By     :
+    Prerequisite    :PowerShell V2 and up over Win 8/10/11
+    Date            :16 Aug 2022 
+#&gt;
+
+#variables to look for in evaluation
+$file = "Test.txt"
+$folder = "C:\Automox\"
+
+#variables combined to create test path location
+$location = "$folder$file"
+
+#funcation to add date and time to file
+function Get-TimeStamp {
+    
+    return "[{0:MM/dd/yy} {0:HH:mm:ss}]" -f (Get-Date)
+    
+}
+
+#checks if file exist
+if (Test-Path -Path $location)
+{
+    #if location exist, adds message
+    Add-Content -path $location -value "$folder and $file exist. Evaluation code - Using Exit 0. $(Get-TimeStamp)"
+    Exit 0
+}
+else
+{   
+
+    Exit 1
+}
+
+</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p><strong>Remediation Code</strong>:</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">&lt;#
+.SYNOPSIS
+    Worklet to test remediation code
+    OS Support: Windows 8/10/11
+    Required modules: NONE
+
+.DESCRIPTION
+    This script is does an evaluation test to check and see if a file exist on the endpoint.
+
+.REQUIREMENTS
+PowerShell 2.0
+
+.EXAMPLE
+
+.NOTES
+    Author          :Robert Eickleberry
+    Modified By     :
+    Prerequisite    :PowerShell V2 and up over Win 8/10/11
+    Date            :16 Aug 2022 
+#&gt;
+
+#variables to look for in remediation
+$file = "Test.txt"
+$folder = "C:\Automox\"
+
+#variables combined to create test path location
+$location = "$folder$file"
+
+#funcation to add date and time to file
+function Get-TimeStamp {
+    
+    return "[{0:MM/dd/yy} {0:HH:mm:ss}]" -f (Get-Date)
+    
+}
+
+#adds message to already existing file
+
+    #if location does not exist, creates folder and file
+    New-Item -ItemType Directory -Force -Path $folder
+    New-Item -path $folder -name $file -type "file"
+
+    #after folder and file is created, adds message
+    Add-Content -path $location -value "Created folder $folder and file $file via Remediation Code. $(Get-TimeStamp)"
+
+Exit 0</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h2>Related Topics</h2>
+        <ul>
+            <li><a href="https://help.automox.com/hc/en-us/articles/6795093118868-What-is-a-Check-In-vs-Device-Scan" rel="nofollow">What is a Check-In vs. Device Scan?</a>
+            </li>
+        </ul>
+    </body>
+</html>

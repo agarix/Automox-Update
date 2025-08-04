@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Fetch the policy list and schedules for your [%=General.ProductName%] devices using PowerShell." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Retrieve Policy List and Schedules Using PowerShell</h1>
+        <p>Use a PowerShell script to retrieve a list of all policies and schedules for your organization and put them in an Excel spreadsheet.</p>
+        <div class="info"><strong>Note:</strong> Due to the way Excel auto-formats numbers, the “schedule months” column may show in scientific notation due to the length. To fix the display of them, highlight the column, right-click on the column, click Format Column, choose Custom, then set the Type to 0.</div>
+        <br />
+        <MadCap:snippetBlock src="../../Resources/Snippets/Requirements-api-keys.flsnp" />
+        <p>There are two areas in the code that you’ll need to update to get the script to function:</p>
+        <ul>
+            <li>
+                <MadCap:snippetBlock src="../../Resources/Snippets/org-id-script.flsnp" />
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <MadCap:snippetBlock src="../../Resources/Snippets/api-key-script.flsnp" />
+            </li>
+        </ul>
+        <h2>Policy List and Schedules Script</h2>
+        <p>Use this script to retrieve a list of all your policies in your organization and put them in an Excel spreadsheet.</p>
+        <p>See also <MadCap:xref href="#Scheduli">Scheduling Examples and Trailing Zeros</MadCap:xref> description.</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;"># Replace the two variables below with your Org ID and your API key
+$orgID = 'YOUR_ORG_ID'
+$apiKey = 'YOUR_API_KEY'
+
+
+# Replace if you'd like the output in another location
+$expDir = 'C:\Temp\Policy_Schedules.csv'
+
+
+# --------------------------------------
+
+
+$servers = @()
+$output = @()
+$page = 0
+$limit = 500
+
+
+$headers = @{ "Authorization" = "Bearer $apiKey" }
+
+
+while($true) {
+
+
+    $url = "https://console.automox.com/api/policies?o=$orgID&amp;l=$limit&amp;p=$page"
+    $resp = (Invoke-WebRequest -Method Get -Uri $url -Headers $headers).Content | ConvertFrom-Json
+
+
+    $output =  $resp | Select-Object id, name, policy_type_name, `
+        @{ Name = 'schedule days'; Expression = { [Convert]::ToString($_.schedule_days,2) }}, `
+        @{ Name = 'schedule weeks'; Expression = { [Convert]::ToString($_.schedule_weeks_of_month,2) }}, `
+        @{ Name = 'schedule months'; Expression = { [Convert]::ToString($_.schedule_months,2) }}, `
+        schedule_time, notes, create_time, server_count
+
+
+    $servers += $Output
+    $page += 1
+
+
+    if($resp.Count -lt $limit) {
+        break
+    }
+
+
+}
+
+
+$servers | Export-Csv -Path $expDir -NoTypeInformation -Force
+</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h3><a name="Scheduli"></a>Scheduling Examples and Trailing Zeros</h3>
+        <table class="TableStyle-ax_tables" cellspacing="0" style="mc-table-style: url('../../Resources/TableStyles/ax_tables.css');">
+            <colgroup>
+                <col />
+            </colgroup>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <h4>Example days per week</h4>
+                        <p>For scheduling days of the week, there will be 7 digits with a trailing zero to mark the end. This starts on Sunday and ends on Monday. 1 represents ON and 0 represents OFF for each day of the week.</p>
+                        <p><code>Sun|Sat|Fri|Thu|Wed|Tue|Mon|TrailingZero</code>
+                        </p>
+                        <p><em>Every Day</em> : <code>11111110</code></p>
+                        <p><em>Mon/Wed/Fri only</em> : <code>00101010</code></p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <h4>Example weeks per month</h4>
+                        <p>Weeks are scheduled similarly to days, except there are 5 digits with a trailing zero. This starts on the 5th week of the month and ends with the 1st week of the month.</p>
+                        <p><code>5th|4th|3rd|2nd|1st|TrailingZero</code>
+                        </p>
+                        <p>Every Week: <code>111110</code></p>
+                        <p>2nd/4th weeks only: <code>010100</code></p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+                        <h4>Example months per year</h4>
+                        <p>Months continue the trend with 12 digits with a trailing zero. Starting with December and ending with January.</p>
+                        <p><code>Dec|Nov|Oct|Sep|Aug|Jul|Jun|May|Apr|Mar|Feb|Jan|TrailingZero</code>
+                        </p>
+                        <p>Every Month: <code>1111111111110</code></p>
+                        <p>Mar/Jun/Sep/Dec = <code>1001001001000</code></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Related Topics</h2>
+        <p><a href="https://community.automox.com/automox-labs-8/get-a-list-of-all-policies-for-your-organization-and-their-schedules-1410" rel="nofollow">Community: Get A List Of All Policies For Your Organization and Their Schedules</a>
+        </p>
+    </body>
+</html>

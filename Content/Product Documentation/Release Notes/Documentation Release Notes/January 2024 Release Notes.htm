@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+    </head>
+    <body>
+        <h1>January 2024 Release Notes</h1>
+        <h2>January 26, 2024</h2>
+        <p>Added:</p>
+        <ul>
+            <li>New third-party title support:<ul><li>Gpg4win (Windows)</li><li>Graphmatica (Windows)</li></ul></li>
+        </ul>
+        <p>Updated:</p>
+        <ul>
+            <li>Automox Dashboard: Device Health by Group: We removed the health score and updated the format of time intervals. The default is now set to the Last 7 Days.</li>
+            <li>We updated the Automox Agent Deployer documentation to now require that Falcon scripts are enabled because CrowdStrike updated their console/API.</li>
+            <li>Updated Automox Script Signing: new execution policy requirement for script signing before opting in.</li>
+        </ul>
+        <p>Bugfixes:</p>
+        <ul>
+            <li>We fixed an issue with the sort functionality on the Associated Policies table of the Device Details page.</li>
+            <li>We fixed an issue with the display of severities on the Software section of the Device Details page.</li>
+        </ul>
+        <h2>January 19, 2024</h2>
+        <p>Added:</p>
+        <ul>
+            <li>You can now execute the Run Now command on multiple devices. For more information, see <MadCap:xref href="../../Worklet Catalog/Run_Worklet_Now.htm">Run Worklet Now</MadCap:xref></li>
+            <li>New third-party title support:<ul><li>ImgBurn (Windows)</li><li>VNC Server (Windows)</li></ul></li>
+            <li>Removed these titles from our third-party software table because they are now handled by Windows Update:<ul><li>Microsoft .NET Desktop Runtime 6</li><li>Microsoft ASP.NET Core Runtime 6</li></ul></li>
+        </ul>
+        <p>Updated:</p>
+        <ul>
+            <li>Updated Roles and Permissions table:<ul><li>New entry: Automated Vulnerability Remediation (AVR)</li><li>Updated: Ask Otto permission description</li><li>Updated Device permission description to Remote Control</li></ul></li>
+            <li>Updated proxy server documentation for clarity.</li>
+            <li>Updated Okta SSO documentation relative to instructions for attributes and associated image.</li>
+        </ul>
+        <p>Bug Fixes:</p>
+        <ul>
+            <li>A bug where groups could not be deleted if deleted devices were still associated with the group has been fixed.</li>
+        </ul>
+        <h2>January 12, 2024</h2>
+        <p>Added:</p>
+        <ul>
+            <li>New third-party title support:<ul><li><strong>Oracle Java SE</strong> 18, 19, 21 (Windows, macOS)</li><li><strong>GoodSync</strong> (Windows)</li></ul></li>
+            <li>We added new firewall recommendations for Automox Remote Control. For details, see Agent Firewall Allowlisting Rules</li>
+        </ul>
+        <p>Updated:</p>
+        <ul>
+            <li>Updated the Troubleshooting section of the Device Details page to help clarify the compatibility check. See Device Details: Troubleshooting</li>
+        </ul>
+        <p>With this release and going forward, we now include information regarding recent relevant bug fixes.</p>
+        <p>Bug Fixes:</p>
+        <ul>
+            <li>We fixed an issue where Adobe Reader 2020 Classic was being overwritten by Adobe Reader DC.</li>
+            <li>We fixed an issue where the serial number column was not shown in the CSV export for the Devices page.</li>
+        </ul>
+        <h2>January 5, 2024</h2>
+        <p>Added:</p>
+        <ul>
+            <li>New third-party title support:<ul><li><strong>DataGrip 2023.3</strong> (Windows, macOS)</li><li><strong>GlassWire</strong> (Windows)</li><li><strong>Go Connect</strong> (macOS)</li><li><strong>HandBrake</strong> (Windows, macOS)</li></ul></li>
+            <li>The dashboard now includes a <strong>Device Health by Group</strong> chart that shows a count of devices by group that have outstanding patches. This also provides a health score, which is an average calculation based on selected groups and the patch age of outstanding patches selected (= devices with no outstanding patches / total devices in selected group). For more information, refer to Automox Console Dashboard</li>
+            <li><strong>Worklet Catalog</strong> search functionality has expanded. Searches now query against Worklet Name, description, keywords, and OS. We now support a fuzzy search by Name, and a wildcard match for other metadata terms. Search results are now returned by relevancy rather than by Worklet name. See <MadCap:xref href="../../Worklet Catalog/Using_the_Worklet_Catalog.htm">Using the Worklet Catalog</MadCap:xref></li>
+        </ul>
+        <p>Updated:</p>
+        <ul>
+            <li>Activity Log description: The Automox console retains 90 days of data, which is accessible in increments of 30 days. See Creating Reports</li>
+            <li>Updated the Roles and Permissions matrix for accuracy. Permissions for Devices now refer to Remote Control (instead of Control). Patch Operator permissions have been corrected.</li>
+        </ul>
+    </body>
+</html>

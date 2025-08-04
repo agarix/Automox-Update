@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="This describes how to execute policies on a filtered collection of devices." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Device Targeting with Filters</h1>
+        <p>Device targeting allows you to execute policies on a filtered collection of devices. All policy types and worklets can be configured to use device filtering.</p>
+        <h2>Creating a Device Filter on a Policy</h2>
+        <p>You can apply filters on new and existing policies or worklets to target devices. It is possible to add up to 10 filters per policy and 10 values per filter. For details about creating a policy or worklet, see <MadCap:xref href="Managing_Policies.htm">Managing Policies</MadCap:xref>.</p>
+        <div class="info"><b>Note</b>: The Condition field options have been updated. Refer to the table in <strong style="font-weight: normal;"><MadCap:xref href="#Filters">Filters and their values</MadCap:xref></strong> for a description of the options.</div>
+        <p>
+            <img src="../../Resources/Images/device-targeting.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <ol start="1">
+            <li>From the Create or Edit Policy page, use the toggle to turn on <strong>Device Targeting.</strong></li>
+            <li>From the <strong>Select Attribute</strong> drop-down menu, select the filter you want to use. You can filter by:<ul><li>Device Tag</li><li>IP Address</li><li>Hostname</li><li>OS</li><li>OS Version</li><li>Active Directory Organizational Unit (Windows only)</li></ul></li>
+            <li>Select from the options available in the <strong>Condition</strong> field. The options available depend on the attribute selected.</li>
+            <li>Use the <strong>Value</strong> field to enter the options related to the filter. You can select a maximum of 10 options.</li>
+            <li>Click <strong>Preview Impacted Devices</strong> to retrieve a list of all devices that will be included in the policy. The resulting Devices Preview window helps to ensure that you have correctly configured the filter.</li>
+            <li>If you are creating a new policy or worklet, at this point you can also set a schedule and configure user notifications. Click <strong>Create Policy.</strong></li>
+            <li>If you are editing a policy or worklet, click <strong>Save Policy</strong>.</li>
+        </ol>
+        <h3><a name="Filters"></a>Filters and their values</h3>
+        <p>You can create up to 10 filters and apply up to 10 values per filter. Each filter row uses an "And" operation. These narrow down the results to fit all filters. The values set within the Options field use an "Or" operation. The following table describes the filter types and the values that are currently available.</p>
+        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p><strong>Filter</strong>
+                        </p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p><strong>Values</strong>
+                        </p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p><strong>Description</strong>
+                        </p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Attribute</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <ul>
+                            <li>Device Tag</li>
+                            <li>IP Address</li>
+                            <li>Hostname</li>
+                            <li>OS</li>
+                            <li>OS Version</li>
+                            <li>Active Directory Organizational Unit</li>
+                        </ul>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>These are the types of filters that can be applied to this policy.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Condition</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <ul>
+                            <li>Is</li>
+                            <li>Is not</li>
+                            <li>Contains</li>
+                            <li>Does not contain</li>
+                        </ul>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Depending on the type of attribute, you can use these conditions to define the filter.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                        <p>Value</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                        <p>The value options available depend on the attribute selected.</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p><strong>Example 1</strong>
+        </p>
+        <p>A single filter (row) with multiple values will target any device with value option 1 or value option 2, or both.</p>
+        <p>
+            <img src="../../Resources/Images/device_targeting_or.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <p>The impacted devices include at least one of the value options. Therefore, in this example, the tags "Accounting" and "test_UX" include all devices with these tags. If there are more tags, the device will still be included because it uses at least one of the values selected.</p>
+        <div class="info"><strong>Devices Preview:</strong> This is a preview of the devices the device targeting filter will currently apply to. This device targeting filter only applies to devices that are in groups associated with this policy. Ensure you have the correct groups associated with this policy.</div>
+        <br />
+        <p>
+            <MadCap:snippetBlock src="../../Resources/Snippets/preview-packages-os.flsnp" />
+        </p>
+        <p>
+            <img src="../../Resources/Images/preview_or.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <p><b>Example 2</b>
+        </p>
+        <p>Separate filters (rows) are an "And" condition. In this example, both "accept" and "1.2.3.4" are valid. An impacted device must have each filter condition.</p>
+        <p>
+            <img src="../../Resources/Images/device_targeting_and.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <p>The impacted devices now reflect the conditions required for all filters. In this example, only the devices with exactly the IP address “1.2.3.4” and the Tag “accept”, are targeted.</p>
+        <p>
+            <img src="../../Resources/Images/device_targeting_and_preview.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <h3>Other filter examples</h3>
+        <ul>
+            <li>
+                <MadCap:xref href="#Hostname">Hostname</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="#IP">IP Address</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="#Creating">Creating an Active Directory Organizational Unit Device Filter</MadCap:xref>
+            </li>
+        </ul>
+        <h4><a name="Hostname"></a><strong>Hostname</strong>
+        </h4>
+        <p>Use the Hostname to target devices. You can use partial name searches to gather the list of devices to which you want to apply a policy.</p>
+        <ol start="1">
+            <li>Select the attribute <strong>Hostname</strong>.</li>
+            <li>Select from the Condition field: Contains or Does Not Contain.</li>
+            <li>Enter a value(s) or partial value.</li>
+            <li>Click <strong>Preview Impacted Devices</strong> to see results.</li>
+        </ol>
+        <p>The result of this will show all devices that have a Hostname with the value "desktop":</p>
+        <h4><a name="IP"></a><strong>IP Address</strong>
+        </h4>
+        <p>IP address filters currently match on any partial string in the IP address field.</p>
+        <p>For example, if you filter for 1.1, all of the following IP addresses will match:</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve">1.1.5.6
+10.10.1.1
+11.12.5.7
+192.168.1.1
+192.1.1.55
+192.11.1.65</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <br />
+        <div class="info"><strong>Note</strong>: The IP filter evaluates all network interfaces on a device. In some instances the primary network interface address may not match the filter, however, if any of the other network interfaces on the device contain the search string then it will result in a match.</div>
+        <h2>Device Targeting Based on OU Information</h2>
+        <p>You can use the device targeting filter <strong>Active Directory Organizational Unit (AD OU)</strong> to run policies based on Organizational Units. This allows you to filter devices based on your AD structure.</p>
+        <p>The AD OU information is collected when a device is scanned. Therefore, the policy automatically applies to newly added devices.</p>
+        <p>The AD OU filter allows you to match a string or strings. Example:</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">/Locations/Sheriff/Computers/CAD Stations/Computers </MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p>You can target a higher-level OU by using a partial match on the path.</p>
+        <div class="info"><b>Note:</b>
+            <ul>
+                <li>The Active Directory OU filter is available only for Windows devices</li>
+                <li>The maximum string length is 2048 characters</li>
+                <li>You can copy/paste the path structure into the Option field</li>
+                <li>This feature requires no direct Active Directory Domain Controller access as we’re pulling the AD OU information directly from each device.</li>
+                <li>Azure AD OU information requires a hybrid AD and Microsoft Entra ID (Azure AD) setup</li>
+            </ul>
+        </div>
+        <h3><a name="Creating"></a>Creating an Active Directory Organizational Unit Device Filter</h3>
+        <p>Follow these steps to set up device filtering based on Organizational Units (OU).</p>
+        <div class="info"><b>Note</b>: Automox queries Active Directory OU information every time a device is scanned (when adding a device or at least every 24 hours - depending on your scan interval).</div>
+        <p>
+            <img src="../../Resources/Images/device_targeting_ADOU.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <ol start="1">
+            <li>From the Create or Edit Policy page, use the toggle to turn on <b>Device Targeting</b> and activate the feature toggle.</li>
+            <li>From the Select Attribute field, click <strong>Active Directory Organizational Unit</strong>.</li>
+            <li>Use the Select Condition field to select from the following operators: <ul><li>Is, Is Not, Contains, Does Not Contain.</li></ul></li>
+            <li>In the <strong>Add Option</strong> field, enter or paste one or more path structures.</li>
+            <li>Click <strong>Preview Impacted Devices</strong> to review the devices affected by the policy.</li>
+            <li>Click <strong>Create Policy</strong> or <strong>Save Policy.</strong> The policy will run according to the schedule.</li>
+        </ol>
+        <h4>Targeting specific OUs</h4>
+        <p>To target a specific OU, use the <strong>Is</strong> condition. This filter requires full paths to the OU. Any sub-OUs are not included.</p>
+        <p>
+            <img src="../../Resources/Images/device_targeting_ADOU_specific.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <h2>Viewing and Searching for Policies with Device Targeting</h2>
+        <p>From the <b>Policies</b> page, you can see if the device filter is configured.</p>
+        <ul>
+            <li>Use the Columns list to ensure that the device targeting columns is showing.</li>
+            <li>Sort the list of policies by the <strong>Has Device Targeting</strong> column.</li>
+            <li>Use the search box to find a specific policy.</li>
+        </ul>
+        <h2>Deleting a Device Filter</h2>
+        <p>To delete an existing device filter in a policy or worklet, go to <strong>Device Targeting </strong>on the Edit page.</p>
+        <ol start="1">
+            <li>Click the delete <img class="emoticon emoticon-cross" src="https://automox.atlassian.net/wiki/s/2084916014/6452/fbd62261516448b37010ae3592fbc974b7f0453d/_/images/icons/emoticons/error.png" width="16" height="16" alt="(error)" /> button to remove the device filter.</li>
+            <li>Click <b>Save Policy</b>.</li>
+        </ol>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>API Reference Guide: <a href="https://developer.automox.com/developer-portal/policy_filters_schedule/#device-filters---filter-parameters" rel="nofollow">Device Filters Preview - Filter Parameters</a></li>
+            <li><a href="https://www.youtube.com/watch?v=qFXtPLJNDI4" rel="nofollow">Learn about Flexible Device Targeting</a>
+            </li>
+        </ul>
+    </body>
+</html>

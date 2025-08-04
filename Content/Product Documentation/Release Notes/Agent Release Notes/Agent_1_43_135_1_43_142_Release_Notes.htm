@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+    </head>
+    <body>
+        <h1>Agent 1.43.135/1.43.142 Release Notes</h1>
+        <p>This version of the Automox Agent includes improvements to installation and upgrade flows.</p>
+        <h2>Improvements</h2>
+        <ul>
+            <li>
+                We have improved the installation and upgrade flows for the Automox Agent installer to include a series of Agent functionality checks. If the version being installed does not pass these checks, the installer will ensure that the previously installed version of the agent remains functional. These improvements are currently available for Windows and macOS.
+            </li>
+            <li>
+                The shield icon on macOS notifications has been replaced with the Automox logo.
+            </li>
+        </ul>
+        <h2>Bug Fixes</h2>
+        <h3>Windows</h3>
+        <ul>
+            <li><strong style="font-weight: bold;">1.43.142</strong> - Replace usages of <code>certutil</code> with C#
+            </li>
+        </ul>
+        <h3>macOS</h3>
+        <ul>
+            <li>
+                Fixed a bug that prevented the <code>RebootWithNotify</code> and <code>RebootWithNotifyVerbose</code> commands from patching/rebooting Apple Silicon Macs.
+            </li>
+            <li>
+                Adjusted the handling of notification response values to resolve "<code>Error running notifier plist bootstrap: exit status 5</code>" error.
+            </li>
+            <li>
+                Resolved a bug that resulted in an “<code>Unable to allow SecureToken %!s(&lt;nil&gt;)</code>" error when enabling the <code>_automoxserviceaccount</code> user account which is used for patching on Apple Silicon Macs.
+            </li>
+            <li><strong style="font-weight: bold;">1.43.142</strong> - Improved logging for <code>_automoxserviceaccount</code> failures on Mac.
+            </li>
+        </ul>
+        <h3>Agent</h3>
+        <ul>
+            <li>
+                Fixed a bug that caused the <code>UpgradeAgent</code> command to report a successful upgrade, even if the agent was in a bad state afterward.
+            </li>
+            <li>
+                Added proxy settings support to the <code>UpgradeAgent</code> installer.
+            </li>
+            <li><strong style="font-weight: bold;">1.43.142</strong> - Fixed an issue with proxies during install.
+            </li>
+        </ul>
+    </body>
+</html>

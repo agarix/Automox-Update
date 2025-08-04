@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultToc
+  Version="1">
+  <TocEntry
+    Title="[%=System.LinkedTitle%]"
+    Link="/Content/Product Documentation/Agents/Agent Installation/Agent_Command_Line_Guide.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  <TocEntry
+    Title="[%=System.LinkedTitle%]"
+    Link="/Content/Product Documentation/Agents/Agent Installation/Change_Automox_Script_Execution_Location.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  <TocEntry
+    Title="[%=System.LinkedTitle%]"
+    Link="/Content/Product Documentation/Agents/Agent Installation/Configuring_WSUS_for_Automox_Integration.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  <TocEntry
+    Title="[%=System.LinkedTitle%]"
+    Link="/Content/Product Documentation/Agents/Agent Installation/Embedding_Your_Access_Key_into_the_Automox_MSI.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  <TocEntry
+    Title="[%=System.LinkedTitle%]"
+    Link="/Content/Product Documentation/Agents/Agent Installation/Installing_SUSE_Linux_Enterprise_Server_12_lshw.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  <TocEntry
+    Title="[%=System.LinkedTitle%]"
+    Link="/Content/Product Documentation/Agents/Agent Installation/Silent_Agent_Deployment_on_Windows.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  <TocEntry
+    Title="[%=System.LinkedTitle%]"
+    Link="/Content/Product Documentation/Agents/Agent Installation/Using_the_Automox_Agent_With_a_Proxy_Server.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  <TocEntry
+    Title="Bulk Agent Deployment"
+    Link="/Project/TOCs/SectionTOCs/BulkAgentDeployment.fltoc"></TocEntry>
+</CatapultToc>

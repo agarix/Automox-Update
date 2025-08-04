@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultToc
+  Version="1">
+  <TocEntry
+    Title="[%=System.LinkedTitle%]"
+    Link="/Content/Product Documentation/Release Notes/Agent Release Notes/Agent Release Process.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  <TocEntry
+    Title="Agent 2.x Release Notes">
+    <TocEntry
+      Title="[%=System.LinkedTitle%]"
+      Link="/Content/Product Documentation/Release Notes/Agent Release Notes/Agent 2.2.x Release Notes.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+    <TocEntry
+      Title="[%=System.LinkedTitle%]"
+      Link="/Content/Product Documentation/Release Notes/Agent Release Notes/Agent 2.1.45 Release Notes.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+    <TocEntry
+      Title="[%=System.LinkedTitle%]"
+      Link="/Content/Product Documentation/Release Notes/Agent Release Notes/Agent 2.1.44 Release Notes.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+    <TocEntry
+      Title="[%=System.LinkedTitle%]"
+      Link="/Content/Product Documentation/Release Notes/Agent Release Notes/Agent 2.0.29 Release Notes.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+    <TocEntry
+      Title="[%=System.LinkedTitle%]"
+      Link="/Content/Product Documentation/Release Notes/Agent Release Notes/Agent 2.0.28 Release Notes.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  </TocEntry>
+  <TocEntry
+    Title="Agent 1.x Release Notes">
+    <TocEntry
+      Title="[%=System.LinkedTitle%]"
+      Link="/Content/Product Documentation/Release Notes/Agent Release Notes/Agent 1.45.48 Release Notes.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+    <TocEntry
+      Title="[%=System.LinkedTitle%]"
+      Link="/Content/Product Documentation/Release Notes/Agent Release Notes/Agent_1_44_8_Release_Notes.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+    <TocEntry
+      Title="[%=System.LinkedTitle%]"
+      Link="/Content/Product Documentation/Release Notes/Agent Release Notes/Agent_1_44_5_Release_Notes.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+    <TocEntry
+      Title="[%=System.LinkedTitle%]"
+      Link="/Content/Product Documentation/Release Notes/Agent Release Notes/Agent_1_43_135_1_43_142_Release_Notes.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+    <TocEntry
+      Title="[%=System.LinkedTitle%]"
+      Link="/Content/Product Documentation/Release Notes/Agent Release Notes/Agent_1_42_22_Release_Notes.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+    <TocEntry
+      Title="[%=System.LinkedTitle%]"
+      Link="/Content/Product Documentation/Release Notes/Agent Release Notes/Agent_1_42_Release_Notes.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+    <TocEntry
+      Title="[%=System.LinkedTitle%]"
+      Link="/Content/Product Documentation/Release Notes/Agent Release Notes/Agent_1_41_Release_Notes.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  </TocEntry>
+</CatapultToc>

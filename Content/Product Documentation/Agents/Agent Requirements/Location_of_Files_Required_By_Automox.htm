@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Easily locate files required by [%=General.ProductName%]" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Location of Files Required By Automox</h1>
+        <p>This describes the various files and the respective locations to support the agent, which could potentially be added to a list of trusted items.</p>
+        <h2>The following describes file locations per operating system:</h2>
+        <p>For <strong>Linux</strong>, the Automox Agent files are located here:</p>
+        <table cellspacing="0" class="TableStyle-ax_tables" style="mc-table-style: url('../../../Resources/TableStyles/ax_tables.css');">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">File Location</th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p><code>/etc/init.d/amagent</code>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This is the location of the initialization script for the agent.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p><code>/var/lib/amagent/</code>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>This is the amagent.db database as well as dynamically generated exec folders and scripts for executing the scripts we need for the product to function.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1"><code>/var/lib/amagent/osqueryi</code>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1">This file assists with device attribute enumeration (Agent version 1.45.48 and later)</td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <div class="info"><strong>Note</strong>: Sensitive database values are encrypted and obfuscated to enhance the security of our agent.</div>
+        <br />
+        <div class="info"><strong>Note</strong>: Only root user and group have read/write permissions. All others are denied access.</div>
+        <h4>Example folder layout:</h4>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">drwxr-xr-x 7 root root 224 May 10 16:17 .
+
+drwxr-xr-x 19 root root 608 May 11 16:03 ..
+
+-rw-r--r-- 1 root root 16384 May 10 16:17 amagent.db
+
+drwx------ 3 root root 96 May 8 15:16 execDir118111890
+
+drwx------ 3 root root 96 May 8 14:30 execDir419776156
+
+drwx------ 3 root root 96 May 8 14:40 execDir534130416
+
+drwx------ 3 root root 96 May 8 14:41 execDir993973924
+</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <br />
+        <div class="info"><strong>Note</strong>: The agent runs scripts to execute its functions within dynamically created folders with the prefix "execDir".</div>
+        <br />
+        <table cellspacing="0" class="TableStyle-ax_tables" style="mc-table-style: url('../../../Resources/TableStyles/ax_tables.css');">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">File Location
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">Description
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                        <p><code>/opt/amagent/amagent</code>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+                        <p>This is the agent executable that runs as a service</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>Logs (Linux)</h4>
+        <ul>
+            <li>Agent logs are written to <code>/var/log/amagent/amagent.log</code> (Agent 35+)</li>
+            <li>Agent command logs are written to <code>/var/log/amagent/command.log</code></li>
+        </ul>
+        <p>All logging goes to the amagent folders. The amagent logs can be viewed with any of these commands:</p>
+        <ul>
+            <li><code>systemctl status amagent</code>
+            </li>
+            <li><code>cat /var/log/amagent/amagent.log</code> - view the contents of amagent.log</li>
+            <li><code>cat /var/log/amagent/command.log</code> - view the contents of command.log</li>
+            <li><code>cat /var/log/messages | grep amagent</code>
+            </li>
+        </ul>
+        <p>To put the contents of the log into a text file, use one of the following commands:</p>
+        <ul>
+            <li><code>cat /var/log/amagent/amagent.log &amp;&gt; amagentlog.txt</code>
+            </li>
+            <li><code>cat /var/log/amagent/amagent.log | tee amagentlog.txt</code>
+            </li>
+        </ul>
+        <h4>macOS</h4>
+        <p>For <strong>macOS</strong>, the Automox Agent files are located as described here:</p>
+        <table cellspacing="0" class="TableStyle-ax_tables" style="mc-table-style: url('../../../Resources/TableStyles/ax_tables.css');">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">File Location</th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p><code>/var/tmp/amagent-accesskey.txt</code>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This is the temporary location for &#160;the access key during agent installation and startup.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p><code>/var/tmp/automox/installerlog*******.txt</code>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>This is the log containing output and potential errors from actual agent install. Note: This requires root permissions.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p><code>/Library/LaunchDaemons/com.automox.agent.plist</code>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This is the plist file for Automox Agent daemon process.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p><code>/Library/Application Support/Automox/</code>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>This location stores the amagent.db database, the <strong>Automox Notifier.app</strong>, as well as dynamically generated exec folders and scripts for executing the scripts we need for the product to function. The notifier provides notifications to end users for patch events and restarts.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1"><code>/Library/Application Support/Automox/osqueryi</code>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">This file assists with device attribute enumeration (Agent version 1.45.48 and later)</td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2"><code>/Library/Application Support/Automox/agent-ui</code>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body2">This file provides the Automox Tray UI (Agent version 2.1.x and later)</td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <div class="info"><strong>Note</strong>: Sensitive database values are encrypted and obfuscated to enhance the security of our agent.</div>
+        <br />
+        <div class="info"><b>Note</b>: Only root user and group have read/write permissions. All others are denied access.</div>
+        <h4>Example folder layout:</h4>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:continue="False" MadCap:lineNumberStart="1" xml:space="preserve" style="mc-code-lang: Bash;" MadCap:useLineNumbers="False">drwxrwxrwx 7 root wheel 224 May 10 16:17 .
+
+drwxr-xr-x 19 root admin 608 May 11 16:03 ..
+
+-rwxrwxrwx 1 root wheel 16384 May 10 16:17 amagent.db
+
+drwx------ 3 root wheel 96 May 8 15:16 execDir221989621
+
+drwx------ 3 root wheel 96 May 8 14:30 execDir266587032
+
+drwx------ 3 root wheel 96 May 8 14:40 execDir399049188
+
+drwx------ 3 root wheel 96 May 8 14:41 execDir591069041
+</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p><strong>Note</strong>: The agent runs scripts to execute its functions within dynamically created folders with the prefix <strong>execDir</strong>.</p>
+        <table cellspacing="0" class="TableStyle-ax_tables" style="mc-table-style: url('../../../Resources/TableStyles/ax_tables.css');">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">File Location</th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                        <p><code>/usr/local/bin/amagent</code>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+                        <p>This is the agent executable that runs as a launch daemon.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>Logs (macOS)</h4>
+        <p>Agent logs are written to <code>/var/log/amagent/amagent.log</code> (Agent 35+)</p>
+        <p>Agent command logs are written to <code>/var/log/amagent/command.log</code></p>
+        <p>Previous versions of the agent are logged to <code>/var/log/system.log</code> {grep for 'amagent'}</p>
+        <p>Software Update restart logs are written to <code>/var/log/amagent/restart.log</code> or <code>/var/log/amagent/restart.err</code> (macOS Ventura and later)</p>
+        <h2>Windows</h2>
+        <div class="info">The Automox agent is a 32-bit application.</div>
+        <h3>Agent versions ≥ 1.40</h3>
+        <p>For Windows systems running Agent versions 1.40 and later, the supporting files are in the following locations:</p>
+        <table cellspacing="0" class="TableStyle-ax_tables" style="mc-table-style: url('../../../Resources/TableStyles/ax_tables.css');">
+            <col class="TableStyle-ax_tables-Column-Column1" style="width: 377px;" />
+            <col class="TableStyle-ax_tables-Column-Column1" style="width: 193px;" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">File Location</th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1"><code>C:\ProgramData\amagent\</code>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">This is the location for the amagent.db database as well as dynamically generated exec folders and scripts for executing the scripts we need for the product to function.</td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p><code>C:\ProgramData\amagent\amagent.log</code>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>The Automox agent log file location.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p><strong>For 32-bit systems</strong>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p><code>C:\Program Files\Automox\</code>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>All other supporting files are in this directory. This directory requires system or admin privileges for access.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1"><code>C:\Program Files\Automox\osqueryi.exe</code>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">This file assists with device attribute enumeration (Agent version 1.45.48 and later)</td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2"><code>C:\Program Files\Automox\amagent-ui.exe</code>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">This file provides the Automox Tray UI (Agent version 2.1.44 and later)</td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1"><code>C:\Program Files\Microsoft\EdgeWebView\Application\&lt;version&gt;\msedgewebview2.exe</code>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">This file provides the WebView2 Runtime, which is required by Automox Tray (Agent version 2.1.x and later).</td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p><strong>For 64-bit systems</strong>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>&#160;</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p><code>C:\Program Files (x86)\Automox\</code>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>All other supporting files are in this directory. This directory requires system or admin privileges for access.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2"><code>C:\Program Files (x86)\Automox\osqueryi.exe</code>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">This file assists with device attribute enumeration (Agent version 1.45.48 and later)</td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1"><code>C:\Program Files (x86)\Automox\amagent-ui.exe</code>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">This file provides the Automox Tray UI (Agent version 2.1.x and later)</td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2"><code>C:\Program Files (x86)\Microsoft\EdgeWebView\Application\&lt;version&gt;\msedgewebview2.exe</code>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body2">This file provides the WebView2 Runtime, which is required by Automox Tray (Agent version 2.1.x and later).</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>PowerShell</h2>
+        <p>The <strong>PowerShell</strong> 5.0+ feature called <strong>Language Modes</strong> generates two files used to detect the current language mode. These files end up blocked, but this does not affect Automox functionality. For a more detailed description of this scenario, contact <a href="https://help.automox.com/hc/en-us/requests/new" rel="nofollow">Automox support</a>. See also <a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_language_modes?view=powershell-6" rel="nofollow">About Language Modes</a>.</p>
+    </body>
+</html>

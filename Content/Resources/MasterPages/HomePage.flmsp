@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="description" content="" />
+        <meta name="author" content="" /><title></title>
+    </head>
+    <body class="home-master-page">
+        <div id="contentBody" class="off-canvas-main">
+            <div class="topic-layout">
+                <div>
+                    <div class="logo-menu">
+                        <div>
+                            <p><a href="../../Home.htm">&#160;</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="heading-master">
+                        <h1 class="heading-master">User Guide</h1>
+                    </div>
+                    <div class="search-menu">
+                        <MadCap:searchBarProxy data-mc-skin="/Project/Skins/SearchMaster.flskn" />
+                        <MadCap:menuProxy style="mc-toc-depth: 3;mc-context-sensitive: False;mc-include-parent: True;mc-include-siblings: False;mc-include-children: False;" data-mc-skin="/Project/Skins/HomeMenu.flskn" mc-linked-toc="/Project/TOCs/Primary.fltoc" />
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <MadCap:bodyProxy />
+                        <div class="footer center">
+                            <div class="home-master-page-footer">
+                               
+                                <div>
+                                    <p>&#160;</p>
+                                    <p><MadCap:variable name="General.CompanyName" />
+                                    </p>
+                                </div>
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

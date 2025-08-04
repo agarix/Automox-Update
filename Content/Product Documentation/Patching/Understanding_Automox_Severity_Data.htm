@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" />
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
+    </head>
+    <body>
+        <h1>Understanding Automox Severity Data</h1>
+        <p>Automox provides severity data for Windows, macOS, and Linux operating systems, as well as top third-party software packages.</p>
+        <p>Where does the vulnerability severity score come from and how is it calculated? What are the effects on my patching?</p>
+        <p>Severity information used by Automox originates from OS and app providers. An independent group of security researchers calculates the CVSS severity score. How this is calculated is described in the <a href="https://nvd.nist.gov/vuln-metrics/cvss" rel="nofollow">National Vulnerability Database</a>.</p>
+        <h2 id="UnderstandingAutomoxSeverityData-Automoxseverityscoring">Automox severity scoring&#160;</h2>
+        <p>The severity of CVEs are based on CVSS scores. These scores have different mappings to severity classifications. The following mapping table shows how Automox defines the previous version 2 and the new version 3 severity ratings of a package:</p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/Severity Scoring.flsnp" />
+        <p>In the event that there are multiple CVEs, with a mixture of scores, the highest possible CVSS score will determine the severity.</p>
+        <p><b>Note</b>: We provide CVE severity scoring for all operating systems that we support, see <MadCap:xref href="../Agents/Agent Requirements/Supported_Operating_Systems.htm#supported op">Supported Operating Systems</MadCap:xref>.</p>
+        <div class="info">If a CVE is not scored or Automox has insufficient information, it will be shown as <strong>Unknown</strong>.</div>
+        <h2>When is severity information updated?</h2>
+        <p>When a device scan happens (either automatically or manually), the severity data presented in the console will be accurate to within the last 1-hour time span. Upon your group scan interval, this data will be presented.</p>
+        <div class="info"><b>Note</b>: New severity information does not cause the device to patch. Your patching schedule determines when the patch is applied.</div>
+        <h2>Why am I patching more?</h2>
+        <p>The introduction of the Automox CVSSv3 severity scoring model can mean increased patching.</p>
+        <ul>
+            <li>Policy scopes might change with the introduction of the categories <strong>High</strong> and <strong>None</strong>.&#160;</li>
+            <li>Depending on your configuration, the pending (or scheduled patch) counts can go up or down as a result.</li>
+            <li>With better severity information, legacy patches can suddenly appear, although they were not previously marked for patching.</li>
+        </ul>
+        <h2>What does a severity of High indicate and should I be concerned?</h2>
+        <p>Yes, you should be concerned. A <strong>High</strong> patch score usually indicates severe exploits that might require additional complexity for a hacker to use. This refers to someone who gains physical access to the machine or relies on another unpatched exploit to gain access. These are serious and would have been considered <strong>Critical</strong> in the previous severity scoring. Unless you have a reason to not include <strong>High</strong> patches, you should patch them.</p>
+        <h2>What does a score of None indicate?</h2>
+        <p>A severity level of <strong>None</strong> is equal to a score of 0.0 as per CVSSv3.</p>
+        <h2>What does a severity of No Known CVEs indicate?</h2>
+        <p>Now that we show severity scores for all operating systems that we support (see <MadCap:xref href="../Agents/Agent Requirements/Supported_Operating_Systems.htm#supported%20op">Supported Operating Systems</MadCap:xref>), you should not see <b>No Known CVEs</b> for these as a severity score. If you experience results that do show No Known CVEs and are unsure of its origin, please reach out to support for assistance.</p>
+        <h2>Vulnerability / severity data for third-party titles
+        </h2>
+        <p>We now include severity data for top third-party software packages. We are gradually adding more titles.&#160;Refer to this article to get the latest information.</p>
+        <h3>List of supported vulnerability / severity data for these third-party titles:</h3>
+        <ul>
+            <li>Adobe Acrobat Reader</li>
+            <li>Adobe Air</li>
+            <li>Foxit Reader</li>
+            <li>Google Chrome</li>
+            <li>Microsoft Edge</li>
+            <li>Mozilla Firefox</li>
+            <li>Oracle Java</li>
+        </ul>
+        <p>You can now use the Patch by Severity policy to update to the latest version.</p>
+        <h2>Where does Automox get its severity data?</h2>
+        <ul>
+            <li>Automox uses the National Vulnerability Database (NVD) to get severity data for every CVE. This data us updated every 24 hours.</li>
+            <li>We pull the provided security data for each supported operating system. The operating system data consists of the following data points:<ul><li>The package the CVE relates to.</li><li>The CVEs associated with them.</li><li>Other OS specific data.<ul><li>For Ubuntu and Debian, we use the NVD severity score as the “true severity score.”</li><li>For Red Hat and Rocky Linux, we use the provided severity score if it is given, and the NVD score if it is absent.</li></ul></li></ul></li>
+        </ul>
+        <h2><strong>Related Topics</strong>
+        </h2>
+        <ul>
+            <li>
+                <MadCap:xref href="How_to_Ensure_You_re_Really_Patching_What_You_Think.htm">How to Ensure You're Really Patching What You Think</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="macOS_Best_Practices__Patch_Notifications___CVEs.htm">macOS Best Practices: Patch Notifications &amp; CVEs</MadCap:xref>
+            </li>
+        </ul>
+    </body>
+</html>

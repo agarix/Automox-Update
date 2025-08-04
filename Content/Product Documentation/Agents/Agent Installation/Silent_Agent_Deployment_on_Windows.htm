@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Explains how to deploy the [%=General.ProductName%] agent silently using the MSI installer or PowerShell." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Silent Agent Deployment on Windows</h1>
+        <p>You can silently deploy the Automox agent on Windows devices using the Windows installer .msi file. You can deploy to a destination group that can also be under a parent group. Follow the command examples to ensure desired group deployment.</p>
+        <h2>Deploying to a destination group using Windows installer</h2>
+        <ol start="1">
+            <li>Download the latest Automox agent from this link: &#160;<a href="https://console.automox.com/installers/Automox_Installer-latest.msi" rel="nofollow">https://console.automox.com/installers/Automox_Installer-latest.msi</a>.</li>
+            <li>To execute the installer, modify the command to use your access key. The access key can be retrieved in the console from the <strong>Settings → Secrets &amp; Keys&#160;</strong>tab, or from the <strong>Add Devices</strong> dialog. &#160;(Replace "YOUR_ACCESS_KEY" in the command with your access key.)</li>
+            <li>To ensure the agent deploys to a specific group, add the group name in following format: (GROUP="Default Group/Group Name")</li>
+        </ol>
+        <h3>Installer command</h3>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">msiexec.exe /i "Automox_Installer-latest.msi" /qn /norestart ACCESSKEY=YOUR_ACCESS_KEY GROUP="Default Group/My Destination Group"</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h3>Example 1</h3>
+        <p>In the following example command, the access key is 12345-789-0 and the destination group is "Accounts Payable".</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">msiexec.exe /i "Automox_Installer-latest.msi" /qn /norestart ACCESSKEY=12345-789-0 GROUP="Default Group/Accounts Payable"</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h3>Example 2</h3>
+        <p>In the following example command, the access key is 12345-789-0 and the destination group is "Accounts Payable", which is under the parent group "Finance".</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">msiexec.exe /i "Automox_Installer-latest.msi" /qn /norestart ACCESSKEY=12345-789-0 GROUP="Finance/Accounts Payable"</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <br />
+        <div class="info"><strong>Note</strong>: Your destination group can either be under a parent group or stand alone. A parent group parameter is only required if the destination group is under a parent group. If you do not specify a parent group, it ignores the group assignment.</div>
+        <h2>Deploying to a destination group using PowerShell</h2>
+        <p>You can also deploy using PowerShell. Use the following command:</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">Start-Process 'msiexec.exe' -ArgumentList '/i "Automox_Installer-latest.msi" /qn /norestart ACCESSKEY=YOUR_ORGANIZATION_KEY GROUP="Default Group/My Destination Group"'</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p>The requirements related to the "GROUP=" parameter for the installer also apply here. You must specify a parent group or no group assignment will follow. See also <MadCap:xref href="Bulk Agent Deployment/Deploying_the_Automox_Agent_in_Bulk.htm" title="Deploying the Automox Agent in Bulk &gt; Deploying on Windows Using PowerShell" alt="Deploying on Windows Using PowerShell">Deploying the Automox Agent in Bulk</MadCap:xref>.</p>
+    </body>
+</html>

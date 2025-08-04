@@ -1,0 +1,699 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Explains the [%=General.ProductName%] Device Details page." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Device Details</h1>
+        <p>From the <strong>Device Details</strong> view, you can see detailed device information, restart, rescan and run policies on a device.</p>
+        <h2>Viewing Details for a Device</h2>
+        <p>To view details for an individual device in your organization, follow these steps:</p>
+        <p>
+            <img src="../../Resources/Images/device-name-hover.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <ol start="1">
+            <li>Click <strong>Devices</strong> to view the list of devices for your organization.</li>
+            <li>Hover over the Device Name of the device that you want to view details for. If a Custom Name has been created for this device, you will see that listed here.</li>
+            <li>Click the name to open the details view for that device.</li>
+        </ol>
+        <h2>Restarting a Device</h2>
+        <p>You can restart a device from the Automox console. Follow these steps:</p>
+        <ol start="1">
+            <li>Click <strong>Devices</strong> to select the device that you want to restart.</li>
+            <li>Hover over the Device Name and click to open the Device Details.</li>
+            <li>Click <strong>Restart&#160;Device</strong>.</li>
+            <li>A warning message appears that allows you to cancel or select Restart Device.</li>
+        </ol>
+        <h2>Scanning a Device</h2>
+        <p>You can scan a device from the Automox console. Follow these steps:</p>
+        <ol start="1">
+            <li>Click <strong>Devices</strong> and find the device that you want to scan.</li>
+            <li>There are two ways to scan a device:<ul><li>From the Devices page, select the device and click <strong>Actions → Scan</strong>.</li><li>Hover over the Device Name and click to open the Device Details page. Click <strong>Scan Device</strong>.</li></ul></li>
+            <li>A notification appears in the console that a scan request was sent.</li>
+        </ol>
+        <h2>Deleting a Device</h2>
+        <p>You can delete (or remove) a device from the Automox console. Follow these steps:</p>
+        <ol start="1">
+            <li>Click <strong>Devices</strong> to find the device that you want to delete.</li>
+            <li>There are two ways to delete a device:<ul><li>From the Devices page, select the device and click <strong>Actions → Remove</strong>.</li><li>Hover over the Device Name and click to open the Device Details page. Click <strong>Delete Device</strong>.</li></ul></li>
+            <li>A warning message appears that allows you to cancel or select <strong>Remove Device</strong>.</li>
+        </ol>
+        <div class="info"><strong>Note:</strong> If you remove a device that is offline, when it checks in again it will uninstall. The status will show as uninstall pending.</div>
+        <h2>Device Details Fields</h2>
+        <p>The following describes the fields in the Device Details view.</p>
+        <h3>Info</h3>
+        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p>Info Fields</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p>Description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Hostname</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Permanent device name.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Custom Name</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Name assigned to the device. You can edit this by typing directly into the field. Click <strong>Save Device</strong> to save any changes.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Exclude From Reports</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This shows if this device has been marked as an exception and is therefore excluded from statistics, but is still monitored. To do this, switch the Exclude From Reports toggle on or off.</p>
+                        <p><strong>Note</strong>: Devices that are excluded from reports are not included in the outstanding patch count on the Dashboard page.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Exclude Remote Control Consent</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Configure the consent required for remote control sessions.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Group</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This lists the group this device is assigned to. This can be modified from here.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Tags</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>This field lists Tags that are applied to this device. Tags can be added or edited here.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>System Details</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <ul>
+                            <li>ID (Server ID number)</li>
+                            <li>UUID (universally unique identifier)</li>
+                            <li>FQDN (Fully qualified domain name.)</li>
+                            <li>Serial Number (Serial number for this device.)</li>
+                            <li>OS (OS version.)</li>
+                            <li>CPU (CPU model of this device and clock speed.)</li>
+                            <li>RAM (Size of system memory.)</li>
+                            <li>Hard Disk (What kind of storage device is in use, its size, and the free space available.)</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Automox Agent Version</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>The version of the Automox Agent installed on the device.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Last User Login</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>The login name of the user who logged into the Device.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Network</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <ul>
+                            <li>Public IP (Public IP address of the device.)</li>
+                            <li>Device (Name of the network device.)</li>
+                            <li>MAC (Mac address for this device.)</li>
+                            <li>Type (The type of interface.)</li>
+                            <li>Private IP (IP address of the device.)</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Active Directory - Organizational Unit</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>The active directory OU filter path, if configured.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Save Device</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>If you make changes in the Info section, such as Display Name, Group, or Tags, click the Save Device button to confirm.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Device Status</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This shows the overall state of the device. This can be: initializing, needs restart, refreshing, or installing.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Connection Status</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>This shows if this device has checked in with the Automox API within the last two minutes.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Policy Status</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>The policy status of the device can be unmanaged, compliant, or non-compliant (which refers to a policy being scheduled or has failed).</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Last System Scan</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>The time the device was last refreshed. Then the number of hours that have passed since that date and time. If the number is in red, it’s a sign that this device has not been scanned recently and it might be out-of-date. See Note* below.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Next Patch Window</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>The scheduled time for the next patch on this device.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Last Disconnected</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>The date and time that a device last disconnected from the platform.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Restart After Patch</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This indicates if the device will be restarted after patching or when required.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>Device Requires Restart</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body2">
+                        <p>If the device needs to be restarted to complete patching, this shows Yes.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <div class="warning"><strong>Note</strong>: The <strong>Last System Scan</strong> can periodically be out of sync until the scanning process completes. The timestamp is updated when a scan is initiated and when it ends.</div>
+        <h3>Device Logs</h3>
+        <p>The <b>Device Logs</b> section displays additional information from recent device scans.</p>
+        <p>This section is collapsed by default. To expand it, click the arrow to the right of the section header.</p>
+        <p>
+            <img src="../../Resources/Images/device-logs.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <h4>Viewing Logs</h4>
+        <p>If the device has been scanned within the past 30 days, a table appears with the following columns:</p>
+        <ul>
+            <li><b>Data</b>: See <MadCap:xref href="#Type">Type of Data</MadCap:xref></li>
+            <li><b>Policy ID</b>: The policy associated with the scan, if applicable</li>
+            <li><b>Execution Time</b>: The timestamp of when scan occurred</li>
+            <li><b>Full Logs</b>: The detailed log information for each scan, if available</li>
+        </ul>
+        <h4><a name="Type"></a>Type of Data</h4>
+        <p>The <b>Data</b> column lists the log type that was recorded. The following types can be included here:</p>
+        <ul>
+            <li>Get Software</li>
+            <li>Get System Details</li>
+            <li>Evaluation of Worklets</li>
+            <li>Remediations</li>
+            <li>Modify OS Auto Update</li>
+            <li>Reboot</li>
+            <li>Needs Reboot</li>
+        </ul>
+        <p>You can expand each entry in the <b>Full Logs</b> column to view the complete log. If the log content exceeds a certain length, a <b>Show More</b> link appears to expand the full output. This behavior matches the CVE column in the Pre-Patch report.</p>
+        <h4>Scan History and Availability</h4>
+        <p>Logs are displayed for the most recent four scans, as long as those scans occurred within the last 30 days.</p>
+        <div class="info"><b>Note</b>: <MadCap:variable name="General.ProductName" /> retains scan log data for up to 30 days. If any of the last four scans fall outside this 30-day window, log information for those scans will not be available.</div>
+        <p>Additionally, a shortcut link to Device Logs is available from the <b>Full Logs</b> column in the <b>Activity Log Report</b>.</p>
+        <h3 id="DeviceDetails-DeviceStatus">Device Status</h3>
+        <p>From the <strong>Device Details</strong> view, the device, connection, and policy status icons provide a quick status of the device. The following lists the status of a device and the description for that status.</p>
+        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p>Status</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p>Description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Initializing</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This indicates that the device has successfully connected to Automox, but has not yet completed the first system scan.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Installing</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>This indicates that a patch is being installed.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Uninstalling</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>The device is currently uninstalling software, per a policy.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Needs Restart</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>The device has installed patches or software that require a restart before installation can be fully completed.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Rebooting</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This is shown when we restart a system due to patching or when the admin initiates a restart through the console.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Refreshing</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>The device is updating previously scanned software and hardware configurations or a worklet is being tested.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Ready</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>There is no command impacting the device.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Not Ready</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>This status is shown when the device is disconnected.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                        <p>Pending</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+                        <p>This status can indicate that a command is being run on the device or that a worklet is in the process of executing on the device.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Connection Status</h3>
+        <p>The following lists the connection status of a device and the description for that status.</p>
+        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p>Connection Status</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p>Description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Connected</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>A Connected connection status indicates that the agent has checked in with the Automox API within the last two minutes.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>Disconnected</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body2">
+                        <p>If the Automox agent installed on a device hasn't checked into the Automox API within the last two minutes, the device's connection status is set to Disconnected.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Policy Status</h3>
+        <p>The following lists the policy status and the description for that status.</p>
+        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p>Policy Status</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p>Description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Unmanaged</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This device has been added to Automox, but the group it is in does not have any policies assigned to it.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Compliant</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Policies with a status of Compliant have no scheduled updates or failed remediations.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                        <p>Non-Compliant</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+                        <p>Policies with a status of Non-Compliant are either scheduled or have failed remediation. While the definition of "remediation" can differ depending on the policy type, this generally means that the policy has failed to successfully install new patches and manual intervention may be required.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Troubleshooting</h2>
+        <p>The Troubleshooting section of the Device Details page provides a quick method to check the compatibility of the device.</p>
+        <p>
+            <img src="../../Resources/Images/device-details-troubleshoot.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p>Troubleshooting</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p>Description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Connection</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This section shows a check that runs when the page is loaded. If the device can connect to port 443, and an SSL connection to <a href="http://automox.com" rel="nofollow">http://automox.com</a> , the device is considered connected to the system. The status of the last scan is listed here. If the scan fails, review the connections before trying again.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Compatibility</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>After a device is connected, Automox runs a compatibility check to ensure that we can successfully manage the device. Each operating system has its own compatibility checklist. For more details about what is passing or failing on the compatibility check, click the <strong>Review Checklist </strong>link to view the Compatibility Checklist.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                        <p>Compatibility Checklist</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+                        <p>The checklist can show agent or connectivity issues.</p>
+                        <p>Click <strong>Check Device</strong> to initiate a new scan of the device.</p>
+                        <p><strong>Note</strong>: The check is not a requirement for agent installation. For the example of Linux devices, if there is enough space to install updates, we will still attempt to install an update.</p>
+                        <p>For more information, see <a href="https://help.automox.com/hc/en-us/articles/5872199408404-Device-is-Not-Compatible" rel="nofollow">Device is not Compatible</a>.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Associated Policies</h2>
+        <p>From the Associated Policies section of the device details page, you can quickly view which policies the device is assigned to and what the schedule is. From here you can manually start the policy run outside of the schedule or manage the policies of the default group.</p>
+        <p>
+            <img src="../../Resources/Images/assoc-policies.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p>Associated Policies</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p>Description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Policy Name</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>User-defined policy name</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Update Schedule</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>This is the text description of when the policy will update.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Schedule Time</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>The time at which the policy is scheduled to execute.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Next Patch Window</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>The date and time for the next patch window for that policy.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Run On This Device</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Click to immediately run the policy. </p>
+                        <p><strong>Important:</strong> This will run the policy for the selected device. This will have no effect on disconnected devices.</p>
+                        <p><strong>Note</strong>: You must confirm the action in the Run Policy window for it to proceed.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>Manage Policies of the Default Group</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body2">
+                        <p>Click the Manage Policies bar under the list of policies to manage which policies associated with the current group.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>The following icons are used on the Device Details page.</p>
+        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p>Associated Policies Icons</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p>Description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p> <img src="../../Resources/Images/icon-compliant.png" /></p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>The policy has no items pending to install. The policy will not run at next scheduled runtime.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>
+                            <img src="../../Resources/Images/icon-pending.png" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>The policy has items to install upon the next run (whether scheduled or manual).</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                        <p>
+                            <img src="../../Resources/Images/icon-noncompliant.png" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+                        <p>The last time the policy ran, it encountered an error. Error information can be found in the activity log or needs attention reports. The status will be cleared upon a successful execution of the policy.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Software Associated with a Device</h2>
+        <p>The software associated with an individual device is listed at the bottom of the Device Details page. From here you can search for specific software and carry out bulk actions on installed software.</p>
+        <p>Use the search box to find specific software that you want to take action on. This search is comparable to Enhanced Device Search, see <MadCap:xref href="Filtering_and_Searching_on_the_Devices_Page.htm">Filtering and Searching on the Devices Page</MadCap:xref>.</p>
+        <p>
+            <img src="../../Resources/Images/device-details-software.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p>Column Name</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p>Description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Software Name</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Name of the software associated with this device.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Status</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Status of the software on this device. Possible values: update available, installed</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Current Version</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Version of the software installed.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Latest Version</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Version of the software that is available for installation.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Severity</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This shows the CVE score severity level for the particular software package. When the severity is highlighted in blue, click to view the associated CVE.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>Needs Restart</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body2">
+                        <p>This shows if a restart is required for this software update.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Bulk Actions</h3>
+        <p>You can select one or more software packages and select actions from the Bulk Actions drop-down menu.</p>
+        <p>See also <MadCap:xref href="Configuring_Software_on_a_Device.htm">Configuring Software on a Device</MadCap:xref>.</p>
+        <ul>
+            <li>Roll Back</li>
+            <li>Patch</li>
+            <li>Ignore</li>
+            <li>Defer</li>
+            <li>Use Global Settings</li>
+        </ul>
+        <p>
+            <img src="../../Resources/Images/device-details-swbulk.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="Managing_Devices.htm">Managing Devices</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Device_Explorer.htm">Device Explorer</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="../Console Overview/What_the_Statuses_Found_in_the_Automox_Console_Mean.htm">What the Statuses Found in the Automox Console Mean</MadCap:xref>
+            </li>
+            <li><a href="https://community.automox.com/community-worklets-12/worklet-hostname-standardization-1231" rel="nofollow">Worklet - Hostname Standardization</a>
+            </li>
+        </ul>
+    </body>
+</html>

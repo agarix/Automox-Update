@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Explains how to install and configure the [%=General.ProductName%] agent for Apple Silicon devices." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Install and Configure Automox Agent for Apple Silicon Devices</h1>
+        <p>Apple Silicon devices require additional configuration to install macOS updates.</p>
+        <p>If enabled, the Automox agent creates a new local service account to install macOS patches. This service account is created on Apple Silicon devices only; Intel devices do not require this account and are excluded.</p>
+        <h2><a name="One-time"></a>One-time Action Required</h2>
+        <p>For Apple Silicon devices, Automox creates a local account that needs to be granted secure token rights by an existing secure token enabled account.</p>
+        <p>Apple restricts patching of rebootable macOS updates on Apple Silicon devices to administrator accounts that have secure token access. Other functionality, such as third-party software updates and custom policies, should continue to work as expected without the Automox service account.</p>
+        <p>There are two ways to grant Automox service account secure token access, beginning with the Agent 35 release. You can use the command line option or the user prompt option. These are both described here.</p>
+        <h3><a name="Command"></a>Command Line Option</h3>
+        <p>To create the Automox service account and grant it secure token access, run this command on the device (Apple Silicon devices only):</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">sudo /usr/local/bin/amagent --adminuser '&lt;admin_username&gt;' --adminpass '&lt;admin_password&gt;'</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p>Replace &lt;admin_username&gt; and &lt;admin_password&gt; with an existing user account that has administrator privileges and secure token access.</p>
+        <div class="info"><b>Note</b>: Bash/zsh special characters need to be accounted for. For example, passwords using single quotes need to be escaped (such as: 'pass\'word').</div>
+        <p>An exit code of <code>0</code> indicates the command completed successfully. The full list of exit codes can be found in the <MadCap:xref href="#Command2">Command Line Responses</MadCap:xref> table.</p>
+        <p>All macOS updates can now be installed using the agent. The Automox console will update to show the device is fully compatible after the next device scan.</p>
+        <p>This is a one-time action. If the Automox service is deleted, this command will need to be run again.</p>
+        <p>If needed, the following command can be used to check the secure token status of the Automox service account:</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">sudo sysadminctl -secureTokenStatus _automoxserviceaccount</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h3><a name="Command2"></a>Command Line Responses</h3>
+        <table class="TableStyle-ax_tables" cellspacing="0" style="mc-table-style: url('../../../Resources/TableStyles/ax_tables.css');">
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">Exit Code</th>
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">Standard Error</th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">0</td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">N/A</td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">The command completed successfully and is enabled for macOS system patching.</td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">1</td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">Given account password invalid</td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">An incorrect password was entered to the <code>--adminpass</code> flag</td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">2</td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">Given account not found</td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">The local account provided does not exist on this device.</td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">3</td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">Given account is not properly credentialed</td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">The account provided does not have admin privileges and secure token access.</td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">4</td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">Automox service account does not exist, retry command. If issue persists, contact Automox support.</td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">Internal error within the agent.</td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">5</td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">Automox service account is disabled. SecureToken cannot be granted.</td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">The Automox service account is disabled.</td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">6</td>
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">Command not compatible on this platform.</td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1">The command to grant secure token was run on a non-Apple Silicon device.</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3><a name="User"></a>User Prompt Option </h3>
+        <p>The user prompt is disabled by default. To enable the prompt, run this command on the device (Apple Silicon devices only):</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">sudo /usr/local/bin/amagent --automox-service-account enable 
+sudo /usr/local/bin/amagent --automox-user-prompt enable </MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p>This will enable the local user prompt.</p>
+        <p>The next time the device is scanned (configurable in the Automox Console), the service account will be created. If the local user has administrator privileges and secure token access, they will be prompted to enter their password.</p>
+        <p><b>This is a one-time action</b>. After you enter your password, the Automox service account is granted secure token access to install current and future macOS patches.</p>
+        <div class="info"><b>Note</b>: If you ignore or dismiss the prompt, you will continue to be prompted every time the device is scanned by the agent (minimum every 24 hours).</div>
+        <p>All macOS updates can now be installed using the agent. The Automox console will update to show the device is fully compatible after the next device scan.</p>
+        <ul>
+            <li>To disable the user prompt, run the following command:</li>
+        </ul>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">To disable the creation of an Automox managed service account, run the following command:</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <ul>
+            <li>To disable the creation of an Automox managed service account, run the following command:</li>
+        </ul>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">sudo /usr/local/bin/amagent --automox-service-account disable</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h2>Automox Service Account Details</h2>
+        <p>The Automox service account is only used on Apple Silicon Mac devices. However, the account is not created by default.</p>
+        <h3>Account Name</h3>
+        <p>The Automox service account is created with the following name:</p>
+        <ul>
+            <li><strong>Short name:</strong> _automoxserviceaccount</li>
+            <li><strong>Long name:</strong> Automox Service Account</li>
+        </ul>
+        <p>This account is visible on the pre-boot screen and in the user accounts table. Apple <a href="https://support.apple.com/en-us/HT203998" rel="nofollow">does not allow&#160;</a>FileVault accounts to be hidden on the initial login screen.</p>
+        <h3>Account Password</h3>
+        <p>When the Automox agent creates the account, the agent also generates a password for the account.</p>
+        <p>The randomly generated password is a minimum of 32 characters long, including alphanumeric characters and special characters.</p>
+        <h3>Password Security</h3>
+        <p>The service account password is randomly generated and is unique to that device. No two devices have the same password.</p>
+        <p>Automox encrypts the password and stores it locally on the device. No credentials are stored in the Automox cloud; the password never leaves the device.</p>
+        <h3>Password Rotation</h3>
+        <p>Automox rotates the password after every software update and also when the password is used.</p>
+        <p>A random password is generated for each device.</p>
+        <MadCap:snippetBlock src="../../../Resources/Snippets/submit-request.flsnp" />
+        <h2>Apple Silicon Onboarding</h2>
+        <p>When Apple Silicon Mac devices are not properly configured, a banner appears in the console. Follow the instructions to automatically create a worklet.</p>
+        <p>
+            <img src="../../../Resources/Images/M1_banner.png" style="width: 974px;height: 54px;" />
+        </p>
+        <div class="info"><b>Note</b>: <ul><li>
+					This solution is not for organizations that do not give their end users admin rights.
+				</li><li>
+					You must not already have a worklet with the same name as the one automatically generated through the onboarding process.
+				</li></ul></div>
+        <p>If you choose to manually configure devices, you will be guided to this article and you will need to follow the instructions according to your preferred method. See <MadCap:xref href="#One-time">One-time Action Required</MadCap:xref>.</p>
+    </body>
+</html>

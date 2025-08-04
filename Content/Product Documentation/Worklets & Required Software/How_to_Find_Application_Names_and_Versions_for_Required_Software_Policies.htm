@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Instructions for obtaining information you need to set up required software policies for your operating system." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>How to Find Application Names and Versions for Required Software Policies</h1>
+        <p>With these instructions you can obtain the information you need to set up required software policies for your operating system:</p>
+        <h2>Windows</h2>
+        <ul>
+            <li>Install the desired software on a test machine.</li>
+            <li>Navigate to the Control Panel and select <strong>Programs and Features.<br /><br /><img src="../../Resources/Images/win-programs-features.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></strong></li>
+        </ul>
+        <ul>
+            <li>Use the example here to find the values from your machine and fill in the <strong>Package Name</strong> and <strong>Version</strong> in the Automox console.</li>
+        </ul>
+        <h2>macOS</h2>
+        <ul>
+            <li>Install the desired software on a test machine.</li>
+            <li>Navigate to the Applications folder and find the application you installed.</li>
+            <li>Right click on the application and select <strong>Get Info.</strong><br /><br /><img src="../../Resources/Images/macos-app-getinfo.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li>
+            <li>Use the values circled below to fill in the <strong>Package Name</strong> and <strong>Version</strong> field.<br /><br /><img src="../../Resources/Images/macos-package-version.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /><br /></li>
+        </ul>
+        <h2>Linux</h2>
+        <ul>
+            <li>Install the desired software on a test machine</li>
+            <li>Based on your version of Linux, use the respective command listed here to show your installed software:<ul><li><strong>Debian</strong>: <code>aptitude search ~i --disable-columns -V -F "%p|%v"</code>&#160;</li><li><strong>CentOS</strong>: <code>repoquery --plugins --pkgnarrow=installed -a --qf "%{name}.%{arch}|%{version}-%{release}"</code>&#160;</li><li><strong>Fedora</strong>: <code>dnf repoquery --installed --qf "%{name}.%{arch}|%{version}-%{release}"</code>&#160;</li><li><strong>RedHat</strong>: <code>repoquery --plugins --pkgnarrow=installed -a --qf "%{name}.%{arch}|%{version}-%{release}”</code>&#160;</li><li><strong>Amazon</strong>: <code>repoquery --pkgnarrow=installed -a --qf "%{name}.%{arch}|%{version}-%{release}"</code>&#160;</li><li><strong>SUSE</strong>: <code>zypper se -is | egrep "^. | " | grep -v "S | Name" | awk '{OFS = "|"; ORS = "\n"; NAME=$3"."$9; VERSION=$7; &#160;print NAME,VERSION;}'</code></li></ul></li>
+            <li>Use the values circled in this example to fill in the <strong>Package Name&#160;</strong>and <strong>Version</strong> in the Automox console.<br /><br /><img src="../../Resources/Images/linux-package-version.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /><br /></li>
+        </ul>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="../Policies/Creating_a_Required_Software_Policy.htm">Creating a Required Software Policy</MadCap:xref>
+            </li>
+        </ul>
+    </body>
+</html>

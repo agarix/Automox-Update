@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
+    </head>
+    <body>
+        <h1>Why a Patch Changed From Critical to High</h1>
+        <p>Why does a Critical patch I just installed now show a severity of High?</p>
+        <p>Severity services have migrated to CVSSv3 scoring. These are based on the CVSS as described in the <a href="https://nvd.nist.gov/vuln-metrics/cvss" rel="nofollow">National Vulnerability Database</a>. The scoring range for <strong>Critical</strong> was previously defined by Automox as from 7.0–10.0. The change from v2 to v3 ranges are as follows:</p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/Severity Scoring.flsnp" />
+        <p>When considering the migration to v3 scoring, there are a few factors that can cause CVE scores to change:</p>
+        <ul>
+            <li>Scores can change anytime as more information is learned and analyzed by the vendor.<br />For example, a score can be Critical today, High next week, and Low next year.</li>
+            <li>Scores can change when a CVE is updated or the Automox agent reports a severity change. In this migration they changed by following the current standards for vulnerability scoring.</li>
+            <li>After this update, you may see the severity of previously applied patches also change, if they had a score above 7 but below the cutoff for Critical.</li>
+        </ul>
+        <div class="info"><b>Note</b>: When the severity level for a package is not scored and provides insufficient information, the console displays the score <strong>Unknown</strong></div>
+        <br />
+        <div class="info"><b>Note</b>: If an Ubuntu, Red Hat, or Debian-related software package does not have any CVEs associated with it, Automox shows the severity score <strong>No Known CVEs</strong>.If an Ubuntu, Red Hat, or Debian-related software package does not have any CVEs associated with it, Automox shows the severity score <strong>No Known CVEs</strong>.</div>
+    </body>
+</html>

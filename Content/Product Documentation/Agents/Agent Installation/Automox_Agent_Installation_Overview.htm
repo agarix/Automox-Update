@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="An overview on the installation of the [%=General.ProductName%] agent." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Automox Agent Installation Overview</h1>
+        <p>Before you can use the Automox console to manage devices in your organization, you need to install the Automox agent. This small-sized application runs in the background on each device. With this agent, your systems are kept up-to-date with all critical patches.</p>
+        <p>You can install the agent through an onboarding wizard, which uses unique identifiers to detect the devices that belong to your organization. After the agent is installed, you can set up an initial policy and schedule. With the first system completely setup, hardware and software inventory of your system is visible from the Devices page. You can continue adding devices right from the Dashboard (see Related Topics).</p>
+        <div class="info"><strong>Note</strong>: For agent releases, we follow industry standards for major, minor, and patch. We provide release notes for all major and minor releases.  See also <MadCap:xref href="../../Release Notes/Agent Release Notes/Agent_1_41_Release_Notes.htm">Agent 1.41 Release Notes</MadCap:xref>.</div>
+        <h2>Installing the Automox Agent</h2>
+        <p>Before you can use the Automox console to manage devices in your organization, you need to install the Automox agent. See also <MadCap:xref href="../Agent Requirements/Supported_Operating_Systems.htm">Supported Operating Systems</MadCap:xref>.</p>
+        <MadCap:snippetBlock src="../../../Resources/Snippets/Prerequisites.flsnp" />
+        <p>You can use the onboarding wizard to install the agent. The installation steps depend on the operating system of the device you are installing to.</p>
+        <ul>
+            <li>To install on a Windows device, use the MSI installer method.</li>
+            <li>To install on a macOS device, you can use either the installer method or the command line method.</li>
+            <li>To install on Linux, use the command line method.</li>
+        </ul>
+        <h2>Using the MSI Installer Method to Download and Install the Automox Agent</h2>
+        <p>You can use this method to install the agent on a Windows device.</p>
+        <p>
+            <img src="../../../Resources/Images/add-device-win.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <p>After you register for an account, click <strong>Add Devices</strong>.</p>
+        <ol start="1">
+            <li>From the drop-down menu, select <strong>Windows</strong>.</li>
+            <li>Click <strong>Download Installer</strong>. The MSI installer file is automatically downloaded to your device.</li>
+            <li>Save the file to an appropriate location on your device.</li>
+            <li>Copy the access key.</li>
+            <li>Double-click on the MSI installer file and follow the steps of the installer. The console now scans for your device.</li>
+            <li>You can now select the type of patching to apply or complete this step later.</li>
+        </ol>
+        <h2>Using the Installer Method to Download and Install the Automox Agent</h2>
+        <p>You can use this method to install the agent on a macOS device.</p>
+        <p>
+            <img src="../../../Resources/Images/add-device-mac-install.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <ol start="1">
+            <li>After you register for an account, click <strong>Add Devices</strong>.</li>
+            <li>From the drop-down menu, select <strong>macOS</strong>.</li>
+            <li>From the install options, select<strong>&#160;Download Installer</strong>.</li>
+            <li>Click<strong>&#160;Download Installer</strong>.</li>
+            <li>Save the package.</li>
+            <li>Copy the access key.</li>
+            <li>Double-click the installer file and follow the steps of the installer.</li>
+            <li>Agree with the software license agreement.</li>
+            <li>Enter the access key and click <strong>Continue</strong>.</li>
+            <li>Select the destination of the software.</li>
+            <li>Click <strong>Install</strong>.</li>
+        </ol>
+        <h2>Using the Command Line Method to Download and Install the Automox Agent</h2>
+        <p>You can use this method to install the Automox agent on a macOS or Linux device.</p>
+        <p>
+            <img src="../../../Resources/Images/add-device-linux.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <ol start="1">
+            <li>After you register for an account, click <strong>Add Devices.</strong></li>
+            <li>From the drop-down menu, select macOS or Linux, depending on your device.</li>
+            <li>For macOS, select from the install options <strong>Run Command</strong>.</li>
+            <li>Copy the command line script and run it in a terminal to install the agent installer package.</li>
+        </ol>
+        <div class="info"><strong>Note: </strong>The default policy is automatically applied. See <MadCap:xref href="../../Policies/Managing_Policies.htm">Managing Policies</MadCap:xref> for more information about creating and editing policies.</div>
+        <h2 id="AutomoxAgentInstallationOverview-SettinganInitialPatchingSchedule">Setting an Initial Patching Schedule</h2>
+        <p>You can set a schedule immediately after installing the Automox agent.</p>
+        <p>After you follow Installing the Automox Agent, you can schedule patching. The patching schedule determines when patching updates should be performed on the device.</p>
+        <p>From the create or edit policy page, follow these steps. For more information about policies, see <MadCap:xref href="../../Policies/Managing_Policies.htm">Managing Policies</MadCap:xref>.</p>
+        <ol start="1">
+            <li>Ensure that the <strong>Policy Status</strong> is <strong>Active</strong>.</li>
+            <li>From the <strong>Schedule</strong> area, click <strong>Select All</strong> to automatically preselect all months, weeks, and days.</li>
+            <li>To fine tune the schedule, deselect any specific fields that do not apply to the schedule you want.</li>
+            <li>In the <strong>Scheduled Start Time</strong> field, set the time that the update should start. You can select either local time, so that each device is patched according to the time zone of their device or UTC. This means that all devices in the group are patched at the same universal time, regardless of time zone.</li>
+            <li>Decide how you want the device to patch if a configured patch time is missed. By selecting the checkbox, the device will patch the next time it checks in.</li>
+            <li>Verify the settings in the calendar preview pane.</li>
+            <li>Click <strong>Create Policy</strong> or <strong>Save Policy</strong> to confirm.</li>
+        </ol>
+        <div class="info"><strong>Note</strong>: Patching occurs either at the local time zone of the machine being patched or, if selected, the universal time (UTC).</div>
+        <h2>Related Installation Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="../../Device Management/Managing_Your_Inventory.htm">Managing Your Inventory</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Bulk Agent Deployment/Deploying_the_Automox_Agent_in_Bulk.htm">Deploying the Automox Agent in Bulk</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Agent_Command_Line_Guide.htm">Agent Command Line Guide</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Removing_the_Automox_Agent.htm">Removing the Automox Agent</MadCap:xref>
+            </li>
+        </ul>
+    </body>
+</html>

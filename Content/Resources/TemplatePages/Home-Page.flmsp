@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <!-- Google Tag Manager -->
+		<script src="../../Resources/js/custom.js" type="text/javascript">
+		</script>
+        <!-- <script src="../../Resources/js/GTM.js" type="text/javascript">
+        </script>-->
+	
+        <!-- End Google Tag Manager -->
+       <!-- <script src="../../Resources/js/segment.js" type="text/javascript">
+        </script> -->
+        <link href="../Stylesheets/MainStyles.css" rel="stylesheet" type="text/css" />
+        <link href="../../robots.txt" type="text/plain" />
+		
+    </head>
+    <body>
+		<div class="theme-toggle" id="theme-toggle">
+			<button id="light-btn" class="sunIcon active">
+				<img class="sun-inactive" src="../Images/sunday.svg" />
+				<img class="sun-active" src="../Images/suntan.svg" />
+			</button>
+			<button id="dark-btn" class="moonIcon">
+				<img class="moon-inactive" src="../Images/moonlight.svg" />
+				<img class="moon-active" src="../Images/darkmoon.svg" />
+			</button>
+		</div>
+		<button id="myBtn">
+			<img src="../Images/backtop.png" alt="Top" />
+		</button>
+	
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WMZR7S" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        <MadCap:bodyProxy />
+        <div class="footer center">
+            <div class="home-master-page-footer">
+              
+                <div>
+                    <p> Copyright  ©<MadCap:variable name="General.Year" /> <MadCap:variable name="General.CompanyName" /> AUTOMOX is a registered trademark in the US and other countries.</p>
+                </div>
+              
+            </div>
+        </div>
+    </body>
+</html>

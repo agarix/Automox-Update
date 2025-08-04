@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Describes how to use required software policies to distribute and install software to devices." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Using the Required Software Policy</h1>
+        <p>The required software policy is designed to distribute and install software to the devices in your organization. You can deploy software to an unlimited number of systems by uploading an installation binary and setting the package name, installation command, and schedule.</p>
+        <h2>Package name, package version, and installation command</h2>
+        <p>The required software policy needs a <strong>package name</strong>, a <strong>package version</strong>, and <strong>installation command</strong> to properly execute on the system.</p>
+        <div class="info"><strong>Note</strong>: The current file size limit is <strong>1 GB</strong></div>
+        <ul>
+            <li>Package name is used to identify if the software package is installed on the device. In the case of Windows, this is a registry GUID or software package name associated with installed software listed on the "Add/Remove" programs dialog window.</li>
+            <li>Package version is used to identify if the exact package version is installed on the device.</li>
+            <li>Installation command is the command(s) used to install the software package on the device. Typically this is the command that launches the installer in a silent / unattended mode.</li>
+        </ul>
+        <div class="info"><strong>Note</strong>: Automox uses a number of cached third-party package names. These names should be used when configuring a required software policy. Refer to <MadCap:xref href="../Third-Party Software/Naming_Scheme_for_Third_Party_Software_Packages.htm">Naming Scheme for Third-Party Software Packages</MadCap:xref>.</div>
+        <h2>Recognized installers</h2>
+        <p>Currently the required software policy will automatically populate the package name and installation command for the following installation binaries:</p>
+        <ul>
+            <li>MSI (Microsoft Windows installer package)</li>
+            <li>.rpm (RPM Package Manager)</li>
+        </ul>
+        <p>When an installer of one of these types is uploaded to the Automox platform, we will inspect the installer and pre-populate these fields. We will be adding support for additional installer types in upcoming releases.</p>
+        <h2>Working with other types of installers</h2>
+        <p>For .exe, .pkg, .deb and other installer types not listed above, follow these steps to ensure you can populate the <strong>package name&#160;</strong>field of the required software policy:</p>
+        <ol>
+            <li>You will need to install the software on at least one Automox-managed system in your organization. This will allow Automox to be aware of the package (by refreshing the device) and populate the package name with the software name / identifier.</li>
+            <li>When creating the required software policy, you will want to search for the name / identifier of the installed software package, and select it so Automox can determine if the software is installed on a device or not when the policy is executed.</li>
+        </ol>
+    </body>
+</html>

@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
+    </head>
+    <body>
+        <h1>Otto AI FAQs</h1>
+        <p>The following are common questions and answers about Ask Otto, our generative AI script assistant powered by Automox Otto AI™.</p>
+        <h2>General</h2>
+        <table class="TableStyle-ax_tables" cellspacing="0" style="mc-table-style: url('../../Resources/TableStyles/ax_tables.css');">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p><strong>Question</strong>
+                        </p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p><strong>Answer</strong>
+                        </p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Who has access to Ask Otto?</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>The Ask Otto module is included with the purchase of Premium Support or Premium Support Plus services. See <a href="https://www.automox.com/pricing" rel="nofollow">Automox Pricing</a>.</p>
+                        <p>After the global administrator enables Ask Otto for an organization, any user with the organization administrator or organization operator role can access Ask Otto.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Can I disable Ask Otto after it is enabled?</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Not at this time.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Is Otto AI expected to be able to evaluate the code in an existing worklet without having to put the actual code into the prompt?</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>No, for security reasons we don’t automatically send worklet contents through Otto AI.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>Is Otto AI using data from Automox to help formulate its response?</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body2">
+                        <p>No, Otto AI is operating on the training data incorporated in OpenAI models.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Security</h2>
+        <table class="TableStyle-ax_tables" cellspacing="0" style="mc-table-style: url('../../Resources/TableStyles/ax_tables.css');">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p><strong>Question</strong>
+                        </p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p><strong>Answer</strong>
+                        </p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>What is the architecture for how Otto AI is connecting to ChatGPT?</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Otto AI connects to ChatGPT over HTTPS. User input and session identifiers are shared. This can include historical input from the user as well.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>What happens to data entered into Otto AI? Is there anything else or anywhere else data sharing is happening?</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Data is sent to ChatGPT and stored on Automox infrastructure to facilitate providing the Ask Otto feature.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>How do I know that the code generated by Otto AI is good and not malicious?</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>You don’t. Ask Otto is a copilot assistant, and while there are soft guard rails in place to prevent things like deleting System files, we shouldn’t assume they are going to work all the time. There is no data post-processing of responses returned by ChatGPT. Code parts wrapped in markdown code blocks are automatically pasted into the editor.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>What if ChatGPT becomes compromised?&#160; What is the exposure of my data / infrastructure?</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>OpenAI retains data for a period of time before deletion. Your input from that period of time would be exposed through an OpenAI compromise if that dataset was impacted as part of the breach. You should not (and never need to) provide confidential information through Ask Otto.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                        <p>What happens if an Otto AI generated script breaks something in my environment?</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+                        <p>Output from Otto AI should be validated prior to execution on a device. Refer to the agreement that all Otto AI users must accept prior to usage:</p>
+                        <blockquote>
+                            <p><em>The Otto AI interface allows your users to access OpenAI’s ChatGPT through the Automox console to suggest Worklet scripts. Use of Otto AI will comply with the </em><a href="https://openai.com/policies/terms-of-use" rel="nofollow"><em>OpenAI Terms of Use</em></a><em>.</em>
+                            </p>
+                            <p><em>Input to Otto AI is not confidential. Do not include any personal data or proprietary information. Output from Otto AI is Third Party Content for purposes of your agreement with Automox, and it may be subject to third-party licenses, including open source licenses.</em>
+                            </p>
+                            <p><em>The Output is available “AS IS” without warranty or support by Automox or OpenAI. If you do not want to enable Otto AI for your organization, please select “Close.”</em>
+                            </p>
+                        </blockquote>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="About_Ask_Otto.htm">About Ask Otto</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Enabling_and_Using_Ask_Otto_by_Automox.htm">Enabling and Using Ask Otto by Automox</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Short_Guide_to_Ask_Otto_Prompts.htm">Short Guide to Ask Otto Prompts</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="../Policies/Creating_a_Worklet.htm">Creating a Worklet</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="../Worklets &amp; Required Software/How_to_Use_Worklets.htm">How to Use Worklets</MadCap:xref>
+            </li>
+            <li><a href="https://www.automox.com/resources/ask-otto" rel="nofollow">Learn more</a>
+            </li>
+        </ul>
+    </body>
+</html>

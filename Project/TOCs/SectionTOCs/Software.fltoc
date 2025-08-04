@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultToc
+  Version="1">
+  <TocEntry
+    Title="[%=System.LinkedTitle%]"
+    Link="/Content/Product Documentation/Software/Filtering_and_Searching_on_the_Software_Page.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  <TocEntry
+    Title="[%=System.LinkedTitle%]"
+    Link="/Content/Product Documentation/Software/Viewing_Software_Inventory.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  <TocEntry
+    Title="[%=System.LinkedTitle%]"
+    Link="/Content/Product Documentation/Troubleshooting/How_to_Get_a_List_of_Devices_with_a_Specific_Patch_Installed.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  <TocEntry
+    Title="Third-Party Software"
+    Link="/Project/TOCs/SectionTOCs/Third-PartySoftware.fltoc"></TocEntry>
+</CatapultToc>

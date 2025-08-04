@@ -1,0 +1,514 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
+    </head>
+    <body>
+        <h1>ServiceNow Service Graph Connector for Automox</h1>
+        <p>The Service Graph Connector for Automox is an application for the ServiceNow platform that provides configuration management database (CMDB) import capabilities for Automox device data. For teams operating out of or collaborating with ServiceNow, importing Automox devices into ServiceNow can improve the accuracy of your CMDB. This enables improved decision making, asset tracking, incident management, and cross-functional collaboration.</p>
+        <p>The ServiceNow Store page for the app is here: <a href="https://store.servicenow.com/sn_appstore_store.do#!/store/application/f377c1848772b410490f52883cbb353d/" rel="nofollow">Service Graph Connector for Automox</a></p>
+        <h2>Imported Classes</h2>
+        <p>The application imports data for multiple built-in CMDB CI classes, along with the custom Automox Device class.</p>
+        <h3>Computers</h3>
+        <p>Conditional checks against the OS Family and the OS Name define the CMDB class for computer records. The <code>cmdb_ci_computer class</code> is a fallback condition if there is no match for the OS Family and Name.</p>
+        <ul>
+            <li>Personal Computer (<code>cmdb_ci_pc_hardware</code>)</li>
+            <li>Linux Server (<code>cmdb_ci_linux_server</code>)</li>
+            <li>Windows Server (<code>cmdb_ci_windows_server</code>)</li>
+            <li>Computer (<code>cmdb_ci_computer</code>)</li>
+        </ul>
+        <h4>Fields</h4>
+        <ul>
+            <li>Name<ul><li>If the Automox agent obtained the FQDN for the device, it is used in this field. Otherwise, the name value is the name in Automox.</li></ul></li>
+            <li>Serial number<ul><li>Set to the system serial number</li></ul></li>
+            <li>Vendor</li>
+            <li>RAM (MB)</li>
+            <li>Manufacturer</li>
+            <li>Model ID</li>
+            <li>OS Version</li>
+            <li>IP Address<ul><li>The IPv4 address of the primary network adapter</li></ul></li>
+            <li>Operating System<ul><li>The operating system for the device including OS Family, Name, and Version</li></ul></li>
+            <li>CPU name</li>
+            <li>MAC Address</li>
+            <li>Network Adapter<ul><li>First connected network adapter for the system</li><li>Used for CI lookup</li></ul></li>
+            <li>Serial Number<ul><li>Used for CI lookup<ul><li>System (if available)</li></ul></li></ul></li>
+            <li>IP Addresses<ul><li>IPv4 and IPv6 addresses associated with the first NIC of the device</li><li>First public IP address for the device</li></ul></li>
+        </ul>
+        <h3>Network Adapters</h3>
+        <p>The first connected network adapter for each device is imported and used for CI lookup.</p>
+        <ul>
+            <li>Network Adapter (<code>cmdb_ci_network_adapter</code>)</li>
+        </ul>
+        <h4>Network Adapter Fields</h4>
+        <ul>
+            <li>MAC Address</li>
+            <li>Name<ul><li>Set to the network adapter device name (e.g., Network Adapter 1 or en0)</li></ul></li>
+            <li>IP Address<ul><li>Set to the primary IPv4 address of the network adapter</li></ul></li>
+        </ul>
+        <h3>Serial Numbers</h3>
+        <p>Serial numbers for the device are imported, including system serial number if it is available.</p>
+        <ul>
+            <li>Serial Number (<code>cmdb_serial_number</code>)</li>
+        </ul>
+        <h4>Serial Number Fields</h4>
+        <ul>
+            <li>Serial Number</li>
+            <li>Serial Number Type<ul><li><code>system</code></li></ul></li>
+            <li>Absent</li>
+            <li>Valid</li>
+        </ul>
+        <h3>IP Addresses</h3>
+        <p>The IPv4 and IPv6 addresses for the first connected network adapter of the device are imported, along with the first public IP address for the device.</p>
+        <ul>
+            <li>IP Address (<code>cmdb_ci_ip_address</code>)</li>
+        </ul>
+        <h4>IP Address Fields</h4>
+        <ul>
+            <li>Name</li>
+            <li>IP Version</li>
+            <li>IP Address</li>
+            <li>Nic<ul><li>Reference to the primary device network adapter</li></ul></li>
+            <li>Owned by Configuration Item<ul><li>Reference to the device CI</li></ul></li>
+        </ul>
+        <h3>Automox Device</h3>
+        <p>Automox Device is a custom table included with the application that extends the Configuration Item (<code>cmdb_ci</code>) table. The table provides most of the device-specific fields available on an Automox device.</p>
+        <div class="info"><b>Note:</b> Software packages and policy details do not get imported with the current version of the application.</div>
+        <br />
+        <div class="info"><b>Note</b>: Any references to <b>Reboot</b> are now displayed as “Restart” in the Automox Console.</div>
+        <ul>
+            <li>Automox Device (<code>x_aut12_service_gr_automox_device</code>)</li>
+        </ul>
+        <h4>
+            <MadCap:toggler targets="device-fields">Automox Device Fields
+        </MadCap:toggler>
+        </h4>
+        <div MadCap:targetName="device-fields">
+            <table class="TableStyle-ax_tables" cellspacing="0" style="mc-table-style: url('../../Resources/TableStyles/ax_tables.css');">
+                <colgroup>
+                    <col style="width: 340.0px;" />
+                    <col style="width: 340.0px;" />
+                </colgroup>
+                <tbody>
+                    <tr class="TableStyle-ax_tables-Body-Body1">
+                        <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                            <ul>
+                                <li>ID</li>
+                                <li>Organization ID</li>
+                                <li>Configuration Item<ul><li>Reference to the computer CI</li></ul></li>
+                                <li>Last Process Time</li>
+                                <li>Reboot Deferral Count</li>
+                                <li>IP Addresses Public<ul><li>List of public IP addresses</li></ul></li>
+                                <li>Last Logged In User</li>
+                                <li>Deleted</li>
+                                <li>Refresh Interval</li>
+                                <li>Serial Number</li>
+                                <li>IP Addresses Private<ul><li>List of private IP addresses</li></ul></li>
+                                <li>Name</li>
+                                <li>Reboot is Delayed By User</li>
+                                <li>Display Name</li>
+                                <li>Connected</li>
+                                <li>CPU</li>
+                                <li>Vendor</li>
+                                <li>Patch Deferral Count</li>
+                                <li>Server Group ID</li>
+                                <li>OS Family</li>
+                                <li>Reboot is Delayed By Notification</li>
+                                <li>Model ID</li>
+                                <li>Create Time</li>
+                                <li>Device Statue</li>
+                                <li>IP Address</li>
+                                <li>Compliant</li>
+                                <li>Last Disconnect Time</li>
+                            </ul>
+                        </td>
+                        <td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+                            <br />
+                            <ul>
+                                <li>Policy Status</li>
+                                <li>Needs Reboot</li>
+                                <li>Timezone</li>
+                                <li>UUID</li>
+                                <li>Next Patch Time</li>
+                                <li>MAC Address</li>
+                                <li>Model</li>
+                                <li>Pending Patches</li>
+                                <li>Needs Attention</li>
+                                <li>Last Update Time</li>
+                                <li>Custom Name</li>
+                                <li>Service Tag</li>
+                                <li>OS Version ID</li>
+                                <li>Pending</li>
+                                <li>Notification Count</li>
+                                <li>Last Refresh Time</li>
+                                <li>Uptime</li>
+                                <li>OS Name</li>
+                                <li>Reboot Notification Count</li>
+                                <li>RAM</li>
+                                <li>Tags</li>
+                                <li>Connection<ul><li>Reference to the <code>http_connection</code> record used to import the device</li></ul></li>
+                                <li>Is Delayed By User</li>
+                                <li>Manufacturer</li>
+                                <li>OS Version</li>
+                                <li>Agent Version</li>
+                                <li>Is Delayed By Notification</li>
+                                <li>Patches</li>
+                                <br />
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <h2><a name="Installa"></a>Installation</h2>
+        <p>The installation section and the rest of this guide assume that your organization already has a ServiceNow instance. It is common to have sub-production and production instances. If your organization has both, you can test the application before deploying it in production by installing it on your sub-production instance.</p>
+        <h3>Application Dependencies</h3>
+        <p>The application requires the following ServiceNow plugins/applications for installation:</p>
+        <ul>
+            <li>ITOM Licensing (<code>com.snc.itom.license</code>)</li>
+            <li>ITOM Discovery License (<code>com.snc.itom.discovery.license</code>)</li>
+            <li>Contract Management (<code>com.snc.contract_management</code>): 1.0.0</li>
+            <li>Configuration Management (CMDB) (<code>com.snc.cmdb</code>): 1.1</li>
+            <li>CMDB CI Class Models (<code>sn_cmdb_ci_class</code>): 1.30.0</li>
+            <li>System Import Sets (<code>com.glide.system_import_set</code>): 1.0.0</li>
+            <li>Integration Commons for CMDB (<code>sn_cmdb_int_util</code>): 2.6.3</li>
+            <li>CMDB Workspace (<code>sn_cmdb_workspace</code>): 1.0.0</li>
+        </ul>
+        <p>Optionally, you can use the <strong>IntegrationHub ETL</strong> application to modify the default CMDB mappings.</p>
+        <h3>Store Listing</h3>
+        <p>The ServiceNow Store listing is here: <a href="https://store.servicenow.com/sn_appstore_store.do#!/store/application/f377c1848772b410490f52883cbb353d/" rel="nofollow">Service Graph Connector for Automox</a>.</p>
+        <p>Click the <strong>Get</strong> button on the listing to select which ServiceNow instances you want to allow access to the application.</p>
+        <h3>Plugin Dependency Activation</h3>
+        <p>Before you install the application, you must activate the ITOM Discovery License plugins in your instance. The rest of the dependencies are installed as part of the application installation.</p>
+        <p>To check whether these plugins are activated, follow these steps:</p>
+        <ol start="1">
+            <li>Navigate to the <strong>System Plugins List</strong>.</li>
+            <li>Type <code>sys_plugins.list</code> into the filter navigator and press enter.</li>
+            <li>Verify that <strong>ITOM Licensing</strong> and <strong>ITOM Discovery License</strong> are in the list.</li>
+        </ol>
+        <h4>Plugin Installation</h4>
+        <p>To install the ITOM Licensing and ITOM Discovery License plugins if they are not already installed and active, follow the steps described here:</p>
+        <p><strong>ITOM Licensing Installation</strong>
+        </p>
+        <ol start="1">
+            <li>Navigate to the ServiceNow Support portal: <a href="https://support.servicenow.com" rel="nofollow">https://support.servicenow.com</a>.</li>
+            <li>In the menu, select <strong>Activate a Plugin</strong>. This option links to a separate support page.<ul><li>Select your target instance.</li><li>For the plugin, enter <code>ITOM Licensing</code>.</li><li>Set a time for activation from the scheduler and submit.</li></ul></li>
+            <li>To have the activation occur sooner, navigate back to the Support portal.</li>
+            <li>Select <strong>My Open Changes</strong>.</li>
+            <li>Select the Change case for the plugin installation.</li>
+            <li>Update the schedule with a new date and time.</li>
+            <li>Wait for confirmation of successful installation.</li>
+        </ol>
+        <p><strong>ITOM Discovery License Activation</strong>
+        </p>
+        <ol start="1">
+            <li>Navigate to the System Plugin State List. <b>Note:</b> This is different from the previous list.<ul><li>Type <code>v_plugin.list</code> into the filter navigator and press enter.</li><li>Filter the results by ID by entering the ITOM Discovery License plugin ID, <code>com.snc.itom.discovery.license</code>.</li><li>Select the record.</li><li>In the related links for the record, click <strong>Activate</strong>.</li></ul></li>
+        </ol>
+        <h3>Application Installation</h3>
+        <p>After installing and activating the plugin dependencies for the application, you can install the Service Graph Connector for Automox.</p>
+        <ol start="1">
+            <li>Navigate to the <strong>All Applications</strong> list by using the filter navigator.</li>
+            <li>Search for <strong>Service Graph Connector for Automox</strong>.</li>
+            <li>Install the application.</li>
+            <li>Refresh the browser window.</li>
+            <li>You should now see the Service Graph Connector for Automox application menu in the filter navigator.</li>
+        </ol>
+        <p>A background process during the installation executes the <strong>SG-Automox Discovery Source</strong> Fix Script that the application provides. This fix script installs the <strong>SG-Automox</strong> discovery source and registers the discovery source with ITOM Licensing.</p>
+        <h2>Setup</h2>
+        <p>With the application installed on your ServiceNow instance, you are ready to start the setup process. The Setup module includes a Guided Setup experience for setting up the entire application. Start by navigating to the <b>Service Graph Connector for Automox &gt; Setup</b> module using the filter navigator. You should see a Guided Setup that looks similar to the following image:</p>
+        <p>
+            <img src="../../Resources/Images/sg-setup.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <p>The guided setup is a sequential set of steps. Each step in the guided setup provides Embedded Help pages that are viewable via the Embedded Help panel. Note, the embedded help does not display when viewing the modules/pages directly. If you do not see the Embedded Help, click the help (?) icon in the menu bar in ServiceNow to display the help bar.</p>
+        <p>As you complete the guided setup, mark each step as completed to unlock subsequent steps. Some steps can be skipped and are labeled accordingly.</p>
+        <h3>Configure the Connection</h3>
+        <p>The <strong>Configure the Connection</strong> group includes steps to create a new HTTP(S) connection (http_connection) associated with the <code>SG-Automox_Conn_Cred_Alias</code> Connection and Credential Alias, validate the connection and configure its organizations, and assign the Automox devices read-only role that provides access to the Automox Device table.</p>
+        <h4>Configure the API Key</h4>
+        <p>To use the application to query Automox for devices, you need an HTTP(S) connection and an Automox API key. Use a new API key instead of an existing one.</p>
+        <ol start="1">
+            <li>In the Automox console, navigate to <b>Settings &gt; Keys</b> to create a new key.</li>
+            <li>Copy the key and navigate back to ServiceNow.</li>
+            <li>Click the <strong>Create New Connection &amp; Credential</strong> related link to create a new connection.</li>
+            <li>Enter the name for the connection.</li>
+            <li>Paste your new API key.</li>
+            <li>Save the connection.</li>
+            <li>Mark this step as complete.</li>
+        </ol>
+        <p>To stage a connection; but not use it, mark it as inactive after creation.</p>
+        <h4>Validate Connection and Set Organizations</h4>
+        <p>Follow these steps to validate that the application can access the Automox platform using the API key that was provided.</p>
+        <ol start="1">
+            <li>Select a connection using the Connection reference field.<ul><li>You will see a message when the application attempts to retrieve the list of organizations for the connection.</li><li>If you receive an error message or no organizations are returned, try pasting your API key in your connection once more.</li></ul></li>
+            <li>To import Automox devices into the CMDB, select the Automox organizations for those devices.</li>
+            <li>Click the <strong>Copy Organization IDs</strong> button.</li>
+            <li>A message is displayed confirming that the copy action was successful. In the message there is a link to the connection record.</li>
+            <li>Select the <strong>Click here</strong> record link in the message window to navigate to the selected connection record.</li>
+            <li>Paste the organization IDs into the <strong>Organization IDs</strong> field.</li>
+            <li>Click the <strong>Update</strong> button to update the organizations associated with the connection.</li>
+            <li>Mark this step as complete.</li>
+        </ol>
+        <p>If you have more than one connection, you can set the organizations for the other connections before moving on to the next step.</p>
+        <h4>Configure the Computer "name" Field Precedence (Optional)</h4>
+        <p>When importing devices from Automox, multiple values can be valid as the name for a device. The application allows you to customize the order of fields used with the first non-null value being used. By default, the <strong>name</strong> field on an imported configuration item (CI) is set to the fully qualified domain name (FQDN) if it was discovered by Automox or the <strong>hostname</strong> (<code>name</code>) if no FQDN was discovered. In addition, the <strong>custom name</strong> (<code>custom_name</code>) can be used to set the name of a CI to the custom name specified in Automox. This is useful for situations where there are hostname collisions across computers within Automox. Because custom names are not necessarily an accurate representation of the identity of a computer in an environment, this value is not used in the default precedence list.</p>
+        <p>The available options for the <code>name</code> field precedence list are:</p>
+        <ul>
+            <li><strong>fqdn</strong>: the first discovered fully qualified domain name for the computer</li>
+            <li><strong>custom_name</strong>: the custom name set for the computer in Automox</li>
+            <li><strong>name</strong>: the hostname of the computer</li>
+        </ul>
+        <p>If none of the fields specified have a value or the value for this list is invalid, the <strong>name</strong> is used as a default. The precedence list value is stored in the <code>x_aut12_service_gr.computer_name_precedence</code> System Property. The guided setup provides a link to the <strong>Configure Computer Name Field Precedence</strong> UI page that is included with the application to assist with setting the value of this property.</p>
+        <ol start="1">
+            <li>Add the desired precedence fields to the column on the right.</li>
+            <li>Order the fields from top to bottom.</li>
+            <li>Click the <strong>Update Precedence</strong> button to update the precedence list value.</li>
+        </ol>
+        <h4>Review the Invalid Serial Numbers Table (Optional)</h4>
+        <p>ServiceNow provides an Invalid Serial Numbers table (<code>dscy_invalid_serial</code>) that is used by the application during the import process to determine whether a serial number discovered by Automox is invalid. The Serial Number value is checked against the Invalid Serial Numbers table. When one of the rules specified in this table matches a serial number for a computer, it is marked as invalid. Marking the serial number as invalid ensures that it will not be used for lookup in the IRE during the import process, which prevents the creation of invalid serial numbers and prevents incorrect correlation of multiple devices that share this serial number value.</p>
+        <p>Examples of invalid serial numbers are the <code>0</code> and <code>Unknown</code> values. These values can be set by the Automox agent if it was unable to discover the serial number for a computer. As such, it is important to include these values in the Invalid Serial Numbers table, along with other known common values within your environment. ServiceNow includes a record for the <code>Unknown</code> value, and the application includes an additional record for the <code>0</code> value. However, it can still be important to review a sample set of the computers in your environment within the Automox console to identify additional rules that should be added to this table.</p>
+        <ol start="1">
+            <li>Navigate to the <strong>Devices</strong> menu in the Automox console.</li>
+            <li>Review the Device Details page for a selection of devices, taking note of any serial number values that are invalid.</li>
+            <li>Navigate to the Invalid Serial Numbers table in ServiceNow using the <strong>Configure</strong> button for this step in the Guided Setup.</li>
+            <li>Add a new record to the table by clicking the <strong>New</strong> button.</li>
+            <li>Select the matching rule and enter the value for the invalid serial number.</li>
+            <li>Click <strong>Submit</strong>.</li>
+            <li>Repeat steps four through six if you have additional invalid serial number values to add.</li>
+        </ol>
+        <p>The application uses the <a href="https://docs.servicenow.com/bundle/rome-servicenow-platform/page/product/configuration-management/concept/integration-commons-for-cmdb.html#d2727903e1159" rel="nofollow">Cleanse Serial Number</a> transform that is included with the Integration Commons for CMDB plugin to check the imported values against this table.</p>
+        <h4>Assign the Automox Device User Role (Optional)</h4>
+        <p>By default, only users with the <strong>admin</strong> role have access to Automox Device details in the Automox Device table and CI related lists. The application includes the <code>x_aut12_service_gr.automox_device_user</code> role that provides read-only access to the Automox Devices table. This role can be added to an existing role, for instance, the <code>cmdb_read</code> role, to grant all users with that role access to the table.</p>
+        <ol start="1">
+            <li>Search for the role to which you would like to add the <code>x_aut12_service_gr.automox_device_user</code> role.</li>
+            <li>Select the role and click <strong>Edit...</strong> in the <strong>Contains Roles</strong> related list.</li>
+            <li>Select the <code>x_aut12_service_gr.automox_device_user</code> role and save the form.</li>
+            <li>Mark this step as complete.</li>
+        </ol>
+        <p>If you do not want to provide access to Automox Device details at this time, you can always come back to this step.</p>
+        <h3>Configure the CMDB Mappings (Optional)</h3>
+        <div class="warning"><b>Caution:</b> This is an advanced step. We recommend starting with the default mappings and reviewing the results before modifying the defaults.</div>
+        <p>The <strong>Configure the CMDB Mappings</strong> group in the guided setup is an optional step group for installing the IntegrationHub ETL application and reviewing/modifying the default CMDB mappings.</p>
+        <p>Additional information on the IntegrationHub ETL application is available here: <a href="https://docs.servicenow.com/bundle/rome-servicenow-platform/page/product/configuration-management/concept/integrationhub-etl.html" rel="nofollow">Product Documentation ServiceNow</a> </p>
+        <div class="info"><b>Note:</b> If you would like to use the default mappings, you can skip these steps.</div>
+        <h4>Add IntegrationHub ETL Application Entitlements</h4>
+        <p>This step links to the ServiceNow store to add instance entitlements for the IntegrationHub ETL application. The ETL application provides a guided experience for viewing, modifying, and testing the Robust Transform Maps included with the Service Graph Connector for Automox.</p>
+        <p>After adding the application entitlements, mark this step as complete.</p>
+        <h4 id="ServiceNowServiceGraphConnectorforAutomox-InstalltheIntegrationHubETLApplication">Install the IntegrationHub ETL Application</h4>
+        <p>Click the <b>Configure</b> button for this step to navigate to the application list with a filter for <code>IntegrationHub ETL</code>.</p>
+        <ol start="1">
+            <li>Install the IntegrationHub ETL application.</li>
+            <li>Mark this step as complete.</li>
+        </ol>
+        <h4>Review or Modify the Automox Devices CMDB Mappings</h4>
+        <p>This step navigates to the CMDB Integration Studio module that the IntegrationHub ETL application provides. The Integration Studio provides an interface for viewing, modifying, and testing the default mappings for the <b>SG-Automox Devices</b> data source. It has a similar flow to the guided setup, with later steps locked pending completion of dependent steps.</p>
+        <ol start="1">
+            <li>Click the <b>Provide Basic Information for the ETL Transform Map</b> step and mark it as complete.<ul><li>This step will run an import for testing the included mappings.</li></ul></li>
+            <li>Mark the <b>Preview and Prepare Data</b> step as completed.<ul><li>The transformations in this step are adjustable; however, the usage of these transformations in the <b>Select CMDB Classes to Map Source Data</b> should first be reviewed.</li></ul></li>
+            <li>Click the <b>Select CMDB Classes to Map Source Data</b> step to view the classes mapped by the application. Click an individual CMDB class to view the field mappings for this class. If the import in step 1 was successful, you should see example data on the right side of the page when viewing the mappings for a specific class.<ul><li>Complete this step after reviewing/editing the mappings.</li></ul></li>
+            <li>Review the relationships created in the <b>Add Relationships</b> step and mark the step as complete.</li>
+            <li>Finally, click the <b>Test and Rollback Integration Results</b> and then <b>Run Integration</b> to test the mappings and view the CMDB import results.<ul><li>These changes can be rolled back when marking this step as complete or when clicking the back button on the page.</li></ul></li>
+        </ol>
+        <div class="info"><b>Note:</b> Do not configure the import schedule via the IntegrationHub ETL as the application includes a default that should be used (or copied) instead.</div>
+        <h3>Configure the Import Schedule</h3>
+        <p>The final guided step group links to the default import schedule that imports Automox devices through the <b>SG-Automox Devices</b> data source. This schedule runs daily upon activation and provides pre-checks to ensure that two import jobs do not run simultaneously.</p>
+        <h4>Configure Scheduled Jobs</h4>
+        <p>The <b>Configure Scheduled Jobs</b> guided setup step links to the default import schedule provided by the application. This file is a part of the application scope, so it is necessary to switch to the application scope to edit it. Copying the schedule provides the default configuration in a new import job while retaining the original default record for later use or reference.</p>
+        <p>Start by clicking the <b>Configure</b> button for the step.</p>
+        <h5>Copying the Included Schedule</h5>
+        <p>To copy the included import schedule, right-click the form head and select <b>Insert</b>. The insert action creates a copy of the import schedule in the current scope. ServiceNow will automatically navigate back to the guided setup page. Follow the steps below to find and activate the new import schedule.</p>
+        <ol start="1">
+            <li>Navigate to the Scheduled Data Import list by entering <code>scheduled_data_import.list</code> into the filter navigator.</li>
+            <li>Search for the new record.<ul><li>A filter on the Application scope and name can help if there are many records.</li></ul></li>
+            <li>Click the record<ul><li>Modify the schedule if desired. Daily import is our recommendation.</li><li>Clear the <b>Run As</b> field.</li><li>Click <b>Active</b> to activate the schedule.</li><li>Click <b>Update</b>.</li></ul></li>
+        </ol>
+        <h5>Modifying the Included Schedule</h5>
+        <p>To modify the included import schedule, follow the steps below.</p>
+        <ol start="1">
+            <li>Click the link in the message at the top of the form that states, <b>This record is in the Service Graph Connector for Automox application, but Global is the current application. To edit this record click here</b>.</li>
+            <li>Modify the schedule if desired. Daily import is our recommendation.</li>
+            <li>Ensure that the <b>Run As</b> field is blank.</li>
+            <li>Click <b>Active</b> to activate the schedule.</li>
+            <li>Click <b>Update</b>.</li>
+        </ol>
+        <h3>Application Modules</h3>
+        <p>The Service Graph Connector for Automox application menu provides application modules for reviewing the state of the integration and configuring it outside of the Guided Setup.</p>
+        <ul>
+            <li>Setup<ul><li>The Guided Setup for the Application</li></ul></li>
+            <li>Integration Dashboard<ul><li>A dashboard for reviewing the results of CMDB Application executions</li></ul></li>
+            <li>Data Sources<ul><li>A list of data sources included with the application</li></ul></li>
+            <li>Import Schedules<ul><li>A list of import schedules that utilize the included Data Sources</li></ul></li>
+            <li>Automox Devices<ul><li>A list view of the Automox Device (<code>x_aut12_service_gr_automox_device</code>) table</li></ul></li>
+            <li>Support<ul><li>Contains support details for the application</li></ul></li>
+            <li>Configuration<ul><li>Menu section containing application configuration related modules</li></ul></li>
+            <li>Configuration → Connections<ul><li>A list of HTTP(S) Connection (<code>http_connection</code>) records associated with the included <code>x_aut12_service_gr.SG_Automox_Conn_Cred_Alias</code> Connection and Credential Alias</li></ul></li>
+            <li>Configuration → Get Connection Organizations<ul><li>A UI page that allows for updating of the organizations associated with a connection</li></ul></li>
+            <li>Configuration → Configuration Computer Name Field Precedence<ul><li>A UI page to aid with setting the precedence list of values to use for the <code>name</code> field on imported computer CIs</li></ul></li>
+            <li>Configuration → Properties<ul><li>A filtered view of the <code>sys_properties</code> table displaying System Properties included with the application</li></ul></li>
+        </ul>
+        <h4>Setup</h4>
+        <p>Setup is the guided setup module for the application. Review the <a href="#" rel="nofollow">Setup</a> section of this documentation for more information.</p>
+        <h4>Integration Dashboard</h4>
+        <p>The Integration Dashboard links to the CMDB Integration Dashboard included with the Integration Commons for CMDB application on which the Service Graph Connector for Automox depends. If you have other Service Graph Connectors installed, this module links to the same dashboard as those.</p>
+        <p>
+            <img src="../../Resources/Images/sg-integration-dashboard.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <h4>Data Sources</h4>
+        <p>This module is a list view of data sources (<code>sys_data_source</code>) included with the application. Each data source is responsible for performing a specific data import for the application. Included data sources:</p>
+        <ul>
+            <li>SG-Automox Devices<ul><li>Imports Automox device details and patching metrics into the CMDB</li></ul></li>
+        </ul>
+        <h4>Import Schedules</h4>
+        <p>A list view of the Import Schedules (<code>scheduled_data_import</code>) associated with the included data sources, including the default import schedule for reference and copying. Import schedules:</p>
+        <ul>
+            <li>SG-Automox - Default<ul><li>Executes the <b>SG-Automox Devices</b> data source</li><li>Future releases of the application may add data sources. In that event, this default import schedule may receive updates to execute all included data sources sequentially.</li></ul></li>
+        </ul>
+        <h4>Automox Devices</h4>
+        <p>This module is a list view of all Automox devices imported by the <b>SG-Automox Devices</b> data source. The default form includes sections that separate summary details for the device from more specific host and patching-related information. Relationships to <code>cmdb_ci_hardware</code> derived CIs are displayed. Finally, the <b>Connection</b> field references the Connection record used to import the device.</p>
+        <p>To view the data in this table, a user must have the <code>x_aut12_service_gr.automox_device_user</code> role assigned.</p>
+        <p>
+            <img src="../../Resources/Images/sg-ax-device-import.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <h4>Support</h4>
+        <p>The Support module provides a link to the Automox Support website.</p>
+        <div class="info"><b>Note:</b> You must have an administrator ServiceNow role to configure the Service Graph Connector for Automox.</div>
+        <h4>Configuration</h4>
+        <p>The configuration section of the application menu includes modules for the configurable components of the application. These are configurable using the Setup module.</p>
+        <h5>Connections</h5>
+        <p>A list view of the HTTP(S) Connections (<code>http_connection</code>) that are configured to use the included <code>x_aut12_service_gr.SG_Automox_Conn_Cred_Alias</code> Connection and Credential Alias. Multiple connections are supported. When multiple <b>active</b> connections exist, the data source will perform an import for each. The data source ignores inactive records.</p>
+        <p>To save steps when setting up a new connection, use the <b>Create New Connection &amp; Credential</b> related link. The link is available through the <b>Configure the API Key</b> step in the Guided Setup or you can search for <b>Connection &amp; Credential Aliases</b> in the filter navigator and click <b>SG-Automox_Conn_Cred_Alias.</b></p>
+        <p>
+            <img src="../../Resources/Images/sg-create-connection.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <div class="info"><b>Note:</b> While multiple connections are supported, most use cases will only require one.</div>
+        <h5>Get Connection Organizations</h5>
+        <p>A UI page that allows for configuration of the Automox organizations that are associated with a connection. Connections do not require organization associations; however, accounts with more than one organization do require that organizations be set to import devices from multiple organizations. Connections without the Organization IDs field set only import defaults from the default organization for the API key of the connection.</p>
+        <p>The page also provides connection validation. For instance, if the Automox API Key set for the connection is not valid, an error message will be displayed. Valid connections will return a list of organizations from which to select. The organization list retrieval process retains prior organization selections.</p>
+        <p>To use the page, first select a connection via the reference selector. The application will then attempt to retrieve the list of organizations for the connection. The form displays any error messages received during the organization retrieval process.</p>
+        <p>Each data source loops through the organizations associated with a connection, running import for the data in each organization.</p>
+        <p>
+            <img src="../../Resources/Images/sg-get-orgids.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <h5>Configure Computer Name Field Precedence</h5>
+        <p>This is a UI page that assists with configuration of the <code>x_aut12_service_gr.computer_name_precedence</code> System Property. The current value for the property is loaded into the selection bucket on the right side and available, but unselected options are shown on the left. Moving a value from left to right will add it to the list. The order of precedence is from top to bottom. Use the up and down arrow buttons to change the order of the selected fields.</p>
+        <p>Click the <strong>Update Precedence</strong> button to update the value of the System Property. Future imports use this new precedence.</p>
+        <p>
+            <img src="../../Resources/Images/sg-automox-computer-name-field-precedence-form.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <h5>Properties</h5>
+        <p>A filtered view of the <code>sys_properties</code> table displaying a list of the System Properties included with the application. The list of included System Properties is:</p>
+        <ul>
+            <li><code>x_aut12_service_gr.computer_name_precedence</code>: a | delimited list of fields to select from when setting the name value for a CI to import. If this property contains an invalid value, <code>name</code> is the default value. These values are supported:<ul><li><code>fqdn</code>: the first discovered fully qualified domain name for the computer</li><li><code>custom_name</code>: the custom name set for the computer in Automox</li><li><code>name</code>: the hostname of the computer</li></ul></li>
+            <li><code>x_aut_12_service_gr.automox_support_url</code>: the link to the Automox Support site used within the UI pages and scripts included with the application</li>
+            <li><code>x_aut_12_service_gr.automox_status_url</code>: the link to the Automox Status page used within the UI pages and scripts included with the application</li>
+        </ul>
+        <h2>Importing Automox Devices</h2>
+        <p>You are ready to import Automox devices after finishing the <a href="#" rel="nofollow">Setup</a>. For scheduled import, we recommend importing on a daily schedule. For testing after installation, you can manually execute the import schedule created or updated during the guided setup.</p>
+        <h3>Execute the Schedule</h3>
+        <p>To import Automox devices, navigate to a schedule configured for the <strong>SG-Automox Devices</strong> data source. The <a href="#" rel="nofollow">Import Schedules</a> module provides a list of all import schedules associated with the included data sources. On the import schedule form, click the <strong>Execute Now</strong> button. This action creates a new import set, runs the ETL transformations on the imported data, and inserts the transformed records into the CMDB. The <a href="https://docs.servicenow.com/bundle/rome-servicenow-platform/page/product/configuration-management/concept/ire.html" rel="nofollow">Identification and Reconciliation Engine (IRE)</a> handles identification of existing records during the import process, updating records that matching the import set data if found.</p>
+        <h3>CMDB Lookups</h3>
+        <p>The <a href="https://docs.servicenow.com/bundle/rome-platform-administration/page/administer/import-sets/concept/robust-import-set-transformers.html" rel="nofollow">Robust Import Set Transformers (RTE)</a> for <strong>SG-Automox Devices</strong> data source includes multiple lookup criteria passed to the <a href="https://docs.servicenow.com/bundle/rome-servicenow-platform/page/product/configuration-management/concept/ire.html" rel="nofollow">Identification and Reconciliation Engine (IRE)</a>. These lookups determine whether the data associated with a particular Automox device is new to the CMDB or whether it corresponds with an existing record.</p>
+        <p>The default CMDB mappings use the following lookups:</p>
+        <h4>Hardware</h4>
+        <ul>
+            <li>Fields:<ul><li>Name</li></ul></li>
+            <li>Use:<ul><li>All <code>cmdb_ci_hardware</code> derived class (computers)</li><li>The first FQDN for the device is used if it was discovered by the Automox agent. Otherwise the hostname for the device is used.</li></ul></li>
+        </ul>
+        <h4>Network Adapter</h4>
+        <ul>
+            <li>Fields:<ul><li>MAC Address</li><li>Name<ul><li>Name is set to the device name of the network adapter, e.g <code>Ethernet 1</code> or <code>en0</code></li></ul></li></ul></li>
+            <li>Use:<ul><li>All <code>cmdb_ci_hardware</code> derived classes (computers)</li></ul></li>
+        </ul>
+        <h4>Serial Number</h4>
+        <ul>
+            <li>Fields:<ul><li>Serial Number</li><li>Serial Number Type</li></ul></li>
+            <li>Use:<ul><li>All <code>cmdb_ci_hardware</code> derived classes (computers)</li></ul></li>
+        </ul>
+        <h4>IP Address</h4>
+        <ul>
+            <li>Fields:<ul><li>Name</li><li>Type</li></ul></li>
+        </ul>
+        <h4>Automox Device</h4>
+        <ul>
+            <li>Fields:<ul><li>ID</li><li>Organization ID</li></ul></li>
+            <li>Use:<ul><li>Automox Device class</li></ul></li>
+        </ul>
+        <h3>Reviewing Results</h3>
+        <h4>Integration Dashboard</h4>
+        <p>The primary way to review results of Automox device imports is via the included <a href="https://github.com/PatchSimple/servicenow-service-graph-connector/blob/main/README.md####Integration-Dashboard" rel="nofollow">Integration Dashboard</a> module. For more details on this dashboard, review ServiceNow's documentation for the dashboard:</p>
+        <ul>
+            <li><a href="https://docs.servicenow.com/bundle/rome-servicenow-platform/page/product/configuration-management/concept/integration-commons-for-cmdb.html#integration-commons-for-cmdb__section_fxg_lh4_blb" rel="nofollow">ServiceNow Product documentation: CMDB Integrations Dashboard</a>
+            </li>
+        </ul>
+        <p>The dashboard provides high-level statistics on CMDB integration executions across your entire ServiceNow instance. To filter by the Service Graph Connector for Automox, select it from the <strong>CMDB Applications</strong> filter on the right side of the dashboard. You can view import performance, CI classes updated, errors that occurred during import executions, and more.</p>
+        <p>Click any of the statistics on the dashboard to navigate to the source table for the data, allowing you to learn more about the specifics of a particular import.</p>
+        <h4>Computers Table</h4>
+        <p>To view computers that have been created or updated by the Service Graph Connector for Automox, you can filter the list view of the Computers (<code>cmdb_ci_computers</code>) table by the SG-Automox Discovery Source.</p>
+        <ol start="1">
+            <li>Navigate to the Computers table list view by typing <code>cmdb_ci_computers.list</code> into the filter navigator and pressing enter.<ul><li>You can also search for <strong>Computers</strong> and select the <strong>Configuration &gt; Base Items &gt; Computers</strong> module.</li></ul></li>
+            <li>Click the filter icon</li>
+            <li>Configure the filter as follows:<ul><li>Field: <code>Discovery Source</code></li><li>Condition: <code>is</code></li><li>Value: <code>SG-Automox</code></li></ul></li>
+            <li>Click <code>Run</code></li>
+        </ol>
+        <p>The filter updates the list to only display devices that have a discovery source of <strong>SG-Automox</strong>. The application installation process creates this discovery source using a Fix Script.</p>
+        <p>
+            <img src="../../Resources/Images/sg-ax-results-filter.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <p>Click on a record to display the details for the computer, including the CIs related to the computer, such as the Network Adapter, IP Addresses, Serial Numbers, and the Automox Device.</p>
+        <p>
+            <img src="../../Resources/Images/sg-record-details.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <h2>Troubleshooting</h2>
+        <p>The ServiceNow system logs are helpful in many application troubleshooting situations. To access the system logs, search for <strong>System Logs</strong> in the filter navigator and select the <strong>System Log &gt; All</strong> module.</p>
+        <p>To filter for logs specific to the Service Graph Connector for Automox, configure a filter with the <strong>Application</strong> set to <strong>Service Graph Connector for Automox.</strong></p>
+        <div class="warning"><strong>Caution:</strong> In some scenarios, relevant log messages emit without an application association. As such, it is helpful to search around a particular log message of interest without the <strong>Application</strong> filter applied.</div>
+        <p>If you find many logs to search through, adding a filter on the log level is necessary. For example, select log messages where the log level is <strong>Warning</strong> or <strong>Error</strong>.</p>
+        <h3>Installation</h3>
+        <p>Most errors related to the installation of the application are due to dependencies for the application not being satisfied. If the application fails to install, the best course of action is to review the <MadCap:xref href="#Installa">Installation</MadCap:xref> documentation section. Additionally, investigate the ServiceNow system logs for errors around the time of application installation.</p>
+        <h3>Configuration</h3>
+        <p>Errors related to the configuration of the application are described in in this section.</p>
+        <h4>Connections</h4>
+        <p>Invalid Automox API Key</p>
+        <p>An import will fail to run if the Automox API key is invalid. The Automox API key is invalid if you see the following error in the system log:</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">Error executing script : org.mozilla.javascript.JavaScriptException: received bad status code 403 Method failed: (/api/servers) with code: 403 - Forbidden username/password combo (sys_script_include.27ac118487b2b410490f52883cbb3562.script; line 104)</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p>You can verify that the Automox API key is invalid by navigating to the <strong>Service Graph Connector for Automox &gt; Configuration &gt; Connection Organizations</strong> module and selecting the connection in the reference field. If you receive an error message, the Automox API key for the connection needs to be updated. There are three primary reasons that the API key may not be working:</p>
+        <ol start="1">
+            <li>The API key does not match a key in the Automox console.</li>
+            <li>The API key value for the connection was modified by a user with access to the <code>http_connection</code> table.</li>
+            <li>The API key expired.</li>
+        </ol>
+        <p>Navigate to the following page in the Automox console to copy your API key details or create a new one if the key has expired:</p>
+        <ul>
+            <li><a href="https://console.automox.com/settings/keys" rel="nofollow">https://console.automox.com/settings/keys</a> </li>
+        </ul>
+        <p>MID Server Offline</p>
+        <p>If the connection uses a ServiceNow MID Server, but the MID server is not online, imports using that connection will fail to execute. Review the <strong>MID Server &gt; Servers</strong> module to troubleshoot the status of the MID server that is unavailable or in an error state.</p>
+        <h4>CMDB Mappings</h4>
+        <p>Automox recommends using the default CMDB mappings. If you would like to provide a recommendation for changes to the mappings, contact <a href="mailto:support@automox.com" rel="nofollow">support</a>. Alternatively, you can change the included mappings by following the steps in the <a href="#" rel="nofollow">Configure the CMDB Mappings</a> section of this documentation.</p>
+        <div class="warning"><strong>Caution:</strong> Automox does not support changes made to the default mappings.</div>
+        <h3>Running</h3>
+        <p>Errors related to running the application are described in this section.</p>
+        <h4>Import Schedules Will Not Run</h4>
+        <p>The default import schedule (and copies of it) include a pre-check condition that prevents execution of an import if there is an active import running by reviewing the status of the <strong>most recent</strong> execution. An error message similar to the following indicates that the pre-check condition is blocking the execution of the import:</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">Most recent SG-Automox execution [CEX0001020] is not complete [transforming], cancelling current scheduled execution. To review all executions, see the 'sn_cmdb_int_util_cmdb_integration_execution' table</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p>To review the status of the running execution:</p>
+        <ol start="1">
+            <li>Navigate to the <strong>Service Graph Connector for Automox &gt; Integration Dashboard</strong> module</li>
+            <li>Filter by the <strong>Service Graph Connector for Automox</strong> CMDB Application</li>
+            <li>Click the number value for <strong>Total Imports</strong>.<ul><li>This will navigate you to the list view for the CMDB Integration Execution (<code>sn_cmdb_int_util_cmdb_integration_execution</code>) table.<br /><br /><img src="../../Resources/Images/sg-automox-cmdb-executions-list.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /><br /><br /></li></ul></li>
+            <li>Click on the most recent record in the list to review the execution details.</li>
+        </ol>
+        <p>If the execution does not appear to be running, but the state is still <strong>transforming</strong>, manually change the state to <strong>complete</strong> to allow the import schedule pre-check condition to pass, allowing new imports to run. The form for the individual execution record does not allow for updates. However, updates to the state of an execution record are possible by clicking the state field on the CMDB Integration Execution list view.</p>
+        <h3>Import</h3>
+        <h4>Multiple Automox Device Associations for a Single CI</h4>
+        <p>A single CI can have multiple Automox Devices associated with it. The most common reason for this is that Automox has more than one device with the same name. To resolve this issue, update the device name(s) to fix the name collision. Subsequent imports should associate the device with a new or existing CI with the new name.</p>
+        <h2>Related Topics</h2>
+        <ul>
+            <li><a href="https://www.automox.com/automox-and/servicenow" rel="nofollow">Automox and ServiceNow</a>
+            </li>
+        </ul>
+    </body>
+</html>

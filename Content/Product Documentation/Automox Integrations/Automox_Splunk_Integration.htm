@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Explains how to install and configure the [%=General.ProductName%] integration for Splunk." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Automox Splunk Integration</h1>
+        <p>The Automox Splunk apps are applications released to Splunkbase, which consist of two primary components:</p>
+        <ol start="1">
+            <li><a href="https://splunkbase.splunk.com/app/6119/" rel="nofollow">Automox Technology Add-On for Splunk</a>
+            </li>
+            <li><a href="https://splunkbase.splunk.com/app/6120/" rel="nofollow">Automox Dashboard for Splunk</a>
+            </li>
+        </ol>
+        <p>In combination, these two apps allow you to pull Automox console data consisting of device, policy, and event information into Splunk Enterprise or Splunk Cloud platforms and they enable you to visualize and search across the imported Automox data.</p>
+        <h2>Installation</h2>
+        <p>It is possible to install both the <strong>Automox Technology Add-On for Splunk</strong> and the <strong>Automox Dashboard for Splunk</strong> apps either through your Splunk instance or with a more manual process of downloading the package from Splunkbase in order to install manually. Both options are outlined in the following sections.</p>
+        <p>You must first install and configure the Automox Technology Add-On app before the Automox Dashboard for Splunk can populate with any visualizations or searches. In organizations where visualizations are custom tailored, the Automox Dashboard for Splunk is simply a nice starting point, however, it is not required to receive value from the Automox data imported with the Technology Add-On.</p>
+        <h3>Install within Splunk</h3>
+        <p>When you install apps from within a Splunk instance, follow these steps:</p>
+        <ol start="1">
+            <li>
+                On the home page left menu, select &#160;<strong>+ Find More Apps</strong>.
+            </li>
+            <li>
+                From the <strong>Browse More Apps</strong> page, search for <strong>Automox</strong>.
+            </li>
+            <li>
+                Click <strong>Install</strong> for both apps:
+                <ul><li>
+                        Automox Dashboard for Splunk
+                    </li><li>
+                        Automox Add-On for Splunk
+                    </li></ul></li>
+            <li>
+                Provide Splunkbase credentials and submit.
+            </li>
+        </ol>
+        <h3>Download and Install from Splunkbase</h3>
+        <p>When you install the apps from Splunkbase, it is important to first login to Splunkbase and then download the two app packages. After these are downloaded, follow these steps:</p>
+        <ol start="1">
+            <li>
+                On the home page, select the <strong>Apps</strong> menu and then click <strong>Manage Apps</strong>.
+            </li>
+            <li>
+                Select <strong>Install app from file</strong>.
+            </li>
+            <li>
+                Select the previously downloaded app packages.
+            </li>
+            <li>
+                Perform a restart of Splunk when prompted.
+            </li>
+        </ol>
+        <p>When the installation is complete, the apps are visible under the <strong>Apps</strong> menu in Splunk.</p>
+        <h2>Configuring the Technology Add-On</h2>
+        <p>After you install the Automox Technology Add-On, you must configure it to enable the collection of data from Automox. This configuration requires two steps:</p>
+        <ol start="1">
+            <li>
+                <MadCap:xref href="#Connecti">Connection Setup</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="#Input">Input Creation</MadCap:xref>
+            </li>
+        </ol>
+        <h3><a name="Connecti"></a>Connection Setup</h3>
+        <p>Within the Splunk interface, navigate to the <b>Apps</b> menu and click <b>Automox Add-On for Splunk</b>.</p>
+        <img alt="splunk-ax-addon.png" src="../../Resources/Images/splunk-ax-addon.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        <p>This will take you to the configuration items as part of the add-on. Select the <strong>Configuration</strong> tab, which allows you to create and manage connections, configure proxy settings, and configure the log settings. In most environments, it is only necessary to create a new connection:</p>
+        <img alt="splunk-add-connection.png" src="../../Resources/Images/splunk-add-connection.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        <p>To add a new connection, provide details for the following:</p>
+        <ol start="1">
+            <li><strong>Connection Name</strong>: A unique name provided to your connection to easily reference during input configuration.
+            </li>
+            <li><strong>API Key</strong>: An Automox API key is required to pull details from the Automox API. Refer to <MadCap:xref href="../Settings/Managing_Keys.htm">Managing Keys</MadCap:xref> for details about how to create a new API key.
+            </li>
+            <li><strong>Organization ID</strong>: This is a required ID. This is valid for both single and multi-org environments.
+            </li>
+        </ol>
+        <p>When at least one connection has been configured, it is then time to define inputs for the add-on.</p>
+        <h3><a name="Input"></a>Input Creation</h3>
+        <p>The add-on currently provides three types of inputs that can be configured:</p>
+        <ol start="1">
+            <li>
+                Automox Event Import
+            </li>
+            <li>
+                Automox Endpoint Import
+            </li>
+            <li>
+                Automox Policy Details Import
+            </li>
+        </ol>
+        <p>Each input can be configured independently to allow for flexibility with respect to which data to have imported into a Splunk environment. In order to configure a new input, select <strong>Create New Input</strong> and then select which import to use.</p>
+        <img alt="splunk-ax-event-import.png" src="../../Resources/Images/splunk-ax-event-import.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        <p>When configuring an input, you must provide:</p>
+        <ol start="1">
+            <li><strong>Name</strong>: A unique and descriptive name for the input
+            </li>
+            <li><strong>Interval</strong>: Define the number of seconds to wait between each input collection
+            </li>
+            <li><strong>Index</strong>: The index to import events into Splunk from the input
+            </li>
+            <li><strong>Connection</strong>: The name of the connection configured in the previous section
+            </li>
+        </ol>
+        <p>We currently recommend the following settings for <strong>Interval</strong> for each input type:</p>
+        <table class="TableStyle-ax_tables" style="width: 680px;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" cellspacing="0">
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+							Input
+						</th>
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+							Interval Value (in seconds)
+						</th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+							Description
+						</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                            Automox Event Import
+                        </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                            3600
+                        </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                            Every hour
+                        </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                            Automox Endpoint Import
+                        </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                            86400
+                        </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                            Once per day
+                        </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                            Automox Policy Details Import
+                        </td>
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                            86400
+                        </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+                            Once per day
+                        </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Due to the nature of the data pulled through the Automox API, currently only the <strong>Event Import</strong> input type allows you to only import “new” events. This input uses an internal checkpoint to track when the last event was imported to ensure duplicate events are not received.</p>
+        <p>Conversely, the Endpoint and Policy Details inputs pull all data each time the inputs are run. This is why it is recommended to only run the <strong>Endpoint Import</strong> and <strong>Policy Details Impo</strong>rt one time per day.</p>
+        <h2>Collected Data Types</h2>
+        <p>All data collected by this add-on contains a source beginning with “automox_”. The source type of the data varies by the events associated with the input. The following table provides a breakdown of input to sourcetype(s) imported:</p>
+        <table class="TableStyle-ax_tables" cellspacing="0" style="mc-table-style: url('../../Resources/TableStyles/ax_tables.css');">
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p>Input</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p>Source</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p>Sourcetype(s)</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Automox Event Import</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>automox_event_import</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>automox:console:events</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Automox Endpoint Import</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>automox_endpoint_import</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>automox:endpoint<br />automox:endpoint:software</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                        <p>Automox Policy Details Import</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                        <p>automox_policy_details_import</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+                        <p>automox:policy</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Dashboards</h3>
+        <p>After you import Automox data into Splunk with the Automox Technology Add-On, it is possible to start visualizing the events. The Automox Dashboard for Splunk provides an out of the box and convenient way to visualize endpoints, policies, and events. Install the Dashboard app and navigate to it from within the Splunk interface:</p>
+        <img alt="splunk-ax-dashboard.png" src="../../Resources/Images/splunk-ax-dashboard.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        <p>This app provides three dashboards: Endpoints, Policy Details, and Console Events. Each dashboard provides an easy way to select the index where imported events are stored, additionally filtering such as groups and tags for devices, as well as the time period of the data.</p>
+        <p>It is important to remember, this dashboard is provided for a starting point for end users. Automox encourages adding new visualizations to dashboards to better visualize based on business needs.</p>
+        <h3>Searches</h3>
+        <p>The following example searches can be used after you configure the Technology Add-On.</p>
+        <ul>
+            <li>List the different Automox sourcetypes with counts:</li>
+        </ul>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: XML;">index=* source=automox_*</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <ul>
+            <li>List the number of compliant and non-compliant endpoints:</li>
+        </ul>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: XML;">index=* sourcetype="automox:endpoint"</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <ul>
+            <li>List the number of endpoints by operating system:</li>
+        </ul>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: XML;">index=* sourcetype="automox:endpoint"</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <ul>
+            <li>List the different Automox console events with counts:</li>
+        </ul>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: XML;">index=* sourcetype="automox:console:events"</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h2>Troubleshooting</h2>
+        <p>See the following troubleshooting topics.</p>
+        <h3>Logs</h3>
+        <p>To troubleshoot any issues, particularly with the Technology Add-On, it is helpful to collect and review the logs from both the Splunk environment as well as the add-on logs.</p>
+        <p>If you are pulling the logs from the Splunk host directly, they are usually located here: &lt;SPLUNK_HOME&gt;/var/log/splunk/</p>
+        <p>The most useful logs to review are:</p>
+        <ul>
+            <li><code>ta_automox_add_on_for_splunk_automox_endpoint_import.log</code>
+            </li>
+            <li><code>ta_automox_add_on_for_splunk_automox_event_import.log</code>
+            </li>
+            <li><code>ta_automox_add_on_for_splunk_automox_policy_details_import.log</code>
+            </li>
+            <li><code>splunkd.log</code>
+            </li>
+        </ul>
+        <p>Each of these log files correlate to the respective input as well as the splunkd.log file used for troubleshooting any larger environment related issues.</p>
+        <p>It is also possible to query directly within the Splunk interface for logs resulting from the add-on.&#160;</p>
+        <ul>
+            <li>Navigate to <strong>Search &amp; Reporting</strong> and search for:</li>
+        </ul>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: XML;">index="_internal" sourcetype="taautomoxaddonforsplunk:log"</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p>This provides events from the <strong>Automox Technology Add-On</strong> for use in diagnostics as well as troubleshooting. These events show the number of events, endpoints, and policies imported when inputs are run as well as ERROR messages related to issues.</p>
+        <h3>Changing Log Level</h3>
+        <p>In the scenario that more granular logging is requested, it is possible to change the log level of the add-on by following these steps:</p>
+        <ol start="1">
+            <li>
+                Navigate to <strong>Automox Add-On for Splunk</strong> from the Apps drop-down menu.
+            </li>
+            <li>
+                Select the <strong>Configuration</strong> tab.
+            </li>
+            <li>
+                Within the configuration, select the “Logging” tab
+            </li>
+            <li>
+                Change the log level from the default of <strong>INFO</strong> to <strong>DEBUG.</strong></li>
+        </ol>
+        <p>It is also possible to change the log level to ensure only ERROR or CRITICAL logs are emitted to reduce the amount of logging from the add-on.</p>
+        <h3>No Data is Populated in the Automox Dashboard</h3>
+        <p>This issue is usually related to one of three things:</p>
+        <ol start="1">
+            <li>
+                The Technology Add-On hasn’t been installed or configured yet.
+            </li>
+            <li>
+                The index where events are pulled is not the same as what was configured in the Technology Add-On inputs.
+            </li>
+            <li>
+                Events of the specific dashboard were from an earlier time interval (default: Today).
+            </li>
+        </ol>
+        <p>Perform an initial search within Splunk to ensure that events have been imported. Check that you are searching across the correct index. Then increase the time period to include a larger time frame from when the app was installed and configured:</p>
+        <img alt="splunk-new-search.png" src="../../Resources/Images/splunk-new-search.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        <p>The following example search query can be used:</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: XML;">index=automox source=automox_*</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p>If no events are found with a search, then ensure the inputs are properly configured and review the logs from the Technology Add-On.</p>
+    </body>
+</html>

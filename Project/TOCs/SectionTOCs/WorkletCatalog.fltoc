@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultToc
+  Version="1">
+  <TocEntry
+    Title="[%=System.LinkedTitle%]"
+    Link="/Content/Product Documentation/Worklet Catalog/Run_Worklet_Now.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  <TocEntry
+    Title="[%=System.LinkedTitle%]"
+    Link="/Content/Product Documentation/Worklet Catalog/Using_the_Worklet_Catalog.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  <TocEntry
+    Title="Script Signing"
+    Link="/Project/TOCs/SectionTOCs/ScriptSigning.fltoc"></TocEntry>
+  <TocEntry
+    Title="OttoAI"
+    Link="/Project/TOCs/SectionTOCs/OttoAI.fltoc"></TocEntry>
+</CatapultToc>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+    </head>
+    <body>
+        <h1>Release Notes for Week Ending 01/28/2022</h1>
+        <h2>Bug Fixes</h2>
+        <h2>Intel macOS Monterey devices fail to update</h2>
+        <p><strong>Cause:</strong> Apple has changed the behavior of how Intel-based Macs handle an upgrade to Monterey that requires a secure token for the software update process to be successful. Apple applied the requirement of a secure token for software updates to Intel Mac devices much in the same way they require it for M1 Mac devices as documented <MadCap:xref href="../../Agents/Agent Installation/Install_and_Configure_Automox_Agent_for_Apple_Silicon_Devices.htm">Install and Configure Automox Agent for Apple Silicon Devices</MadCap:xref>.</p>
+        <p><strong>Resolution:</strong> We implemented a workaround that has been added to our core patching scripts for macOS. In the coming weeks, a new agent release will fully resolve this issue.&#160;</p>
+        <h3>Mac devices reboot without notifications</h3>
+        <p><strong>Cause:</strong> The core script that downloads macOS updates, called the macOS software update tool with a flag that is supposed to download and install the update without a reboot but we found it to be inconsistent and cause reboots for some patches.</p>
+        <p><strong>Resolution:</strong> To resolve this issue we updated the script to change the flag which will only download the update. This maintains the original intended behavior of the script.</p>
+        <h3>Mac devices log out users and fail to reboot</h3>
+        <p><strong>Cause:</strong> Logic was added in the core reboot script to kill (pkill) all processes affiliated with the logged in user in order to prevent users from canceling the reboot triggered by an update. We found this included killing the SoftwareUpdateNotificationManager, which is the service that handles the reboot portion of the update install.&#160;</p>
+        <p>This created a scenario that would have intermittent results:</p>
+        <ul>
+            <li>If the SoftwareUpdateNotificationManager successfully initiated the reboot prior to the pkill command, the machine would reboot and apply the update successfully.</li>
+            <li>If the pkill command successfully kills the SoftwareUpdateNotificationManager before it could successfully initiate the reboot, the user would be logged out and the update would not apply.</li>
+        </ul>
+        <p><strong>Resolution:</strong> The pkill command was removed from the core reboot script in order to ensure the Apple Software Update process is not interrupted.&#160;</p>
+        <p><strong>Note:&#160;</strong>This will re-introduce the graceful handling of update reboots to normal functionality per Apple’s design which will allow the user to cancel the reboot if there is a hanging process.</p>
+    </body>
+</html>

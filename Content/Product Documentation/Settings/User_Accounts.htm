@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Learn about managing all aspects of user accounts including managing two-factor authentication." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>User Accounts</h1>
+        <p>Learn about managing all aspects of user accounts including managing two-factor authentication.</p>
+        <p>This does not include Organization Management. For details about managing users and their organization assignments from the Setup and Configuration page, see <MadCap:xref href="../Global Access Management/Understanding_Global_Access_Management.htm">Understanding Global Access Management</MadCap:xref>.</p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/Prerequisites.flsnp" />
+        <br />
+        <div class="info"><b>Note</b>: The default session timeout before a user must login again is 30 minutes.</div>
+        <h2>Accessing the User Accounts page</h2>
+        <p>To access User Accounts, open the <b>Settings</b> menu in the upper-right corner of the console. Click <b>Users</b>.</p>
+        <p>The following options are available:</p>
+        <ul>
+            <li>Add users to the organization and define their permissions.</li>
+            <li>View details about a user account.</li>
+            <li>Export a CSV file containing details about the chosen users.</li>
+            <li>Remove existing users from an organization.</li>
+            <li>Manage two-factor authentication settings for users. </li>
+        </ul>
+        <div class="info"><b>Note</b>: If SSO is enabled, this option is not available.</div>
+        <h2><a name="Adding"></a>Adding a User Account</h2>
+        <p>You can add a new user from the <b>User Accounts</b> page.</p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/Prerequisites.flsnp" />
+        <ol start="1">
+            <li>Click <b>Add User</b>.</li>
+            <li>In the Add User window, enter the email address for the new user.</li>
+            <li>Select a role for the new user. You can select from these RBAC or role-based access controls:<ul><li><b>Organization Administrator</b>: This user can control all aspects of the Automox console for this organization. For organizations with a plan that includes remote control, this role can access devices with remote control.</li><li><b>Organization Operator</b>: This user can create, read, modify, and delete all policies and groups. For organizations with a plan that includes remote control, this role can access devices with remote control.</li><li><b>Patch Operator</b>: This user can create, modify, and delete patch policies. They do not have permission to create or modify a worklet or a required software policy. They can view and run any policy type. They can modify and read groups, however, they cannot associate or disassociate groups with worklets or required software policies.</li><li><b>Read Only</b>: This user only has read access rights.</li><li><b>Billing Administrator</b>: You must have this role to modify billing settings for your organization.</li><li><b>Helpdesk Operator</b>: This user has full read rights in addition to the ability to conduct remote control sessions.</li></ul></li>
+            <li>Click <b>Send Invitation</b>.</li>
+        </ol>
+        <div class="info"><b>Note</b>:
+        <ul><li>A user who is new to the account receives an email invitation from <a href="https://help.automox.com/hc/en-us/requests/new" rel="nofollow">Automox Support</a> that includes a link to create the account.<br /></li><li>An existing user to the account does not receive an email.</li></ul></div>
+        <h2>Viewing User Accounts</h2>
+        <p>The following information is available from the <b>User Accounts</b> page. The columns are not necessarily all shown by default. The columns are sortable.</p>
+        <ul>
+            <li>Email address</li>
+            <li>First name</li>
+            <li>Last name</li>
+            <li>RBAC role</li>
+            <li>2FA</li>
+            <li>User ID (hidden by default)</li>
+        </ul>
+        <h3>Showing All Columns of Data</h3>
+        <p>The default setting of the User Accounts table does not show all available columns. You can show more data or rearrange how the columns are presented.</p>
+        <ul>
+            <li>Click the <b>Columns</b> button and select the checkboxes to show or hide columns.</li>
+            <li>You can rearrange the order of the data by dragging the columns to the desired position.</li>
+        </ul>
+        <h2>Viewing Details for a User Account</h2>
+        <p>You can view user account information for each user and modify the user role.</p>
+        <p>
+            <img src="../../Resources/Images/user-acct-info.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <div class="info"><b>Note</b>:  You must have the required administrative permissions to change the user role for other user accounts within the organization.</div>
+        <ol start="1">
+            <li>From the <b>User Accounts</b> page, click the email address of the user you want to view account information for.</li>
+            <li>In the User Account Info dialog box, you can change the user role.</li>
+            <li>You change the user role from the <b>Role</b> drop-down menu. Select a new user role for the account and click <b>Update Account</b>. For details about user roles, see <MadCap:xref href="#Adding">Adding a User Account</MadCap:xref>.</li>
+        </ol>
+        <h2>Viewing Actions</h2>
+        <p>Click the <b>Actions</b> button to select from the following options. These are described in the following sections.</p>
+        <ul>
+            <li>Export User</li>
+            <li>Remove User</li>
+            <li>Reset 2FA</li>
+        </ul>
+        <h3>Exporting User Account Details</h3>
+        <p>You can export a CSV list of account details for a user or multiple users in your organization.</p>
+        <ol start="1">
+            <li>From the <b>User Accounts</b> page, select the user(s) you want to export information for.</li>
+            <li>Click <b>Actions → Export User</b>.</li>
+            <li>In the Export Users dialog box, select the data to be exported or clear the checkbox to not include that information. The following data can be exported:<ul><li>User ID</li><li>Email Address</li><li>First Name</li><li>Last Name</li><li>RBAC Role</li><li>2FA</li></ul></li>
+            <li>Click <b>Export User</b>.</li>
+        </ol>
+        <p>A CSV file is downloaded with the information you have selected.</p>
+        <h3>Removing a User Account</h3>
+        <p>You can remove a user from your organization.</p>
+        <div class="info"><b>Note</b>: It is not possible to remove a Global Administrator.</div>
+        <ol start="1">
+            <li>From the <b>User Accounts</b> page, select the checkbox for the user you want to remove.</li>
+            <li>Click <b>Actions → Remove User</b>.</li>
+            <li>In the Remove User window, click <b>Remove</b> to confirm.</li>
+        </ol>
+        <h3>Resetting Two-factor Authentication (2FA)</h3>
+        <p>You can reset two-factor authentication for a user or multiple users. This could be necessary in the case that 2FA for mobile was enabled and the mobile device used for verification was lost.</p>
+        <div class="info"><b>Note</b>: Global Administrators cannot reset 2FA for other Global Administrators. For assistance, please <a href="https://help.automox.com/hc/en-us/requests/new">submit a  request</a> in our help center.</div>
+        <br />
+        <div class="info"><b>Note</b>: This option is not available when SAML single sign-on (SSO) is enabled. SSO must be disabled for the organization to be able to reset 2FA.</div>
+        <p>Resetting 2FA for a user defaults them to verification through email. See <MadCap:xref href="Security.htm">Security</MadCap:xref> for more information.</p>
+        <ol start="1">
+            <li>From the <b>User Accounts</b> page, select the checkbox for the user(s) you want to reset 2FA for.</li>
+            <li>Click <b>Actions → Reset 2FA</b>.</li>
+            <li>Click <b>Reset User</b>.</li>
+        </ol>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="Settings_Overview.htm">Settings Overview</MadCap:xref>
+            </li>
+        </ul>
+    </body>
+</html>

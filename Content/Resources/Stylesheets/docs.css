@@ -1,0 +1,415 @@
+﻿/*<meta />*/
+
+div.info
+{
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	background-color: #bbeeff;
+	background-repeat: no-repeat;
+	border: solid 1px #08c1ff;
+	overflow: hidden;
+	padding: 15px 60px;
+	padding-bottom: 15px;
+	padding-top: 15px;
+	background-size: 24px;
+	line-height: 14px;
+	font-size: 12pt;
+	border-left-width: 4px;
+	border-radius: 8px;
+	background-position: 8px center;
+	background-image: url('../Images/Icons/Material Icons/info_16dp_08C1FF_FILL1_wght100_GRAD0_opsz20.png');
+}
+
+div.error
+{
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	background-repeat: no-repeat;
+	overflow: hidden;
+	padding: 15px 60px;
+	font-size: 12pt;
+	line-height: 14px;
+	border: solid 1px #ff7277;
+	background-position: 8px center;
+	background-size: 24px;
+	border-left-width: 4px;
+	border-radius: 8px;
+	background-image: url('../Images/Icons/Material Icons/error_16dp_FF7277_FILL1_wght100_GRAD0_opsz20.png');
+	background-color: #FFD8D9;
+}
+
+div.example
+{
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	background-repeat: no-repeat;
+	border: solid 1px #da71FF;
+	border-radius: 6px;
+	line-height: 14px;
+	font-size: 12pt;
+	overflow: hidden;
+	padding: 15px 60px;
+	background-color: #F5D7FF;
+	border-left-width: 4px;
+	background-image: url('../Images/Icons/Material Icons/star_16dp_DA71FF_FILL1_wght100_GRAD0_opsz20.png');
+	background-position: 8px center;
+	background-size: 24px;
+}
+
+div.prereqs
+{
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	background-color: #c9daf8;
+	background-repeat: no-repeat;
+	border: solid 1px #6d9eeb;
+	border-radius: 6px;
+	line-height: 14px;
+	overflow: hidden;
+	padding: 15px 60px;
+	font-size: 12pt;
+	background-size: 24px;
+	border-left-width: 4px;
+	background-position: 8px center;
+	background-image: url('../Images/Icons/Material Icons/verified_16dp_6D9EEB_FILL1_wght100_GRAD0_opsz20.png');
+}
+
+div.tip
+{
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	background-repeat: no-repeat;
+	overflow: hidden;
+	padding: 15px 60px;
+	line-height: 14px;
+	font-size: 12pt;
+	border-radius: 8px;
+	background-color: #C8F2DE;
+	border: solid 1px #00B864;
+	background-image: url('../Images/Icons/Material Icons/lightbulb_16dp_00B864_FILL1_wght100_GRAD0_opsz20.png');
+	border-left-width: 4px;
+	background-position: 8px center;
+	background-size: 24px;
+}
+
+div.warning
+{
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	background-repeat: no-repeat;
+	overflow: hidden;
+	padding: 15px 60px;
+	padding-top: 15px;
+	margin-left: auto;
+	line-height: 14px;
+	font-size: 12pt;
+	background-position: 8px center;
+	background-size: 24px;
+	border-radius: 8px;
+	border: solid 1px #FFBE72;
+	border-left-width: 4px;
+	background-color: #FFEDD8;
+	background-image: url('../Images/Icons/Material Icons/warning_16dp_FFBE72_FILL1_wght100_GRAD0_opsz20.png');
+}
+
+/*<meta sourceDocument="Z:\Projects\techdocs-madcap-test\docs" />*/
+
+@font-face 
+{
+	font-family: 'Montserrat';
+	src: url(../Fonts/Montserrat-SemiBold.ttf);
+}
+
+@font-face 
+{
+	font-family: 'Roboto';
+	src: url(../Fonts/Roboto-Light.ttf);
+}
+
+h1
+{
+	font: Montserrat-SemiBold;
+	font-family: Montserrat;
+	color: #007ba1;
+}
+
+h2
+{
+	font: Montserrat-SemiBold;
+	font-family: Montserrat;
+	color: #007ba1;
+}
+
+h3
+{
+	font: Montserrat-SemiBold;
+	font-family: Montserrat;
+	color: #007ba1;
+}
+
+h4
+{
+	font: Montserrat-SemiBold;
+	font-family: Montserrat;
+	color: #007ba1;
+}
+
+h5
+{
+	font: Montserrat-SemiBold;
+	font-family: Montserrat;
+	color: #007ba1;
+}
+
+h6
+{
+	font: Montserrat-SemiBold;
+	font-family: Montserrat;
+	color: #007ba1;
+}
+
+p
+{
+	font: Roboto-Light;
+	font-family: Roboto;
+	font-size: 14pt;
+	border-color: 08c1ff;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-right: 1px;
+	border-radius: 6px;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	padding: 10px;
+	visibility: visible;
+	margin-left: 0;
+	font-style: inherit;
+	font-variant: inherit;
+	font-weight: inherit;
+	text-align: inherit;
+	display: block;
+	white-space: normal;
+	margin-bottom: 1.12em;
+	padding-left: 10px;
+	border-top-style: none;
+	border-top: none 0token transparent;
+	border-style: none;
+	border-left-color: transparent;
+	border-left: none 0token #000000;
+	border-bottom: none 0token #000000;
+}
+
+body
+{
+	font: Roboto-Light;
+	font-family: Roboto;
+	font-size: 14pt;
+}
+
+p.info
+{
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	background-color: #bbeeff;
+	background-repeat: no-repeat;
+	border: solid 1px #08c1ff;
+	overflow: hidden;
+	padding: 15px 60px;
+	padding-bottom: 15px;
+	padding-top: 15px;
+	background-size: 24px;
+	line-height: 14px;
+	font-size: 12pt;
+	border-left-width: 4px;
+	border-radius: 8px;
+	background-position: 8px center;
+	background-image: url('../Images/Icons/Material Icons/info_16dp_08C1FF_FILL1_wght100_GRAD0_opsz20.png');
+}
+
+p.example
+{
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	background-repeat: no-repeat;
+	border: solid 1px #da71FF;
+	border-radius: 6px;
+	line-height: 14px;
+	font-size: 12pt;
+	overflow: hidden;
+	padding: 15px 60px;
+	background-color: #F5D7FF;
+	border-left-width: 4px;
+	background-image: url('../Images/Icons/Material Icons/star_16dp_DA71FF_FILL1_wght100_GRAD0_opsz20.png');
+	background-position: 8px center;
+	background-size: 24px;
+}
+
+p.prereqs
+{
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	background-color: #c9daf8;
+	background-repeat: no-repeat;
+	border: solid 1px #6d9eeb;
+	border-radius: 6px;
+	line-height: 14px;
+	overflow: hidden;
+	padding: 15px 60px;
+	font-size: 12pt;
+	background-size: 24px;
+	border-left-width: 4px;
+	background-position: 8px center;
+	background-image: url('../Images/Icons/Material Icons/verified_16dp_6D9EEB_FILL1_wght100_GRAD0_opsz20.png');
+}
+
+p.tip
+{
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	background-repeat: no-repeat;
+	overflow: hidden;
+	padding: 15px 60px;
+	line-height: 14px;
+	font-size: 12pt;
+	border-radius: 8px;
+	background-color: #C8F2DE;
+	border: solid 1px #00B864;
+	background-image: url('../Images/Icons/Material Icons/lightbulb_16dp_00B864_FILL1_wght100_GRAD0_opsz20.png');
+	border-left-width: 4px;
+	background-position: 8px center;
+	background-size: 24px;
+}
+
+p.warning
+{
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	background-repeat: no-repeat;
+	overflow: hidden;
+	padding: 15px 60px;
+	padding-top: 15px;
+	margin-left: auto;
+	line-height: 14px;
+	font-size: 12pt;
+	background-position: 8px center;
+	background-size: 24px;
+	border-radius: 8px;
+	border: solid 1px #FFBE72;
+	border-left-width: 4px;
+	background-color: #FFEDD8;
+	background-image: url('../Images/Icons/Material Icons/warning_16dp_FFBE72_FILL1_wght100_GRAD0_opsz20.png');
+}
+
+p.error
+{
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	background-repeat: no-repeat;
+	overflow: hidden;
+	padding: 15px 60px;
+	font-size: 12pt;
+	line-height: 14px;
+	border: solid 1px #ff7277;
+	background-position: 8px center;
+	background-size: 24px;
+	border-left-width: 4px;
+	border-radius: 8px;
+	background-image: url('../Images/Icons/Material Icons/error_16dp_FF7277_FILL1_wght100_GRAD0_opsz20.png');
+	background-color: #FFD8D9;
+}
+
+ul.tabs
+{
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	position: relative;
+}
+
+ul.tabs:after
+{
+	position: absolute;
+	content: "";
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	border-bottom: 1px solid #ddd;
+}
+
+ul.tabs .tab-link
+{
+	color: #333;
+	display: inline-block;
+	padding: 10px 10px;
+	cursor: pointer;
+	margin-left: -4px;
+	position: relative;
+	z-index: 0;
+}
+
+ul.tabs .current
+{
+	background: #fff;
+	color: #d9232e;
+	margin-left: 0px;
+	margin-right: 10px;
+	border-top: 1px solid #ddd;
+	border-bottom: 0px solid white;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	z-index: 100;
+}
+
+ul.tabs .tab-link:hover
+{
+	background: #c2c2c2;
+	color: #000;
+	display: inline-block;
+	padding: 10px 10px;
+	cursor: pointer;
+	margin-left: -5px;
+	border: 1px solid transparent;
+}
+
+ul.tabs .current:hover
+{
+	background: #fff;
+	color: #d9232e;
+	margin-left: 0px;
+	margin-right: 10px;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid transparent;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	z-index: 2;
+}
+
+.tab-content
+{
+	display: none;
+	background: #ededed;
+	padding: 15px;
+	background-color: transparent;
+}
+
+.tab-content.current
+{
+	display: inherit;
+}
+
+a:link
+{
+	color: 009cc9;
+}
+
+a:hover
+{
+	color: 64d3ff;
+}
+
+a:visited
+{
+	color: 006993;
+}

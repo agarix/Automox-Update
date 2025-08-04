@@ -1,0 +1,591 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Explains how to create and use [%=General.ProductName%] Data Extracts." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Data Extracts</h1>
+        <p>A Data Extract allows you to access data such as historical patching and API activity in a download file. This describes how you can view, generate, and download data extracts from the Automox console.</p>
+        <h2>Viewing Data Extracts</h2>
+        <p>You can view previously created data extracts from the Data Extracts page.</p>
+        <ol start="1">
+            <li>From the <strong>Reports</strong> page, click <strong>View</strong> for Data Extracts.</li>
+            <li>If any data extracts are available, you can click to download them. If no extracts are available, you can generate a new extract.</li>
+            <li>The Data Extracts table consists of the following columns:</li>
+        </ol>
+        <table class="TableStyle-ax_tables" cellspacing="0" style="mc-table-style: url('../../Resources/TableStyles/ax_tables.css');">
+            <col class="TableStyle-ax_tables-Column-Column1" style="width: 218px;" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1"><strong>Column name</strong>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1"><strong>Description</strong>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Data Requested</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Exact time and date when the extract was generated.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Date Range</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Start and end dates of the requested extract.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Extract Expiration</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Time and date the extract will no longer be available for download. After this date, the Status shows as expired. Note: Extracts are available for 24 hours.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Type</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>This shows which type of data extract was generated: Patch History or API Activity</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                        <p>Status</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+                        <p>This can show the following statuses:</p>
+                        <ul>
+                            <li>Queued</li>
+                            <li>Running</li>
+                            <li>Complete</li>
+                            <li>Failed</li>
+                            <li>Canceled</li>
+                            <li>Expired</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <div class="info"><strong>Note</strong>: The table can be sorted by <strong>Date Requested</strong> or <strong>Status</strong>.</div>
+        <br />
+        <div class="info"><strong>Note</strong>: If you see a failed state, you can contact Automox Support by submitting a request through the customer portal. Provide the Data Extract ID so that we can help diagnose what went wrong.</div>
+        <h2>Generating Data Extracts</h2>
+        <p>You can generate an extract that provides details about <strong>patch activity</strong> or <strong>API activity</strong> for a defined time period.</p>
+        <ol start="1">
+            <li>From the Reports page, click <strong>View</strong> for Data Extracts.</li>
+            <li>Click <strong>Generate New</strong>.</li>
+            <li>Select the Extract Type you want to generate: Patch History or API Activity.</li>
+            <li>Enter the start date and end date for the extract you want to generate. You can generate an extract that is a maximum of 90 days. This represents the 90-day time frame leading up to the day before the extract is issued. For example, on 2020-12-01 the default time-frame start should be 2020-09-02 and it should end with 2020-11-30.</li>
+            <li>Click <strong>Generate</strong>.<br /><strong>Note</strong>: This process can take several minutes.</li>
+            <li>You can view the process and status of the new extract on the Data Extracts page.</li>
+        </ol>
+        <h2>Downloading Data Extracts</h2>
+        <p>You can download and save data extracts that you have created.</p>
+        <div class="info"><strong>Note</strong>: Extracts are only available to be downloaded for 24 hours after being created.</div>
+        <ol start="1">
+            <li>From the Reports page, click <strong>View</strong> for Data Extracts.</li>
+            <li>On the Data Extracts page, find the extract you want to view and click <strong>Download</strong>.</li>
+            <li>The extract (CSV) includes the following information for the time frame requested, depending on which type of extract:</li>
+        </ol>
+        <h3>What is in the download for each extract type?</h3>
+        <p>Extract type: <b>Patch History</b></p>
+        <table class="TableStyle-ax_tables" cellspacing="0" style="mc-table-style: url('../../Resources/TableStyles/ax_tables.css');">
+            <col class="TableStyle-ax_tables-Column-Columnhead" MadCap:pattern="5" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Columnhead-Header1">
+                        <p>Data Type</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p>Exported Column Name</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p>Meaning</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p>Description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tr class="TableStyle-ax_tables-Body-Body1">
+                <th rowspan="9" class="TableStyle-ax_tables-BodyE-Columnhead-Body1">
+                    <p><span style="color: #ffffff;">Device Information</span>
+                    </p>
+                </th>
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                    <p>device_name</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                    <p>Device Name</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                    <p>Name of device (typically hostname)</p>
+                </td>
+            </tr>
+            <tr class="TableStyle-ax_tables-Body-Body2">
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                    <p>device_custom_name</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                    <p>Device Custom Name</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                    <p>Name assigned to the device by the customer.</p>
+                </td>
+            </tr>
+            <tr class="TableStyle-ax_tables-Body-Body1">
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                    <p>organization_id</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                    <p>Organization ID</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                    <p>This is the organization ID</p>
+                </td>
+            </tr>
+            <tr class="TableStyle-ax_tables-Body-Body2">
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                    <p>device_id</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                    <p>Device ID</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                    <p>This number is the same as the server ID</p>
+                </td>
+            </tr>
+            <tr class="TableStyle-ax_tables-Body-Body1">
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                    <p>agent_version</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                    <p>Agent Version</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                    <p>Version of the Automox agent installed on the device</p>
+                </td>
+            </tr>
+            <tr class="TableStyle-ax_tables-Body-Body2">
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                    <p>group</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                    <p>Group</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                    <p>Name of the group this device is assigned to</p>
+                </td>
+            </tr>
+            <tr class="TableStyle-ax_tables-Body-Body1">
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                    <p>package_id</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                    <p>Package ID</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                    <p>Identifier for the specific package</p>
+                </td>
+            </tr>
+            <tr class="TableStyle-ax_tables-Body-Body2">
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                    <p>device_ignored</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                    <p>Device Ignored</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                    <p>This indicates if a software package is ignored for a device (from the Device Details)</p>
+                </td>
+            </tr>
+            <tr class="TableStyle-ax_tables-Body-Body1">
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                    <p>group_ignored</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                    <p>Group Ignored</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                    <p>This indicates if a software package is ignored globally from the Software page</p>
+                </td>
+            </tr>
+            <tr class="TableStyle-ax_tables-Body-Body2">
+                <th rowspan="3" class="TableStyle-ax_tables-BodyE-Columnhead-Body2">
+                    <p><span style="color: #ffffff;">Patch Information</span>
+                    </p>
+                </th>
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                    <p>patch_name</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                    <p>Patch Name</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                    <p>Name of the software update (patch)</p>
+                </td>
+            </tr>
+            <tr class="TableStyle-ax_tables-Body-Body1">
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                    <p>patch_version</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                    <p>Patch Version</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                    <p>Version number of the software update</p>
+                </td>
+            </tr>
+            <tr class="TableStyle-ax_tables-Body-Body2">
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                    <p>patch_knowledge_base</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                    <p>Patch Knowledge Base</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                    <p>Knowledge base identifier associated with the update</p>
+                </td>
+            </tr>
+            <tr class="TableStyle-ax_tables-Body-Body1">
+                <th rowspan="4" class="TableStyle-ax_tables-BodyE-Columnhead-Body1">
+                    <p><span style="color: #ffffff;">Mutual Device/Patch Information</span>
+                    </p>
+                </th>
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                    <p>operating_system_family</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                    <p>Operating System Family</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                    <p>OS family (Windows, Mac, or Linux)</p>
+                </td>
+            </tr>
+            <tr class="TableStyle-ax_tables-Body-Body2">
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                    <p>operating_system_name</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                    <p>Operating System Name</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                    <p>OS name of the installed system</p>
+                </td>
+            </tr>
+            <tr class="TableStyle-ax_tables-Body-Body1">
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                    <p>operating_system_version</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                    <p>Operating System Version</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                    <p>Installed OS version</p>
+                </td>
+            </tr>
+            <tr class="TableStyle-ax_tables-Body-Body2">
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                    <p>managed_patch</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                    <p>Managed Patch</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                    <p>This shows if the update is managed by Automox</p>
+                </td>
+            </tr>
+            <tr class="TableStyle-ax_tables-Body-Body1">
+                <th rowspan="5" class="TableStyle-ax_tables-BodyE-Columnhead-Body1">
+                    <p><span style="color: #ffffff;">Event Data</span>
+                    </p>
+                </th>
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                    <p>event_timestamp</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                    <p>Event Timestamp</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                    <p>Timestamp of the event</p>
+                </td>
+            </tr>
+            <tr class="TableStyle-ax_tables-Body-Body2">
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                    <p>patch_action</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                    <p>Event Type (patch action)</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                    <p>"Patch available" or "Patch installed"</p>
+                </td>
+            </tr>
+            <tr class="TableStyle-ax_tables-Body-Body1">
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                    <p>patch_available_timestamp</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                    <p>Patch Available Timestamp</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                    <p>Timestamp that informs when patch became available for installation</p>
+                </td>
+            </tr>
+            <tr class="TableStyle-ax_tables-Body-Body2">
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                    <p>patch_installed_timestamp</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                    <p>Patch Installed Timestamp</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                    <p>Timestamp that informs when patch was installed on the device</p>
+                </td>
+            </tr>
+            <tr class="TableStyle-ax_tables-Body-Body1">
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                    <p>exposure_time_hours</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                    <p>Exposure Time</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                    <p>Amount of time the device was not updated with the available patch</p>
+                </td>
+            </tr>
+            <tr class="TableStyle-ax_tables-Body-Body2">
+                <th rowspan="2" class="TableStyle-ax_tables-BodyE-Columnhead-Body2">
+                    <p><span style="color: #ffffff;">Vulnerability Data</span>
+                    </p>
+                </th>
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                    <p>patch_severity</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                    <p>Patch Severity</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                    <p>Severity (if any) of vulnerability associated with the patch (for example: critical, high, medium, low)</p>
+                </td>
+            </tr>
+            <tr class="TableStyle-ax_tables-Body-Body1">
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                    <p>cves</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                    <p>CVEs</p>
+                </td>
+                <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                    <p>CVEs (if any) associated with the patch</p>
+                </td>
+            </tr>
+        </table>
+        <p>Extract type: <b>API Activity</b></p>
+        <p>The CSV download includes the following exported data.</p>
+        <table class="TableStyle-ax_tables" cellspacing="0" style="mc-table-style: url('../../Resources/TableStyles/ax_tables.css');">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p><strong>Column Name</strong>
+                        </p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p><strong>Description</strong>
+                        </p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>UUID</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Universally unique identifier for the log entry</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>created_at (Creation Time)</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Time and date that the extract was created</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>created_by (Created By)</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Automox service that handled the request</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>environment</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Automox environment the activity was logged in</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>organization_id</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>ID of the organization</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>user_id</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>ID of the user who made the request</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>identity_id</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>The ID of the identity used to make the request. For users, this is identical to the User ID field. For API keys, this is the ID of the API key used to make the request.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>identity_type</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>The type of identity used to make the request (api-key, user)</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>request_id</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Unique identifier for the request</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>method</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>HTTP method</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>path</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>URL path (for example: /api/servers)</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>content_type</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Content-type header, if present</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>remote_ip</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>IP of the remote client who made the request</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>server_ip</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>IP of the server that handled the request</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>referer</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>HTTP referer, if present</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>query</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>HTTP query string</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>request_body</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>HTTP request body</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>response_code</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>HTTP response code</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                        <p>files</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+                        <p>An array of the file ref objects that were uploaded in the request. Each file ref has the following fields:</p>
+                        <ul>
+                            <li>Name: The original name of the uploaded file</li>
+                            <li>Byte_size: file size in bytes</li>
+                            <li>Hash: sha256 hash of file contents</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <MadCap:snippetBlock src="../../Resources/Snippets/submit-request.flsnp" />
+        <h2><strong>Related Topics</strong>
+        </h2>
+        <ul>
+            <li>
+                <MadCap:xref href="Creating_Reports.htm">Creating Reports</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Policy_Results_Report.htm">Policy Results Report</MadCap:xref>
+            </li>
+            <li><a href="https://developer.automox.com/openapi/axconsole/operation/createExtract/" rel="nofollow">Automox Console API: Create a new Data Extract</a>
+            </li>
+        </ul>
+    </body>
+</html>

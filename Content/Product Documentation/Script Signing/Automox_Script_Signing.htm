@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="This document describes enabling, using, and reverting [%=General.ProductName%] script signing." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Automox Script Signing</h1>
+        <p><MadCap:variable name="General.ProductName" /> Script Signing allows you to use AllSigned or RemoteSigned PowerShell execution policies without losing <MadCap:variable name="General.ProductName" /> functionality. This provides an extra layer of security to your Windows environment by adding a digital signature to your worklets, which ensures that your scripts are not tampered with after creation.</p>
+        <div class="info">Automox Script Signing currently works with PowerShell scripts (Worklets) and Automox system scripts.</div>
+        <br />
+        <MadCap:snippetBlock src="../../Resources/Snippets/Prerequisites.flsnp" />
+        <br />
+        <div class="warning">Devices need the PowerShell execution policy set to Bypass or Unrestricted before opting in; otherwise the certificates will not be installed.</div>
+        <h2>Enabling Automox Script Signing</h2>
+        <p>Automox Script Signing is provided as an opt-in feature. To enable this feature, follow these steps:</p>
+        <ol start="1">
+            <li>Select the <strong>Settings → Script Signing</strong> tab.</li>
+            <li>Select <strong>Opt in to use Automox and custom script signing</strong>.</li>
+            <li>Click <strong>Opt In &amp; Install</strong>.</li>
+        </ol>
+        <p>
+            <img src="../../Resources/Images/signing-overview.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <p>This installs the necessary certificates to your connected devices.</p>
+        <h2>Using an Elevated PowerShell Execution Policy</h2>
+        <p><MadCap:variable name="General.ProductName" /> Script Signing secures <MadCap:variable name="General.ProductName" /> system scripts and your custom scripts, which adds a digital signature to prevent tampering. You can update the PowerShell execution policy settings on your <MadCap:variable name="General.ProductName" /> devices to enforce signatures on the PowerShell scripts running on your devices, including PowerShell not managed by <MadCap:variable name="General.ProductName" />. </p>
+        <div class="warning">Before elevating your PowerShell execution policy, you must verify that the necessary certificates have been installed to your devices. This information is available on the Devices page (Signing Certificate Status column). <br /><b>Note</b>: You can manually download the certificate from the script signing page.</div>
+        <p>Updating the execution policy settings on your <MadCap:variable name="General.ProductName" /> devices is <b>optional</b>. </p>
+        <img src="../../Resources/Images/Signing-Post-Opt-In.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        <h3>Account Plan Includes Worklets</h3>
+        <p>Once the necessary certificates have been installed, you can use one of the worklets linked from the Script Signing settings tab to enable one of the following PowerShell execution policies for your devices:</p>
+        <ul>
+            <li><strong>AllSigned:</strong> This worklet updates the execution policy settings on your devices to only allow scripts that have been digitally signed by a trusted publisher to execute, regardless of origin (this includes locally created scripts). This ensures that only scripts from trusted sources are permitted to run on your devices.</li>
+            <li><strong>RemoteSigned:</strong> This worklet updates the execution policy settings on your devices to allow locally created scripts to run without signature but enforces remotely created scripts have been digitally signed by a trusted publisher, to execute.</li>
+        </ul>
+        <p>These worklets are also available in our Worklet Catalog.</p>
+        <ul>
+            <li><a href="https://console.automox.com/manage/worklet-catalog/424" rel="nofollow">Windows - Security - Set PowerShell ExecutionPolicy to RemoteSigned</a>
+            </li>
+            <li><a href="https://console.automox.com/manage/worklet-catalog/423" rel="nofollow">Windows - Security - Set PowerShell ExecutionPolicy to AllSigned</a>
+            </li>
+        </ul>
+        <h3>Account Plan Does Not Include Worklets</h3>
+        <p>If your account plan does not include worklets, you can still enable script signing for your devices and elevate your PowerShell execution policy. You will need to run a couple of PowerShell commands locally on the devices where you want to limit script usage to AllSigned or RemoteSigned.</p>
+        <p>You will be using the locally installed PowerShell on the device, which can be found at <strong>Start → All Programs → Windows PowerShell version → Windows PowerShell</strong></p>
+        <h4>Setting Script Execution Policy Locally</h4>
+        <p>To set the Script Execution policy locally, follow these steps:</p>
+        <ol start="1">
+            <li>Check the current signing policy on the device: <code>Get-ExecutionPolicy</code></li>
+            <li>Set the signing policy for the device:<ul><li><strong>RemoteSigned (recommended)</strong>: <code>Set-ExecutionPolicy RemoteSigned</code></li><li><strong>AllSigned</strong>: <code>Set-ExecutionPolicy AllSigned</code></li></ul></li>
+            <li>Verify that the execution policy has been applied on the device: <code>Get-ExecutionPolicy</code></li>
+        </ol>
+        <h2>Reverting Automox Script Signing</h2>
+        <p>In the event that you want to revert the execution policy back to the default setting, run the following command in a PowerShell prompt on the target device: <code>Set-ExecutionPolicy Default</code></p>
+        <p>Alternatively, you can follow the revert instructions in our <a href="https://console.automox.com/manage/worklet-catalog/423" rel="nofollow"> <strong>Windows - Security - Set PowerShell ExecutionPolicy to AllSigned</strong> </a> and <a href="https://console.automox.com/manage/worklet-catalog/424" rel="nofollow"> <strong>Windows - Security - Set PowerShell ExecutionPolicy to RemoteSigned</strong> </a>  worklets from the <a href="https://console.automox.com/manage/worklet-catalog" rel="nofollow">Automox Worklet Catalog</a>, if your account plan includes worklets.</p>
+        <h2>Related Topics:</h2>
+        <ul>
+            <li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.3#use-group-policy-to-manage-execution-policy" rel="nofollow">Microsoft Learn PowerShell: about_Execution_Policies</a>
+            </li>
+        </ul>
+    </body>
+</html>

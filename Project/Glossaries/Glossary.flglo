@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultGlossary>
+  <GlossaryEntry
+    glossTerm="Glossary.Term0"
+    Stem=""
+    IgnoreCase="true">
+    <Terms>
+      <Term>Account</Term>
+    </Terms>
+    <Definition
+      Link="">The account acts as the main object to store and manage all of the environments within this account, including specifying the enabled modules, features, billing settings, etc for each environment.
+
+- Zone ( previously Organization )
+- Users
+- Privleges User / Role / Zone
+- Billing &amp; contact information
+- Card details
+- Payment mode</Definition>
+  </GlossaryEntry>
+  <GlossaryEntry
+    glossTerm="Glossary.Term1"
+    Stem="True">
+    <Terms>
+      <Term>Organization</Term>
+      <Term>Org</Term>
+    </Terms>
+    <Definition
+      Link="">The top-level entity, usually relating to a unit or division within a company. An AX customer account can be tied to multiple organizations, and users can be invited to, and access multiple organizations.</Definition>
+  </GlossaryEntry>
+  <GlossaryEntry
+    glossTerm="Glossary.Term2"
+    Stem=""
+    IgnoreCase="false">
+    <Terms>
+      <Term>Global View</Term>
+    </Terms>
+    <Definition
+      Link="">The aggregate view of multiple zones or organizations.</Definition>
+  </GlossaryEntry>
+  <GlossaryEntry
+    glossTerm="Glossary.Term3"
+    Stem=""
+    IgnoreCase="false">
+    <Terms>
+      <Term>User</Term>
+    </Terms>
+    <Definition
+      Link="">Represents a set of login credentials and contact information for an external user. A user is associated with an account. Once created a user should get privileges granted to act:
+
+- at an account level
+- at a zone or organization level</Definition>
+  </GlossaryEntry>
+  <GlossaryEntry
+    glossTerm="Glossary.Term4"
+    Stem=""
+    IgnoreCase="false">
+    <Terms>
+      <Term>Device</Term>
+    </Terms>
+    <Definition
+      Link="">A subset of Assets, a general term denoting anything that runs the Automox Agent and is registered with the system.</Definition>
+  </GlossaryEntry>
+  <GlossaryEntry
+    glossTerm="Glossary.Term5"
+    Stem=""
+    IgnoreCase="false">
+    <Terms>
+      <Term>Asset Attribute</Term>
+    </Terms>
+    <Definition
+      Link="">A quality or feature regarded as a characteristic or inherent part of an asset. An asset can have many attributes. Asset Details</Definition>
+  </GlossaryEntry>
+  <GlossaryEntry
+    glossTerm="Glossary.Term6"
+    Stem=""
+    IgnoreCase="false">
+    <Terms>
+      <Term>Asset</Term>
+    </Terms>
+    <Definition
+      Link="">An Asset is any device that can be, or is, running the Automox Agent and/or can be, or is, registered with the system. Also, device.</Definition>
+  </GlossaryEntry>
+  <GlossaryEntry
+    glossTerm="Glossary.Term7"
+    Stem=""
+    IgnoreCase="false">
+    <Terms>
+      <Term>Workstation</Term>
+    </Terms>
+    <Definition
+      Link="">A subset of Assets. Denotes any Device or Asset used by a single end-user for computing tasks.</Definition>
+  </GlossaryEntry>
+  <GlossaryEntry
+    glossTerm="Glossary.Term8"
+    Stem=""
+    IgnoreCase="false">
+    <Terms>
+      <Term>Server</Term>
+    </Terms>
+    <Definition
+      Link="">A subset of Assets. Denotes any Device or Asset that supports multiple clients for designated computing tasks.</Definition>
+  </GlossaryEntry>
+</CatapultGlossary>

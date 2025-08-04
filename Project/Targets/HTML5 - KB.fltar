@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultTarget
+  Version="2"
+  Comment="HTML5 Target for KB Build"
+  Type="WebHelp2"
+  Destinations=""
+  GlossaryTermConversion="marked"
+  MasterToc="/Project/TOCs/NewPrimary.fltoc"
+  ConditionTagExpression=""
+  EquationsOutputType="PNG"
+  MasterPage="/Content/Resources/TemplatePages/Other-Topics.flmsp"
+  ExcludeUnreferencedContent="true"
+  TopNavTocPath="true"
+  ReplaceSpacesWithUnderscores="true"
+  DefaultUrl="/Content/Home.htm"
+  MasterStylesheet="/Content/Resources/Stylesheets/MainStyles.css"
+  BrandingStylesheet="/Content/Resources/Branding/Branding.css"
+  MasterStylesheetOverride="false"
+  TopicToolbarSkin="/Project/Skins/Toolbar.flskn"
+  ShowMadCapBacklink="false"
+  ResolveCssVariables="true"
+  Skin="/Project/Skins/Side-Navigation.flskn"
+  FaviconSkin="/Project/Skins/AXFavicon.flskn"
+  EnableSitemap="true"
+  SitemapWebUrl="https://docs.automox.com/product/"
+  OutputAnalyticsServer="https://automox.api.madcapcentral.com/"
+  LiveHelpType="Central"
+  OutputAnalyticsKey="6cd54ca2-3d78-48a4-a1c9-9e86af56a6e1"
+  MoveOutputContentToRoot="true"
+  ContentInclusionType="Referenced"
+  GetLatestBeforeCompile="true"
+  SearchResultsSkin="/Project/Skins/Search.flskn"
+  GenerateWebSafeImages="true"
+  WebSafeFileExtension="png"
+  PreCompileScaledImages="true">
+  <PrintedOutput
+    CollapseMargins="true"
+    GenerateTOCProxy="true"
+    GenerateIndexProxy="true"
+    GenerateGlossaryProxy="true"
+    OutputFormat="doc" />
+  <Destinations></Destinations>
+  <MicroContentSearch>
+    <FeaturedSnippets
+      type="AllFiles"
+      numberOfResults="1">
+      <microContentSubset />
+    </FeaturedSnippets>
+    <KnowledgePanel
+      type="Empty">
+      <microContentSubset />
+    </KnowledgePanel>
+  </MicroContentSearch>
+  <MetaTags
+    Enabled="false">
+    <meta
+      name="zd-site-verification"
+      content="50ukfacf1930bwu7cq3ined" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content=" sandbox allow-scripts; base-uri 'self'; default-src *; style-src * 'unsafe-inline'; script-src * blob: 'unsafe-inline'; img-src *; media-src * 'unsafe-inline'; font-src * 'unsafe-inline'; connect-src * 'unsafe-inline'; worker-src *; frame-src * 'unsafe-inline'; form-action *;" />
+  </MetaTags>
+  <PostBuild>powershell.exe -ExecutionPolicy Bypass -File "$(ProjectDirectory)Scripts\FilterSitemap.ps1" -SitemapFilePath "$(OutputDirectory)sitemap.xml"</PostBuild>
+  <PreBuild>powershell.exe -ExecutionPolicy Bypass -File "$(ProjectDirectory)\UpdateLastCommitDates.ps1"</PreBuild>
+</CatapultTarget>

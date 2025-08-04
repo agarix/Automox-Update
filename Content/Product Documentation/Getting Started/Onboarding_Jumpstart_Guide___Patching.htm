@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+    </head>
+    <body>
+        <h1>Onboarding Jumpstart Guide - Patching</h1>
+        <p>As you begin to build out your new <MadCap:variable name="General.ProductName" /> organization, understanding what is available, and having access to best practices will help you to define your organization patch policy standards within the <MadCap:variable name="General.ProductName" /> console.</p>
+        <p>Each organization has its own unique challenges, and there is no one-plan-fits-all solution. This guide is designed to provide you with resources and recommendations to help you define the best use of <MadCap:variable name="General.ProductName" /> for your organization.</p>
+        <h2>Policy Overview - View and Create Policies</h2>
+        <h3>Managing Policies</h3>
+        <p>Types of Patch Policies:</p>
+        <ul>
+            <li>Patch All</li>
+            <li>Patch All Except</li>
+            <li>Patch Only</li>
+            <li>Manual Approval<ul><li><MadCap:xref href="../Patching/Using_a_Manual_Approval_Policy.htm">Using a Manual Approval Policy</MadCap:xref></li></ul></li>
+            <li>Severity<ul><li><MadCap:xref href="../Patching/Understanding_Automox_Severity_Data.htm">Understanding Automox Severity Data</MadCap:xref></li><li><MadCap:xref href="../Patching/Patching_When_the_Severity_Level_Is_Unknown.htm">Patching When the Severity Level Is Unknown</MadCap:xref></li></ul></li>
+            <li>Advanced Policy<ul><li><MadCap:xref href="../Patching/Using_the_Advanced_Patch_Policy.htm">Using the Advanced Patch Policy</MadCap:xref></li></ul></li>
+        </ul>
+        <h2>Notifications and Restarts</h2>
+        <p>Windows and macOS patch policies have restart and notification functionality built-in. See <MadCap:xref href="../Notifications &amp; Restarts/End_User_Notifications.htm">End-User Notifications</MadCap:xref> for the latest.</p>
+        <h3>Notifications</h3>
+        <h4>macOS</h4>
+        <ul>
+            <li>
+                <MadCap:xref href="../Notifications &amp; Restarts/Allowing_Automox_Notifications_in_macOS__Starting_with_Catalina_.htm">Allowing Automox Notifications in macOS (Starting with Catalina)</MadCap:xref>
+            </li>
+        </ul>
+        <div class="tip">To reset event notifications manually, use the following command: <code>sudo tccutil reset AppleEvents</code></div>
+        <ul>
+            <li>
+                <MadCap:xref href="../Notifications &amp; Restarts/macOS_Privacy_Preferences___amagent_wants_access_to_control_Microsoft_AutoUpdate.htm">macOS Privacy Preferences - amagent wants access to control Microsoft AutoUpdate</MadCap:xref>
+            </li>
+        </ul>
+        <div class="warning">If the amagent is not allowed to control Microsoft AutoUpdate, the latest version in the console will be empty and will not automatically update.</div>
+        <ul>
+            <li>
+                <MadCap:xref href="../Notifications &amp; Restarts/macOS_Privacy_Preferences___amagent_wants_access_to_control_Microsoft_AutoUpdate.htm">macOS Privacy Preferences - amagent wants access to control Microsoft AutoUpdate</MadCap:xref>
+            </li>
+        </ul>
+        <p>
+            <MadCap:xref href="../Notifications &amp; Restarts/Using_Restart_Notifications.htm">Using Restart Notifications</MadCap:xref>
+        </p>
+        <div class="info">
+            <ul>
+                <li>If Automox restarts on a BitLocker managed device, BitLocker is bypassed for the managed restart.</li>
+                <li>Notifications are currently not supported on Linux systems.</li>
+            </ul>
+        </div>
+        <h2>Third-Party Software Updates</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="../Third-Party Software/Third_Party_Software_Support.htm">Third-Party Software Support</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="../Third-Party Software/Third_Party_Patching_Best_Practices.htm">Third-Party Patching Best Practices</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="../Third-Party Software/Naming_Scheme_for_Third_Party_Software_Packages.htm">Naming Scheme for Third-Party Software Packages</MadCap:xref>
+            </li>
+        </ul>
+        <h2>Patch Status</h2>
+        <p>Status icons and messages found in the console can be very helpful when checking into device health, connection status, or the state of a policy that is attempting to run, or currently running. Refer to <MadCap:xref href="../Console Overview/What_the_Statuses_Found_in_the_Automox_Console_Mean.htm">What the Statuses Found in the Automox Console Mean</MadCap:xref>. Here are a few examples:</p>
+        <ul>
+            <li><strong>Excluded From Reports:</strong> This device is flagged as an exception and will not show up in reporting. We will still try to patch according to the policies assigned to the group that it is in.</li>
+            <li><strong>Unmanaged:</strong> This device has been added to Automox, but the group it is in does not have any policies assigned to it.</li>
+        </ul>
+        <h2>Patch Installation Methods</h2>
+        <h3>Scheduled Policy</h3>
+        <div class="warning" style="font-weight: normal;"><b>Important</b>: Devices with Automox Agent version 2.1.44 or later use deadline-based notifications. Refer to <MadCap:xref href="../Notifications &amp; Restarts/End_User_Notifications.htm">End-User Notifications</MadCap:xref> for details.</div>
+        <ul>
+            <li>The policy runs at the local time for each device defined within the policy.</li>
+            <li>If notifications are configured, a notification and the defined deferral option appear at the scheduled deployment time, allowing 15 minutes to respond.<ul><li>If the Automatic Restart option is enabled in the policy, and one or more patches require a restart, the restart message is displayed. In any other scenario with Notifications, the Notification message is displayed.</li></ul></li>
+            <li>If Automatic Restart is configured, a final restart notification is displayed after patches are installed allowing 15 minutes, but only if a restart is required to complete the patch installation. The user can click Restart now, or Close. If they select close, or do not respond to a restart notification, the computer will restart at the time specified.<ul><li>If Restart notification deferrals are enabled, the policy defined deferrals are displayed within the restart notification.</li></ul></li>
+            <li>When the <strong>If a device misses a patch window, patch it the next time the device checks in</strong> checkbox is selected, as long as the machine has run a scan between the time the policy was created, and the policy schedule time, the policy will run when the device next communicates with Automox.</li>
+            <li>Notifications are only displayed if there is an active user session (only if a user is logged on). If no user is logged in, installation and restart actions run automatically.</li>
+        </ul>
+        <h3>Manually Run Policy</h3>
+        <p>You can manually run enabled and assigned policies at any time (this includes scheduled policies).</p>
+        <ul>
+            <li>You can trigger a manual policy run from Device Details (for an individual device) or from the policy Actions menu (on all targeted computers at one time).</li>
+            <li>Manually running a policy will honor the Automatic Restart configuration, but will not display notifications.</li>
+            <li>Manually running a Worklet policy will ignore evaluation, and immediately run the remediation code.</li>
+            <li>Manually running a policy without a schedule set it the only way to trigger the policy to run.</li>
+        </ul>
+        <h3>Individually</h3>
+        <p>You can install or uninstall (if applicable) updates from device details under the actions column drop-down menu.</p>
+        <p>No notifications are displayed and no restart is forced when manually installing an individual patch from the Actions drop-down menu.</p>
+        <div class="tip">You can manually trigger a restart after the patch from the Devices or Device Details page.</div>
+        <h3>Patch all like OS devices where patch is missing</h3>
+        <p>You can install a patch for all like OS devices that show a patch is Awaiting installation. From the Software page, search for the patch of interest. One or more versions of the patch might be listed, because the software is displayed by OS as well as patch display name. You can see how many devices require the patch from the <strong>Impacted Devices</strong> column. (The number in this column is also a hyperlink to the device list of impacted devices). To the right, there is an action drop-down button where you can install the patch on all impacted devices.</p>
+        <h2>Patch Scenarios</h2>
+        <h3>Scenario: Patching Pilot - Policies and Groups</h3>
+        <p>Patching a pilot group of systems before patching all production systems can help reduce potential risk incurred by installing updates to applications or operating systems. Here are a few tips:</p>
+        <ul>
+            <li>Build pilot group(s) that include like or similar systems to your production systems. Include devices with the same operating systems, applications, and similar patch levels. This will help to build confidence that your production patch deployment will work as expected when deployed to your production groups.</li>
+            <li>Ensure that critical applications are reviewed after patching, allowing enough time to make adjustments should a patch negatively impact your app functionality.</li>
+            <li>Provide enough time to evaluate the pilot devices, to keep the timing between pilot and production releases as short as possible to ensure dynamic rules do not modify the patch set between testing and production deployments.</li>
+        </ul>
+        <p>Example (This is an example, used for demonstration purposes. Please adjust for your environment.)</p>
+        <p><strong>Build the following groups:</strong>
+        </p>
+        <ul>
+            <li>Pilot - Client Systems</li>
+            <li>Pilot - Servers</li>
+            <li>Production - Client Systems</li>
+            <li>Production - Server Systems 1</li>
+            <li>Production - Server Systems 2</li>
+        </ul>
+        <p><strong>Build the following policies:</strong>
+        </p>
+        <ul>
+            <li>Pilot - Client Patch all except (or Advanced)</li>
+            <li>Pilot - Server Patch All except (or Advanced)</li>
+            <li>Servicing Stack Updates Pilot</li>
+            <li>Servicing Stack Updates Client Production</li>
+            <li>Servicing Stack Updates Server Production</li>
+            <li>Production Client Patch all except (or Advanced)</li>
+            <li>Production Server Patch all except (Saturday 10:00 pm)</li>
+            <li>Production Server Patch all except (Sunday 12:00 am)<br /></li>
+        </ul>
+        <p><strong>Scheduling:</strong>
+        </p>
+        <ul>
+            <li>Schedule the Pilot policies to run every Wednesday at 12:00 PM, with restart.</li>
+            <li>Schedule the Client Production policy to run Fridays at 10:00 AM, Notify users before patching and allow deferral for both patching and restart. Install if the system is offline during scheduled time.</li>
+            <li>Schedule Servicing Stack Update Pilot policy to install at 10:00 AM every day. Install if the system is offline during scheduled time. No restart or notifications.</li>
+            <li>Schedule the Servicing Stack Update Client Production policy to run Thursdays and Fridays at 9 AM. No restart or notifications.</li>
+            <li>Schedule the Servicing Stack Update Server Production policy to run on Saturday at 9 PM. No restart or notification.</li>
+            <li>Schedule the Production Server Patch all except (Saturday 10:00 PM) policy to run every Saturday at 10:00 PM. Include restart without deferral.</li>
+            <li>Schedule the Production Server Patch all except (Sunday at 12:00 AM) policy to run at 12:00 AM every Sunday. Include restart without deferral.</li>
+        </ul>
+        <p><strong>Logic in this scenario:</strong>
+        </p>
+        <ul>
+            <li>The industry has determined that it takes an average of seven days for a bad character to take advantage of a new exploit. By patching weekly, you will test and deploy patches released within the previous 7 days.</li>
+            <li>Pilot and production deployments are scheduled closely together. This allows dynamic policy rules to remain more relevant than scheduling them far apart. As patches are released or superseded, some patches may be added or removed from the dynamic policy patch set. This is a potential drawback to this scenario. The trade off is a set-it and forget-it rule set with the ability to keep your environment up to date with little manual administration effort.</li>
+            <li>Patch schedules are simple and predetermined. This should simplify communications and employees can plan around the patch schedules.</li>
+        </ul>
+        <h2 id="OnboardingJumpstartGuide-Patching-TipsandBestPractices">Tips and Best Practices</h2>
+        <p>
+            <MadCap:xref href="../Patching/What_Are_the_Recommended_Best_Practices_for_Patching_in_Automox_.htm">What Are the Recommended Best Practices for Patching in Automox?</MadCap:xref>
+        </p>
+        <ul>
+            <li><strong>Tip:</strong> Policies are not inherited based on group hierarchy/structure. Policies must be directly assigned to each group where you want it to be applied.</li>
+            <li><strong>Tip:</strong> Search filters are very helpful. Use a predetermined naming convention for your groups and Policies to get quick views of relevant objects. If you search for Worklet, Patch, or Required Software in the Policies filter, it will filter to that type of policy.</li>
+            <li><strong>Tip:</strong> Each managed device will need access to all update sources when scans and policies run. Notable updates sources are:<ul><li><a href="https://docs.microsoft.com/en-us/windows/deployment/update/windows-update-troubleshooting#device-cannot-access-update-files" rel="nofollow">Windows Update troubleshooting</a></li><li>WSUS server (if used in your environment)</li></ul></li>
+        </ul>
+        <h3>Templates</h3>
+        <p>Here are API scripts (PowerShell) to create the patch policies from the previous Recommended Best Practices article:</p>
+        <p>Primary Patch Policy</p>
+        <ul>
+            <li><a href="https://github.com/AutomoxCommunity/Templates_And_Examples/blob/main/CreatePrimaryPatchPolicy.ps1" rel="nofollow">https://github.com/AutomoxCommunity/Templates_And_Examples/blob/main/CreatePrimaryPatchPolicy.ps1</a> </li>
+        </ul>
+        <p>Servicing Stack Update Policy</p>
+        <ul>
+            <li><a href="https://github.com/AutomoxCommunity/Templates_And_Examples/blob/main/CreateServicingStackPatchPolicy.ps1" rel="nofollow">https://github.com/AutomoxCommunity/Templates_And_Examples/blob/main/CreateServicingStackPatchPolicy.ps1</a>
+            </li>
+        </ul>
+        <p>Windows 10 Feature Update Policy</p>
+        <ul>
+            <li><a href="https://github.com/AutomoxCommunity/Templates_And_Examples/blob/main/CreateFeatureUpdatePatchPolicy.ps1" rel="nofollow">https://github.com/AutomoxCommunity/Templates_And_Examples/blob/main/CreateFeatureUpdatePatchPolicy.ps1</a>
+            </li>
+        </ul>
+        <p>Optional: Defender Definition Update Policy</p>
+        <ul>
+            <li><a href="https://github.com/AutomoxCommunity/Templates_And_Examples/blob/main/CreateDefinitionUpdatePatchPolicy.ps1" rel="nofollow">https://github.com/AutomoxCommunity/Templates_And_Examples/blob/main/CreateDefinitionUpdatePatchPolicy.ps1</a> <br /></li>
+        </ul>
+        <div class="info"><strong>Note</strong>: Policy rules are best suited for English-based systems. Use of Advanced policies might be more appropriate than Patch All Except policies when international language support is required (when standardized rule sets are preferred).</div>
+        <h2>WSUS</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="../Agents/Agent Installation/Configuring_WSUS_for_Automox_Integration.htm">Configuring WSUS for Automox Integration</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="../Group Management/OS_Patch_Management_Settings_for_Groups.htm">OS Patch Management Settings for Groups</MadCap:xref>
+            </li>
+        </ul>
+        <p>Integration with WSUS provides a way for you to cache Microsoft updates on-premise to reduce download bandwidth. Third-party updates are not stored in WSUS, and are downloaded from the internet directly.</p>
+        <p>When you set your Group OS Patch Management "Windows Update Source" to WSUS, and you define your WSUS Server Address, your device will scan for Microsoft-based updates and determine compliance and applicability using your WSUS server as the update source. (<strong>Note</strong>: you can also use the “Keep Device Settings” options if WSUS policies are already applied and preferred).</p>
+        <p>Make sure to configure WSUS Products and Classifications to include everything needed, as only the patch metadata available in your WSUS DB (the patches included in the cab downloaded from WSUS) is used to determine what patches are available for compliance or download.</p>
+        <h3>At Scan Time</h3>
+        <p>Automox will direct the device's WU agent to scan for updates against its update source. In this case it will scan against WSUS.</p>
+        <h3>At Policy Run Time</h3>
+        <p>Automox will direct the devices WU agent to download and install the updates it detected in a needed state. It will also verify third-party applications included in the patch policy, and will download them from the internet.</p>
+        <p>Tip: If you configure your group to use WSUS, your device MUST have access to your WSUS server when scans and policies run.</p>
+        <h3>GPO vs Automox Group settings</h3>
+        <p>GPO and Automox Group Patch Management settings can conflict. GPO Windows Update settings will apply based on the domain schedule (default every 90 minutes).</p>
+        <p>Automox Patch Management Settings will apply based on the group defined scan interval. If they are different, your device could toggle between patch sources, or temporarily go to default.</p>
+        <p>This can cause misalignment in needed patches and potentially install updates or feature updates directly from the internet. We suggest using the Automox group Patch Management Settings, and removing the WU settings from GPO to avoid this type of issue.</p>
+        <h2>Troubleshooting</h2>
+        <ul>
+            <li>WU Error codes<ul><li><a href="https://docs.microsoft.com/en-us/windows/deployment/update/windows-update-error-reference" rel="nofollow">Windows Update error code list by component - Windows Deployment</a></li></ul></li>
+            <li>Patch troubleshooting resources:<ul><li><a href="https://help.automox.com/hc/en-us/articles/31737315610516-Windows-Update-Troubleshooting-Process">Windows Update Troubleshooting Process</a></li><li><a href="https://docs.microsoft.com/en-us/windows/deployment/update/windows-update-troubleshooting" rel="nofollow">Windows Update troubleshooting - Windows Deployment</a></li></ul></li>
+            <li>Windows Update Agent and WSUS troubleshooting<ul><li><a href="https://docs.microsoft.com/en-us/windows/deployment/update/windows-update-resources" rel="nofollow">Windows Update - Additional resources - Windows Deployment</a></li></ul></li>
+        </ul>
+        <h2>Miscellaneous</h2>
+        <ul>
+            <li>Patch rollbacks<ul><li><MadCap:xref href="../Miscellaneous/How_to_Roll_Back_an_Installed_Patch_on_Devices.htm">How to Roll Back an Installed Patch on Devices</MadCap:xref></li><li><MadCap:xref href="../Worklets &amp; Required Software/Windows_Patch_Rollback_Worklet.htm">Windows Patch Rollback Worklet</MadCap:xref></li></ul></li>
+            <li>Exclusion - Block list<ul><li><MadCap:xref href="../Miscellaneous/Adding_Patches_to_the_Block_List_in_the_Automox_Console.htm">Adding Patches to the Block List in the Automox Console</MadCap:xref></li></ul></li>
+        </ul>
+    </body>
+</html>

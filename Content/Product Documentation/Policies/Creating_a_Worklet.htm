@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Describes how to create a Worklet." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Creating a Worklet</h1>
+        <p>Use the Worklet™ option to perform any scriptable action on devices, including disabling a vulnerable process, managing native OS controls, mass rollback of patches, and moving unwanted applications. You can include variables to securely retrieve secrets. You can also configure restart notifications and deferral settings for worklets.</p>
+        <div class="info"><b>Note</b>: 
+        <ul><li>Before you create a worklet from scratch, browse the <a href="https://help.automox.com/hc/en-us/articles/17985679771796-Using-the-Worklet-Catalog" rel="nofollow">Worklet Catalog</a> for available and customizable worklets.&#160;</li><li>To view the Worklet Catalog, your organization must be under a plan that includes Worklets.</li></ul></div>
+        <br />
+        <MadCap:snippetBlock src="../../Resources/Snippets/Prerequisites.flsnp" />
+        <h2 id="CreatingaWorklet-CreatingaWorklet">Creating a Worklet</h2>
+        <p>To create a worklet, follow these steps:</p>
+        <ol start="1">
+            <li>From the main console, click <b>Automate → Policies</b>.</li>
+            <li>Click <b>Create Policy</b>.</li>
+            <li>From the Create Policy page, go to the Worklets section and select the corresponding OS for the policy you want to create.<br /><b>Note</b>: The worklet you create should be run on a device of the same OS.&#160;</li>
+            <li>In the Policy Info area, configure the following:<ul><li>In the <b>Policy Name</b> field, enter a name for the worklet. The field is required.</li><li>In the <b>Notes</b> field, enter any notes, if required.</li></ul></li>
+            <li>(Optional) Set filters under <b>Device Targeting</b>, as needed. See <MadCap:xref href="Device_Targeting_with_Filters.htm">Device Targeting with Filters</MadCap:xref> for more information.</li>
+            <li>(Optional) Configure <b>Inputs</b>. Use the Inputs section to add environment variables to the worklet code. See <MadCap:xref href="../Settings/Secrets_Management.htm">Secrets Management</MadCap:xref> for more information.</li>
+            <li>(Optional) Configure <b>Payload</b>. Select a file to deploy with the worklet. <b>Note:</b> The current file size limit is 1 GB.</li>
+            <li>In the <b>Evaluation Code</b> area, enter a script for the worklet you are creating.<ul><li>Refer to <MadCap:xref href="../Worklets &amp; Required Software/How_to_Use_Worklets.htm">How to Use Worklets</MadCap:xref>. For example worklets, browse our Worklet Catalog for Automox verified worklets, or the <a href="https://community.automox.com/community-worklets-12" rel="nofollow">Community Worklets</a> library.</li><li><b>Note:</b> If you switch to a different OS, the code fields are automatically cleared.</li></ul></li>
+            <li>In the <b>Remediation Code</b> area, enter remediation logic to execute when the evaluation code above returns non-compliance.</li>
+            <li>In the <b>Schedule</b> area, set the patching schedule that will run on the device. The Schedule Preview provides a calendar view of the patching schedule. See <MadCap:xref href="Setting_a_Patching_Schedule.htm">Setting a Patching Schedule</MadCap:xref>.</li>
+            <li>After you set the schedule, you can configure <b>Restart Notifications</b>. Refer to <MadCap:xref href="../Notifications &amp; Restarts/Managing_End_User_Notifications.htm">Managing End-User Notifications</MadCap:xref>.</li>
+            <li><b>Associate Groups</b> to associate this policy with the desired group(s). When the policy is saved, the group is then assigned to the policy.</li>
+            <li>Click <b>Create Policy</b>.</li>
+        </ol>
+        <p>
+            <img src="../../Resources/Images/create-worklet.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <p>
+            <img src="../../Resources/Images/worklet-scope.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <p>
+            <img src="../../Resources/Images/worklet-schedule-notifications.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <h2>Disabling a Worklet</h2>
+        <p>To disable a worklet, follow these steps:</p>
+        <ol start="1">
+            <li>From the Policy page, click the worklet you want to disable.</li>
+            <li>From the <b>Edit Worklet&#160;</b>page, go to <b>Groups</b> and remove any associated groups.</li>
+            <li>Click <b>Save Policy</b>.</li>
+        </ol>
+        <h2 id="CreatingaWorklet-BrowsetheWorkletCatalog">Browse the Worklet Catalog</h2>
+        <p>The catalog of worklets allows you to immediately use a verified worklet for your purposes. You can also create a new policy based on an existing worklet. Refer to <MadCap:xref href="../Worklet Catalog/Using_the_Worklet_Catalog.htm">Using the Worklet Catalog</MadCap:xref> for details.</p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/submit-request.flsnp" />
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="Device_Targeting_with_Filters.htm">Device Targeting with Filters</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="../Settings/Secrets_Management.htm">Secrets Management</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Setting_a_Patching_Schedule.htm">Setting a Patching Schedule</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="../Worklets &amp; Required Software/How_to_Use_Worklets.htm">How to Use Worklets</MadCap:xref>
+            </li>
+            <li>See our <a href="https://community.automox.com/community-worklets-12" rel="nofollow">Community discussions</a> around worklets.</li>
+            <li>See <MadCap:xref href="../Otto AI/Enabling_and_Using_Ask_Otto_by_Automox.htm">Enabling and Using Ask Otto by Automox</MadCap:xref> for details about using our script assistant</li>
+        </ul>
+    </body>
+</html>

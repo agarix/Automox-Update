@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+    </head>
+    <body>
+        <h1>April 2025 Release Notes</h1>
+        <h2>April 18, 2025</h2>
+        <p>Added:</p>
+        <ul>
+            <li>Added release notes for <MadCap:xref href="../Agent Release Notes/Agent 2.2.x Release Notes.htm">Agent 2.2.x - Coming Soon</MadCap:xref>.</li>
+        </ul>
+        <p>Updated:</p>
+        <ul>
+            <li>Updated <MadCap:xref href="../../Agents/Agent Requirements/Supported_Operating_Systems.htm">Supported Operating Systems</MadCap:xref> to include Windows Server 2025.</li>
+            <li>Updated <MadCap:xref href="../Agent Release Notes/Agent 2.1.44 Release Notes.htm">Agent 2.1.44 &amp; Automox Tray Release Notes</MadCap:xref> with info regarding Automatic Deferrals.</li>
+            <li>Updated <MadCap:xref href="../../Third-Party Software/Third_Party_Software_Support.htm">Third-Party Software Support</MadCap:xref> to reflect that we no longer support third-party patching for MS Visual Studio Community Edition 2019, as updates are now behind a paywall for this version.</li>
+            <li>We updated a majority of the documentation to reflect the change from zones to organizations. </li>
+            <li>Corrected the Actions button for removing a device (Delete) in <MadCap:xref href="../../Device Management/Managing_Devices.htm">Managing Devices</MadCap:xref></li>
+        </ul>
+        <h2>April 11, 2025</h2>
+        <p>Added:</p>
+        <ul>
+            <li>New supported third-party titles:<ul><li>IntelliJ IDEA Ultimate 2024.3 (Windows, macOS)</li><li>IntelliJ IDEA Community Edition 2024.3 (Windows, macOS)</li></ul></li>
+        </ul>
+        <p>Updated:</p>
+        <ul>
+            <li>We improved patching guidance in these documents with clearer, more actionable next steps for patching:<ul><li><MadCap:xref href="../../Console Overview/Automox Console Dashboard.htm">Automox Console Dashboard</MadCap:xref></li><li><MadCap:xref href="../../Policies/Creating_a_Patch_Policy.htm">Creating a Patch Policy</MadCap:xref></li><li><MadCap:xref href="../../Patching/What_Are_the_Recommended_Best_Practices_for_Patching_in_Automox_.htm">What Are the Recommended Best Practices for Patching in Automox?</MadCap:xref><![CDATA[
+]]></li></ul></li>
+            <li>Updated commands to remove the agent, and restart the agent on macOS in these docs:<ul><li><MadCap:xref href="../../Agents/Agent Installation/Bulk Agent Deployment/Deploying_Automox_via_VMware_Workspace_ONE.htm">Deploying Automox via VMware Workspace ONE</MadCap:xref></li><li><MadCap:xref href="../../Agents/Agent Installation/Agent_Command_Line_Guide.htm">Agent Command Line Guide</MadCap:xref></li><li><MadCap:xref href="../../Agents/Agent Installation/Removing_the_Automox_Agent.htm">Removing the Automox Agent</MadCap:xref></li><li><MadCap:xref href="../../Troubleshooting/Troubleshooting_the_Automox_Agent_Installation_on_macOS.htm">Troubleshooting the Automox Agent Installation on macOS</MadCap:xref></li><li><MadCap:xref href="../../Agents/Agent Installation/Bulk Agent Deployment/Deploying_the_Automox_Agent_in_Bulk.htm">Deploying the Automox Agent in Bulk</MadCap:xref></li><li><MadCap:xref href="../../Global Access Management/Moving_Devices_From_One_Zone_to_Another.htm">Moving Devices From One Zone to Another</MadCap:xref></li></ul></li>
+            <li>Updated the <MadCap:xref href="../../Device Management/Device_Details.htm">Device Details</MadCap:xref> documentation to include the new Device Logs section. This section shows logs from the last 4 scans within the past 30 days and is accessible from the Activity Log Report. The update also describes how to view the logs and explains the types of data shown.</li>
+        </ul>
+        <p>Bugfixes:</p>
+        <ul>
+            <li>We fixed an issue for Worklet policies, where the next patch time was not showing on policy creation.</li>
+            <li>We fixed an issue for Patch policies where the policy wasn't scheduled until after the device scan completed.</li>
+        </ul>
+        <h2>April 4, 2025</h2>
+        <p>Added:</p>
+        <ul>
+            <li>
+                <MadCap:xref href="../Agent Release Notes/Agent 2.1.44 Release Notes.htm">Agent 2.1.44 &amp; Automox Tray Release Notes</MadCap:xref>
+            </li>
+            <li>Automox Tray documentation<ul><li><MadCap:xref href="../../Notifications &amp; Restarts/End_User_Notifications.htm">End-User Notifications</MadCap:xref></li><li><MadCap:xref href="../../Notifications &amp; Restarts/Automox Tray FAQ.htm">Automox Tray and End-User Notifications FAQ</MadCap:xref></li></ul></li>
+            <li>
+                <MadCap:xref href="../../Automox Reports/Analytics.htm">Analytics</MadCap:xref>
+            </li>
+        </ul>
+        <p>Updated:</p>
+        <ul>
+            <li><b>"Zones"</b> have been renamed to <b>"Organizations"</b> across the console. (Documentation updates coming soon!)</li>
+            <li>The <a href="../../Console Overview/Automox Console Dashboard.htm">top navigation bar</a> has changed:<ul><li>It previously included: <b>Dashboard | Devices | Software | Manage | Reports</b></li><li>It now shows: <b>Dashboard | Devices | Automate | Manage | Insights</b></li></ul></li>
+            <li>We updated and corrected a file path in <MadCap:xref href="../../Agents/Agent Requirements/Location_of_Files_Required_By_Automox.htm">Location of Files Required By Automox</MadCap:xref></li>
+            <li>We updated <MadCap:xref href="../../Patching/What_Are_the_Recommended_Best_Practices_for_Patching_in_Automox_.htm">What Are the Recommended Best Practices for Patching in Automox?</MadCap:xref></li>
+            <li>We updated information around updating email addresses (This will likely change in the near future).</li>
+        </ul>
+        <p>Bugfixes:</p>
+        <ul>
+            <li>We fixed a bug where users were unable to change MFA from email to mobile.</li>
+            <li>We fixed a bug where users were unable to determine device group during missed policy execution.</li>
+            <li>We fixed a bug where users were logged out when visiting <a href="https://console.automox.com/">console.automox.com</a>.</li>
+        </ul>
+        <p>&#160;</p>
+    </body>
+</html>

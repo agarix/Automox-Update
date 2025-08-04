@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Worklet example that describes how to uninstall a Windows patch across multiple devices" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Windows Patch Rollback Worklet</h1>
+        <p>Uninstall a specific Windows patch across multiple devices, Worklet example.</p>
+        <p>The Automox console allows you to uninstall patches using the Rollback Action from the Device Details page. Unfortunately, this method might be cumbersome for a large number of devices.&#160;</p>
+        <p>So for this scenario, we can apply a Worklet that will allow us to detect the presence of, and subsequently remove, the unwanted patch.</p>
+        <div class="info"><strong>Note</strong>: Not all patches are uninstallable. Refer to the <a href="https://www.catalog.update.microsoft.com/Home.aspx" rel="nofollow">Microsoft Update Catalog</a> for details for your particular patch.</div>
+        <h2>Evaluation Code</h2>
+        <p>To evaluate this, we simply need to determine if the patch is present. This is simple to do with the PowerShell command<code> Get-HotFix</code>. Based on the response of that command for the patch we're concerned with, we use the appropriate Exit Code to indicate its compliance status.</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">#### EVALUATION CODE ####
+ # If you want to have an ongoing evaluation use this script
+ # to see if the patch is present.
+
+ # If you just want to manually execute this policy, this can be as
+ # simple as "Exit 1"
+ 
+# Change this KB number to match what you want to check for
+# Be certain to use the same KB number in both Evaluation and Remediation
+$kb = '4503308'
+
+# Check for presence and assign to variable
+$installed = Get-HotFix -Id "KB$kb" -ErrorAction SilentlyContinue
+
+# Check the variable and exit accordingly
+if ( $installed ) {
+    #Installed is Non-Conmpliant, so Exit 1
+    Exit 1
+    #Otherwise Exit 0 for Compliance
+} else {
+    Exit 0
+}</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h2>Remediation Code</h2>
+        <h3>Method 1 - Windows 7 and Newer</h3>
+        <p>Remediation is more complex in this case. Since Windows 10 removed the option to uninstall patches silently with wusa.exe, we have to dig through packages another way, format the output, and use dism.exe to uninstall the patch.</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">#### REMEDIATION CODE ####
+# Uninstall the specified patch using dism.exe
+# Compatible with Windows 7 and Newer
+
+# Change this KB number to match what you want to check for
+# Be certain to use the same KB number in both Evaluation and Remediation
+$kb = '4503308'
+
+# Retrieve the package information from dism.exe filtered for our patch.
+# Then convert the response to a string, and remove the excess label text
+
+$package = &amp; dism.exe /online /get-packages | Select-String $kb
+Try { $packageName = $package.ToString().replace("Package Identity : ", "") }
+Catch { Write-Output "Package Not Found, device is compliant"; Exit 0 }
+
+# Use the package name we just retrieved to trigger the uninstall
+$process = Start-Process -FilePath 'dism.exe' -ArgumentList "/Online /Remove-Package /PackageName:$packageName /quiet /norestart" -Wait -PassThru
+$process.ExitCode</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h3>Method 2 - Windows 8 and Older</h3>
+        <p>For the sake of example, here is the simpler version that can be used on devices using older operating systems (Windows 8 and older). The one complication here lies in the need to use the 'sysnative' path to wusa.exe when running on a 64-bit operating system. So we add a check for that and act accordingly.</p>
+        <div class="info"><b>Note</b>: This is necessary because Automox runs as a 32-bit process even on 64-bit versions of Windows.</div>
+        <br />
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">#### REMEDIATION CODE ####
+# Uninstall the specified patch using wusa.exe
+# Compatible with Windows 8 and Older
+
+# Change this KB number to match what you want to check for
+# Be certain to use the same KB number in both Evaluation and Remediation
+$kb = '4503308'
+
+# Determine OS Architecture to set path for wusa.exe
+$osArch = (Get-WmiObject -Class Win32_OperatingSystem).OSArchitecture
+
+# Define the FilePath to wusa.exe based on OS Architecture
+if ( $osArch -match '64-bit' ) {
+    $filePath = 'C:\Windows\sysnative\wusa.exe'
+} else {
+    $filePath = 'C:\Windows\System32\wusa.exe'
+}
+
+# Uninstall and save the exit code to determine success/failure
+$process = Start-Process -FilePath $filePath -ArgumentList "/uninstall /KB:$kb /quiet /norestart" -Wait -PassThru
+Exit $process.ExitCode</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p>
+            <img src="../../Resources/Images/rollback-worklet-code.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="How_to_Use_Worklets.htm">How to Use Worklets</MadCap:xref>
+            </li>
+            <li>Browse <a href="https://www.automox.com/worklets" rel="nofollow">Automox Worklets</a></li>
+        </ul>
+    </body>
+</html>

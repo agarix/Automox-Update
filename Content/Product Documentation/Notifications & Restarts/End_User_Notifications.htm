@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title>End-User Notifications</title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Configuring Policies and Understanding Tray Behavior." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>End-User Notifications</h1>
+        <p>Configuring Policies and Understanding Tray Behavior</p>
+        <p>This guide explains how to configure Automox policies that deliver update and restart notifications to end users through the Automox Tray. These notifications are <b>deadline-based</b>, giving users a defined window to install updates or restart their devices before enforcement occurs. The guide also outlines what users will see in the tray so administrators can anticipate the end-user experience and ensure compliance with patching requirements.</p>
+        <h2>Part 1: Setting Up End-User Notifications in a Policy</h2>
+        <h3>Overview</h3>
+        <p>Automox uses policy settings to control whether users receive notifications for installing updates and restarting their devices. These notifications are delivered through the Automox Tray on Windows and macOS. </p>
+        <div class="warning"><b>Important:</b> Automox Tray works out of the box with your existing policies—no changes are required for it to function. It automatically reads the deferral settings from your current patch and restart policies and uses them to calculate and display a single restart deadline to end users.
+        <br /><br /><b>Custom Messaging Not Supported</b>: Any custom messaging configured in existing policies (for example, warnings about closing apps) will not appear in tray notifications. While the custom text fields remain visible in the console, the Automox Tray does not currently support displaying custom content.</div>
+        <br />
+        <div class="prereqs"><b>Prerequisites</b>:
+        <ul><li>Devices must have <b>Automox Agent version 2.1.44</b> or later installed.</li><li>You must have the required permissions to configure policies. See <MadCap:xref href="../Global Access Management/Roles_and_Permissions.htm">Roles and Permissions Management</MadCap:xref>.</li></ul></div>
+        <p>
+            <img src="../../Resources/Images/user-notifications-deadline.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <h2>Default User Notifications</h2>
+        <p>You can access a policy and view the user notification settings from the <b>Automate &gt; Policies</b> page in the console. This table lists the <b>default settings</b> and their descriptions for when you create a new policy. Be aware that there are behavioral differences compared to  the previous notification management. (If you have an agent version earlier than 2.1.44, refer to <MadCap:xref href="Managing_End_User_Notifications.htm">Managing End-User Notifications</MadCap:xref>). </p>
+        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" style="width: 362px;" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p><strong>Default User Notification Settings</strong>
+                        </p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p><strong>Description</strong>
+                        </p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p><b>Enable automatic restart after updates are installed</b>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This is selected by default. This means that after an update, the device automatically restarts the operating system.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p><b>Install Notification Settings</b>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>This is <b>on by default</b>. End users receive a tray notification when an update is available.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p><b>Before installing any update</b>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This is selected by default. The notification message is sent prior to any update install.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p><b>Hourly Deferral Options</b>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>By default, a policy includes multiple intervals. The longest interval is always 8 hours and is the only one used to calculate the install update or restart deadline. </p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p><b>Maximum number of Deferrals</b>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Deferral intervals are ignored. The deadline-based behavior for the Automox Tray automatically uses the reminders as described in <MadCap:xref href="#Part">Part 2: What Users See in the Automox Tray</MadCap:xref>.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2"><b>Install Deadline</b>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">This describes how the deadline for the install update notifications are calculated. This represents the amount of time the user has to complete the installation.</td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p><b>Restart Notification Settings</b>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This is <b>on by default</b>. If the update requires a restart, the end users receive a tray notification, as described in <MadCap:xref href="#Part">Part 2: What Users See in the Automox Tray</MadCap:xref>.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2"><b>Restart Deadline</b>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">This describes how the deadline for restart notifications are calculated. This represents the amount of time the user has to complete the restart from the tray prompt.</td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p><b>Enable Automatic Deferrals</b>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This setting is <b>on by default</b> and is automatically enforced when the Automox Tray is installed. The toggle that appears in the policy settings has no functional impact—the system always applies automatic deferrals with the tray. You can safely ignore this setting when the tray is in use.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p><b>Notification Duration</b>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body2">
+                        <p>This setting is <b>enabled by default</b> for both install updates and restarts, but it does not affect behavior when the Automox Tray is installed. The tray is always present and handles update and restart notifications independently of this setting. You can ignore this field when the tray is in use.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>What to expect for default user notifications</h3>
+        <p>If you choose to use the <b>default settings</b> for a policy, the end user can expect the following:</p>
+        <div class="prereqs"><b>Prerequisites</b>: The associated policy is active and scheduled.</div>
+        <p><b>For Install Updates</b>: </p>
+        <ul>
+            <li>The end user has this entire time to complete the installation. </li>
+            <li>At the deadline, the installation of updates starts for the end user</li>
+        </ul>
+        <p><b>For Restart Updates</b>:</p>
+        <ul>
+            <li>The end user has this entire time to complete the restart</li>
+            <li>The restart installation starts after software installation is complete</li>
+            <li>At the deadline, the restart installation starts for the end user</li>
+        </ul>
+        <p>Refer to <MadCap:xref href="#Part">Part 2: What Users See in the Automox Tray</MadCap:xref> for details about what a user will experience.   </p>
+        <h2>How to Configure User Notifications</h2>
+        <p>Follow these steps to configure end-user notifications that are based on a deadline.</p>
+        <h3>Create or Edit a Policy</h3>
+        <ol>
+            <li>Navigate to the <b>Policies</b> section in the Automox console.</li>
+            <li>Create a new policy or edit an existing one that governs update and restart behavior for your target devices.</li>
+            <li>Go to <b>User Notifications &gt; Automatic Restart</b>:<ul><li>Select <b>Enable automatic restart after updates are installed</b> if you want the device to restart automatically after updates are applied.</li><li>Select <b>Do not enable automatic restart after updates are installed</b> if you want the user to manually initiate the restart.</li></ul></li>
+        </ol>
+        <p>
+            <img src="../../Resources/Images/user-notifications-auto-restart.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <h3>Enable End-User Notifications</h3>
+        <p>There are two user notification settings. You can enable one or both depending on how much control you want to give the user.</p>
+        <h4>Install Notification Settings</h4>
+        <p>Go to <b>End User Notifications &gt; Install Notification Settings</b>.</p>
+        <ul>
+            <li>Turn <b>on</b> notifications if you want users to receive a message when an update is available.<ul><li>This is useful for updates that do not require a restart but still need user action.</li><li>The tray will show a deadline to install the update.</li></ul></li>
+            <li>Turn <b>off</b> notifications if you do not require users to take action on available updates.</li>
+        </ul>
+        <h3>Restart Notification Settings</h3>
+        <p>
+            <img src="../../Resources/Images/restart-notification-toggle.png" />
+        </p>
+        <ul>
+            <li>Turn <b>on</b> this setting if you want users to receive a message and reminders when a restart is required after updates.</li>
+            <li>A specific deadline will be shown in the tray, with reminders leading up to it.</li>
+            <li><b>Note</b>: Automatic Restart must be enabled to use this setting.</li>
+        </ul>
+        <p>If you want users to be notified about both installations and restarts, both settings must be turned on.</p>
+        <h3>Configure Deferral Settings</h3>
+        <p>Although users no longer see deferral options, the policy’s deferral settings are still used to calculate the install or restart deadline.</p>
+        <ul>
+            <li><b>Hourly Deferral Options</b>: Leave as default unless you need more granular control.</li>
+            <li><b>Maximum Number of Deferrals</b>: Default is <b>6</b>; can be set between 1 and 10.</li>
+        </ul>
+        <div class="info">Longest Deferral Option x Maximum Number of Deferrals = <b>Restart Deadline</b></div>
+        <p><b>Note</b>: Deferrals are not visible to users, but they are used to calculate the final install or restart deadline.</p>
+        <p>
+            <img src="../../Resources/Images/restart-deadline.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <h4>Settings you can ignore:</h4>
+        <ul>
+            <li>Enable Automatic Deferrals</li>
+            <li>Notification Duration</li>
+        </ul>
+        <h3>Save and Apply the Policy</h3>
+        <p>After configuring the notification and deferral settings, click to create your new policy or save your edits. Devices assigned to the policy will begin receiving deadline-based notifications in the Automox Tray.</p>
+        <h2><a name="Part"></a>Part 2: What Users See in the Automox Tray</h2>
+        <p>This section explains how notifications configured in a policy appear to end users through the Automox Tray. Understanding this behavior will help you support users and ensure policy settings produce the intended experience.</p>
+        <p>
+            <img src="../../Resources/Images/up-to-date.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <h3>Automox Tray Overview</h3>
+        <ul>
+            <li>The Automox Tray is always visible in the system tray on Windows and macOS.</li>
+            <li>It shows users the current update or restart status.</li>
+            <li>If notifications are enabled in a policy, users will see messages prompting them to install updates or restart their devices by a specific deadline.</li>
+        </ul>
+        <h3>When an Update is Available</h3>
+        <p>If <b>Install Notification Settings</b> are enabled:</p>
+        <ul>
+            <li>The tray will notify the user that an update is available.</li>
+            <li>A deadline will be displayed, indicating when the user must take action.</li>
+            <li>If the update does not require a restart, the user can install and continue working.</li>
+        </ul>
+        <h3>When a Restart is Required</h3>
+        <p>If <b>Restart Notification Settings</b> are enabled:</p>
+        <ul>
+            <li>A <b>dot</b> indicator on the tray icon means a restart is pending.</li>
+            <li>The tray shows a clear restart deadline.</li>
+            <li>Users are reminded as the deadline approaches:<ul><li>Daily</li><li>24 hours before deadline</li><li>3 hours before</li><li>1 hour before</li><li>5 minutes before</li><li>1 minute before</li></ul></li>
+        </ul>
+        <p>These reminders appear even during Do Not Disturb mode. There is no control over the reminder cadence.</p>
+        <h3>Restarting the Device</h3>
+        <ul>
+            <li>Users must restart using the <b>Restart Now</b> button in the tray.</li>
+            <li>Restarting through the OS (Start menu, shutdown options, etc.) will not fulfill the Automox policy.</li>
+            <li>If the user does not restart before the deadline:<ul><li>The system will restart automatically after the final reminder.</li><li>If the device is offline, the restart will trigger as soon as it reconnects.</li></ul></li>
+        </ul>
+        <h3>User Workflow Summary</h3>
+        <div class="info"><b>Note</b>: Example images show notifications for macOS. Windows messaging is identical; however the reminders do not appear with a dark background.</div>
+        <br />
+        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" style="width: 454px;" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">Scenario</th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1"><b>Updates Ready to Install</b>: When an update is available, the user is notified that the install is ready to take place.</td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Tray shows update available; user sees install deadline</p>
+                        <p>
+                            <img src="../../Resources/Images/install-updates.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+                        </p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2"><b>Install Initiated</b>: After the user initiates the install, the tray displays a notification indicating that the installation is in progress.</td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Tray shows installation in progress or completes silently.</p>
+                        <p>
+                            <img src="../../Resources/Images/installing-updates.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+                        </p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1"><b>Restart Required</b>: When the install is complete and a restart is required, the tray will show a specific restart deadline, indicating when the restart must occur.</td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>The tray displays a specific deadline by which the restart must happen.</p>
+                        <p>
+                            <img src="../../Resources/Images/restart-required-deadline.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+                        </p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2"><b>Restart Initiated</b>: After the restart has been initiated, the tray will display a notification indicating that the restart process has begun. It may take a few minutes for your computer to restart.</td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Restart is registered; tray clears the requirement</p>
+                        <p>
+                            <img src="../../Resources/Images/restart-initiated.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+                        </p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">When the user restarts using OS menu</td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">Restart is not registered; tray still shows that a restart is required.
+
+</td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">Restart deadline passes</td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">System restarts automatically</td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">Device is offline at deadline</td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1">Restart occurs on next re-connection</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="Automox Tray FAQ.htm">Automox Tray and End-User Notifications FAQ</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Allowing_Automox_Notifications_on_macOS_When_Screen_Sharing.htm">Allowing Automox Notifications on macOS When Screen Sharing</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="../Agents/Agent Installation/Automox_Agent_Installation_Overview.htm">Automox Agent Installation Overview</MadCap:xref>
+            </li>
+        </ul>
+    </body>
+</html>

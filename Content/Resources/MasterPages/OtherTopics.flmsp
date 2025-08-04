@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="description" content="" />
+        <meta name="author" content="" /><title></title>
+    </head>
+    <body class="home-master-page">
+        <div id="contentBody" class="off-canvas-main">
+            <div class="topic-layout">
+                <div>
+                    <div class="logo-menu">
+                        <div>
+                            <p><a href="../../Home.htm">&#160;</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="heading-master">
+                        <h1 class="heading-master" style="text-align: justify;">User Guide</h1>
+                    </div>
+                    <div class="search-menu">
+                        <MadCap:menuProxy style="mc-toc-depth: 1;mc-context-sensitive: False;mc-include-parent: True;mc-include-siblings: False;mc-include-children: False;" data-mc-skin="/Project/Skins/HomeMenu.flskn" mc-linked-toc="/Project/TOCs/Primary.fltoc" />
+                    </div>
+                </div>
+                <div class="body-layout">
+                    <div>
+                        <div class="content-container">
+                            <MadCap:breadcrumbsProxy />
+                        </div>
+                        <MadCap:bodyProxy />
+                    </div>
+                    <div class="content-container">
+                        <MadCap:topicToolbarProxy style="mc-topic-toolbar-items: ExpandAll CollapseAll;" data-mc-skin="/Project/Skins/TopicToolbarProxy.flskn" />
+                        <MadCap:menuProxy style="mc-toc-depth: -1;mc-context-sensitive: True;mc-include-parent: True;mc-include-siblings: True;mc-include-children: True;" data-mc-skin="/Project/Skins/TopicMenuProxy.flskn" mc-linked-toc="$topicHeadings" />
+                    </div>
+                    <p>
+                        <br />
+                    </p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

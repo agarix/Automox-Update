@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Describes how to create patch policies." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Creating a Patch Policy</h1>
+        <p>Patch policies are used to patch some or all of the software that Automox natively supports.</p>
+        <p>From the main console, click <strong>Automate→ Policies.</strong> Click <strong>Create Policy.</strong> The following types of patch policies are available and are described here.</p>
+        <div class="info"><b>Note</b>: For information about configuring device targeting, user notifications, or setting a patching schedule, refer to <MadCap:xref href="Device_Targeting_with_Filters.htm">Device Targeting with Filters</MadCap:xref>, <MadCap:xref href="../Notifications &amp; Restarts/Managing_End_User_Notifications.htm">Managing End-User Notifications</MadCap:xref>, and <MadCap:xref href="Setting_a_Patching_Schedule.htm">Setting a Patching Schedule</MadCap:xref> .</div>
+        <p>
+            <img src="../../Resources/Images/create-policy-overview.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <h2>Patch All</h2>
+        <p>Use this policy type to patch all supported software. This includes all operating system patches and supported third-party software.</p>
+        <p>To create a Patch All policy, follow these steps:</p>
+        <ol start="1">
+            <li>From the Policy page, click <strong>Create Policy</strong>.</li>
+            <li>From the Create Policy page, click <strong>Patch All</strong>.</li>
+            <li>You can now edit the details of the Patch All policy.<br /><strong>Note</strong>: You can use the <strong>Type</strong> menu to switch between patch policy types.</li>
+            <li>In the Info area of the Create Patch All Policy page, configure the following:<ul><li>In the <strong>Policy Name</strong> field, enter a unique name for the policy. This field is required.</li><li>In the <strong>Notes</strong> field, enter any notes, if required.</li></ul></li>
+            <li>Switch the <strong>Policy Status</strong> to Active or Inactive. This will enable or disable patching. If you want to pause patching, select Inactive.</li>
+            <li>To automatically install any Windows updates, choose <strong>Yes</strong> for the <strong>Install Optional and Recommended Windows Update</strong>. The default is No. This allows for the policy to install items that have the optional patch scope condition. (See also <a href="https://help.automox.com/hc/en-us/articles/31577553349012-Can-Automox-Patch-Driver-or-Firmware-Hardware-Updates">Can Automox Patch Driver or Firmware/Hardware Updates?</a>)</li>
+            <li>(Optional) Set filters under Device Targeting, as needed.</li>
+            <li>Set the patching schedule.</li>
+            <li>(Optional) From the User Notifications section, select what kind of notifications you want.</li>
+            <li>To assign this policy to a group, click <strong>Associate Groups</strong>. Select a group or groups that you want associated with this policy. Click <strong>OK</strong>.</li>
+            <li>Click <strong>Create Policy</strong>.</li>
+        </ol>
+        <h2>Severity</h2>
+        <p>Use this policy type to select the severity level you want to have included in the patch update: Critical, High, Medium, Low, None, and Unknown. You can select multiple severities. The severity levels are defined by the CVE score. See also <MadCap:xref href="../Patching/Understanding_Automox_Severity_Data.htm">Understanding Automox Severity Data</MadCap:xref>.</p>
+        <p>To create a By Severity policy, follow these steps:</p>
+        <ol start="1">
+            <li>From the Policy page, click <strong>Create Policy.</strong></li>
+            <li>From the Create Policy page, click<strong> Severity</strong>.</li>
+            <li>In the Info area of the Create By Severity Policy page, configure the following:<ul><li>In the <strong>Policy Name</strong> field, enter a unique name for the policy.</li><li>In the <strong>Notes</strong> field, enter any notes, if required.</li></ul></li>
+            <li>Switch the Policy Status to Active or Inactive. This will enable or disable patching. If you want to pause patching, select Inactive.</li>
+            <li>To automatically install any Windows updates, choose <strong>Yes</strong> for the <strong>Install Optional and Recommended Windows Update</strong>. The default is No. This allows for the policy to install items that have the optional patch scope condition.</li>
+            <li>(Optional) Set filters under Device Targeting, as needed.</li>
+            <li>Use the <MadCap:xref href="#Package">Package Targeting</MadCap:xref> area to select the severities that you want to have patched. You can select one or all of the following severity types: Critical, High, Medium, Low, None, and Unknown.</li>
+            <li>Set the patching schedule.</li>
+            <li>(Optional) From the User Notifications section, select what kind of notifications you want.</li>
+            <li>To assign this policy to a group, click <strong>Associate Groups</strong>. Select a group or groups that you want associated with this policy. Click <strong>OK</strong>.</li>
+            <li>Click <strong>Create Policy</strong>.</li>
+        </ol>
+        <h2 id="CreatingaPatchPolicy-PatchOnly">Patch Only</h2>
+        <p>For this type of policy, you can select all packages that you want patched. Use the filter options to find these packages. Select the checkbox next to each package that you want to include in the patch. Your selections will appear on the right.</p>
+        <p>To create a Patch Only policy, follow these steps:</p>
+        <ol start="1">
+            <li>From the Policy page, click <strong>Create Policy</strong>.</li>
+            <li>From the Create Policy page, click <strong>Patch Only.</strong></li>
+            <li>In the Info area of the Create Patch Only Policy page, configure the following:<ul><li>In the Policy Name field, enter a unique name for the policy. This field is required.</li><li>In the Notes field, enter any notes, if required.</li></ul></li>
+            <li>Switch the Policy Status to Active or Inactive. This will enable or disable patching. If you want to pause patching, select Inactive.</li>
+            <li>To automatically install any Windows updates, choose Yes for the Install Optional and Recommended Windows Update. The default is No.</li>
+            <li>(Optional) Set filters under <strong>Device Targeting</strong>, as needed.</li>
+            <li>Use the  <MadCap:xref href="#Package">Package Targeting</MadCap:xref> area to identify and select specific packages that you want to patch.<ul><li>Select the Automox Supported checkbox to filter the list for only software packages that are managed by Automox.</li><li>Use the filter field or scroll through the list of packages associated with this device.</li><li>Select the checkbox next to each package that you want to include in the patch.</li><li>Your selections will appear on the right.</li><li>See the information tip in the console for further guidance.</li></ul></li>
+            <li>Set the patching schedule.</li>
+            <li>(Optional) From the User Notifications section, select what kind of notifications you want.</li>
+            <li>To assign this policy to a group, click <strong>Associate Groups</strong>. Select a group or groups that you want associated with this policy. Click <strong>OK</strong>.</li>
+            <li>Click <strong>Create Policy</strong>.</li>
+        </ol>
+        <h2>Manual Approval</h2>
+        <p>A manual approval policy is used to only install patches that are approved by an administrator. This policy type can be activated to run on a schedule at the frequency of your choice.</p>
+        <p>To create a manual approval policy, follow these steps:</p>
+        <ol start="1">
+            <li>From the Policy page, click <strong>Create Policy</strong>.</li>
+            <li>From the Create Policy page, click <strong>Manual Approval</strong>.</li>
+            <li>In the Info area of the Create Manual Approval Policy page, configure the following:<ul><li>In the <strong>Policy Name</strong> field, enter a unique name for the policy. This field is required.</li><li>In the <strong>Notes</strong> field, enter any notes, if required.</li></ul></li>
+            <li>Switch the <strong>Policy Status</strong> to Active or Inactive. This will enable or disable patching. If you want to pause patching, select Inactive.</li>
+            <li>To automatically install any Windows updates, choose <strong>Yes</strong> for the <strong>Install Optional and Recommended Windows Update</strong>. The default is No. This allows for the policy to install items that have the optional patch scope condition.</li>
+            <li>Click <strong>Associate Groups</strong> and select the group(s) that should be associated with this policy. Click <strong>OK</strong>.</li>
+            <li>(Optional) Set filters under Device Targeting, as needed.</li>
+            <li>Set the patching schedule.</li>
+            <li>(Optional) From the User Notifications section, select what kind of notifications you want.</li>
+            <li>Click <strong>Create Policy</strong>.</li>
+        </ol>
+        <h3>Managing Approvals</h3>
+        <p>After the policy is created, you can view and manage packages that are ready for approval, or save the policy and manage approvals at a later time.</p>
+        <div class="info"><strong>Note</strong>: The policy must be associated with at least one group for any packages to be available for approval.</div>
+        <ol start="1">
+            <li>To view the packages that are ready for approval, click <strong>Manage Approvals</strong>.<ul><li>You can also use the Manage drop-down menu from the top navigation of the console to access the approvals list.</li></ul></li>
+            <li>From the <strong>Packages Ready For Approval</strong> page, use the filters and search options to sort the list of packages.</li>
+            <li>Select the checkbox of packages that you want to approve or reject. Click Approve or Reject for each package, or for a group of selected packages.<br /><strong>Note</strong>: When you approve a patch, the software is applied on the policy's next scheduled update.</li>
+            <li>Click <strong>Edit Policy</strong> to return to the Manual Approval Policy page.</li>
+        </ol>
+        <div class="info"><strong>Note</strong>: The package scope here is limited to only the devices associated with the group or groups associated with the policy.</div>
+        <h2>Patch All Except</h2>
+        <p>For this type of policy, you can select all packages that you do not want patched. Use the filter options to find these packages. Select the checkbox next to each package that you want to exclude from the patch. Your selections will appear on the right.</p>
+        <p>To create a Patch All Except policy, follow these steps:</p>
+        <ol start="1">
+            <li>From the Policy page, click <strong>Create Policy</strong>.</li>
+            <li>From the Create Policy page, click <strong>Patch All Except</strong>.</li>
+            <li>In the Info area of the Create Patch All Except Policy page, configure the following:<ul><li>In the <strong>Policy Name</strong> field, enter a unique name for the policy. This field is required.</li><li>In the <strong>Notes</strong> field, enter any notes, if required.</li></ul></li>
+            <li>Switch the <strong>Policy Status</strong> to Active or Inactive. This will enable or disable patching. If you want to pause patching, select Inactive.</li>
+            <li>To automatically install any Windows updates, choose <strong>Yes</strong> for the <strong>Install Optional and Recommended Windows Update</strong>. The default is No. This allows for the policy to install items that have the optional patch scope condition.</li>
+            <li>(Optional) Set filters under Device Targeting, as needed.</li>
+            <li>Use the <MadCap:xref href="#Package">Package Targeting</MadCap:xref> area to identify and select packages that you do not want to patch.<ul><li>Select the <strong>Automox Supported</strong> checkbox to filter the list for only software packages that are managed by Automox</li><li>Use the search box or scroll through the list of packages associated with this device.</li><li>Select the checkbox next to each package that you want to exclude from the patch. Your selections will appear on the right.</li><li>See the information tip in the console for further guidance.</li></ul></li>
+            <li>Set the patching schedule.</li>
+            <li>(Optional) From the User Notifications section, select what kind of notifications you want.</li>
+            <li>To assign this policy to a group, click <strong>Associate Groups</strong>. Select a group or groups that you want associated with this policy. Click <strong>OK</strong>.</li>
+            <li>Click <strong>Create Policy</strong>.</li>
+        </ol>
+        <h2>Advanced Policy</h2>
+        <p>Use the advanced patch policy to create custom patching configurations by choosing certain conditions that best match the desired compliance requirement for the device.</p>
+        <p>To create an advanced patch policy, follow these steps:</p>
+        <ol start="1">
+            <li>From the Policy page, click <strong>Create Policy</strong>.</li>
+            <li>From the Create Policy page, click <strong>Advanced</strong>.</li>
+            <li>In the Info area of the Create Advanced Policy page, configure the following:<ul><li>In the <strong>Policy Name</strong> field, enter a unique name for the policy.</li><li>In the <strong>Notes</strong> field, enter any notes, if required.</li></ul></li>
+            <li>Switch the Policy Status to Active or Inactive. This will enable or disable patching. If you want to pause patching, select Inactive.</li>
+            <li>To automatically install any Windows updates, choose <strong>Yes</strong> for the <strong>Install Optional and Recommended Windows Update</strong>. The default is No. This allows for the policy to install items that have the optional patch scope condition.</li>
+            <li>(Optional) Set filters under Device Targeting, as needed.</li>
+            <li>Use the Package Targeting area to select the conditions that you want to have patched. See <a href="https://help.automox.com/hc/en-us/articles/5775441950356#CreatingaPatchPolicy-PackageTargetingtarget" rel="nofollow"><MadCap:xref href="#Package">Package Targeting</MadCap:xref></a> for details.</li>
+            <li>Set the patching schedule.</li>
+            <li>(Optional) From the User Notifications section, select what kind of notifications you want.</li>
+            <li>To assign this policy to a group, click <strong>Associate Groups</strong>. Select a group or groups that you want associated with this policy. Click <strong>OK</strong>.</li>
+            <li>Click <strong>Create Policy</strong>.</li>
+        </ol>
+        <h3><a name="Package"></a>Package Targeting</h3>
+        <p>In addition to setting filters to target specific devices, you can add package targeting to your <strong>patch only</strong>,<strong> patch all except</strong>,<strong> by severity</strong>, and<strong> advanced policies</strong>. This is a custom patching configuration that targets packages according to the filter options that fit your requirements.</p>
+        <p>The following are the current options for package targeting for an advanced patch policy:</p>
+        <ul>
+            <li>Patch Source (Microsoft, Apple, etc)</li>
+            <li>Patch OS</li>
+            <li>Type (Windows Only)</li>
+            <li>Display Name</li>
+            <li>Patch Severity</li>
+            <li>Patch Age</li>
+        </ul>
+        <p>
+            <img src="../../Resources/Images/advanced_policy_pkg.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <p>Example for Package Targeting: Patch OS</p>
+        <ul>
+            <li>In the following example, we select <strong>Patch OS</strong> as the first condition which targets all patches based on the OS the device is running. This example is targeting any device that is running Microsoft Windows.</li>
+        </ul>
+        <p>
+            <img src="../../Resources/Images/pakg-target-patchos.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <p>Example for Package Targeting: Patch Severity</p>
+        <ul>
+            <li>You can add as many conditions as desired. The policy will continue to refine the list of patches it will remediate it runs on the devices. In the following same example, you can see that <strong>Patch Severity</strong> was added as an additional condition, for which the severity is <strong>Critical</strong>.</li>
+        </ul>
+        <p>
+            <img src="../../Resources/Images/pkg-target-patch-sev.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <p>Example for Package Targeting: Patch Age</p>
+        <ul>
+            <li>You can also add the option to target only packages that are over a certain number of days old. Use the option <strong>Patch Age</strong> and set a number between 1 and 180. Use this option if you want to only push a patch if the patch was released x number of days ago. This is useful if you do not want to push out brand new patches on your production devices until there has been a period of time that has passed.<br /><strong>Note:</strong> This option is currently only available for Advanced policies.</li>
+        </ul>
+        <p>
+            <img src="../../Resources/Images/pkg-target-patch-age.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <p>After you configure all of the conditions, to preview the patches that will be remediated by the policy, click <strong>Preview Packages That Would Be Patched</strong>.This will show all of the packages that are targeted by the policy for remediation.</p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/preview-packages-os.flsnp" />
+        <p>
+            <img src="../../Resources/Images/preview-packages.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <p>Example for Package Targeting: Patch Only or Patch All Except</p>
+        <ul>
+            <li>If you want to patch only or exclude something containing a specific name, use a patch only or patch all except type and search for that name in the<strong> Filter Package List</strong>.</li>
+        </ul>
+        <p>
+            <img src="../../Resources/Images/create-patchonly.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <h2>Creating your first policy</h2>
+        <p>If you’re looking for help in creating your first policy, try using the policy template available from the dashboard. The Next Steps guide provides best practices for establishing a 7-day patching cycle with basic (and customizable) policies. For more information, see <MadCap:xref href="../Console Overview/Automox Console Dashboard.htm">Automox Console Dashboard</MadCap:xref> or refer to the <a href="https://university.automox.com/automation-maturity-playbook/1887294">Automation Maturity Playbook</a> at Automox University.</p>
+        <h2>Related Topics</h2>
+        <ul>
+            <li><a href="https://help.automox.com/hc/en-us/articles/31577553349012-Can-Automox-Patch-Driver-or-Firmware-Hardware-Updates">Can Automox Patch Driver or Firmware/Hardware Updates?</a>
+            </li>
+            <li>
+                <MadCap:xref href="Cloning_Policies.htm">Cloning Policies</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Device_Targeting_with_Filters.htm">Device Targeting with Filters</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="../Notifications &amp; Restarts/Managing_End_User_Notifications.htm">Managing End-User Notifications</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Setting_a_Patching_Schedule.htm">Setting a Patching Schedule</MadCap:xref>
+            </li>
+            <li>See our Automox University courses:<ul><li><a href="https://university.automox.com/onboarding-monthly-webinar/1442752" rel="nofollow">Onboarding Monthly Webinar</a></li><li><a href="https://university.automox.com/third-party-patch-policies" rel="nofollow">Third-Party Patch Policies</a></li></ul></li>
+        </ul>
+    </body>
+</html>

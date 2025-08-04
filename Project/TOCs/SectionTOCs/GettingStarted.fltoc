@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultToc
+  Version="1">
+  <TocEntry
+    Title="[%=System.LinkedTitle%]"
+    Link="/Content/Product Documentation/Getting Started/Quick_Start_Guide___Patch_Management_in_Minutes.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  <TocEntry
+    Title="Onboarding Jumpstart Guides"
+    Link="/Project/TOCs/SectionTOCs/Onboarding Jumpstart Guides.fltoc"></TocEntry>
+  <TocEntry
+    Title="Agent Requirements &amp; Basic Installation"
+    Link="/Project/TOCs/SectionTOCs/AgentRequirements+BasicInstallation.fltoc"></TocEntry>
+  <TocEntry
+    Title="Settings"
+    Link="/Project/TOCs/SectionTOCs/Settings.fltoc"></TocEntry>
+  <TocEntry
+    Title="Best Practices"
+    Link="/Project/TOCs/SectionTOCs/BestPractices.fltoc"></TocEntry>
+  <TocEntry
+    Title="Global Access Management"
+    Link="/Project/TOCs/SectionTOCs/GlobalAccessManagement.fltoc"></TocEntry>
+</CatapultToc>

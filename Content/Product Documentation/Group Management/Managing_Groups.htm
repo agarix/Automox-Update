@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
+    </head>
+    <body>
+        <h1>Managing Groups</h1>
+        <p>You can organize and manage systems updates using groups. These group settings are accessed from the main console by clicking <strong>Manage</strong>.</p>
+        <p>It is possible to arrange groups by department or geography, or whatever makes sense for your organization. You can use groups to form a test group. Patches can then run against this group for a specified period of time after which those same patches can be rolled to another group or into production automatically. Software can also be deployed by group.</p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/Prerequisites.flsnp" />
+        <h2>Viewing Groups</h2>
+        <p>You can view a list of all groups in your organization from the <strong>Manage → Groups</strong> page.</p>
+        <ul>
+            <li>To access this page, select the <b>Manage</b> tab and then select <b>Groups</b> from the drop-down menu.</li>
+            <li>From the Groups page, use the Search <b>Groups</b> field to search for groups.</li>
+            <li>Click the <b>Unused Groups</b> tile to toggle between all groups and the groups that are not in use.</li>
+        </ul>
+        <h2>Creating a Group</h2>
+        <p>You can create a new group to manage devices according to your needs.</p>
+        <ol start="1">
+            <li>From the Groups or <b>Devices</b> page, click <b>Create Group</b>.</li>
+            <li>In the Add Group dialog window, enter a <strong>name</strong> for your new group and select <strong>Create</strong>.<br /></li>
+        </ol>
+        <p>You have now created a group that uses default settings. The Edit Group page opens. To save the new group with only default settings, click <b>Update Group</b>.</p>
+        <p>
+            <img src="../../Resources/Images/edit-group.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <h2>Editing a Group</h2>
+        <p>The Edit Group page is made up of four sections that can all be configured: Info, OS Patch Management, Devices, and Policies. These are described in the following sections.</p>
+        <div class="info"><strong>Note</strong>: All changes made in the Edit Group page must be saved by clicking <strong>Update Group</strong>.</div>
+        <h3>Info</h3>
+        <p>Configure the group Info fields, as needed:</p>
+        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" style="width: 209px;" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p>Field Name</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p>Description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Group Name</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This field is automatically populated when you first create the group. You can click in this field to make any changes. The name must be 45 characters or less. The following special characters are not allowed: &lt; &gt; { } / \</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Parent Group</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>To choose the group structure, click the drop-down menu and select from existing groups. Selecting anything other than Default creates a subgroup. Subgroups help to better distinguish different groups in the Automox console. There is no policy inheritance between a Parent Group and any Subgroups.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Scan Interval</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>To change the scan interval, click the drop-down menu. The default is 24 hours. The scan interval indicates how often Automox re-inventories a device for hardware, software, system information, and available patches.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Group Color</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>For easier management, go to the Group Color field and select a color to better identify the group. This includes a customizable group color pane.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                        <p>Note</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+                        <p>Add a note, if required.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>OS Patch Management</h3>
+        <p>Select how you want to handle patching for the devices in this group.</p>
+        <ul>
+            <li><b>Windows and macOS Patch Management:</b>
+                <ul>
+                    <li>Use this field to configure automatic update settings for devices.</li>
+                </ul>
+            </li>
+            <li><b>Windows Update Source:</b>
+                <ul>
+                    <li>Use this field to configure the source from which Windows devices will pull updates.</li>
+                </ul>
+            </li>
+        </ul>
+        <p>For further details, see <MadCap:xref href="OS_Patch_Management_Settings_for_Groups.htm">OS Patch Management Settings for Groups</MadCap:xref></p>
+        <h4><strong>Devices / Policies</strong>
+        </h4>
+        <p>The <strong>Devices</strong> and <strong>Policies</strong> sections are described in detail in the following sections. After you make all required updates, click <strong>Update Group</strong>. The new group membership can be viewed from the Group Membership column of the Devices page.</p>
+        <h2>Assigning Devices to a Group</h2>
+        <p>To assign a device to a group, follow these steps.</p>
+        <div class="info"><b>Note</b>: Administrative privileges required. The deployment tool or target device must have administrative privileges in order to successfully deploy and install the Automox Agent.</div>
+        <p>Devices can only be assigned to one group at a time. When you assign a device to a group, but it is already in another group, it will be moved to the new group.</p>
+        <ol start="1">
+            <li>From the Groups page, find the group you want to add a device to and click the name to open the Edit Group page.</li>
+            <li>From the Devices area of the Edit Group page, click <b>Assign Devices</b>.</li>
+            <li>In the <b>Assign Devices to Group</b> dialog window, select the checkbox for the device(s) you want to add to the group. Click <b>Assign Devices To Group</b>.</li>
+            <li>Click <b>Update Group</b>.</li>
+        </ol>
+        <h2>Removing Devices from a Group</h2>
+        <p>You can remove devices from a group. A device must be assigned to a group, therefore, if no other assignment is made, the device will be assigned to the Default group.</p>
+        <ol start="1">
+            <li>From the Groups page, find the group you want to edit and click the name to open the <strong>Edit Group page</strong>.</li>
+            <li>From the Devices area, select the checkbox for the device that you want to remove.</li>
+            <li>Click <strong>Move Selected To Group</strong>.</li>
+            <li>Click <strong>Update Group</strong>.</li>
+        </ol>
+        <h2>Viewing Devices Assigned to a Group</h2>
+        <p>You can view devices assigned to a group.</p>
+        <ul>
+            <li>From the Groups page, find the group you want to view details for and click the name to open the <strong>Edit Group page</strong>.</li>
+            <li>The list of devices is available in the Devices area of the page.</li>
+            <li>For more information about the columns of this table, see <MadCap:xref href="../Software/Viewing_Software_Inventory.htm">Viewing Software Inventory</MadCap:xref>.</li>
+            <li>To modify the information listed, click the <strong>Columns</strong> button and clear any column names you want to leave out. The table adjusts automatically.</li>
+        </ul>
+        <h2>Associating Policies With a Group</h2>
+        <p>The Policies section shows any policies associated with this group. When you associate a policy with a group, the group will patch according to the schedule of the policy.</p>
+        <ol start="1">
+            <li>To associate a policy with this group, click <strong>Associate Policies</strong>.</li>
+            <li>In the Associate Policies dialog window, select the policy or policies that you want to associate this group with.</li>
+            <li>Click <strong>Update Group.</strong></li>
+        </ol>
+        <h2>Filtering Groups</h2>
+        <p>You can use the search filter to view a list of groups from the Devices page.</p>
+        <ol start="1">
+            <li>From the <strong>Devices</strong> page, go to the search field and enter the group name. For more about the enhanced search available, see Enhanced Device Search in <MadCap:xref href="../Device Management/Filtering_and_Searching_on_the_Devices_Page.htm">Filtering and Searching on the Devices Page</MadCap:xref>.</li>
+            <li>From the Groups page, enter the names into the Group search field to view the desired group.</li>
+        </ol>
+    </body>
+</html>

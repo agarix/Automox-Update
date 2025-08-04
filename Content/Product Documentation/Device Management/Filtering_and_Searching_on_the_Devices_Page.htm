@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Explains how to search and use filtering on the Devices page." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Filtering and Searching on the Devices Page</h1>
+        <p>You can use the devices filter panel and search bar to search for devices in your organization.</p>
+        <p>From the <strong>Devices</strong> page, you can view a complete list of all the devices in your organization. Use the Devices filter panel on the left to filter for those devices that you are interested in seeing. With the enhanced device search at the top of the page, you can narrow down that filtered data even more using a partial matching search across multiple device fields.</p>
+        <p>
+            <img src="../../Resources/Images/devices-overview-filter.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <div class="info"><strong>Note:&#160;</strong>The search parameters you select are now stored in the page URL. The back button in your browser functions as expected and filter searches can now be bookmarked and shared.</div>
+        <h2>Device Filter Panel</h2>
+        <p>The filter panel is made up of various options to fine-tune your search. When you select any of the individual filters, a number in parentheses shows how many are selected. You can clear selections individually, or select <strong>Clear All</strong>. The panel can also be collapsed. These settings are saved in the URL. When you navigate to other pages and return to the page, your settings are maintained.</p>
+        <p>By default, this list shows all devices, including devices that are excluded from reporting. To hide these devices, uncheck the <strong>Show Excluded From Reports</strong>. See <MadCap:xref href="Device_Details.htm">Device Details</MadCap:xref> for information about excluding devices from reporting.</p>
+        <p>
+            <img src="../../Resources/Images/Default-view-shows-all.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <h2>Device Status</h2>
+        <p>To filter the list of devices by device status, select from the following options available from the device filter panel. The resulting list of devices updates immediately when an option is selected.</p>
+        <p>You can select from <strong>Connected</strong> or <strong>Disconnected</strong>, which are mutually exclusive options:</p>
+        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p><strong>Status</strong>
+                        </p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p><strong>Description</strong>
+                        </p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Connected</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>View only devices that are online and connected. You can view the current status and take actions on these devices.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>Disconnected</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body2">
+                        <p>View only devices that are not connected. It is not possible to take any patching actions until these devices are connected again.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>You can select from <strong>Up To Date</strong>, <strong>Failed Update Attempts</strong>, or <strong>Scheduled</strong>, which are mutually exclusive options:</p>
+        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p><strong>Status</strong>
+                        </p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p><strong>Description</strong>
+                        </p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Up To Date</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>View all devices with no other updates for the device. These are fully compliant, do not need attention, and have no other pending status conditions.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Compliant</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>View all devices that are up-to-date based on their policy and schedule.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Failed Update Attempts</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>View all devices that failed to successfully install new patches. Manual intervention might be required.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>Scheduled</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body2">
+                        <p>View all devices that are awaiting a planned update (as per the policy details).</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>You can also select <strong>Needs Attention</strong>, or one or more of the Needs Attention subcategories (<strong>Not Compatible, Needs Restart, Disconnected for 30+ Days</strong>). This provides a more granular way to see which devices need attention, and for what reason.</p>
+        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p><strong>Status</strong>
+                        </p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p><strong>Description</strong>
+                        </p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Needs Attention</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>View all devices that have failed to patch for any reason. These devices might need manual intervention.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Not Compatible</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Use this to filter devices that do not pass the compatibility check. See the Troubleshooting section in <MadCap:xref href="Device_Details.htm">Device Details</MadCap:xref> for more information.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Needs Restart</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Use this to filter devices that need to be restarted.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>Disconnected for 30+ Days</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body2">
+                        <p>Use this to filter devices that have been disconnected for 30 or more days.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>The filter logic has been improved, and will now show devices that meet one or more of the selected criteria, so you can get more clarity on the status of your devices.</p>
+        <p>The following filter statuses can also be selected, to specify <strong>Recently Added (Last 7 Days)</strong>, or devices that are <strong>Excluded from Reports</strong>:</p>
+        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p><strong>Status</strong>
+                        </p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p><strong>Description</strong>
+                        </p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Recently Added (Last 7 Days)</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>View a list of all devices that were added within the last seven days.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>Excluded From Reports</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body2">
+                        <p>View all devices that have been identified as “special” or to be excluded from reports (formerly "exception"). These can, for example, be devices used for testing or are legacy devices. These devices are not included in the reporting and metrics but continue to be managed.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Device Info</h3>
+        <p>To filter the list of devices by device name, tags, IP address, last logged in user or serial number, select from the <strong>Device Info</strong> drop-down menu. You can search by all filters concurrently. Searches allow partial matching. For example, you can enter <code>win</code> in the Hostname field to retrieve all devices that have that term in the hostname.</p>
+        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p><strong>Device Info Category</strong>
+                        </p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p><strong>Description</strong>
+                        </p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Hostname</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Enter one or more search terms to retrieve results by hostname. This is not case sensitive.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Tags</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Enter one or more Tags to retrieve results by tag name. This field is not case sensitive.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Last User Login</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>You can search by the login name of the user who last logged in to the device.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>IP Address</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Enter one or more IP addresses to search by IP address. You can enter both public and private IP addresses. This searches only within the IP Address column.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                        <p>Serial Number</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+                        <p>You can retrieve a list of devices by serial number. Devices need to be scanned inside of Automox before they are searchable. Multiple and partial entries are allowed.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>OS</h3>
+        <p>You can set a filter to search for devices by OS.</p>
+        <p>Select the <strong>OS</strong> drop-down menu. There are different options for using this filter:</p>
+        <ul>
+            <li>Use the search bar above the list of OSes to find individual OS names.</li>
+            <li>Select the checkbox(es) to add the OS name from the search results.</li>
+            <li>Or, you can select the complete OS family.</li>
+        </ul>
+        <h3>Policies</h3>
+        <ol start="1">
+            <li>You can filter the list of devices by Policy.</li>
+            <li>Select the <strong>Policies</strong> drop-down menu.</li>
+            <li>(Optional) Enter the policy name in the search field to narrow down the list of policies.</li>
+            <li>Select the policy that you want to view a list of devices for.</li>
+            <li>To start a new search click the <strong>x</strong> next to the selected policy name(s) or select <strong>Clear All </strong>at the top of the filter panel to clear all selected options.</li>
+        </ol>
+        <h3 id="FilteringandSearchingontheDevicesPage-Groups">Groups</h3>
+        <p>You can filter the list of devices by Group.</p>
+        <ol start="1">
+            <li>Select the <strong>Groups</strong> drop-down menu.</li>
+            <li>(Optional) Enter the group name in the search field to narrow down the list of groups.</li>
+            <li>Select the group that you want to view a list of devices for.</li>
+            <li>To start a new search click the <strong>x</strong> next to the selected group name(s) or select <strong>Clear All</strong> at the top of the filter panel to clear all selected options.</li>
+        </ol>
+        <h3>Severity</h3>
+        <p>You can search for a device with an available software package that has a specific severity. The software package can be scheduled or unscheduled. By default, severity checkboxes are not selected.</p>
+        <ol start="1">
+            <li>Select the Severity drop-down menu.</li>
+            <li>Select one or more severities that you want to view a list of devices for. When you select multiple severities, it will show any matches.</li>
+            <li>To clear your search, clear the checkbox. To clear all filters currently set within the filter panel, click <strong>Clear All</strong> at the top of the filter panel.</li>
+        </ol>
+        <h3>Vulnerability or CVE ID</h3>
+        <p>You can search for a device that has a specific vulnerability or CVE ID. You must enter a valid ID and a minimum of 6 characters. The list of devices automatically populates when an existing device(s) has a matching ID. To clear your search, click <strong>x</strong> next to the ID you entered.</p>
+        <h3>Hide/Show Filter Panel</h3>
+        <p>You can hide or show the Device filter panel by clicking the arrow. The filter panel shows by default.</p>
+        <p>
+            <img src="../../Resources/Images/show-hide.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <h2>Enhanced Device Search</h2>
+        <p>You can quickly narrow down data from the filtered search by using the search bar at the top of the Devices page. This enhanced search allows multiple queries and partial matching.</p>
+        <div class="info">This search will not show results outside of data results acquired from the device filter panel.</div>
+        <p>
+            <img src="../../Resources/Images/device-search.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <p>This searches across multiple fields:</p>
+        <ul>
+            <li>OS</li>
+            <li>Device Name</li>
+            <li>Group</li>
+            <li>Tags</li>
+            <li>IP address (public and private IP address search)</li>
+            <li>OS Version</li>
+        </ul>
+        <p>When you enter search criteria in the search bar, each entry is shown in the search bar. To remove a query, click <strong>x</strong>. You can add as many search items as you want. The results will include any matching data and will not exclude other matches.</p>
+        <h3 id="FilteringandSearchingontheDevicesPage-IPAddressSearch">IP Address Search</h3>
+        <p>From the Devices page, you can search for both public and private IP addresses. Multiple devices can be associated with the same public IP address.</p>
+        <ul>
+            <li>To view all associated IP addresses for a device, hover over the listed entry in the IP address column.</li>
+        </ul>
+        <p>
+            <img src="../../Resources/Images/ip-search.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="Managing_Devices.htm">Managing Devices</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Device_Details.htm">Device Details</MadCap:xref>
+            </li>
+        </ul>
+    </body>
+</html>

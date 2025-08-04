@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Explains how to manage your [%=General.ProductName%] devices." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Managing Devices</h1>
+        <p>From the <b>Devices</b> page, you can view your inventory, assign a device to a group, apply and remove tags, scan, restart, export details, and remove a device.</p>
+        <p>
+            <img src="../../Resources/Images/devices-overview-filter.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <h2>Viewing Device Inventory</h2>
+        <p>The following information is available from the Devices page:</p>
+        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p><strong>Table Column</strong>
+                        </p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p><strong>Description</strong>
+                        </p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Status</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This column shows details about any status associated with a device. For example, it can show the last time a patch was processed, if the device is up-to-date, if a patch is scheduled, and if the device has been excluded from reports.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>OS</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>This is the OS type of the device, either macOS, Windows, or Linux, which is depicted with an icon.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Device Name</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This is the name that the device either assigns by default, or the name the user assigned to the individual device. Hover over the name of the device and click to open the detail view. See also <MadCap:xref href="Device_Details.htm">Device Details</MadCap:xref>.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Disconnect Time</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>The date and time that a device last disconnected from the platform. <strong>Note</strong>: Sort using this column, with the oldest at the top, to identify decommissioned devices. You can then remove the devices from the console.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Group</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>The associated group membership is displayed here. See also <MadCap:xref href="../Group Management/Managing_Groups.htm">Managing Groups</MadCap:xref>.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Tags</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Tags are optional. There is no character limit and no limit on the number of tags that can be applied to a device.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>IP Address</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>IP address assigned to the device. Hover over an entry to show all associated addresses.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>OS Version</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>OS version currently installed on the device.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Scheduled Patches</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This shows if there are any scheduled patches for this device based on the patch policies.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Needs Attention</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>This column shows devices that have failed to patch for any reason. These devices might need manual intervention.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Device ID</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This number is the same as the server ID.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Disconnected For</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>The amount of time the device has been disconnected in days.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Last User Login</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>The login name of the user who last logged in to the device. (Note: This is dependent on the last scan run on the device.)</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Active Directory OU</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>The active directory organizational unit filter path, if configured.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Total Patches</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This shows the total number of patches installed on the device.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Agent Version</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>This field indicates what version of the Automox agent is running on the device.<br /><strong>Note</strong>: This column will not show immediately for already existing devices. Use the <strong>Columns</strong> button to show the agent version for all devices.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Serial Number</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This lists all serial numbers for the devices. This column is hidden by default.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Date Added</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>The date and time that the device was added. Hover over the text to view in UTC. This column is hidden by default.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Signing Certificate Status</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This shows the status of certificates for the device.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>Actions</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body2">
+                        <p>The actions you can take on a device are the same as the Actions button above the table.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Showing All Columns of Data</h2>
+        <p>The default setting of the Devices page does not show all available columns. You can show more data or rearrange how the columns are presented.</p>
+        <ul>
+            <li>Click the <strong>Columns</strong> button and select the checkboxes to show or hide columns.</li>
+            <li>You can rearrange the order of the data by dragging the column names to the desired position.</li>
+            <li>To see columns that are not in view, use the scroll feature at the bottom of the table. You can use the arrows on your keyboard to scroll from left to right.</li>
+        </ul>
+        <p>
+            <img src="../../Resources/Images/devices-columns.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <h2 id="ManagingDevices-ActionsMenu">Actions Menu</h2>
+        <p>The <strong>Actions</strong> menu allows you to take various actions on a device or group of devices. There are two ways the list of actions can be used.</p>
+        <ul>
+            <li>From the Devices page, use the checkbox to select one or multiple devices and click <strong>Actions</strong> above the table. This allows for bulk actions.</li>
+            <li>Use the <strong>Actions</strong> column to apply these actions on an individual device. This requires that the Actions column is showing.</li>
+        </ul>
+        <p>The individual actions that can be applied to a device or multiple devices are described in the following sections.</p>
+        <h2>Assigning a Device to a Group</h2>
+        <p>To assign a device or multiple devices to a group, follow these steps: (See also <MadCap:xref href="../Group Management/Managing_Groups.htm">Managing Groups</MadCap:xref>).</p>
+        <ol start="1">
+            <li>From the Devices page, click the checkbox for the device(s) you want to assign to a group.</li>
+            <li>Click <strong>Actions</strong> and select <strong>Assign To Group</strong>.</li>
+            <li>In the Assign to Group window, click the <strong>Group</strong> drop-down list and choose the desired group.</li>
+            <li>Click <strong>Assign To Group</strong>.</li>
+        </ol>
+        <h2>Applying Tags in Bulk to Devices</h2>
+        <p>It is possible to directly apply tags to devices from the <strong>Device Details</strong> page, however, that is only for one device. From the <strong>Devices</strong> page, you can now apply tags in bulk.</p>
+        <div class="info">There is no character limit for a tag and no limit on the number of tags that can be applied to a device.</div>
+        <p>From the <strong>Devices → Actions</strong> menu, you can apply multiple tags to multiple devices using <strong>Apply Tags</strong>. You can also create new tags during this process. Follow these steps:</p>
+        <ol start="1">
+            <li>From the <strong>Devices</strong> page, select the individual devices that you want to apply tags to.</li>
+            <li>From the Actions menu, select <strong>Apply Tags</strong>.<br /></li>
+            <li>You can select a tag or tags that are listed in the Apply Tags window, or you can directly create new tags to be applied to the selected devices.<br /></li>
+            <li>Click <strong>Apply Tag</strong>.</li>
+            <li>After you refresh the page, you can check the results on the Devices page. You can check by viewing the tags column and searching for any of the devices that this was applied to.</li>
+        </ol>
+        <h2>Removing Tags from Multiple Devices in Bulk</h2>
+        <p>It is possible to directly remove tags from devices from the <b>Device Details</b> page, however, that is only for one device. You can now remove tags from multiple devices in bulk from the <b>Devices</b> page.</p>
+        <p>From the Actions menu, you can remove multiple tags from multiple devices using <b>Remove Tags</b>.</p>
+        <ol start="1">
+            <li>From the <strong>Devices</strong> page, select the devices that you want to remove tags from.</li>
+            <li>From the Actions menu, select <strong>Remove Tags</strong>.</li>
+            <li>Select the tags that you want to remove from the selected devices. This removes the tags from being associated with the devices. This does not necessarily remove the tags from the organization.</li>
+            <li>You can also remove all tags that have been assigned to a set of multiple devices. In the Remove Tags window, click the top checkbox to select all tags listed. Click <strong>Remove Tags</strong>. Then the selected devices will no tags associated with them.</li>
+            <li>After you refresh the page, you can check the results on the Devices page. You can check by viewing the tags column and searching for any of the devices that this was applied to.</li>
+        </ol>
+        <h2>Scanning a Device</h2>
+        <p>To scan a device, follow these steps:</p>
+        <ol start="1">
+            <li>From the <strong>Devices</strong> page, click the checkbox for the device(s) you want to rescan.</li>
+            <li>Click <strong>Actions</strong> and select <strong>Scan</strong> to scan the device. The request is sent and Automox retrieves the latest status of the device.</li>
+        </ol>
+        <h2>Restarting a Device</h2>
+        <p>To restart a device, follow these steps:</p>
+        <ol start="1">
+            <li>From the <strong>Devices</strong> page, click the checkbox for the device(s) you want to restart.</li>
+            <li>Click <strong>Actions</strong> and select <strong>Restart</strong>.</li>
+            <li>When the confirmation dialog window opens, click <strong>Restart device</strong>.</li>
+        </ol>
+        <p>The request is sent and the devices are immediately restarted. <strong>This bypasses any user notifications</strong>.</p>
+        <h2>Exporting Device Inventory</h2>
+        <p>You can export data contained in the Device inventory for one or all devices.</p>
+        <p>Use the <strong>Export CSV</strong> button above the table to export data for all devices.</p>
+        <p>To export inventory data for an individual device, follow these steps:</p>
+        <ol start="1">
+            <li>From the <strong>Devices</strong> page, click the checkbox for the device you want export data for.</li>
+            <li>Click <b>Actions</b> and select <b>Export.</b><br />A CSV file is automatically downloaded to your computer.</li>
+        </ol>
+        <h2 id="ManagingDevices-RemovingaDevice">Removing a Device</h2>
+        <p>In order to remove a device from your Automox inventory, follow these steps. After removing a device, it is no longer managed by Automox. A removed device can be re-added by reinstalling the agent on that device.</p>
+        <ol start="1">
+            <li>From the <strong>Devices</strong> page, click the checkbox for the device(s) you want to remove.</li>
+            <li>Click <strong>Actions </strong>and select <strong>Delete.</strong></li>
+            <li>Confirm the device removal in the Remove Devices dialog box.</li>
+            <li>It is also possible to remove an individual device starting from the details page. See <MadCap:xref href="Device_Details.htm">Device Details</MadCap:xref>.</li>
+        </ol>
+        <div class="info"><b>Note:</b> If you remove a device that is offline, when it checks in again it will uninstall. The status will show as uninstall pending.</div>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="Device_Details.htm">Device Details</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Filtering_and_Searching_on_the_Devices_Page.htm">Filtering and Searching on the Devices Page</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Device_Explorer.htm">Device Explorer</MadCap:xref>
+            </li>
+            <li>Automox Community: <a href="https://community.automox.com/automox-labs-8/powershell-script-to-remove-devices-that-have-been-disconnected-longer-than-x-days-270" rel="nofollow">PowerShell script remove devices that have been disconnected longer than X days</a></li>
+        </ul>
+    </body>
+</html>

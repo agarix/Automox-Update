@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title>Automox Console Dashboard</title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Navigating the [%=General.ProductName%] console dashboard." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Automox Console Dashboard</h1>
+        <p>The Dashboard is the default landing page for the <MadCap:variable name="General.ProductName" /> console. With this page, you can view all of your device and policy status information at a glance. The dashboard provides access links for troubleshooting, an overview of outstanding patches, and a timeline view of scheduled policies.</p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/zone-org-change.flsnp" />
+        <br />
+        <div class="tip"><b>Note</b>: Refer to <MadCap:xref href="#Navigati">Navigation</MadCap:xref> for more about the new top navigation in the Automox console.</div>
+        <p>
+            <img src="../../Resources/Images/dashboard-status-tiles.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <p>You can download the contents of this page to a PDF. To do this, click <b>Export PDF</b>.</p>
+        <h2>Status Tiles</h2>
+        <p>At the top of the Automox dashboard, you can easily identify the organization and status date for the dashboard you are viewing. The first set of tiles provide an overview of device and policy status. These status tiles are described here.</p>
+        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">Status tile name</th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Compliant Devices</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Shows the number of devices that are up-to-date based on their policies and schedules. </p>
+                        <p>Click to open the list of devices filtered for Compliant.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Policies Executed</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Shows the number of policies that have run in the last 7 days. Click to open a list of these policy run results.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Available Updates</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Shows the number of available updates that have been exposed within the last 7 days. 
+Click to open a list of available software updates.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>New Devices</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body2">
+                        <p>Shows the number of devices added to your organization within the last 7 days.
+
+Click to open a list of recently added devices.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Device Troubleshooting</h2>
+        <p>Use the Device Troubleshooting section to review any devices that need attention.</p>
+        <p>
+            <img src="../../Resources/Images/dashboard-troubleshooting.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" style="width: 223px;" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">Device Troubleshooting status</th>
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">Description</th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">Click graph or status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">Needs restart</td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">The device has patches or software installed that require a restart before installation can be fully completed.</td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+
+Click to open the list of Devices filtered for Needs Restart</td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Failed update attempts</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>View all devices that failed to successfully install new patches. Manual intervention might be required.</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">Click to open the list of Devices filtered for Failed Update Attempts</td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Disconnected for 30+ days</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>View devices that are not connected. It is not possible to take any patching actions until these devices are connected again.</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">Click to open the list of Devices filtered for Disconnected 30+ Days</td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>Not compatible</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>View devices that do not pass the compatibility check. See the Troubleshooting section of the Device Details page for more information.</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body2">Click to open the list of Devices filtered for Not Compatible</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Outstanding Patch Count</h2>
+        <p>This grid shows both scheduled or available patches in relation to the number of days a patch has been left unpatched. These patches can be part of either active or inactive policies. The number of devices affected by any of the outstanding patches is listed below the grid. A device might have more than one outstanding patch.</p>
+        <p>
+            <img src="../../Resources/Images/dashboard-patch-count.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <ol style="list-style-type: upper-alpha;">
+            <li>Click any patch count number to view the Software page filtered by the severity level and days exposed.</li>
+            <li>Click the highlighted devices link after the grid to view a list of all devices with outstanding patches.</li>
+            <li>Click the highlighted outstanding patches link to view a list of all software patches that impact devices in your environment.</li>
+        </ol>
+        <div class="info"><b>Note</b>: The following are not included in the outstanding patch count:
+        <ul><li>Software marked as ignored (set directly in the software table and not through a policy filter)</li><li>Devices that are excluded from reports</li></ul><br /><b>Recommendation</b>: Perform a rescan of any device marked as ignored to ensure it is accurately recorded.</div>
+        <p>Use this information to determine which policies to review and activate, if necessary.</p>
+        <h2>Scheduled Policies</h2>
+        <p>You can view all scheduled policies from the Scheduled Policies scrolling timeline. These are organized in tabs by policy type. <b>Note</b>: This shows the policy schedule in local time, even if the scheduled policy is in UTC.</p>
+        <p>
+            <img src="../../Resources/Images/dashboard-scheduled-policies.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <ul>
+            <li>The main <b>View All</b> tab shows the next 40 scheduled policies.</li>
+            <li>The tabs by type depend on the policies you have configured. To view a list of scheduled policies for a specific policy type, click the corresponding tab. This will list up to 40 scheduled policies per type.</li>
+            <li>Click the name of the policy to open that individual policy page.</li>
+            <li>Click <b>View Devices</b> to open the list of devices filtered by that policy.</li>
+            <li>Click <b>View Policies</b> to view a list of all policies.</li>
+        </ul>
+        <div class="info"><b>Note</b>: The <b>Packages Ready For Approval</b> page is accessible from the top navigation. Select <b>Manage → Manual Approvals</b>.</div>
+        <h2>Environment by OS</h2>
+        <p>The Environment by OS chart shows the device OS distribution for the current organization.</p>
+        <p>
+            <img src="../../Resources/Images/environment-os.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <ul>
+            <li>Click the number under the OS to open the devices page filtered by that specific operating system.</li>
+            <li>Click <b>Add a Device</b> to install the Automox agent on your device. See also <MadCap:xref href="../Agents/Agent Installation/Automox_Agent_Installation_Overview.htm">Automox Agent Installation Overview</MadCap:xref>.</li>
+        </ul>
+        <h2>Device Health by Group</h2>
+        <p>The Device Health by Group chart provides a count of devices that have had an outstanding patch within the timeframe selected, shown by group. These are sorted in descending order.</p>
+        <p>
+            <img src="../../Resources/Images/device-health.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <p>Click <b>Select Groups</b> to select specific groups or Select All from the drop-down list. You can use the search bar to find specific groups.</p>
+        <p>Select from the different lengths of time to view device groups with available outstanding patches for that period of time. The number above the column shows the number of devices.</p>
+        <ul>
+            <li>You can select from different time periods, such as: 0–7 days (Last 7 Days), 0–30 days (Last 30 Days), 0–90 days (Last 90 Days), or 0–180 days (Last 180 Days).</li>
+            <li>The default time period is 7 days.</li>
+            <li>If no groups are selected, the first 10 groups are shown in descending order.</li>
+        </ul>
+        <p>When you click inside a group column, the Devices page opens filtered by that group and specific period of time.</p>
+        <h2>Critical Severity Patches</h2>
+        <p>The Critical Severity Patches table shows the top 5 critical patches in your environment. The list starts with the highest number of devices not patched.</p>
+        <p>
+            <img src="../../Resources/Images/dashboard-critical-sev-patches.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">Critical Severity Patches table</th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Patch Name</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Name of the software update (patch). Click name to open the Software page.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>% Patched</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Shows the percentage of devices that have been patched.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                        <p>Devices Impacted/Total</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+                        <p>Lists the number of devices impacted by the patch. The highlighted number of devices need to be patched. You can click the number to open the Devices page filtered by the impacted devices. The bottom number (Total) is all devices in your environment with the patch.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2><a name="Navigati"></a>
+        </h2>
+        <h2>Next Steps Guide</h2>
+        <p>When you initially access the console, you will find patch policy recommendations that you can access directly from the dashboard under <b>Next steps for Automox Demo</b>.</p>
+        <p>
+            <img src="../../Resources/Images/next-steps.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <p>If you close (Dismiss) these recommendations, the policy templates can still be accessed in the <a href="https://university.automox.com/automation-maturity-playbook/1887294">Automation Maturity Playbook</a> of Automox University.</p>
+        <h2>Navigation</h2>
+        <p>The interface navigation is above the dashboard. </p>
+        <p><b>Note</b>: New top navigation uses the following options: <b>Dashboard</b>, <b>Devices</b>, <b>Automate</b>, <b>Manage</b>, and <b>Insights</b>. </p>
+        <p>From <b>Automate</b> you can access:</p>
+        <ul>
+            <li><b>Policies</b>, <b>Worklet Catalog</b>, and <b>Remediations</b></li>
+        </ul>
+        <p>
+            <img src="../../Resources/Images/nav-automate.png" class="thumbnail" />
+        </p>
+        <p>From the <b>Manage</b> tab you can access:</p>
+        <ul>
+            <li><b>Groups</b>, <b>Software</b>, and <b>Manual Approvals</b></li>
+        </ul>
+        <p>
+            <img src="../../Resources/Images/nav-manage.png" class="thumbnail" />
+        </p>
+        <p>From <b>Insights</b> you can access:</p>
+        <ul>
+            <li> <b>Analytics</b> and <b>Reports</b></li>
+        </ul>
+        <p>
+            <img src="../../Resources/Images/nav-insights.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <h2>Managing Your Organization</h2>
+        <p>You can manage organizations and users by selecting the top navigation menu next to your name. Depending on your permissions, you can create a new organization from here. For more information, see <b><MadCap:xref href="../Global Access Management/Managing_Organizations.htm">Managing Organizations</MadCap:xref></b>.</p>
+        <p>
+            <img src="../../Resources/Images/navigation-orgs.png" class="thumbnail" style="mc-thumbnail-max-height: auto;max-width: 200px;mc-thumbnail-max-width: 200px;" />
+        </p>
+        <h2>Help</h2>
+        <p>Click the question mark at the top of the console to access the following links:</p>
+        <ul>
+            <li><a href="https://help.automox.com/">Knowledge Base</a>: This opens the Customer Portal where you can find Knowledge Base articles and submit requests to our support team.</li>
+            <li><a href="../Release Notes/Documentation Release Notes/ReleaseNotesLP.htm">Release Notes</a>: As an active customer you will have access to our product documentation and agent release notes.</li>
+            <li><a href="https://community.automox.com/">Community</a>: Join our community to find time-saving resources and best practices.</li>
+            <li><a href="https://developer.automox.com/">API Reference Guide</a>: This opens our Developer Portal, where you can find API documentation and other developer resources.</li>
+            <li><a href="http://university.automox.com/">Automox University</a>: Access to our free on-demand training platform.</li>
+        </ul>
+        <h2>Settings</h2>
+        <p>To access settings for your account, in the upper right, click the menu icon to open the drop-down list of options.</p>
+        <p>
+            <img src="../../Resources/Images/settings-menu.png" class="thumbnail" style="mc-thumbnail-max-height: auto;max-width: 200px;mc-thumbnail-max-width: 200px;" />
+        </p>
+        <p>Depending on your permissions, you can access your profile, billing information, user account details, secrets, keys (API and access keys), script signing, and security settings such as two-factor authentication. Refer to <MadCap:xref href="../Global Access Management/Roles_and_Permissions.htm">Roles and Permissions</MadCap:xref>.</p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/submit-request.flsnp" />
+    </body>
+</html>

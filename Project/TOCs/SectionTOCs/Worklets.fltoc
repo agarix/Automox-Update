@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultToc
+  Version="1">
+  <TocEntry
+    Title="[%=System.LinkedTitle%]"
+    Link="/Content/Product Documentation/Worklets &amp; Required Software/Enforce_BitLocker_Encryption_Worklet.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  <TocEntry
+    Title="[%=System.LinkedTitle%]"
+    Link="/Content/Product Documentation/Worklets &amp; Required Software/Enforce_Windows_Registry_Settings_Worklet.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  <TocEntry
+    Title="[%=System.LinkedTitle%]"
+    Link="/Content/Product Documentation/Worklets &amp; Required Software/Windows_Patch_Rollback_Worklet.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  <TocEntry
+    Title="Worklet Catalog"
+    Link="/Project/TOCs/SectionTOCs/WorkletCatalog.fltoc"></TocEntry>
+</CatapultToc>

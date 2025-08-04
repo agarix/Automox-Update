@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="This describes how to use the (FixNow) Run Now option to run commands immediately on devices." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Run Worklet Now</h1>
+        <p>You can run and test a worklet from the Automox Worklet Catalog on devices and receive near real-time results on the same screen. As part of Automox FixNow™, this Run Now option is available for specific worklets and is useful for fixing an issue quickly, testing, debugging and troubleshooting purposes.</p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/Prerequisites.flsnp" />
+        <br />
+        <div class="prereqs"><b>Prerequisites</b>: Your organization is under a plan that includes Worklets.</div>
+        <br />
+        <div class="info"><b>Note</b>:
+        <ul><li>Worklets that require variables are currently not included in this workflow.</li><li>You can run this on up to 500 devices at a time.</li><li>You do not have to create a worklet policy.</li></ul></div>
+        <h2>Select a Worklet to use the Run Now Workflow</h2>
+        <ol start="1">
+            <li>Access the Worklet Catalog and search for the worklet you want to run. You can access the catalog from the <strong>Automate → Worklet Catalog</strong> page.<ul><li>For further details about accessing and searching in the Worklet Catalog, see our <MadCap:xref href="Using_the_Worklet_Catalog.htm">Using the Worklet Catalog</MadCap:xref> for details.</li></ul></li>
+            <li>From the Worklet Details page, click <strong>Run Now</strong>. The Run Worklet Now window opens.</li>
+            <li>To view evaluation and remediation code details, select the <strong>Code Preview</strong> to expand the section.<br /><p><img src="../../Resources/Images/run-now-worklet-details.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></p></li>
+        </ol>
+        <h2>Run Now Workflow</h2>
+        <p>From the <strong>Run Worklet Now</strong> window, you can define how you want to run and test the worklet.</p>
+        <p>
+            <img src="../../Resources/Images/run-now.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <div class="info"><strong>Criteria</strong>: The devices that you want to test must be connected and ready with a compatible OS. For status information, see <MadCap:xref href="../Console Overview/What_the_Statuses_Found_in_the_Automox_Console_Mean.htm">What the Statuses Found in the Automox Console Mean</MadCap:xref>.</div>
+        <ol start="1">
+            <li>In the <strong>Run Worklet Now</strong> window, click the <strong>Select Phase</strong> drop-down list to choose the phase you want to test devices for. These phases correspond to the evaluation and remediation code of the worklet. See also <MadCap:xref href="../Worklets &amp; Required Software/How_to_Use_Worklets.htm">How to Use Worklets</MadCap:xref>.<ul><li><strong>Evaluation Only</strong>: Use to test if a device needs remediation. If the exit code is 0, the evaluation is seen as successful and no remediation is required.</li><li><strong>Remediation Only</strong>: Use to execute anything you can script, for example, enforce a configuration setting or install an application.</li><li><strong>Evaluation and Remediation</strong>: Select if you intend to test and immediately remediate. Note that executing this way might trigger the remediation code if the evaluation criteria are met.</li></ul></li>
+            <li>Go to <strong>Select</strong><strong>Devices</strong> to search for devices that you want to run the worklet on.</li>
+            <li>To find devices, use the <strong>Search Devices</strong> field. You can enter the same search terms as for the Devices page (OS, name, tags, group, IP address, OS version). <br /><img src="../../Resources/Images/run-now-device-selection.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /><br /><ul><li>The <strong>Available Devices</strong> list shows devices that match the criteria for running the worklet: these devices are connected, ready, and have a compatible OS.</li><li>The <strong>Unavailable Devices</strong> list shows devices that match the OS, but are not ready (for example, if they are running other processes such as scanning or restarting) or are not connected.</li></ul></li>
+            <li>Select one or more devices from the list of Available Devices and click <strong>Run Now</strong>.</li>
+            <li>Under <strong>Results</strong>, you can read information about the progress of the worklet. When the run is complete, the name of the device is listed with a status.</li>
+            <li>You can open the <strong>Status Legend</strong> for descriptions of the worklet policy run statuses.</li>
+            <li>Click the arrow next to the device name to open the details of the worklet run.</li>
+            <li>Use the clipboard to copy the output results.</li>
+        </ol>
+        <h3>Viewing the Status Legend</h3>
+        <p>Use the Status Legend drop-down list to understand what the results for each device mean:</p>
+        <ul>
+            <li>I<b>n Progress</b>: The device is currently being evaluated or remediated.</li>
+            <li><b>Remediation Successful</b>: The remediation script has run successfully on the device.</li>
+            <li><b>Remediation Failed</b>: An error occurred during the remediation. View logs below.</li>
+            <li><b>Remediation Not Applicable</b>: The device was evaluated and no action is required.</li>
+            <li><b>Remediation Flagged</b>: The device was evaluated and flagged for remediation.</li>
+            <li><b>Unresponsive</b>: The device became busy or disconnected and has not been evaluated or remediated.</li>
+        </ul>
+        <p>
+            <img src="../../Resources/Images/status-legend.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <p>These statuses are determined based on the exit codes of the worklet scripts. Each evaluation and remediation script block returns an exit code when that script block finishes executing on the device. When the script block returns an exit code 0, that means the script block executed successfully. Any non-zero exit code means that the script was unsuccessful.</p>
+        <h3>Filtering Results by Status</h3>
+        <p>Along with searching results by name, tag, or group, you can use the <strong>Filter results by</strong> field to list results according to a specific status result. Select the checkbox for the statuses you want to view results for.</p>
+        <p>
+            <img src="../../Resources/Images/filter-by-status.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <h2>About Timeouts</h2>
+        <p>What happens when after 5 minutes the operation times out. If the worklet does not complete on a device within 5 minutes, it continues processing. The activity log will show if the operation completed, or if the device became unavailable or busy before starting the Run Now operation.</p>
+        <h2>Viewing the Activity Log</h2>
+        <p>When you click the <strong>Activity Log </strong>button, the activity log page opens filtered to show the log summary for this event. All log details for this are available and match the data that you can see in the Results window or in the exported CSV file. This data can also be exported from the activity log. See examples below.</p>
+        <h3>Activity Log Example</h3>
+        <p>Click <strong>Activity Log</strong> in the Run Now dialog window to access the activity log summary.</p>
+        <p>
+            <img src="../../Resources/Images/select-activity-log.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <p>Example of the full log of the run now operation:</p>
+        <p>
+            <img src="../../Resources/Images/example-activitylog.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="Using_the_Worklet_Catalog.htm">Using the Worklet Catalog</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="../Policies/Creating_a_Worklet.htm">Creating a Worklet</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="../Device Management/Filtering_and_Searching_on_the_Devices_Page.htm">Filtering and Searching on the Devices Page</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="../Automox Reports/Creating_Reports.htm">Creating Reports</MadCap:xref>
+            </li>
+        </ul>
+    </body>
+</html>

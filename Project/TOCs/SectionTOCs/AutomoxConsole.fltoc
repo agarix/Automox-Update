@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultToc
+  Version="1">
+  <TocEntry
+    Title="Console Overview"
+    Link="/Project/TOCs/SectionTOCs/ConsoleOverview.fltoc"></TocEntry>
+  <TocEntry
+    Title="Devices"
+    Link="/Project/TOCs/SectionTOCs/Devices.fltoc" />
+  <TocEntry
+    Title="Automate"
+    Link="/Project/TOCs/SectionTOCs/Automate.fltoc"></TocEntry>
+  <TocEntry
+    Title="Manage"
+    Link="/Project/TOCs/SectionTOCs/Manage.fltoc"></TocEntry>
+  <TocEntry
+    Title="Reporting &amp; Analytics"
+    Link="/Project/TOCs/SectionTOCs/Reporting-Analytics.fltoc"></TocEntry>
+</CatapultToc>

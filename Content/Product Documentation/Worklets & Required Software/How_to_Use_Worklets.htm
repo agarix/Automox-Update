@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Describes how to use Worklets to automate any scriptable action on macOS, Linux, and Windows devices." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>How to Use Worklets</h1>
+        <p>This describes how you can use worklets to manage devices. In the console, Worklets are an option under <strong>Manage → Policies</strong>.</p>
+        <p>A <strong>Worklet </strong>is designed to be extremely flexible. It allows you to evaluate and enforce just about anything you can script. You can also upload files that can be used on the targeted device.</p>
+        <h2>Script Languages</h2>
+        <p>The Evaluation and Remediation code languages are specific to the OS and run in the version currently installed on the target machine.</p>
+        <p><strong>Windows:</strong> PowerShell</p>
+        <p><strong>Linux and macOS:</strong> Bash</p>
+        <p>It is possible to launch and run a script file in a different language in the remediation code by invoking the file from the native language script. This assumes that your target device is capable of running the uploaded script file.</p>
+        <div class="info"><b>Note</b>: On 64-bit Windows, this runs in a 32-bit PowerShell session. You may need to plan around this for accessing 64-bit registry locations and filesystems. This is caused by 32-bit processes being redirected to <code>Wow6432Node</code> or <code>SysWoW64</code> in place of the native locations.</div>
+        <h3>Evaluation Code</h3>
+        <p>The evaluation code is intended to test a condition, and return an exit code based on that condition. The evaluation runs each time a device runs a scan and flags the device for remediation according to the exit code. If the exit code is 0, the evaluation is seen as successful and no remediation will take place. Any non-zero exit code flags the device for remediation. The remediation code will run when the worklet’s scheduled time arrives.</p>
+        <div class="info"><b>Note</b>: When you manually execute the worklet, it triggers the Remediation code regardless of the flagged exit code.</div>
+        <h3>Remediation Code</h3>
+        <p>The remediation code section is open ended and can be used to do basically anything you can script. For example, you can enforce a configuration setting, install an application or certificate, etc.</p>
+        <p>Any files you uploaded to the worklet are downloaded when the remediation code runs, and can then be called/invoked by your worklet.</p>
+        <h3>Uploading Files</h3>
+        <p>Any files you may need to reference in your remediation script can be uploaded as part of the policy. These files will download when the remediation runs and will be available in the current working directory of the script. As such, they can usually just be referred to by their file name, although some situations may require that you use the relative path. (<code>./filename</code> in Bash or <code>.\filename</code>in PowerShell).</p>
+        <div class="info"><strong>Note</strong>: The current file size limit is 1 GB.</div>
+        <h2>Executing Worklets</h2>
+        <h3>Scheduled Execution</h3>
+        <p>As with all of the other policy types, worklets can be scheduled to run by Month, Day-of-Week, and Week-of-Month. Use this to customize the schedule on which the remediation script will run non-compliant devices.</p>
+        <h3>Manual Execution</h3>
+        <p>Manual Execution can be handled in two different ways: per device and per worklet.</p>
+        <p>On the <strong>Device Details</strong> page for every device in a Group that is associated with the worklet, there is an Associated Policies section where you can see the worklet name and a <strong>Run On This Device</strong> button. This button triggers the worklet to run immediately on the selected device.</p>
+        <p>On the <strong>Manage → Policies </strong>page, find the worklet from the list of Policies. From the Actions menu, select Run Policy. This triggers the worklet to run immediately on all devices in the associated groups.</p>
+        <div class="warning"><strong>Note</strong>: These methods trigger the remediation script regardless of the compliance status of the device. <em>Use these methods with caution.</em></div>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="../Policies/Creating_a_Worklet.htm">Creating a Worklet</MadCap:xref>
+            </li>
+            <li><a href="https://www.automox.com/worklets" rel="nofollow">What are Automox Worklets?</a>
+            </li>
+        </ul>
+    </body>
+</html>

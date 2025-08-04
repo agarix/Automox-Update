@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Describes how to manage group and policy associations." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Managing Policy and Group Assignments</h1>
+        <p>From the <b>Automate → Policies</b> or <b>Manage → Groups</b> page, you can manage how policies and groups are assigned to each other.</p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/Prerequisites.flsnp" />
+        <h2>Associating Groups with a Policy</h2>
+        <p>You can associate a group or multiple groups with a policy from the <strong>Policies</strong> page or from the <strong>Edit Policy</strong> page.</p>
+        <p>
+            <img src="../../Resources/Images/associate-groups.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <p>To associate a group from the Policies page, follow these steps:</p>
+        <ol start="1">
+            <li>From <strong>Automate → Policies</strong>, find the name of the policy that you want to associate a group(s) with.</li>
+            <li>On the right, click <strong>Actions → Associate Groups</strong> for that policy.</li>
+            <li>In the Associate Groups dialog window, select the group or groups that you want to associate with the policy and click <strong>Associate</strong>.&#160;</li>
+        </ol>
+        <p>To associate a group from the <strong>Edit Policy</strong> page, follow these steps:</p>
+        <ol start="1">
+            <li>From <strong>Automate → Policies</strong>, find the name of the policy that you want to associate a group with.</li>
+            <li>Click the name of the policy to open the <strong>Edit Policy</strong> page.</li>
+            <li>On the right side of the Edit Policy page, click <strong>Associate Groups</strong>.</li>
+            <li>In the Associate Groups dialog window, select the group or groups that you want to associate with the policy and click <strong>Associate</strong>.
+			</li>
+            <li>Click <strong>Save Policy</strong>.</li>
+        </ol>
+        <h2>Associating Policies with a Group</h2>
+        <p>You can associate a policy or multiple policies with a group from the <strong>Groups</strong> page or from the <strong>Edit Group</strong> page.</p>
+        <p>
+            <img src="../../Resources/Images/associate-policies.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <p>To associate a policy from the Groups page, follow these steps:</p>
+        <ol start="1">
+            <li>From the <strong>Manage</strong> → <strong>Groups</strong> page, find the name of the group that you want to associate a policy with.</li>
+            <li>On the right, click <strong>Actions → Associate Policies</strong>.</li>
+            <li>In the Associate Policies dialog window, select the policy or policies that you want to associate with the group and click <strong>OK</strong>.&#160;</li>
+        </ol>
+        <p>To associate policies from the <strong>Edit Group</strong> page, follow these steps:</p>
+        <ol start="1">
+            <li>From the <strong>Manage → Groups</strong> page, click the name of the group to open the <strong>Edit Group</strong> page.</li>
+            <li>On the right side of the Edit Group page, click <strong>Associate Policies.</strong></li>
+            <li>In the Associate Policies dialog window, select the policy or policies that you want to associate with the group and click <strong>OK</strong>.</li>
+            <li>Click <strong>Update Group</strong>.</li>
+        </ol>
+        <h2>Removing an Associated Policy from a Group &#160;&#160;</h2>
+        <p>You can remove a policy from a group from the <strong>Groups</strong> page or <strong>Edit Group</strong> page.</p>
+        <p>
+            <img src="../../Resources/Images/remove-assoc-policy.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <ol start="1">
+            <li>From the <strong>Manage → Groups</strong> page, click the name of the group to open the <strong>Edit Group</strong> page.</li>
+            <li>Remove an associated policy by clicking on the minus sign ( <strong>-</strong> ) next to the policy name on the right.</li>
+            <li>Click <strong>Save Group</strong> to confirm.</li>
+        </ol>
+        <h2>Removing an Associated Group from a Policy</h2>
+        <p>You can remove a group from a policy from the <strong>Policy</strong> page or <strong>Edit Policy</strong> page.</p>
+        <p>
+            <img src="../../Resources/Images/remove-assoc-group.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <ol start="1">
+            <li>From the <strong>Automate → Policies</strong> page, click the name of the policy to open the<strong>&#160;Edit Policy</strong> page.</li>
+            <li>Remove an associated group by clicking on the minus sign ( <strong>-</strong> ) next to the group name on the right.</li>
+            <li>Click <strong>Save Policy</strong> to confirm.</li>
+        </ol>
+        <h2>Scheduling a Policy for Immediate Remediation</h2>
+        <ol start="1">
+            <li>From <strong>Automate&#160;→ Policies</strong>, find the name of the policy.</li>
+            <li>On the right, click <strong>Actions → Run Policy</strong>. A dialog box warning appears.</li>
+            <li>Click <strong>Run Policy</strong> or Cancel.</li>
+        </ol>
+        <div class="warning"><strong>Note</strong>: Manually executing a worklet triggers the remediation script regardless of the compliance status of the device. <em>Use this with caution</em>.</div>
+    </body>
+</html>

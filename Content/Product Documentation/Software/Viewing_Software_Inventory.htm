@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="This decribes viewing the software page and how to export data." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Viewing Software Inventory</h1>
+        <p>From the <b>Automate → Software</b> page, you can view and export details about the software associated with your devices. </p>
+        <p>
+            <img src="../../Resources/Images/software-overview.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <p>The following information is available:</p>
+        <table class="TableStyle-ax_tables" cellspacing="0" style="mc-table-style: url('../../Resources/TableStyles/ax_tables.css');">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p>Software Table</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p>Description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Software Name</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Name of the available software. </p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Version</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Shows the current version of software installed.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>OS</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Shows which operating system (Windows, macOS, Linux) this software is for.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>OS Version</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>This is the exact OS version the software is installed on. (Click highlighted number in the Impacted or Updated column to view the corresponding devices.)</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Severity</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Shows the CVSS severity level for the software patch. Click to see the CVE link. If the field shows grey text, this refers to the agent severity and there is no CVE link.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Days Exposed</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Shows the days based on the first time the package is available in the Automox customer base. <b>Note</b>: Click the column heading to switch between Days Exposed and Date Detected.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Date Detected</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Shows the date the package was detected. See <MadCap:xref href="#Days">Days Exposed and Date Detected Column</MadCap:xref>.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Ignored</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>This shows if the package is marked as ignored, which means that the next scheduled patch will not be installed. </p>
+                        <div class="info"><b>Note</b>: When a software package is marked as Ignored, the patch is not included in the outstanding patch count on the Dashboard page.</div>
+                        <br />
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Impacted</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Shows if the software patch is available. Click the number to view a list of impacted devices on the Devices page.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Updated</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Shows if the software patch has been installed. Click the number to view a list of updated devices.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Actions</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This drop-down menu allows you to take actions on the selected software.<br />Possible actions:</p>
+                        <ul>
+                            <li><strong>Patch Now</strong>: Select this to update to the available version.</li>
+                            <li><strong>Ignore</strong>: This prevents the next scheduled patch from being installed.</li>
+                            <li><strong>Unignore</strong>: Allow the software patch to be installed as scheduled.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>Needs Restart</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body2">
+                        <p>This shows if a device must be restarted to complete this software update.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Export CSV</h2>
+        <p>You can export a complete list of all software on your devices. Click <strong>Export CSV</strong>.</p>
+        <h2>Columns</h2>
+        <p>Use the <strong>Column</strong> drop-down menu to select which table columns you want to include or exclude from view.</p>
+        <ul>
+            <li>Select or clear any checkboxes to control the Software page view.</li>
+            <li>You can change the order of the columns by dragging the selected column name to the desired position.<br /><br /><img src="../../Resources/Images/software-columns.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li>
+        </ul>
+        <h2><a name="Days"></a>Days Exposed and Date Detected Column</h2>
+        <p>By default, the Software table shows the Days Exposed. The days are based on the first time the software package was made available in the Automox customer base.</p>
+        <p>To view the date the package was detected, click on the column heading to switch from <b>Days Exposed</b> to <b>Date Detected</b>.</p>
+        <p>
+            <img src="../../Resources/Images/software-days-exposed.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="Filtering_and_Searching_on_the_Software_Page.htm">Filtering and Searching on the Software Page</MadCap:xref>
+            </li>
+            <li><a href="https://community.automox.com/automox-labs-8/use-api-to-get-a-hardware-inventory-of-your-organization-1399" rel="nofollow">Use API to Get a Hardware Inventory of Your Organization</a>
+            </li>
+        </ul>
+    </body>
+</html>

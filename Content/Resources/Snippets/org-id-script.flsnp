@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+    </head>
+    <body>
+        <p><code>$orgID = 'YOUR_ORG_ID'</code>
+        </p>
+        <p>You will need your Org ID, which can be found by looking at the URL. Select the value after the <code>?o=</code></p>
+        <p>
+            <img src="../Images/orgid.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+    </body>
+</html>

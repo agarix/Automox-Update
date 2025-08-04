@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultToc
+  Version="1">
+  <TocEntry
+    Title="[%=System.LinkedTitle%]"
+    Link="/Content/Product Documentation/Automox Integrations/Automox_Agent_Deployer.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  <TocEntry
+    Title="[%=System.LinkedTitle%]"
+    Link="/Content/Product Documentation/Automox Integrations/Automox_Content_Pack_for_Palo_Alto_Networks_Cortex_XSOAR.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  <TocEntry
+    Title="[%=System.LinkedTitle%]"
+    Link="/Content/Product Documentation/Automox Integrations/Automox_Plugin_for_Rapid7_InsightConnect.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  <TocEntry
+    Title="[%=System.LinkedTitle%]"
+    Link="/Content/Product Documentation/Automox Integrations/Automox_Splunk_Integration.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  <TocEntry
+    Title="[%=System.LinkedTitle%]"
+    Link="/Content/Product Documentation/Automox Integrations/ServiceNow_Service_Graph_Connector_for_Automox.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  <TocEntry
+    Title="Remote Control"
+    Link="/Project/TOCs/SectionTOCs/RemoteControl.fltoc"></TocEntry>
+  <TocEntry
+    Title="Automated Vulnerability Remediation"
+    Link="/Project/TOCs/SectionTOCs/AutomatedVulnRemediation.fltoc"></TocEntry>
+</CatapultToc>

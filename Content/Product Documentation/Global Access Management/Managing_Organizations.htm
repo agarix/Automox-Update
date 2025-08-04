@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Describes how to manage organizations and users across organizations from the Setup &amp; Configuration page." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Managing Organizations</h1>
+        <p>As a global administrator, you can create and manage organizations and users across all organizations from the<strong>Setup and Configuration</strong> page. You can access this page from the <strong>Manage Organizations and Users</strong> button at the top right of the Automox console.</p>
+        <p>An organization is a collection of the devices of a company’s IT infrastructure. Users can be given a role to access an organization with certain permissions. These permissions are then only related to the devices in that organization. A user can therefore be assigned different permissions for different organizations. (See <MadCap:xref href="Roles_and_Permissions.htm">Roles and Permissions</MadCap:xref>.)</p>
+        <h2>Viewing Organizations</h2>
+        <p>The <strong>Setup &amp; Configuration</strong> page shows all available organizations. The following information is available:</p>
+        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p><strong>Organization Table Column</strong>
+                        </p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p><strong>Description</strong>
+                        </p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Name</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Name of the organization</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Organization ID</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>This is the UUID associated with the organization</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Legacy ID</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This lists the integer associated with the organization (org ID)</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Created</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Time and date that the organization was created</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Modified</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Time and date when the organization was updated or changed</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Created by&#160;</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Email address of the user who created the organization</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Users</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Number of users added to the organization</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Devices</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Number of devices added to the organization</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>SAML</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Shows if SAML is enabled or disabled for the user</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>Actions</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body2">
+                        <p>Edit Organization</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>You can view the organization you are logged in to at the top right of the console. Use the drop-down menu to navigate between organizations.</p>
+        <h2>Adding Organizations</h2>
+        <p>You can configure organizations based on the needs of your company’s IT structure.</p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/Prerequisites.flsnp" />
+        <p>Follow these steps to add an organization.</p>
+        <ol start="1">
+            <li>From the <strong>Setup &amp; Configuration → Organization</strong>page, click <strong>Add Organization</strong>.</li>
+            <li>On the <strong>Add Organization</strong> page, under <strong>Details</strong> enter a name for the organization. (Note: The maximum name length is 45 characters. See <strong>Naming rules</strong> below.)</li>
+            <li>(Optional) Enter the email address for the user you want to add. See Adding Users for details.</li>
+            <li>Select the role for the added user. <br /><strong>Note</strong>: Global Administrators are automatically added to a new organization during setup.</li>
+            <li>Click <strong>Save</strong>.</li>
+        </ol>
+        <h3>Naming rules</h3>
+        <ul>
+            <li>Maximum Length: The name must not exceed 45 characters.</li>
+            <li>Allowed Characters:<ul><li>Letters: Uppercase and lowercase (A-Z, a-z)</li><li>Digits: 0-9</li><li>Special Characters: Underscore (_), hyphen (-), pipe (|), comma (,), apostrophe ('), and space</li></ul></li>
+            <li>Prohibited Characters: Any character or symbol not listed above is not allowed.</li>
+        </ul>
+        <h2>Editing Organization</h2>
+        <p>You can modify organizations from the Edit Organization page.</p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/Prerequisites.flsnp" />
+        <p>Follow these steps to edit an organization.</p>
+        <ol start="1">
+            <li>Go to the <strong>Setup &amp; Configuration → Organization</strong> page.</li>
+            <li>You can access the <strong>Edit Organization</strong> page in two ways:<ul><li>Click the name of the organization you want to edit, or</li><li>Go to the Actions column and click <strong>Edit Organization</strong>.&#160;</li></ul></li>
+        </ol>
+        <p>From the Edit Organization page you can manage users associated with the organization.</p>
+        <p>Go to the <strong>Users</strong> section to do the following:</p>
+        <ul>
+            <li>Add a user and assign a corresponding role</li>
+            <li>Modify the role for an existing user</li>
+            <li>Remove a user. Click the <strong>x</strong> next to the user to remove them from this organization.</li>
+        </ul>
+        <div class="info"><strong>Note</strong>: When you remove a user from a specific organization, it does not remove the user from the company account.</div>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="Understanding_Global_Access_Management.htm">Understanding Global Access Management</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Roles_and_Permissions.htm">Roles and Permissions</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Managing_Users.htm">Managing Users</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Global_Session_Settings.htm">Global Session Settings</MadCap:xref>
+            </li>
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultSkin
+  Version="6"
+  SkinType="Component"
+  Comment="HTML5 Menu skin"
+  ComponentType="Menu"
+  EnableResponsiveOutput="True">
+  <Stylesheet>
+    <Styles>
+      <Style
+        Name="Menu">
+        <Properties>
+          <Property
+            Name="BorderTop">solid 1px #d3d3d3</Property>
+          <Property
+            Name="BorderBottom">solid 1px #d3d3d3</Property>
+          <Property
+            Name="Width">100%</Property>
+          <Property
+            Name="BorderLeft">none 0px #009CC9</Property>
+          <Property
+            Name="PaddingTop">5px</Property>
+          <Property
+            Name="PaddingBottom">5px</Property>
+          <Property
+            Name="FontWeight">normal</Property>
+          <Property
+            Name="FontFamily">Roboto</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Menu Item">
+        <Properties>
+          <Property
+            Name="PaddingLeft">5px</Property>
+          <Property
+            Name="PaddingRight">5px</Property>
+          <Property
+            Name="MarginTop">0px</Property>
+          <Property
+            Name="MarginBottom">0px</Property>
+          <Property
+            Name="PaddingBottom">5px</Property>
+          <Property
+            Name="PaddingTop">5px</Property>
+          <Property
+            Name="LineHeight">1em</Property>
+          <Property
+            Name="FontWeight">normal</Property>
+        </Properties>
+        <Classes>
+          <StyleClass
+            Name="1st Level">
+            <Properties>
+              <Property
+                Name="PaddingTop">2px</Property>
+              <Property
+                Name="PaddingBottom">2px</Property>
+              <Property
+                Name="FontSize">0.9em</Property>
+              <Property
+                Name="FontWeight">normal</Property>
+            </Properties>
+          </StyleClass>
+          <StyleClass
+            Name="Selected">
+            <Properties>
+              <Property
+                Name="BackgroundColor">#007ba1</Property>
+              <Property
+                Name="Color">#ffffff</Property>
+              <Property
+                Name="FontFamily">Roboto</Property>
+              <Property
+                Name="FontWeight">bold</Property>
+            </Properties>
+          </StyleClass>
+          <StyleClass
+            Name="2nd Level">
+            <Properties>
+              <Property
+                Name="FontWeight">normal</Property>
+            </Properties>
+          </StyleClass>
+        </Classes>
+      </Style>
+      <Style
+        Name="Menu Item (hover)">
+        <Properties>
+          <Property
+            Name="Color">#ffffff</Property>
+          <Property
+            Name="BackgroundColor">#0b7ea1</Property>
+          <Property
+            Name="FontWeight">bold</Property>
+          <Property
+            Name="FontFamily">Roboto</Property>
+        </Properties>
+        <Classes>
+          <StyleClass
+            Name="Selected">
+            <Properties>
+              <Property
+                Name="FontFamily">Montserrat</Property>
+            </Properties>
+          </StyleClass>
+        </Classes>
+      </Style>
+    </Styles>
+  </Stylesheet>
+  <Strings />
+</CatapultSkin>

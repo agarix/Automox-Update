@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Describes how to create a required software policy." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Creating a Required Software Policy</h1>
+        <p>The required software policy is designed to distribute and install software to the devices in your organization.</p>
+        <p>By uploading an installation binary and setting the package name, installation command, and schedule, you can deploy software to an unlimited number of systems.</p>
+        <div class="info"><strong>Note</strong>: The current file size limit is 1 GB.</div>
+        <br />
+        <MadCap:snippetBlock src="../../Resources/Snippets/Prerequisites.flsnp" />
+        <p>To create a required software policy, follow these steps:</p>
+        <ol start="1">
+            <li>From the main console, click <b>Automate → Policies</b>.</li>
+            <li>Click <b>Create Policy</b>.</li>
+            <li>From the Create Policy page, go to the <b>Required Software Policy</b> section and select the corresponding OS for the policy you want to create.</li>
+            <li>In the Policy Info area, configure the following:<ul><li>In the <b>Policy Name</b> field, enter a name for the policy. This field is required.</li><li>In the <b>Notes</b> field, enter any notes, if required.</li></ul></li>
+            <li>(Optional) Set filters under Device Targeting, as needed.</li>
+            <li>Complete the Scope section. To do this, enter the required package name and version information as it will appear on the device. This makes it easier to determine if remediation is necessary on the assigned device.</li>
+            <li>Click <strong>Upload File</strong> to upload the installation file for the software update.</li>
+            <li>Use the Installation Command field to create a script for the software installation. This is required if a script is not found on the device.</li>
+            <li>In the <strong>Schedule area</strong>, set the patching schedule that will run on the device. The Schedule Preview provides a calendar view of the patching schedule. See <MadCap:xref href="Setting_a_Patching_Schedule.htm">Setting a Patching Schedule</MadCap:xref>.</li>
+            <li>(Optional) Associate this policy with a group by selecting the plus in the upper right of the page and selecting the desired group(s). When the policy is saved, the group is then assigned to the policy.</li>
+            <li>Click <b>Create Policy</b>.</li>
+        </ol>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="Managing_Policies.htm">Managing Policies</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Device_Targeting_with_Filters.htm">Device Targeting with Filters</MadCap:xref>
+            </li>
+            <li><a href="https://university.automox.com/required-software-policies" rel="nofollow">Automox University: Required Software Policies</a>
+            </li>
+        </ul>
+    </body>
+</html>

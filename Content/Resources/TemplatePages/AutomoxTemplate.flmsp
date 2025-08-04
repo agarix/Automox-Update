@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+<head>
+		<script src="../../Resources/js/tabs.js" type="text/javascript"></script>
+	
+</head>
+<body>
+	<MadCap:breadcrumbsProxy/>
+
+	<MadCap:bodyProxy/>
+	<MadCap:miniTocProxy/>
+	<MadCap:topicToolbarProxy class="" style="mc-topic-toolbar-items: ;" />
+</body>
+</html>

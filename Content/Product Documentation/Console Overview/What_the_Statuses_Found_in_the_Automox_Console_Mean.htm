@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Explains what the various statuses found in the [%=General.ProductName%] console mean." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>What the Statuses Found in the Automox Console Mean</h1>
+        <p>Throughout the Automox console, status messages are heavily relied on to indicate the current operating state of devices, policies, and agents. While these status messages are intended to be simple indicators of state, the underlying meaning of each one is not always clear. To provide more details, the definition of each status message is outlined here.</p>
+        <h2>Device Status</h2>
+        <p>You will see a number of different states for your devices in the Automox platform. To convey this information, every device is assigned a <strong>status</strong> that indicates exactly how Automox is interacting with the device at any given time.</p>
+        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p>Device Status</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p>Icon</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p>Description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Initializing</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>
+                            <img src="../../Resources/Images/icon-initializing.png" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This indicates that the device has successfully connected to Automox, but has not yet completed the first system scan.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Installing</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>
+                            <img src="../../Resources/Images/icon-installing.png" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>This indicates that a patch is being installed.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Uninstalling</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>
+                            <img src="../../Resources/Images/icon-uninstalling.png" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>The device is currently uninstalling software, per a policy.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Needs Restart</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>
+                            <img src="../../Resources/Images/icon-needs-reboot.png" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>The device has installed patches or software that require a restart before installation can be fully completed.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Rebooting</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>
+                            <img src="../../Resources/Images/icon-rebooting.png" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>The device is in the process of rebooting.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Refreshing</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p> <img src="../../Resources/Images/icon-refreshing.png" /></p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>The device is updating previously scanned software and hardware configurations or a worklet is being tested.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Ready</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>
+                            <img src="../../Resources/Images/ready.png" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>There is no command impacting the device.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Not Ready</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>
+                            <img src="../../Resources/Images/not-ready.png" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>This status is shown when the device is disconnected.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Pending</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>
+                            <img src="../../Resources/Images/icon-pending.png" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This status can indicate that a command is being run on a device or that a worklet is in the process of executing on the device.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Excluded From Reports</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>
+                            <img src="../../Resources/Images/icon-excluded.png" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>This status indicates that the device is excluded from reports.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                        <p>Available Patches</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                        <p> <img src="../../Resources/Images/available-patches.png" /></p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+                        <p>This status indicates that applicable patches have been detected, which are not necessarily associated with a scheduled policy. You can view these on the Device Details page under Software &gt; Status. Search for Update Available.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <div class="warning"><strong>Note</strong>: The <strong>Last System Scan</strong> can periodically be out of sync until the scanning process completes. The timestamp is updated when a scan is initiated and when it ends.</div>
+        <h2>Policy Status</h2>
+        <p>In addition to the <strong>Device Status</strong>, policies assigned to the device will also have their own assigned statuses as well. These policy statuses indicate the current state of a given policy's evaluation and remediation steps.</p>
+        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p>Policy Status</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p>Icon</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p>Description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Unmanaged</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>
+                            <img src="../../Resources/Images/icon-unmanaged.png" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p><strong>No policy is associated with the device.</strong>
+                        </p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Compliant</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>
+                            <img src="../../Resources/Images/icon-compliant.png" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Policies with a status of <strong>Compliant</strong> have no scheduled updates or failed remediations.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Non-Compliant</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>
+                            <img src="../../Resources/Images/icon-noncompliant.png" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Policies with a status of <strong>Non-Compliant</strong> are either scheduled or have failed remediation. While the definition of "remediation" can differ depending on the policy type, this generally means that the policy has failed to successfully install new patches and manual intervention may be required.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>Scheduled</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>
+                            <img src="../../Resources/Images/icon-scheduled.png" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body2">
+                        <p>A schedule is set for the policy.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Connection Status</h2>
+        <p>A device's connection status is used to indicate whether or not the Automox agent installed on the device is communicating with the Automox API. While this status isn't a firm indication that something is wrong with the device, it can be used to determine how up-to-date the device's information is.</p>
+        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p>Connection Status</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p>Icon</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p>Description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Connected</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>
+                            <img src="../../Resources/Images/icon-connected.png" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>A status of <strong>Connected</strong> indicates that the agent has checked in with the Automox API within the last two minutes.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>Disconnected</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>
+                            <img src="../../Resources/Images/icon-disconnected.png" />
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body2">
+                        <p>A status of <strong>Disconnected</strong> indicates that the agent installed on a device hasn't checked in to the Automox API within the last two minutes.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="../Device Management/Device_Details.htm">Device Details</MadCap:xref>
+            </li>
+        </ul>
+    </body>
+</html>

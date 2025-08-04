@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Worklet example that describes how to keep your drives encrypted with ongoing evaluation and remediation." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Enforce BitLocker Encryption Worklet</h1>
+        <p>This worklet describes how to keep your drives encrypted with ongoing evaluation and remediation (Windows 8 and Windows 10).</p>
+        <p>For detailed steps on creating and scheduling a worklet, refer to: <MadCap:xref href="../Policies/Creating_a_Worklet.htm">Creating a Worklet</MadCap:xref></p>
+        <p>For an overview about Worklets, see this article: <MadCap:xref href="How_to_Use_Worklets.htm">How to Use Worklets</MadCap:xref></p>
+        <h2>The Worklets</h2>
+        <p>The following evaluation and remediation worklets can be used to enforce BitLocker encryption.</p>
+        <p><strong>Evaluation Code</strong>
+        </p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;"># PowerShell 4.0 and Above
+# Windows 8 and later
+
+#Get BitLocker status for All Drives
+try { $encryption = Get-BitLockerVolume -ErrorAction Stop }
+catch { Write-Output "Unable to determine BitLocker status" }
+
+# Count Drives and initialize lists for later output
+$numDrives = $encryption.Count
+$encCount = 0
+$encrypted = @()
+$unencrypted = @()
+
+# Loop through each drive and see if it is Protected or Note
+# Add to the appropriate list, Encrypted or Unencrypted
+foreach ($drive in $encryption) {
+    $encStatus = $drive.ProtectionStatus
+    $encInProgress = $drive.VolumeStatus
+    if ( ($encStatus -match 'On') -or ($encInProgress -match "EncryptionInProgress") ) {
+        $encrypted += $drive.MountPoint
+        $encCount++
+    } else {
+        $unencrypted += $drive.MountPoint
+    }
+}
+
+# Output drive statuses so the can be seen in the Activity Log
+Write-Output "Encrypted Drives: $encrypted`n"
+Write-Output "Unencrypted Drives: $unencrypted`n"
+
+# Determine Compliant based on if the number of Encrypted
+# Drives matches the number of Total Drives
+if ($encCount -eq $numDrives) {
+    Write-Output "Compliant"
+    exit 0
+} else {
+    Write-Output "Non-Compliant"
+    exit 1
+}</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p>This evaluation requests BitLocker status for all physical disk drives on the target device. It then compares the count of encrypted drives to the total number present. If all drives are encrypted then it returns Compliant (<code>exit 0</code>), otherwise, it returns Non-Compliant (<code>exit 1</code>).</p>
+        <p><strong>Remediation Code</strong>
+        </p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;"># PowerShell 4.0 and Above
+# Windows 8 and later
+
+# Define where you want your Recovery Key to be exported
+# Note that this needs to be a local (non-network) drive.
+$keyPath = 'C:\temp'
+
+$toEncrypt = Get-BitLockerVolume | Where-Object { $_.VolumeStatus -match 'Decrypted' }
+
+# Loop through each Unencrypted Drives
+# Enable Bitlocker and Export their Recovery Keys
+foreach ( $drive in $toEncrypt ) {
+    $driveLetter = $drive.MountPoint.Replace(':','')
+    try {
+        #Enable Bitlocker
+        Enable-BitLocker -MountPoint $driveLetter -EncryptionMethod Aes128 -RecoveryPasswordProtector | Out-Null
+        
+        #Export Key and Key ID to a File
+        $recID = (Get-BitLockerVolume -MountPoint $driveLetter).KeyProtector.KeyProtectorID
+        $recKey = (Get-BitLockerVolume -MountPoint $driveLetter).KeyProtector.RecoveryPassword
+        Set-Content -Path "$keyPath\BitlockerRecoveryKey_$driveLetter.txt" -Force -Value "Recovery Key ID: $recID"
+        Add-Content -Path "$keyPath\BitlockerRecoveryKey_$driveLetter.txt" -Value "Recovery Key: $recKey"
+    } catch {
+        Write-Output "Unable to Encrypt $($drive.MountPoint)"
+    }
+}</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p>The remediation code has one editable variable (<code>$keyPath</code>). Use this to define where the recovery key will be stored. The recovery key is necessary to decrypt the drive should that become necessary in the future.</p>
+        <p>This worklet initially runs a similar check as the evaluation code to enumerate each physical drive that is not encrypted. Using this information, it starts encryption on each of these drives and exports the recovery key to a text file in the previously specified location.</p>
+    </body>
+</html>

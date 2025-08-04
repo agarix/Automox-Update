@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+    </head>
+    <body>
+        <h1>Agent 40 Release Notes</h1>
+        <h2>Release Overview</h2>
+        <p>Agent 1.0.40 is a minor release. This release is for all supported Windows, macOS, and Linux operating systems</p>
+        <h2>Changes / New Features</h2>
+        <ul>
+            <li>Enablement for PowerShell Signing<ul><li>Automox-authored PowerShell commands will now be signed. This provides the confidence that all Automox-authored PowerShell Scripts are secured and unchanged, from the Automox Cloud to every endpoint.</li><li>Some known limitations<ul><li>Customer-owned PowerShell commands will not be signed. If they leverage these, then PowerShell commands will remain unsigned</li></ul></li><li>PowerShell Signing will be turned on during a phased rollout after they are on Agent 40</li></ul></li>
+            <li>macOS Installer is now a universal binary</li>
+            <li>Location of supporting files has moved from <code>C:\ProgramData\amagent\</code> to <code>C:\Program Files\Automox\</code> for 32-bit, and <code>C:\Program Files (x86)\Automox\</code> for 64-bit Windows systems. For more detail about file locations, please see <MadCap:xref href="../../Agents/Agent Requirements/Location_of_Files_Required_By_Automox.htm">Location of Files Required By Automox</MadCap:xref>.</li>
+        </ul>
+        <h2>Bug Fixes</h2>
+        <ul>
+            <li>Security updates</li>
+        </ul>
+    </body>
+</html>

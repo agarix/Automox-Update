@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <body>
+        <div class="info">When provisioning users from an IdP, the user is created in Automox as a Read Only user. You must have the required permissions to adjust the role for the newly-created users. This can be done from the Global View, Setup &amp; Configuration page. Refer to <MadCap:xref href="../../Product Documentation/Global Access Management/Understanding_Global_Access_Management.htm">Understanding Global Access Management</MadCap:xref> and <MadCap:xref href="../../Product Documentation/Global Access Management/Roles_and_Permissions.htm">Roles and Permissions</MadCap:xref>.</div>
+    </body>
+</html>

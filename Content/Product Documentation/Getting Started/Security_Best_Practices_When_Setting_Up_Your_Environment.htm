@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Here are some best-practices when setting up your environment for the first time." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Security Best Practices When Setting Up Your Environment</h1>
+        <p>Here are some best-practices when setting up your environment for the first time. Some of these topics are covered in <MadCap:xref href="../Settings/Security.htm">Security</MadCap:xref> description of our documentation, but the following topics are what we here at Automox recommend.</p>
+        <p>Two-factor authentication (2FA) and single-sign on (SSO) greatly reduce the possibility of your account getting compromised.</p>
+        <p>When using 2FA, prefer the use of OTP (one-time pins) over mobile push. In the event mobile push is necessary, enable challenge-response features where possible to protect employees against authentication spam attacks.</p>
+        <p><strong>If you have an SSO IDP, enable SSO for your organization:</strong>
+        </p>
+        <ul>
+            <li>
+                <MadCap:xref href="../Console Overview/Automox_Okta_Single_Sign_on__SSO__Integration.htm">Automox Okta Single Sign-on (SSO) Integration</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="../Console Overview/Configuring_SAML_for_Microsoft_Entra_ID__Azure_ID_.htm">Configuring SAML for Microsoft Entra ID (Azure ID)</MadCap:xref>
+            </li>
+            <li>SSO is beneficial in that it reduces the overall attack surface and prevents account sprawl. If you have many administrators in your Automox organization, SSO eliminates the need to track down that account when that person leaves the company.</li>
+        </ul>
+        <p>SSO is beneficial in that it reduces the overall attack surface and prevents account sprawl. If you have many administrators in your Automox organization, SSO eliminates the need to track down that account when that person leaves the company.</p>
+        <p><strong>Lower the threshold for which accounts lock after a certain number of failed login attempts.</strong>
+        </p>
+        <p>Rate limiting sign-in attempts reduces the chance of successful brute-force or password spray attacks on your account. For more information on this feature, see Login Attempts Settings in <MadCap:xref href="../Settings/Security.htm">Security</MadCap:xref>.</p>
+        <p><strong>Only create API keys if necessary, and if you do, set a reasonable expiration based on your company’s security policy.</strong>
+        </p>
+        <ul>
+            <li>Rotating API tokens reduces your overall attack surface. Keys that are handled by humans regularly should be rotated more often, while keys that are not accessed often or ever and are stored securely may warrant a longer expiration period. </li>
+            <li>Discard tokens that are no longer in use by auditing on a regular cadence. Store agent access keys in a secure vault or a secure location, never in plain-text in a publicly accessible location. See <MadCap:xref href="../Settings/Managing_Keys.htm">Managing Keys</MadCap:xref>.</li>
+        </ul>
+        <p><strong>When you create your first worklet, avoid (if possible) storing sensitive data like API tokens, secrets, or username/password combinations in them.</strong>
+        </p>
+        <p><strong>The </strong><code>--setexecdir</code><strong> flag is a useful option for admins who need scripts run in a certain directory depending on security standards.</strong> For more information about this, see <MadCap:xref href="../Agents/Agent Installation/Change_Automox_Script_Execution_Location.htm">Change Automox Script Execution Location</MadCap:xref>. See also <MadCap:xref href="../Agents/Agent Requirements/Location_of_Files_Required_By_Automox.htm">Location of Files Required By Automox</MadCap:xref>.</p>
+        <p><strong>When adding users to manage your organization, only give the permissions they require for their job function.</strong>
+        </p>
+        <p>Over-provisioning access could lead to unintended consequences. However, under-provisioning can create blockers and workflow interruptions for your team. It’s a balancing act, so find what works best for you and your team. When in doubt, use the principle of least-privilege. Refer our <MadCap:xref href="../Global Access Management/Roles_and_Permissions.htm">Roles and Permissions</MadCap:xref>.</p>
+    </body>
+</html>

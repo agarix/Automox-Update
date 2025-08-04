@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultToc
+  Version="1">
+  <TocEntry
+    Title="[%=System.LinkedTitle%]"
+    Link="/Content/Product Documentation/Script Signing/Automox_Script_Signing.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  <TocEntry
+    Title="[%=System.LinkedTitle%]"
+    Link="/Content/Product Documentation/Script Signing/Script_Signing_FAQs.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  <TocEntry
+    Title="New Book 1">
+    <TocEntry
+      Title="New entry 1" />
+    <TocEntry
+      Title="New entry 2" />
+  </TocEntry>
+  <TocEntry
+    Title="New Book 2">
+    <TocEntry
+      Title="New entry 3" />
+    <TocEntry
+      Title="New entry 4" />
+  </TocEntry>
+</CatapultToc>

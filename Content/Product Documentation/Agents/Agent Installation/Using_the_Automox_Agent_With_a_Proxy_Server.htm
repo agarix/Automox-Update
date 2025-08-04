@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Guide to using the [%=General.ProductName%] agent with a proxy server." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Using the Automox Agent With a Proxy Server</h1>
+        <p>How to configure a device that uses a proxy server.</p>
+        <h2>Proxy Server Configurations</h2>
+        <p>Many organizations use a proxy server to manage and monitor internet traffic. A proxy server acts as an intermediary between a client and the external network. Popular proxy servers include ProxySG and Squid, among others.</p>
+        <p>There are two typical configurations: caching and transparent. The most common is a caching proxy. A caching proxy requires that the client is configured to use the proxy. This can be done through DHCP or manual configuration. As an example, the web proxy for a client is set to <code>10.0.0.2</code> with port <code>3128</code>. The network is then configured to only allow traffic outbound from <code>10.0.0.2</code> and not directly from the client.</p>
+        <p>
+            <img src="../../../Resources/Images/proxy-server-config.png" />
+        </p>
+        <p>In a transparent proxy, the client does not need to know about the proxy server. It most often runs in line with the router. No client-side configuration is needed.</p>
+        <h3>Proxy Evaluation Order</h3>
+        <p>If the proxy is set, an attempt is made to use it. If it is unreachable, the next proxy is checked.&#160;</p>
+        <p>The order of proxy evaluation by Automox is as follows:</p>
+        <ol start="1">
+            <li>AUTOMOX_PROXY/automox_proxy</li>
+            <li>HTTPS_PROXY/https_proxy</li>
+            <li>HTTP_PROXY/http_proxy&#160;</li>
+            <li>Windows Only: IE Proxy (Dynamic via PAC file)</li>
+            <li>Windows Only: IE Proxy (Static)</li>
+            <li>Direct</li>
+        </ol>
+        <div class="info"><strong>Note</strong>: The agent runs as a local system. The proxy settings must be configured at the system level, not the user level.</div>
+        <p>Follow the examples for configuring the environment variables.</p>
+        <h2>Automox Client Configuration: Linux</h2>
+        <p>The Automox client needs one of the previously mentioned proxy settings configured. For example, if you are using <code>HTTP_PROXY</code> and <code>HTTPS_PROXY</code>, these can be set in your current session using <code>export HTTP_PROXY=http://10.0.0.1:3128</code> and <code>export HTTPS_PROXY=http://10.0.0.1:3128</code> replacing <code>10.0.0.1:3128</code> with your proxy server address and port. However, since the Automox agent will run automatically at startup, the best practice is to ensure that this is set globally in the file <code>/etc/profile</code>.</p>
+        <ol start="1">
+            <li>Begin by editing either the file <code>/etc/profile</code> or creating a file <code>/etc/profile.d/automox.sh</code>.<br /><img src="../../../Resources/Images/linux-edit-profile.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /><br /></li>
+            <li>Append <code>export AUTOMOX_PROXY=http://yourProxyServer:yourProxyPort</code>, <code>export HTTP_PROXY=http://yourProxyServer:yourProxyPort</code> and <code>export HTTPS_PROXY=http://yourProxyServer:yourProxyPort</code>.<br /><img src="../../../Resources/Images/linux-apend-export.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /><br /></li>
+            <li>To verify the setting, you can log out of your session, log in again, and run <code>echo $AUTOMOX_PROXY</code>, <code>echo $HTTP_PROXY</code> or <code>echo $HTTPS_PROXY</code>.<br /><img src="../../../Resources/Images/linux-run-echo.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /><br /></li>
+        </ol>
+        <h2>Automox Client Configuration – Windows</h2>
+        <p>The Automox client requires that a system environment variable is set. This is not a profile environment variable but rather a system environment variable. For Windows clients, Automox supports the use of PAC files for proxy deployments and will attempt to use your IE proxy settings.</p>
+        <ol start="1">
+            <li>In the Control Panel, click <strong>System and Security</strong>.<br /></li>
+            <li>Click <strong>System</strong>.<br /></li>
+            <li>Click <strong>Advanced System Settings</strong>.<br /></li>
+            <li>Click <strong>Environment Variables</strong>.<br /></li>
+            <li>Under System variables, click <strong>New</strong>.<br /></li>
+            <li>As an example, you can configure variables as follows:<ul><li>For Variable name enter: <code>HTTP_PROXY</code></li><li>For Variable value enter: the IP/Name of your proxy server and port.</li><li>Click <strong>OK</strong>.<br /></li></ul></li>
+            <li>Repeat steps 5 and 6 for the <code>AUTOMOX_PROXY</code>, <code>HTTPS_PROXY</code>, and <code>HTTP_PROXY</code> variables. <strong>Note:</strong> Be sure to leave the protocol as <strong>http</strong>, leaving out the "s", for <code>HTTP_PROXY</code>.</li>
+            <li>Click <strong>OK</strong>.<br /></li>
+        </ol>
+        <p>Your Automox Agent is now configured to use your proxy server.</p>
+        <p>You can automate setting the proxy by using a worklet. Refer to <MadCap:xref href="../../Policies/Creating_a_Worklet.htm">Creating a Worklet</MadCap:xref> and our <a href="https://community.automox.com/worklets-12" rel="nofollow">Automox Community</a> for examples of creating and applying worklets.</p>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="../../Policies/Creating_a_Worklet.htm">Creating a Worklet</MadCap:xref>
+            </li>
+            <li><a href="https://community.automox.com/worklets-12" rel="nofollow">Automox Community</a>
+            </li>
+        </ul>
+    </body>
+</html>

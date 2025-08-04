@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Explains how to change the location/path from which [%=General.ProductName%] scripts are run." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Change Automox Script Execution Location</h1>
+        
+        <p>Automox executes actions from a fixed location. It can be changed to a different location if preferred.</p>
+        <p>The Automox agent uses PowerShell scripts to execute most of its functions including scanning and patching.</p>
+        <p>These scripts execute from a fixed directory on the local device. By default this is set to the following locations:</p>
+        <ul>
+            <li><strong>Windows:</strong>
+                <ul>
+                    <li>For Agent ≥ 40:<ul><li>For 32-bit systems: <code>C:\Program Files\Automox\</code></li><li>For 64-bit systems: <code>C:\Program Files (x86)\Automox\ </code></li></ul></li>
+                    <li>For Agent ≤ 39:<ul><li><code>C:\ProgramData\amagent\&#160;</code></li></ul></li>
+                </ul>
+            </li>
+            <li><strong>macOS</strong>: &#160;<code>/Library/Application Support/Automox/</code></li>
+            <li><strong>Linux</strong>: <code>/var/lib/amagent</code></li>
+        </ul>
+        <h2>Changing the Default Execution Location</h2>
+        <p>If you prefer these actions to run from a different default path, that can be set using an agent command on the device (<code>--setexecdir</code>)</p>
+        <p>The next time the Automox agent service is restarted, it will use the newly specified location for running its scripts.</p>
+        <p>Some endpoint security applications block scripts that don't originate from a designated location. So the most common reason to modify this setting is to move it to an allowlist or preferred directory for your security software.&#160;</p>
+        <h3>Windows</h3>
+        <p>64-bit Systems</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">'C:\Program Files (x86)\Automox\amagent.exe' --setexecdir C:\MyPath\MyDir</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p>32-bit Systems</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">'C:\Program Files\Automox\amagent.exe' --setexecdir C:\MyPath\MyDir</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h3>macOS</h3>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">/usr/local/bin/amagent --setexecdir /MyPath/MyDir</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h3>Linux</h3>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Python;">/opt/amagent/amagent --setexecdir /MyPath/MyDir</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+    </body>
+</html>
+
+
+
+
+
+
+

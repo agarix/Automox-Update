@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Explains how to embed your access key into the [%=General.ProductName%] MSI agent installer." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Embedding Your Access Key into the Automox MSI</h1>
+        <p>To deploy the agent without parameters, modify the Automox MSI installer directly to include your access key. This key ensures that the device appears in your management console.</p>
+        <p>The simplest way to embed the access key is by using Microsoft's MSI editing tool, Orca. You can download Orca as part of the Windows Installer SDK from the link below:</p>
+        <p><a href="https://go.microsoft.com/fwlink/p/?linkid=2083448&amp;clcid=0x409">Windows Installer SDK ISO Download</a>
+        </p>
+        <p>While other MSI editing tools are available, Orca is free and provided by Microsoft, making it the preferred choice for this procedure.</p>
+        <h2>Editing the MSI with Orca</h2>
+        <p>To edit the MSI file with Orca, follow these steps.</p>
+        <ol start="1">
+            <li>Install and launch Orca.</li>
+            <li>Click <strong>File → Open</strong>...<ul><li>The MSI file is loaded into the editor.</li></ul></li>
+            <li>Retrieve your access key from the Automox console.<ol style="list-style-type: lower-alpha;"><li>Sign into the Automox console.</li><li>Go to <strong>Settings → Secrets &amp; Keys</strong>and copy from the Agent Access Key field.</li></ol></li>
+            <li>In the Orca editor, click <strong>Property</strong> from the <strong>Tables</strong> list.</li>
+            <li>To add the access key you copied, double-click the first empty cell in the Property column to add a new entry.<br /><img src="../../../Resources/Images/orca-propertycolumn.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /><br /></li>
+            <li>In the Property field, type <strong>ACCESSKEY</strong> and press <strong>Enter</strong>. This is case-sensitive. The field will change from Property to Value.</li>
+            <li>In the <b>Value</b> field, paste the access key and click <b>OK</b>. You'll see a new row with your new property and value entries.</li>
+            <li>Confirm that your access key is correct.</li>
+            <li>Save the file (Click <strong>File → Save</strong>). You can now deploy this modified MSI without being prompted for a key.<br /><img src="../../../Resources/Images/orca-accesskey.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li>
+        </ol>
+        <p>This applies to both Silent and GUI-based installations.</p>
+        <div class="warning">Do NOT use the <b>Save As</b> option when saving your modified installer to avoid corrupting the MSI file. If you prefer to use the <b>Save As</b> option, you must first perform the following steps:
+        <ol><li>Open Orca.</li><li>Click&#160;<b>Tools → Options</b></li><li>Select the <b>Database</b> tab.</li><li>Enable the checkbox for <b>Copy Embedded Streams During Save As</b></li><li>Click <b>OK</b> to apply the setting.</li><li>You can then use the <b>Save As</b> option for the modified installer.</li></ol></div>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="../../Settings/Managing_Keys.htm">Managing Keys</MadCap:xref>
+            </li>
+        </ul>
+    </body>
+</html>

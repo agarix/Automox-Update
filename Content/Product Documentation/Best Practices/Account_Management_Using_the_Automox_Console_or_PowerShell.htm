@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Account Management using the [%=General.ProductName%] console or PowerShell" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Account Management Using the Automox Console or PowerShell</h1>
+        <p>Follow these best practices to clean up unnecessary user accounts.</p>
+        <h2>Account Management Using the Automox Console</h2>
+        <p>Follow these steps to clean up unnecessary user accounts using the Automox console.</p>
+        <p>
+            <img src="../../Resources/Images/user-accounts.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <ol start="1">
+            <li>Go to <strong>Settings</strong> ( ⋮ ) in the console.</li>
+            <li>Select <strong>Users</strong> from the menu.</li>
+            <li>Review the <strong>User Accounts</strong> list and select any unnecessary accounts.<br />You can also use the search bar to filter the list. </li>
+            <li>Select the <strong>Actions</strong> drop-down menu and click <strong>Remove User</strong>.</li>
+            <li>Confirm the selected accounts so that only approved user accounts remain in the console.</li>
+        </ol>
+        <h2>Account Management Using PowerShell</h2>
+        <p>Follow these steps to delete multiple users from an organization based on the user email addresses using a PowerShell script. This logs the successes and failures in a location that you specify.</p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/Requirements-api-keys.flsnp" />
+        <p>There are four areas in the code that you’ll need to update to get the script to function:</p>
+        <ul>
+            <li>
+                <MadCap:snippetBlock src="../../Resources/Snippets/org-id-script.flsnp" />
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <MadCap:snippetBlock src="../../Resources/Snippets/api-key-script.flsnp" />
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <p><code>$logPath</code>&#160;<br />Set this variable to the folder where you want to save logs</p>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <p><code>$toDelete</code>&#160;<br />Set your list of users you want deleted by their email addresses</p>
+            </li>
+        </ul>
+        <h3>Delete Multiple Users Script</h3>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">### Replace the variables in this block with your Org ID &amp; API key ###
+
+$orgID = 'YOUR_ORG_ID'
+$apiKey = 'YOUR_API_KEY'
+
+
+# Modify log path as desired
+$logPath = 'C:\Temp\'
+
+
+# List of users identified by email to delete
+$toDelete = @('user@email.com','user2@email.com','user3@email.com')
+
+
+######################################################################
+
+
+$page = 0
+$limit = 500
+$headers = @{ "Authorization" = "Bearer $apiKey" }
+
+
+# Easier to maintain, especially if multiple organizations, or for repurposing for different API Tables
+$apiInstance = 'https://console.automox.com/api/'
+$apiTable = 'users'
+
+
+# Initialize empty arrays to store server IDs
+$users = @()
+$delList = @()
+$failDelete = @()
+$successDelete = @()
+
+
+# Generate list of all users
+while($true) {
+
+
+    $orgAndKey = "?o=$orgID&amp;api_key=$apiKey&amp;l=$limit&amp;p=$page"
+
+
+    #put components together
+    $uri = $apiInstance + $apiTable + $orgAndKey
+
+
+    #Get the json body of the Web Request
+    $resp = (Invoke-WebRequest -Method GET -Uri $uri -UseBasicParsing).Content | ConvertFrom-Json
+
+
+    $users += $resp
+    $page += 1
+
+
+    if($resp.count -lt $limit) {
+        break
+    }
+}
+
+
+# Narrow down to list of users that need to be deleted
+ForEach ($user in $toDelete) {
+
+
+    $match = $users | Where-Object {$_.email -EQ $user}
+    $delList += $match
+}
+
+
+# Delete designated users. Log whether successful or failed to delete.
+ForEach ($delUser in $delList) {
+    try {
+        $id = $delUser.id
+        $email = $delUser.email
+        $name = $delUser.firstname+' '+$delUser.lastname
+        $url = "https://console.automox.com/api/users/$id"+"?o=$orgID"
+        Invoke-WebRequest -Method Delete -Uri $url -Headers $headers
+        $successDelete += @{"Email"=$email;"ID"=$id;"Name"=$name}
+        Write-Output "Successfully Deleted User: $email"
+    }
+    catch {
+        $failDelete += @{"Email"=$email;"ID"=$id;"Name"=$name}
+        Write-Output "Failed to Delete User: $email" 
+    }
+}
+
+
+# Output logging into json files for later review/manipulation
+$successDelete | ConvertTo-Json | Out-File $logPath\Delete_Success.json
+$failDelete | ConvertTo-Json | Out-File $logPath\Delete_Failed.json
+</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h2>Related Topics</h2>
+        <ul>
+            <li><a href="https://community.automox.com/automox-labs-8/delete-multiple-users-from-an-organization-293" rel="nofollow">Community: Delete Multiple Users From An Organization</a>
+            </li>
+            <li>
+                <MadCap:xref href="../Settings/Managing_Keys.htm">Managing Keys</MadCap:xref>
+            </li>
+        </ul>
+    </body>
+</html>

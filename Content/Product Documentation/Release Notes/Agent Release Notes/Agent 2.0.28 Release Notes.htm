@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+    </head>
+    <body>
+        <h1>Agent 2.0.28 Release Notes</h1>
+        <p style="padding:0px;"><u>Beta Release Date: January 7, 2025</u>
+        </p>
+        <p style="padding:0px;"><u>GA Release Date: January 21, 2025</u>
+        </p>
+        <h2>Improvements</h2>
+        <ul>
+            <li><b>Agent Connection Status Fixes</b>
+                <ul>
+                    <li>In previous versions, the agent could sometimes appear connected to the platform but show as disconnected in the Console. With Agent 2.0, this issue has been resolved, ensuring accurate status updates.</li>
+                </ul>
+            </li>
+            <li><b>Improved Stuck Statuses</b>
+                <ul>
+                    <li>Agent 2.0 enhances connection reliability and introduces agent-managed command history. These improvements reduce the occurrence of stuck commands, ensuring smoother operation and fewer disruptions.</li>
+                </ul>
+            </li>
+            <li><b>Duplicate Command Prevention</b>
+                <ul>
+                    <li>The new command history feature in Agent 2.0 prevents the agent from processing a command that it has already received. This is especially important for reducing unexpected or duplicate reboots, which can impact system performance.</li>
+                </ul>
+            </li>
+            <li><b>More Scalable and Reliable Back-end Communication</b>
+                <ul>
+                    <li>All agent command communications now utilize a more scalable and reliable back-end. This update enhances the overall stability of the platform and ensures better handling of commands across a wide range of environments.</li>
+                </ul>
+            </li>
+            <li><b>Reconnection Delay Configuration</b>
+                <ul>
+                    <li>Agent 2.0 introduces the ability to adjust the frequency of the agent’s reconnection attempts. This feature has been particularly beneficial in environments with network policy enforcement for devices (e.g., Cisco ISE) where increasing reconnection delays has improved overall reliability.</li>
+                </ul>
+            </li>
+            <li><b>Persistent Outgoing Response Queuing</b>
+                <ul>
+                    <li>This update improves the delivery of agent command responses by ensuring better reliability in sending responses. Even in heavy traffic or intermittent connectivity environments, responses will be queued and delivered reliably.</li>
+                </ul>
+            </li>
+            <li><b>Firewall Rules</b>
+                <ul>
+                    <li>The firewall rules mentioned in <MadCap:xref href="Agent 1.45.48 Release Notes.htm">Agent 1.45.48 Release Notes</MadCap:xref> are now required. Refer to <MadCap:xref href="../../Agents/Agent Requirements/Agent_Firewall_Allowlisting_Rules.htm">Agent Firewall Allowlisting Rules</MadCap:xref> for details.</li>
+                </ul>
+            </li>
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Explains how to use the [%=General.ProductName%] agent deployer with CrowdStrike-managed devices." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Automox Agent Deployer</h1>
+        <p>The Automox Agent Deployer is a locally downloaded and executed client binary that allows you to deploy Automox agents to CrowdStrike managed device estate using the CrowdStrike API for the Real-Time-Response module. After configuring variables using a CLI-based GUI for ease of use, the client installs the Automox agent on devices scoped in the configurator step.</p>
+        <h2>Configuring and setting up scripts</h2>
+        <p>This consists of 5 steps. These are described in the following sections.</p>
+        <h3>Step 1: Download the deployer application</h3>
+        <table class="TableStyle-ax_tables" cellspacing="0" style="mc-table-style: url('../../Resources/TableStyles/ax_tables.css');">
+            <col class="TableStyle-ax_tables-Column-Column1" style="width: 237px;" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p><strong>OS - Architecture</strong>
+                        </p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p><strong>File</strong>
+                        </p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Linux - arm64</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p><a href="https://github.com/AutomoxCommunity/se-utilities-public/blob/main/integrations/CrowdStrike-Deploy-Automox/ax-agent-deployer_linux_arm64" rel="nofollow">ax-agent-deployer_linux_arm64</a> </p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Linux - amd64</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p><a href="https://github.com/AutomoxCommunity/se-utilities-public/blob/main/integrations/CrowdStrike-Deploy-Automox/ax-agent-deployer_linux_amd64" rel="nofollow">ax-agent-deployer_linux_amd64</a> </p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>macOS - arm64</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p><a href="https://github.com/AutomoxCommunity/se-utilities-public/blob/main/integrations/CrowdStrike-Deploy-Automox/ax-agent-deployer_macos_arm64" rel="nofollow">ax-agent-deployer_macos_arm64</a> </p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>macOS - amd64</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p><a href="https://github.com/AutomoxCommunity/se-utilities-public/blob/main/integrations/CrowdStrike-Deploy-Automox/ax-agent-deployer_macos_amd64" rel="nofollow">ax-agent-deployer_macos_amd64</a> </p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Windows - arm64</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p><a href="https://github.com/AutomoxCommunity/se-utilities-public/blob/main/integrations/CrowdStrike-Deploy-Automox/ax-agent-deployer_windows_arm64.exe" rel="nofollow">ax-agent-deployer_windows_arm64.exe</a> </p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>Windows - amd64</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body2">
+                        <p><a href="https://github.com/AutomoxCommunity/se-utilities-public/blob/main/integrations/CrowdStrike-Deploy-Automox/ax-agent-deployer_windows_amd64.exe" rel="nofollow">ax-agent-deployer_windows_amd64.exe</a> </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <div class="info"><strong>Note</strong>: <br /><ul><li>For <b>Windows</b>, open up a PowerShell window and call the .exe file directly.</li><li> For <b>Linux </b>or<b> macOS</b>, open a terminal window in the directory where you have downloaded the file, and run <code>chmod a+x &lt;filename&gt;</code>, replacing <code>&lt;filename&gt;</code> with the name of the downloaded file. You can then execute the file by running <code>./&lt;filename&gt;</code>.</li></ul></div>
+        <h3>Step 2: Configurator (for first-time use)</h3>
+        <p>After you download and install the Agent Deployer application, select <code>command-config</code>. Now you can set up the configuration including the file path, Automox access key, CrowdStrike Client ID, CrowdStrike secret, the CrowdStrike API region, and the platform deployment size. All of these elements are required.</p>
+        <p>
+            <img src="../../Resources/Images/agent-deployer.gif" />
+        </p>
+        <h4>Requirements</h4>
+        <ul>
+            <li>Automox Access Key</li>
+            <li>CrowdStrike API Client ID</li>
+            <li>CrowdStrike API Client Secret</li>
+            <li>CrowdStrike API Region<ul><li>To identify the API key region, refer to the Cloud environment column in the overview table of your CrowdStrike API reference article, which is accessible from here: <a href="https://falcon.crowdstrike.com/documentation/46/crowdstrike-oauth2-based-apis" rel="nofollow">https://falcon.crowdstrike.com/documentation/46/crowdstrike-oauth2-based-apis</a>.<br /><img src="../../Resources/Images/CS-cloud-API-ref.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /><br /></li></ul></li>
+            <li>CrowdStrike API Client Permissions<br /></li>
+            <br />
+            <img src="../../Resources/Images/CS-API-client-perm.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+            <br />
+            <li>Hosts - read<ul><li>For getting details on hosts being deployed to</li></ul></li>
+            <li>Host Groups - read<ul><li>For getting available groups and membership details</li></ul></li>
+            <li>Real time response - read and write<ul><li>For executing the RTR installation scripts. The write permission here is what allows custom scripts to be executed.</li></ul></li>
+        </ul>
+        <div class="warning">If opting to upload RTR installation scripts, the <strong>RTR (admin) - write</strong> permission is <strong>temporarily</strong> required. For security reasons, this permission should be removed after uploading is completed.</div>
+        <ul>
+            <li>Response policies<ul><li>For verifying that the selected groups have Real time response capabilities enabled</li></ul></li>
+            <li>Group Response Policy Configuration<ul><li>All groups selected for deployment will need to have the following Real Time Response Policy settings enabled<ul><li>Real Time Response - enabled</li><li>Custom scripts - enabled</li><li>Falcon scripts - enabled<br /><img src="../../Resources/Images/deployer-sensor-settings.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /><br /></li></ul></li></ul></li>
+        </ul>
+        <p>After the Automox key and CrowdStrike configuration values are configured, the deployer will use those details to connect to the CrowdStrike API to get a list of available groups and provide them for picking where to deploy. Multiple groups can be selected.</p>
+        <h3>Step 3: Select upload or print custom scripts</h3>
+        <p>The configurator provides an option to upload or print the RTR scripts necessary for deployment of the Automox agent. </p>
+        <div class="warning">If opting to upload RTR installation scripts, the <strong>RTR (admin) - write</strong> permission is <strong>temporarily</strong> required. For security reasons, this permission should be removed after uploading is completed.</div>
+        <p>The upload route is the easiest and most likely to ensure success when deploying as there is no risk of errors related to formatting/new lines from copying and pasting the printed scripts.</p>
+        <h4>Upload Scripts</h4>
+        <p>
+            <img src="../../Resources/Images/deployer-upload-scripts.png" />
+        </p>
+        <ol start="1">
+            <li>Before you continue, confirm that the&#160;Real time response (admin) - write&#160;permission is enabled for the CrowdStrike API Client being used by the deployer. If it is not configured when attempting to upload, 2 retries are allowed before the configurator exits.<br /><img src="../../Resources/Images/deployer-realtime-response.png" /></li>
+            <li>The deployer then attempts to upload the installation script for each platform.<ul><li>The scripts are uploaded with permissions that allow them to be used by any user with the RTR Active Responder role or API Client with the <strong>Real time response - write&#160;</strong>permission (non-admin).</li></ul></li>
+            <li>If successful, the configurator continues. Ensure that the <strong>Real time response (admin) - write&#160;</strong>permission is removed at this point. It is not needed for normal operation of the deployer and provides too much permission.</li>
+        </ol>
+        <h4>Print Scripts</h4>
+        <p>
+            <img src="../../Resources/Images/deployer-print-scripts.png" />
+        </p>
+        <div class="info"><strong>Note</strong>: The credentials have been rotated in this example.</div>
+        <ol start="1">
+            <li>When selecting&#160;<strong>print</strong>,&#160;the script for each platform is printed for copying and pasting into the CrowdStrike console under&#160;<strong>Response Scripts &amp; Files</strong>. The names of the scripts need to make those provided by the deployer.<br /><img src="../../Resources/Images/deployer-custom-scripts.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /><br /></li>
+            <li>Navigate to <strong>Response Scripts &amp; Files&#160;</strong>and click <strong>Create a script.</strong></li>
+            <li>Enter the name and description and ensure the correct shell type is selected for each OS. Be aware that Real Time Responder roles are required for this action. <strong>These can be added via User Management in the CrowdStrike console.</strong><ul><li>OS Shell Types<ul><li>Windows: PowerShell</li><li>Linux: Bash</li><li>macOS: Zsh</li></ul></li><li><strong>Permissions:&#160;</strong>RTR Active Response and RTR Administrator<ul><li>This permission allows the deployer to use this script&#160;without&#160;admin permissions.<br /><img src="../../Resources/Images/deployer-print-permissions.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /><br /></li></ul></li></ul></li>
+        </ol>
+        <p>Repeat the steps for macOS and Linux by pressing any key twice and using the name and script content printed for each.</p>
+        <div class="info"><strong>Note</strong>: If the user intends to deploy on all OSes, there must be 3 different scripts for each OS uploaded here.</div>
+        <h3>Step 4: Set up recurring schedule to run the script(s)</h3>
+        <p>
+            <img src="../../Resources/Images/deployer-recurring-schedule.png" />
+        </p>
+        <ul>
+            <li>For the prompt: “Print commands for scheduling the tool to run”, enter <b>Yes</b>. &#160;</li>
+            <li>Provide path - defaults to the existing path and determine the frequency. <strong>This is only available for Linux and Windows.</strong></li>
+        </ul>
+        <h4>Scheduler Example - Windows</h4>
+        <p>The application prints the PowerShell script for scheduling when Windows is selected as the scheduling platform.</p>
+        <ul>
+            <li>Open PowerShell and run printed script.<br /><p><img src="../../Resources/Images/deployer-PS-example.png" /><br /></p></li>
+        </ul>
+        <p>Review Task Scheduler</p>
+        <p>
+            <img src="../../Resources/Images/deployer-task-scheduler.png" />
+        </p>
+        <p>After you run the recurring schedule script, you will see a new automated task in the Task Scheduler. All arguments are pre-populated with necessary flags. You can change any parameters within the Task Scheduler. </p>
+        <div class="warning"><strong>Note</strong>: Plain text API secrets are in this scheduled task, which represents a potential security risk.</div>
+        <h3>Step 5: Save configuration and pre-check</h3>
+        <p>You can opt to save the configuration to a file. This file can be referenced using the <code>--config</code> flag when running the deployer. A configuration file is not required if using the schedule task/cron schedulers as the commands are generated with the configuration values as flags</p>
+        <p>Finally, the deployer will attempt to validate that the selected groups for deployment have Real time response capabilities enabled. Any groups with incorrect settings will be logged.</p>
+        <h2>Deployment</h2>
+        <p>Select <code>command-deploy</code> to see results of your actions.</p>
+        <p>
+            <img src="../../Resources/Images/deployer-cmd-deploy.png" />
+        </p>
+        <p>Deploy command and results. For devices that are not online, the commands are queued up via the <code>queue offline</code> flag within CrowdStrike.</p>
+        <h3>Troubleshooting</h3>
+        <p>There are a few known errors to look out for when deploying.</p>
+        <h4>Missing scripts</h4>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">RTR Custom Script 'AutomoxAgentInstaller-&lt;Platform&gt;' is missing, cannot deploy. 
+Please run configuration to upload or print the required script"</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p>This error message is displayed when the specified RTR Custom Script is not found in the CrowdStrike platform. There are a couple possible reasons for this:</p>
+        <ol start="1">
+            <li>The scripts were not created.<ul><li>In this case, run the <code>config</code> command to upload or print the scripts.</li></ul></li>
+            <li>The permissions are not correct on the script.<ul><li>Ensure that the script permissions are set to the RTR Active Responder and Admin<br /><br /><img src="../../Resources/Images/deployer-permissions-rtr.png" /></li></ul></li>
+        </ol>
+        <h4>Offline Hosts</h4>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">host 'abc-123' (device-id) was offline, deployment will be performed 
+by Crowdstrike when the device is online</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p>This message is not necessarily an error. It is printed when a host in the deployment group was offline. CrowdStrike will attempt to run the command when the host is online; however, the deployer does not track these queued commands.</p>
+        <h4>Invalid scripts</h4>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">RTR Custom Script 'AutomoxAgentInstaller-&lt;Platform&gt;' returned an error during deploy. 
+This is usually due to the script being improperly formatted or invalid. 
+Please run configuration to upload or print the required script to fix. 
+If manually uploading, refer to the README for troubleshooting steps.</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p>If the scripts were manually uploaded to the CrowdStrike platform, it is possible that they were not pasted correctly.</p>
+        <p>The most common reason for this is trailing empty lines at the end of a script. Remove these and try again. If this doesn’t fix the issue or if there are no empty lines, try uploading the scripts via the deployer.</p>
+        <p>
+            <img src="../../Resources/Images/deployer-invalid-script.png" style="width: 615px;height: 52px;" />
+        </p>
+        <h4>Timeout</h4>
+        <div class="info"><strong>The installation commands run during the deployment must succeed within 30 seconds.</strong>
+        </div>
+        <p>If the command takes longer than 30 seconds to complete, you will see an error stating that the command timed out. This could be due to a slow connection or some other error for the host. One thing to try is rebooting the host that failed to install (if that’s an option).</p>
+        <h4>Other deployment errors</h4>
+        <p>Other errors may be captured from the deployment. Errors that are not known will return the raw details from the deploy operation. These are usually fairly helpful in understanding what went wrong.</p>
+    </body>
+</html>

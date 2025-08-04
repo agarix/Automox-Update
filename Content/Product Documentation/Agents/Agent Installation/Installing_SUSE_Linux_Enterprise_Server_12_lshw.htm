@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="description" content="Explains how to install the lshw package for SUSE Linux Enterprise Server 12, which is required to add these decises to [%=General.ProductName%]." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Installing the lshw package for SUSE Linux Enterprise Server 12 </h1>
+        <p>To be able to enroll SUSE Linux Enterprise Server 12 (SLES 12) devices in the Automox console, the lshw (list hardware) package must be added before proceeding.</p>
+        <h2>Overview</h2>
+        <p>lshw (list hardware) is a unix application that retrieves details about a device’s hardware. <a href="https://linux.die.net/man/1/lshw" rel="nofollow">From the Linux man page</a>:</p>
+        <p>
+            <quote>"lshw is a small tool to extract detailed information on the hardware configuration of the machine. It can report exact memory configuration, firmware version, mainboard configuration, CPU version and speed, cache configuration, bus speed, etc. on DMI-capable x86 or IA-64 systems and on some PowerPC machines (PowerMac G4 is known to work)."</quote>
+        </p>
+        <p>The default package repo that comes with SLES 12 does not contain lshw. To be able to enroll SLES 12 devices in the Automox console, this package must be added before proceeding.</p>
+        <h2>Installation</h2>
+        <p>To install lshw, another package repo must be added to the device first. The required repo is the<a href="https://build.opensuse.org/project/show/hardware" rel="nofollow"><u> openSuSE Hardware package repo</u></a>. To install it, run the following commands on the device as root:</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Python;">zypper addrepo https://download.opensuse.org/repositories/hardware/SLE_12_SP4/hardware.repo
+
+zypper refresh
+
+zypper install -y lshw</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p>After the lshw package is installed, the device can be enrolled in Automox. lshw and any other packages added from the openSuSE repo are kept up to date by patching in Automox.</p>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+    </head>
+    <body>
+        <h1>Agent 1.45.48 Release Notes</h1>
+        <h2>Fixes</h2>
+        <ul>
+            <li>Fixes for agent connections when using the <code>AUTOMOX_PROXY</code> environment variable</li>
+            <li>Migrated Windows fingerprinting off of <code>wmic.exe</code> to support Windows 11 24H2 systems</li>
+        </ul>
+        <h2>Improvements</h2>
+        <ul>
+            <li>Added new parallel communication back-end in preparation for future agent improvements<ul><li><b>New Firewall Rules:</b> These updates do not require firewall allow list changes, but a future agent release will require the following additional rules to upgrade. We recommend adding these rules as soon as possible to ensure your agents stay up-to-date.<ul><li>Host: <code>rtt.automox.com</code><ul><li>Port: <code>443</code></li><li>Protocols: HTTPS / Secure WebSockets</li></ul></li><li>Host: <code>console.automox.com</code><ul><li>Port: <code>443</code></li><li>Protocols: HTTPS</li></ul></li><li>Host: <code>agent-content-cdn.automox.com</code><ul><li>Port: <code>443</code></li><li>Protocols: HTTPS</li></ul></li></ul></li></ul></li>
+            <li>Prompts to grant secure token access to the Automox agent now use macOS system-managed prompts on macOS systems</li>
+            <li>Update installer dialog to require PowerShell 5.1 on Windows systems</li>
+            <li>Logging upgrades - structured logging<ul><li>Info and greater level severity logs will be delivered to <code>amagent.log</code> with <code>key=value</code> pairs for log fields, enabling easier ingestion by log aggregation tooling and better log message grouping</li><li>Added a new <code>amagent_debug.log</code> which includes Debug and greater level logs in a JSON format.</li></ul></li>
+            <li>Improved uninstaller behavior for Debian-based Linux systems<ul><li>Removed <code>aptitude</code> dependency for installer</li></ul></li>
+            <li>Add <code>set-connect-delay</code> subcommand to support adjusting the reconnection interval, in seconds, for agent command channel connections to the Automox platform. Maximum value is 300s.<ul><li>Usage: <code>set-connect-delay [flags]</code> </li><li>Example: <code>set-connect-delay 15s</code></li></ul></li>
+            <li>Introduced a new feature to enumerate more broadly the attributes of a device, done from <code>osqueryi.exe</code></li>
+        </ul>
+    </body>
+</html>

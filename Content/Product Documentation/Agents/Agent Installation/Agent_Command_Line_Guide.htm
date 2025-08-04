@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Explains various command line options for the [%=General.ProductName%] agent." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Agent Command Line Guid</h1>
+       
+        <p>This guide provides instructions on managing the Automox agent via command-line interface across different operating systems. It covers topics such as installation paths, setting access keys, assigning device groups, deregistering devices, checking compatibility, redirecting output, configuring script execution directories, and reinstalling the agent. This guide is essential for users seeking to efficiently control and customize the Automox agent's behavior through command-line operations.</p>
+        <h2>Operating System Install Locations</h2>
+        <p>Based on the operating system, the Automox agent installs to these locations:<br /></p>
+        <h3>macOS</h3>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">/usr/local/bin/amagent</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h3>Windows</h3>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">C:\Program Files (x86)\Automox\amagent.exe</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h3>Linux</h3>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Python;">/opt/amagent/amagent</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h2>Command Line Help</h2>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Python;">--help</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p>Basic help information for command line options can be found by executing the following:</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Python;">amagent --help
+amagent -h</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h2>Setting the Organization Access Key</h2>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Python;">--setKey</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p>The access key binds the agent and device to a specific organization in the Automox console. This command can be used to move a device from one organization to another, or to change the organization if an incorrect access key was provided during installation.</p>
+        <p>Follow these steps:</p>
+        <ol start="1">
+            <li>Deregister the device and set the new access key. See <MadCap:xref href="../../Settings/Managing_Keys.htm">Managing Keys</MadCap:xref> for information about access keys.
+                <MadCap:codeSnippet><MadCap:codeSnippetCopyButton /><MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">&lt;path to amagent&gt;/amagent --setkey &lt;NEW_ORGANIZATION_ACCESS_KEY&gt;</MadCap:codeSnippetBody></MadCap:codeSnippet></li>
+            <li>Restart the Automox agent.</li>
+        </ol>
+        <p>Linux:</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Python;">sudo service amagent restart</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p>macOS:</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">sudo launchctl bootout system/com.automox.agent
+sudo launchctl bootstrap system /Library/LaunchDaemons/com.automox.agent.plist</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p>Windows:</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">net stop amagent
+net start amagent</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h2>Assigning a Group to a Device</h2>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">--setgrp</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p>This command defines the Automox group that this agent should be placed in when it first connects with the Automox platform. This allows you to easily add the device to a group and is a no-touch way to specify the policies you want to add to the device. When using the <code>--setgrp</code> flag, you must predefine the Default Group/ to the group name that you are providing to the setgrp command. When specifying groups, remember to separate them with a forward-slash / character.</p>
+        <p>Follow these steps:</p>
+        <ol start="1">
+            <li>To set the device group to the Engineering group, issue the following command:
+                <MadCap:codeSnippet><MadCap:codeSnippetCopyButton /><MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">amagent --setgrp 'Default Group/Engineering' (macOS and Linux)</MadCap:codeSnippetBody></MadCap:codeSnippet></li>
+            <li>
+                <MadCap:codeSnippet>
+                    <MadCap:codeSnippetCopyButton />
+                    <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">amagent --setgrp "Default Group/Engineering" (Windows)</MadCap:codeSnippetBody>
+                </MadCap:codeSnippet>
+            Deregister the agent:
+                <MadCap:codeSnippet><MadCap:codeSnippetCopyButton /><MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">amagent --deregister</MadCap:codeSnippetBody></MadCap:codeSnippet></li>
+            <li>Restart the Automox Agent:</li>
+        </ol>
+        <p>Linux:</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Python;">sudo service amagent restart</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p>macOS:</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">sudo launchctl bootout system/com.automox.agent
+sudo launchctl bootstrap system /Library/LaunchDaemons/com.automox.agent.plist</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p>Windows:</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">net stop amagent
+net start amagent</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h2><a name="Deregist"></a>Deregistering a Device</h2>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve">--deregister</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p>When the Automox agent runs for the first time, it establishes an identity with the Automox servers using public-key cryptographic methods. If you ever need to reset the agent and have it re-register as a new device, you can deregister the agent.</p>
+        <h2>Checking for Device Compatibility with Automox</h2>
+        <p>After a device is connected, Automox runs a compatibility check to ensure that we can successfully manage the device. Each operating system has its own compatibility checklist. For more details about what is passing or failing on the compatibility check, click the Review Checklist link to view the Compatibility Checklist in the Device Details page in the Automox console. To perform this check directly from the device via the agent command line, issue this command:</p>
+        <h3>For Agent Versions 1.43.142 and Earlier</h3>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve">amagent --checkcompat</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h3>For Agent Versions 1.44.5 and Later</h3>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve">amagent selftest</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h2>Redirect Agent Output to stdout of a Console</h2>
+        <p>This command runs the agent in the current console. Logging is piped to stdout.</p>
+        <br />
+        <div class="tip"><strong>Note</strong>: Before running with this command, it is recommended that you disable the agent service.</div>
+        <br />
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve">amagent -c</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h2>Connection Delay Configuration</h2>
+        <p>Specifies the length of time the agent will delay before making its network connection, when the agent connects or reconnects. Valid units are <code>s</code>, or <code>m</code>. For example, <code>5s</code> is five seconds. <code>2m</code> is 2 minutes. The maximum value is 5 minutes.</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">amagent set-connect-delay 15s</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h2>Setting the Directory for Executing Scripts</h2>
+        <p>The Automox agent uses scripts to execute most of its functions including scanning and patching. These scripts execute from a fixed directory on the local device. By default this is set to the following locations:</p>
+        <p><b>Windows</b>: <code>C:\Program Files (x86)\Automox\</code></p>
+        <p><b>macOS</b>: <code>/Library/Application Support/Automox/</code></p>
+        <p><b>Linux</b>: <code>/var/lib/amagent</code></p>
+        <p>If you prefer these actions to run from a different default path, use an agent command to set that on the device (<code>--setexecdir</code>). The next time the Automox agent service is restarted, it will use the newly specified location for running its scripts. Some endpoint security applications block scripts that don't originate from a designated location. Therefore, the most common reason to modify this setting is to move it to a trusted or preferred directory for your security software.</p>
+        <div class="info"><b>Note</b>: For macOS, do not set the execdir to any directory or subdirectory of a user�s Desktop, Downloads, or Documents folder. Temporary directories created for executing commands are not cleaned up if they are in an OS protected special location. See also<a href="https://support.apple.com/en-gb/guide/mac-help/mchld5a35146/10.15/mac/10.15" rel="nofollow"> Control access to your files and folders on Mac</a>.</div>
+        <p>Output from <code>amagent --help</code>:</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">automox@ubuntu:/opt/amagent$ ./amagent --help
+amagent 1.0-28 (go1.12.4) Copyright (c) 2019 Automox, Inc.usage:
+[--setkey &amp;lt;accesskey&amp;gt;] Sets the access key
+[--setgrp &amp;lt;groupname&amp;gt;] Sets the initial group name
+[--setexecdir &amp;lt;directory&amp;gt;] Sets the temporary directory to execute scripts from
+[--deregister] Deregisters this server from Automox
+[--checkcompat] Checks the compatibiltiy and connectivity with Automox server # Only versions 1.43.142 and earlier
+[selftest] Checks the compatibiltiy and connectivity with Automox server # Only versions 1.44.5 and later
+[-c] Runs the agent in the current console. Logging is piped to stdout. # (It is recommend to disable the agent service before running with this command)
+[-h | --help] Displays this message</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <div class="info"><strong>Note</strong>: To restore the default, you can set the original directory path in the same manner as a new one.</div>
+        <h2>Reinstalling the Automox Agent</h2>
+        <p>To reinstall the Automox agent, ensure that the agent has first been deregistered and then removed.</p>
+        <ol start="1">
+            <li>Deregister the agent as described previously in <strong style="font-weight: normal;"><MadCap:xref href="#Deregist">Deregistering a Device</MadCap:xref></strong>.</li>
+            <li>Remove the agent. See <MadCap:xref href="Removing_the_Automox_Agent.htm">Removing the Automox Agent</MadCap:xref>.</li>
+            <li>Follow the instructions in <MadCap:xref href="Automox_Agent_Installation_Overview.htm">Automox Agent Installation Overview</MadCap:xref> for your device.</li>
+        </ol>
+        <MadCap:relatedTopics style="mc-help-control-display: list;">
+            <MadCap:relatedTopic src="Automox_Agent_Installation_Overview.htm" />
+            <MadCap:relatedTopic src="Change_Automox_Script_Execution_Location.htm" />
+            <MadCap:relatedTopic src="Configuring_WSUS_for_Automox_Integration.htm" />
+        </MadCap:relatedTopics>
+    </body>
+</html>
+
+
+
+

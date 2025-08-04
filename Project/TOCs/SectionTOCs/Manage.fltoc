@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultToc
+  Version="1">
+  <TocEntry
+    Title="Groups"
+    Link="/Project/TOCs/SectionTOCs/Groups.fltoc"></TocEntry>
+  <TocEntry
+    Title="Software"
+    Link="/Project/TOCs/SectionTOCs/Software.fltoc"></TocEntry>
+  <TocEntry
+    Title="Manual Approvals"
+    Link="/Project/TOCs/SectionTOCs/ManualApprovals.fltoc"></TocEntry>
+</CatapultToc>

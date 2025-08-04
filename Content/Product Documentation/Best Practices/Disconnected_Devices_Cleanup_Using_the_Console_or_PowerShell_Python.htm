@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <script src="../../Resources/js/tabs.js" type="text/javascript">
+        </script>
+        <meta name="Author" content="Laurie Laidley" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Clean up disconnected devices using the [%=General.ProductName%] console, PowerShell, or Python." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Disconnected Devices Cleanup Using the Console, PowerShell, or Python</h1>
+        <p>Follow these best practices to clean up disconnected devices.</p>
+        <h2>Disconnected Devices Cleanup Using the Automox Console</h2>
+        <p>Follow these steps to clean up disconnected devices using the console.</p>
+        <p>
+            <img src="../../Resources/Images/devices-disconnected-for.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <ol start="1">
+            <li>Go to <strong>Devices</strong> in the console.</li>
+            <li>Select <strong>Columns</strong>.</li>
+            <li>Select the <strong>Disconnected For</strong> option in the Columns drop-down menu.</li>
+            <li>Sort by <strong>Disconnected For</strong> to get a list of devices based on how many days they have been disconnected.</li>
+            <li>Select the checkbox for all the devices greater than X amount of days. In the example, we selected anything disconnected longer than 44 days.</li>
+            <li>Click the <strong>Actions</strong> drop-down menu and select <strong>Remove</strong>.</li>
+            <li>All devices disconnected for more than X days are immediately removed from the console with this action.</li>
+        </ol>
+        <h2>Disconnected Devices Cleanup Using PowerShell or Python</h2>
+        <ul class="tabs">
+            <li class="tab-link current" data-tab="tab-1">PowerShell</li>
+            <li class="tab-link" data-tab="tab-2">Python</li>
+        </ul>
+        <div class="tab-content current" id="tab-1">
+            <p>Follow these best practices to clean up disconnected devices using a PowerShell script.</p>
+            <p>You can use a PowerShell script to remove devices that have been disconnected longer than X days.</p>
+            <p>This script automates the removal using an API call to check the last disconnected date and remove any devices older than the number of days you specify in the code.</p>
+            <MadCap:snippetBlock src="../../Resources/Snippets/Requirements-api-keys.flsnp" />
+            <p>There are four areas in the code that you’ll need to update to get the script to function</p>
+            <ul>
+                <li>
+                    <MadCap:snippetBlock src="../../Resources/Snippets/org-id-script.flsnp" />
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <MadCap:snippetBlock src="../../Resources/Snippets/api-key-script.flsnp" />
+                </li>
+            </ul>
+            <ul>
+                <li><code>$maxDays = 120</code> <br />Any device that has been disconnected for more than 120 days is deleted from the console. <strong>You can adjust this to the number of days you prefer</strong>.
+				</li>
+            </ul>
+            <ul>
+                <li><code>$logPath = 'C:\temp\'</code>
+                    <br />Set this variable to the folder of your choosing.
+                </li>
+            </ul>
+            <p>After you make these four changes, you can run the script on any Windows devices using PowerShell.</p>
+            <h3>Running the Script in Test Mode</h3>
+            <p>To run the disconnected devices  in a TEST mode to see what will be deleted, update these lines in <MadCap:xref href="#Remove">Remove Old Disconnected Devices Script - PowerShell</MadCap:xref> as follows:</p>
+            <ul>
+                <li>
+                    Uncomment this line:
+                    <MadCap:codeSnippet><MadCap:codeSnippetCopyButton /><MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">#echo "device: $serverName `t last disconnected date: $lastCheckin `t days disconnected: $span.Days"</MadCap:codeSnippetBody></MadCap:codeSnippet></li>
+            </ul>
+            <ul>
+                <li>
+                    Comment out this line:
+                    <MadCap:codeSnippet><MadCap:codeSnippetCopyButton /><MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">$delResponse = Invoke-WebRequest -UseBasicParsing -Method Delete -Uri $delURI</MadCap:codeSnippetBody></MadCap:codeSnippet></li>
+            </ul>
+            <h3><a name="Remove"></a>Remove Old Disconnected Devices Script - PowerShell</h3>
+            <div class="warning"><strong>Note:</strong> This script automatically removes devices from your console and this is not a reversible operation. If you unintentionally remove a device using this script, you must reinstall the agent to return the device to the console.</div>
+            <MadCap:codeSnippet>
+                <MadCap:codeSnippetCopyButton />
+                <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">#    [-------------------------------------DISCLAIMER-------------------------------------]
+#    This script is provided as-is with no implicit
+#     warranty or support. It's always considered a best practice
+#     to test scripts in a DEV/TEST environment, before running them
+#     in production.
+#     Please proceed with caution.
+#     Do not distribute your API Key to any untrusted 3rd party.
+#    [-------------------------------------DISCLAIMER-------------------------------------]
+#     The SETUP section gets your API return and is not specific to any particular use-case.
+#     The OPERATIONAL section is specific to one scenario and can be overhauled for your specific uses.
+############################# SETUP Section #############################
+## To run this script in TEST MODE - be sure to comment out line 84 for $delResponse
+## After running in TEST MODE - then uncomment the line to allow for removal
+#replace the two variables below with your Org ID and your API key
+$orgID = 'INPUT_ORGID'
+$apiKey = 'INPUT_APIKEY'
+#modify log path as desired
+#The path must already exist for the script to create the JSON logs files.
+$logPath = 'C:\temp\'
+#Easier to maintain, especially if multiple organizations, or for repurposing for different API Tables
+$apiInstance = 'https://console.automox.com/api/'
+$apiTable = 'servers'
+$orgAndKey = "?o=$orgID&amp;api_key=$apiKey"
+$page = 0
+#Number of days disconnected before deleting - adjust to your desired range
+$maxDays = 120
+#initialize empty arrays to store server IDs to be deleted
+$toDelete = @()
+$failDelete = @()
+$successDelete = @()
+$data = @()
+#put components together
+#$getURI = $apiInstance + $apiTable + $orgAndKey + $query
+#Get the json body of the Web Request
+while ($true)
+{
+    $uri = "https://console.automox.com/api/servers?o=$orgID&amp;api_key=$apiKey&amp;l=500&amp;p=$page"
+    $resp = (Invoke-WebRequest -Method GET -Uri $uri).Content | ConvertFrom-Json | Select-Object results
+    $data += $resp.results
+    if ($resp.results.count -lt 500)
+    {
+        break
+    }
+    $page += 1
+}
+#Convert to object with manipulatable properties/values
+$servers = $data
+############################# END Setup Section #############################
+############################# OPERATIONAL Section #############################
+#Check each server for checkin time, conditionally take action
+foreach ($server in $servers)
+{
+    #pull out wanted details
+    $serverID = $server.id
+    $serverName = $server.name
+    #check to make sure last_disconnect_time isn't null, which it will be for currently connected devices, in which case the lastcheckin variable will be set to today's date
+    $lastCheckin = Get-Date
+    if ($server.last_disconnect_time)
+    {
+        $lastCheckin = [datetime]$server.last_disconnect_time
+    }
+    #Calculate time since last checking to now
+    $span = New-TimeSpan -Start $lastCheckin
+    #uncomment line below if you want to see all the servers with their last disconnect time and number of days disconnected for troubleshooting
+    Write-Output "device: $serverName `t last disconnected date: $lastCheckin `t days disconnected: $span.Days"
+    if ($span.Days -ge $maxDays)
+    {
+        #Delete or data collection code here
+        #Delete method takes serverID only
+        #Hardcoded would look like this $delURI = https://console.automox.com/api/servers/$serverID?o=YOUR_ORG_ID&amp;api_key=YOUR_API_KEY
+        $toDelete += @{ "ServerName" = $serverName; "ServerID" = $serverID; "last_disconnect_time" = $lastCheckin }
+        $delURI = $apiInstance + $apiTable + '/' + $serverID + $orgAndKey
+        #Attempt to delete and track failures
+        try
+        {
+            #Comment this line out to prevent device deletion if in test mode.
+            #$delResponse = Invoke-WebRequest -UseBasicParsing -Method Delete -Uri $delURI
+            Write-Output "Successfully Deleted Server: $serverName"
+            $successDelete += @{ "ServerName" = $serverName; "ServerID" = $serverID; "last_disconnectn_time" = $lastCheckin }
+        }
+        catch
+        {
+            $failDelete += @{ "ServerName" = $serverName; "ServerID" = $serverID; "last_disconnect_time" = $lastCheckin }
+            Write-Output "Failed to Delete Server: $serverName"
+        }
+    }
+    #Output logging into json files for later review/manipulation
+    $toDelete | ConvertTo-Json | Out-File $logPath\ToBeDeleted.json
+    $successDelete | ConvertTo-Json | Out-File $logPath\Delete_Success.json
+    $failDelete | ConvertTo-Json | Out-File $logPath\Delete_Failed.json
+}</MadCap:codeSnippetBody>
+            </MadCap:codeSnippet>
+        </div>
+        <div class="tab-content" id="tab-2">
+            <h2>Disconnected Devices Cleanup Using Python</h2>
+            <p>The following script uses Python, and is functionally the same as the PowerShell script.</p>
+            <MadCap:codeSnippet>
+                <MadCap:codeSnippetCopyButton />
+                <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Python;">#  #    [-------------------------------------DISCLAIMER-------------------------------------]
+#    This script is provided as-is with no implicit
+#     warranty or support. It's always considered a best practice
+#     to test scripts in a DEV/TEST environment, before running them
+#     in production.
+#     Please proceed with caution.
+#     Do not distribute your API Key to any untrusted 3rd party.
+#    [-------------------------------------DISCLAIMER-------------------------------------]
+#
+import requests
+from datetime import datetime, timedelta
+
+url = 'https://console.automox.com/api/servers'
+
+# START Configurable Items
+# User enters API key
+api_key = input("Please enter your Automox API key: ")
+
+# User enters org ID
+while True:
+    try:
+        org_id = int(input("Please enter the org ID: "))
+    # Cycle repeats until an integer value is entered for org ID
+    except ValueError:
+        print("The value you have entered is not an integer. Please enter an integer for org ID.")
+    else:
+        break
+
+# User enters max_days
+while True:
+    try:
+        max_days = int(input("Please enter the maximum number of days disconnected before deleting: "))
+    # Cycle repeats until an integer value is entered for max_days
+    except ValueError:
+        print("The value entered is not an integer. Please enter an integer for max days.")
+    else:
+        break
+# END Configurable Items
+
+# Calculate Cutoff Date
+cutoff_date = datetime.now() - timedelta(days=max_days)
+
+# Prepare the query
+query = {
+    "o": org_id,
+    "limit": 500,
+    "page": 0,
+}
+
+headers = {
+    "Content-Type": "application/json",
+    "Authorization": "Bearer " + api_key
+}
+
+# Submit the query
+get_response = requests.get(url, headers=headers, params=query)
+
+# Get user input
+while True:
+    try:
+        dry_run = bool(input('Dry run? True/False: '))
+
+    except ValueError:
+        # The cycle repeats until the user enters True or False
+        print("Error! You have not entered a Boolean value. Please try again.")
+
+    else:
+        break
+
+# Do a dry run, display list of devices to be deleted without actually deleting them
+if dry_run is True:
+    # Iterate through devices
+    for device in get_response.json():
+        # Filter out connected devices
+        if device['last_disconnect_time'] is not None:
+            # Reformat the last disconnected date
+            last_disconnect_date = datetime.strptime(device['last_disconnect_time'].split("+")[0], "%Y-%m-%dT%H:%M:%S")
+            # If device has been disconnected before the cutoff date, include it in the list
+            if datetime.date(last_disconnect_date) &lt; datetime.date(cutoff_date):
+                print("Device " + str(device['name']) + " with Device ID " + str(device['id']) + " will be deleted.")
+                del_url = url + "/" + str(device['id'])
+                query = {
+                    "o": org_id
+                }
+
+# Live run - displays list of devices to be deleted, and then actually deletes those devices
+if dry_run is False:
+    # Iterate through devices
+    for device in get_response.json():
+        # Filter out connected devices
+        if device['last_disconnect_time'] is not None:
+            # Reformat the last disconnected date
+            last_disconnect_date = datetime.strptime(device['last_disconnect_time'].split("+")[0], "%Y-%m-%dT%H:%M:%S")
+            # If device has been disconnected before the cutoff date, include it in the list and delete it
+            if datetime.date(last_disconnect_date) &lt; datetime.date(cutoff_date):
+                print("Device " + str(device['name']) + " with Device ID " + str(device['id']) + " will be deleted.")
+                del_url = url + "/" + str(device['id'])
+                query = {
+                    "o": org_id
+                }
+                print("Deleting devices...")
+                del_response = requests.delete(del_url, headers=headers, params=query)
+
+</MadCap:codeSnippetBody>
+            </MadCap:codeSnippet>
+        </div>
+        <h2>Related Topics</h2>
+        <ul>
+            <li><a href="https://community.automox.com/automox-labs-8/powershell-script-to-remove-devices-that-have-been-disconnected-longer-than-x-days-270" rel="nofollow">Community: Powershell script to remove devices that have been disconnected longer than X days</a>
+            </li>
+        </ul>
+    </body>
+</html>

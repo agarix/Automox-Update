@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+    </head>
+    <body>
+        <h1>Quick Start Guide - Patch Management in Minutes</h1>
+        <p>You can be up and running using <MadCap:variable name="General.ProductName" /> patching policies in less than 30 minutes. Check out our step-by-step instructions to get you patching devices in no time.</p>
+        <h2 id="QuickStartGuide-PatchManagementinMinutes-TipsforGettingStarted">Tips for Getting Started</h2>
+        <ul>
+            <li>Browse our <a href="https://www.automox.com/" rel="nofollow">website</a> to request a demo and explore resources.</li>
+            <li>Visit our <a href="http://docs.automox.com/">Product Documentation</a> site for in-depth product information, including features, configuration, and usage guides. </li>
+            <li>Click <b>?</b> in the upper right corner of the product console to access the Automox Help Center, where you can find solutions-based articles and submit a support request.</li>
+            <li>If you have any issues or would like to connect directly with an <MadCap:variable name="General.ProductName" /> expert, submit a request in the help center. We’re happy to guide you through some best practices for your patching and endpoint hardening needs.</li>
+            <li>Ensure you have the required permissions to manage policies. See <MadCap:xref href="../Global Access Management/Roles_and_Permissions.htm">Roles and Permissions</MadCap:xref></li>
+        </ul>
+        <div class="info"><strong>Character Limits:</strong>
+            <p>Keep the following character limits in mind when using the Automox Console:</p>
+            <ul>
+                <li><strong>Organization name -</strong> 45 Characters</li>
+                <li><strong>API Key name</strong> - 45 Characters</li>
+                <li><strong>Billing company name</strong> - 45 Characters</li>
+                <li><strong>Group Name</strong> - 45 Characters</li>
+                <li><strong>Policy Name</strong> - 100 Characters</li>
+                <li><strong>Policy Cloning</strong> - 69 Characters</li>
+            </ul>
+        </div>
+        <h2>Add Devices</h2>
+        <p>Before you can use the <MadCap:variable name="General.ProductName" /> console to manage devices in your organization, you must install the Automox agent. You can download and install a single agent for all of your Windows, macOS, and Linux systems. At under 10 MB, the <MadCap:variable name="General.ProductName" /> agent is highly efficient with low I/O and CPU overhead. A persistent encrypted session with the <MadCap:variable name="General.ProductName" /> cloud securely manages your device. Follow these steps to install the <MadCap:variable name="General.ProductName" /> agent and add your devices:</p>
+        <ol start="1">
+            <li>Go to <strong>Devices → Add Devices</strong><br /><br /><img src="../../Resources/Images/add-devices.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /><br /></li>
+            <li>In the Add Devices window, select your OS and choose <strong>Download</strong><strong> Installer</strong>.</li>
+            <li>Download the installer file.</li>
+            <li>Open the installer file to complete agent installation.<br /><br /><img src="../../Resources/Images/download-installer.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" /></li>
+        </ol>
+        <p>You can install the agent through an onboarding wizard. After adding your devices, Automox inventories all hardware, software, patches, and configuration details, which is visible from the Devices page.&#160;</p>
+        <p>Want to do more? We have several methods to install our agent in bulk across multiple domains or servers. You can read more about bulk deployment and other product use cases in our user documentation. This is also accessible by clicking the help question mark in the console.</p>
+        <h2>Group Your Devices</h2>
+        <p>Automox Groups enable you to segment your organization and simplify management. Whether you sort your devices by department, operating system, or region, groups simplify the management of your security infrastructure. Follow these steps to add a group, and assign devices:</p>
+        <ol start="1">
+            <li>Go to <strong>Devices → Create Group</strong><br /><br /><img src="../../Resources/Images/add-group.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" /><br /><img src="../../Resources/Images/qsg-edit-group.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /><br /></li>
+            <li>Enter a Group Name for your new group.</li>
+            <li>Click <strong>Create</strong>.&#160;</li>
+            <li>In the Edit Group window, click <strong>Assign Devices</strong> to assign devices to the group. You can accept all other defaults for your new group.&#160;</li>
+            <li>Click <strong>Update Group</strong> to save your group settings. After you create more than one group, you can look at the options that help you identify groups for easier management. And, as you become more familiar with our product you can choose to customize your group settings.</li>
+        </ol>
+        <p>Want to do more? Consider how you want to group and segment your devices for patching and endpoint hardening. You can create and assign policies to one group or multiple groups, and you also can choose to create sub-groups under a Parent Group for easier management.</p>
+        <h2>Create a Policy</h2>
+        <p>Policies automate cyber hygiene, helping you patch systems, ensure the right software is installed, and maintain configurations. You can create policies once and assign them to multiple groups of devices, quickly update policies for every device without the need to touch code or hardware, and create one policy to manage a mix of Windows, macOS, and Linux devices. To get you started, let's create a Patch All policy:</p>
+        <ol start="1">
+            <li>Go to <strong>Automate → Policies</strong>.</li>
+            <li>Click <strong>Create Policy → Patch All</strong>.<br /><br /><img src="../../Resources/Images/qsg-create-policy.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" /><br /></li>
+            <li>Enter a<strong> Policy Name</strong> for your new Policy and ensure the Policy Status is <strong>Active</strong> (On). This enables patching. You can accept all other defaults for your new policy.</li>
+            <li>Before saving the policy, assign a group by clicking the plus sign in the <strong>Associate Groups </strong>section.</li>
+            <li>Click <strong>Create Policy</strong>.</li>
+        </ol>
+        <p>Want to do more? You can choose to configure the other policy settings at a later time such as: device filters, automatic restart, scheduling, user notifications, and deferral settings. These settings are not required for this quick start configuration, but are key for how you want to manage your devices long term based on your patching requirements.</p>
+        <h2>Scan Devices and Run Policies, As Needed</h2>
+        <p>Now that you've added your devices and assigned a policy to your specific group, let's manually scan your devices to determine their patching status.</p>
+        <p>Go to <strong>Devices → [Your Named Device] → Scan Device</strong>.</p>
+        <p>After scanning: If the policy status is non-compliant with the latest patches, you will see a Needs Attention status. If the policy status associated with your device is compliant, then you’re all set.</p>
+        <p>Under Associated Policies, you can choose to run a policy to put your devices in compliance with the latest patch updates. Click <strong>Run On This Device</strong> next to the associated policy.</p>
+        <p>Want to do more? You can customize the device scan interval to between 6–24 hours. You pick how frequently or infrequently you want Automox to scan the status of your devices. Be sure to check back regularly to see how your device statuses might have changed.</p>
+        <h2>There's So Much More You Can Do in Automox</h2>
+        <p>You've got the basics covered. Pretty simple, right? Here's a quick list of what more you can do to realize how <MadCap:variable name="General.ProductName" /> can make patching and device management easier:</p>
+        <ul>
+            <li>Get familiar with the Automox dashboard. Our dashboard view provides full visibility into the statuses of your devices, allowing you to quickly identify misconfigured systems, missing patches, or compliance issues.</li>
+            <li>Add more devices and begin grouping them according to your patch management policies or organizational architecture. For example, group by department, operating system, or region. The ability to group your devices allows you to enforce specific policies according to your business needs.</li>
+            <li>Check for a software version in your application inventory. Because Automox provides access and visibility of all your devices, you can confirm that they are running the latest version of a specific software to keep them better protected and secure from known vulnerabilities.</li>
+            <li>Create a policy from a template using the Next Steps guide that appears in the console when onboarding. Our recommendations establish a best practice 7-day cycle with basic (and customizable) policies.</li>
+            <li>Set a password policy across your available devices using an Automox Worklet. We’ve leveraged cybersecurity best practices to create a worklet that lets you enforce these password policies across your devices: see <a href="https://www.automox.com/blog/automox-worklet-set-password-policies" rel="nofollow">Automox Worklet - Set Password Policies</a> to create and run this worklet in your environment.</li>
+        </ul>
+        <p>You can learn more about Automox Worklets at: <a href="https://www.automox.com/use-cases/worklet" rel="nofollow">www.automox.com/use-cases/worklet</a>.</p>
+        <h2>Manage Your Automox Subscription</h2>
+        <p>Go to the <strong>Settings</strong> page in the <MadCap:variable name="General.ProductName" /> console, navigate to the <strong>Billing</strong> page, and pick the plan that works best for you. You can view more information about plan pricing at:&#160;<a href="http://automox.com/pricing" rel="nofollow">http://automox.com/pricing</a> </p>
+        <p>If you prefer, feel free to connect directly with your Automox sales representative to discuss the available subscriptions and discuss the best plan for you. You also can connect with Automox Sales at: <a href="mailto:sales@automox.com" rel="nofollow">sales@automox.com</a>.</p>
+    </body>
+</html>

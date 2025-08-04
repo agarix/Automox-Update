@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Identify software install count across your [%=General.ProductName%] devices using PowerShell." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Identify Software Install Count Using PowerShell</h1>
+        <p>Use a PowerShell script to identify software packages installed on every device in an organization referenced by the computer name.</p>
+        <div class="info">By altering the script you can add additional fields. Make sure the <code>Set-Content</code> line reflects all of the fields you add to the <code>Select-Object</code> part of the last line of the script. You'll also want the <code>Set-Content</code> line to have the fields in the same order as the <code>Select-Object</code>.<br /><br />Available fields:<br /><a href="https://developer.automox.com/openapi/axconsole/operation/getOrganizationPackages/" rel="nofollow">List All Software Packages for All Devices</a></div>
+        <br />
+        <MadCap:snippetBlock src="../../Resources/Snippets/Requirements-api-keys.flsnp" />
+        <p>There are three areas in the code that you’ll need to update to get the script to function:</p>
+        <ul>
+            <li>
+                <MadCap:snippetBlock src="../../Resources/Snippets/org-id-script.flsnp" />
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <MadCap:snippetBlock src="../../Resources/Snippets/api-key-script.flsnp" />
+            </li>
+        </ul>
+        <ul>
+            <li><code>$filePath</code>
+                <br />You can also modify <code>$filepath</code> if you want to change the file name or save it in a different location. Keep in mind the script will overwrite a previously generated file if it exists.</li>
+        </ul>
+        <h2>Identify Software Install Count Script</h2>
+        <p>Use this script to identify installed packages on every device in your organization.</p>
+        <p>See also <MadCap:xref href="#How">How to Exclude items using -notlike switch</MadCap:xref></p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;"># Set these -----------------
+
+
+$apiKey = 'YOUR_API_KEY'
+$orgID = 'YOUR_ORG_ID'
+$filepath = 'C:\Temp\SoftwareInventory.csv'
+
+
+# ---------------------------
+
+
+$page = 0
+$limit = 500
+$servers = @()
+
+
+Set-Content $filepath -Value "Computer,display_name,version"
+
+
+$apiInstance = 'https://console.automox.com/api/'
+$apiTable = 'servers'
+
+
+while($true) {
+
+
+    $orgAndKey = "?o=$orgID&amp;api_key=$apiKey&amp;l=$limit&amp;p=$page"
+
+
+    # Put components together
+    $uri = $apiInstance + $apiTable + $orgAndKey
+    
+    $resp = (Invoke-WebRequest -Method GET -Uri $uri -UseBasicParsing).Content | ConvertFrom-Json | Select-Object results
+
+
+    $servers += $resp.results
+    $page += 1
+
+
+    if($resp.results.count -lt $limit) {
+        break
+    }
+}
+
+
+$servers = $servers | Sort-Object name
+
+
+# Check each server for software
+foreach ($server in $servers) {
+
+
+    $serverID = $server.id
+    $serverName = $server.name
+    
+    Write-Output $serverName
+    
+    $orgAndKey = "/$serverID/packages?o=$orgID"
+
+
+    # Put components together
+    $getURI = $apiInstance + $apiTable + $orgAndKey
+
+
+    $headers = @{ "Authorization" = "Bearer $apiKey" }
+    $response = (Invoke-WebRequest -Method Get -Uri $getURI -Headers $headers).Content | ConvertFrom-Json
+
+
+    $response | Where-Object {$_.installed -EQ $true} `
+              | Select-Object @{label=”Computer”; Expression= {"$serverName"}},Display_Name,Version `
+              | Sort-Object Display_Name | Export-Csv -Path $filepath -NoTypeInformation -Append -Force
+
+
+}
+</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h3><a name="How"></a>How to Exclude items using -notlike switch</h3>
+        <p>You can also modify it to do things like not show Windows updates &amp; hotfixes by altering the <code>Where-Object</code> part of the last line of the script. For example:</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">Where-Object {$.installed -EQ $true -and $.repo -notlike "Windows*"}</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h2>Related Topics</h2>
+        <ul>
+            <li><a href="https://community.automox.com/automox-labs-8/use-api-to-pull-software-inventory-for-every-computer-in-an-organization-274" rel="nofollow">Community: Use API to Pull Software Inventory for Every Computer in an Organization</a>
+            </li>
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultToc
+  Version="1">
+  <TocEntry
+    Title="[%=System.LinkedTitle%]"
+    Link="/Content/Product Documentation/Agents/Agent Installation/Bulk Agent Deployment/Deploying_the_Automox_Agent_in_Bulk.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  <TocEntry
+    Title="[%=System.LinkedTitle%]"
+    Link="/Content/Product Documentation/Agents/Agent Installation/Bulk Agent Deployment/Deploy_the_Latest_Automox_Agent_using_a_Powershell_Script_via_Windows_GPO_Policy.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  <TocEntry
+    Title="[%=System.LinkedTitle%]"
+    Link="/Content/Product Documentation/Agents/Agent Installation/Bulk Agent Deployment/Deploying_Automox_via_VMware_Workspace_ONE.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  <TocEntry
+    Title="[%=System.LinkedTitle%]"
+    Link="/Content/Product Documentation/Agents/Agent Installation/Bulk Agent Deployment/Deploying_the_Automox_Agent_in_Bulk_for_macOS_with_Jamf_Pro.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+  <TocEntry
+    Title="[%=System.LinkedTitle%]"
+    Link="/Content/Product Documentation/Agents/Agent Installation/Bulk Agent Deployment/Deploying_the_Automox_Agent_to_Intune_enrolled_Devices.htm" xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" />
+</CatapultToc>

@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Description of how to manage agent access keys and all associated API keys." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Managing Keys</h1>
+        <p>From the <strong>Settings → Secrets &amp; Keys</strong> tab, you can view an organization’s agent access key and all associated API keys.</p>
+        <div class="warning"><b>Keep API Keys Secure!</b>
+            <br />
+            <br />API keys should be kept secure and not shared to prevent unforeseen changes or potential security issues. Never email or write down your API key.</div>
+        <h2>Viewing Keys</h2>
+        <p>Select the <b>Settings → Secrets &amp; Keys</b> tab to view the agent access key and the API keys.</p>
+        <p>
+            <img src="../../Resources/Images/managing-keys.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <h3>Account ID</h3>
+        <p>This is the UUID for the account. (Only global or organization administrators can see this ID)</p>
+        <ul>
+            <li>To copy the agent access key, click the <strong>Copy</strong> button (clipboard) to the right of the field.</li>
+        </ul>
+        <h3>Agent Access Key</h3>
+        <p>The agent access key is used to add devices to your Automox account. </p>
+        <ul>
+            <li>To copy the agent access key, click the <strong>Copy</strong> button (clipboard) to the right of the field.</li>
+        </ul>
+        <h3>API Key</h3>
+        <p>The API key is used to access the <a href="https://developer.automox.com/" rel="nofollow">Automox API</a>.</p>
+        <div class="info"><strong>Note</strong>: API keys are not automatically generated for new users or new organizations. See <MadCap:xref href="#Adding">Adding API Keys</MadCap:xref>.</div>
+        <ul>
+            <li>To view (decrypt) an API key, click the <strong>Show</strong> button to the right of the hidden characters. The key will automatically hide again after 10 seconds.</li>
+            <li>To copy the API key, click the <strong>Copy</strong> button (clipboard) to the right of the field. It is automatically decrypted.</li>
+        </ul>
+        <p>
+            <img src="../../Resources/Images/show-API-key.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <div class="info"><strong>Note</strong>: When you use API keys, take care to keep them secure. Follow best practices such as these:
+        <ul><li>Do not embed API keys directly in code.</li><li>Do not store API keys in files inside your application’s source tree.</li></ul></div>
+        <h2>Managing API Keys</h2>
+        <p>Your user account role determines what API key management functionality is available to you. The following lists permissions:</p>
+        <ul>
+            <li>All users can manage (create, read, modify, delete, and decrypt) their own API keys.</li>
+        </ul>
+        <p>These roles have permissions related to the API keys of others:</p>
+        <ul>
+            <li><strong>Global Administrators</strong> can read, modify, and delete API keys for users in all organizations.</li>
+            <li><strong>Organization Administrators</strong> can read, modify, and delete API keys for users in the organization that they have permissions to.</li>
+        </ul>
+        <p>(See <MadCap:xref href="User_Accounts.htm">User Accounts</MadCap:xref> for more information about role-based account controls.)</p>
+        <h3>Global and Organization Administrator permissions</h3>
+        <ul>
+            <li>View all the organization’s API keys on the <strong>Settings → Secrets &amp; Keys</strong> page of the console.</li>
+            <li>Disable and delete all the organization’s API keys on the<strong>Settings → Secrets &amp; Keys </strong>page of the console.</li>
+            <li>Disable and delete all the organization's API keys through the API.</li>
+        </ul>
+        <h3>All other administrator and user privileges</h3>
+        <p>Organization operators, patch operators, billing administrators and read-only users have the following permissions:</p>
+        <ul>
+            <li>They can read only the API keys created by their user login on the Settings page of the console.</li>
+            <li>They can disable and delete the API keys that were created by their user login on the Settings page of the console.</li>
+            <li>They can disable and delete the API keys that were created by their user login through the API.</li>
+        </ul>
+        <h3>All users</h3>
+        <ul>
+            <li>Users can only add keys for their own account.</li>
+        </ul>
+        <h2><a name="Adding"></a>Adding API Keys</h2>
+        <p>You can add up to 10 unique API keys to a user account.</p>
+        <ul>
+            <li>From the <strong>Settings → Secrets &amp; Keys</strong> page, click <strong>Add</strong>.</li>
+            <li>Enter the unique name of the API key. You will see an error message if you enter a name that already exists.</li>
+            <li>(Optionally) You can select an expiration date for the API key.</li>
+            <li>Click <strong>Create</strong>.</li>
+        </ul>
+        <h2>Disabling API Keys</h2>
+        <p>You can disable API keys that are from your own account. </p>
+        <div class="info"><b>Note</b>: Only global and organization administrators can disable API keys for all users.</div>
+        <ul>
+            <li>Select the <strong>Settings → Secrets &amp; Keys</strong> tab to view the list of API keys.</li>
+            <li>To find the API key that you want to disable, sort by the Name or User column. Show or hide the API key, as needed. If you don’t see the API key you want, select from the next page at the bottom.</li>
+            <li>To disable the API key, turn off the toggle switch under <strong>Enabled</strong>.</li>
+        </ul>
+        <div class="info"><b>Note</b>: When an API key is disabled, the key is rejected and returns an error. It is possible to re-enable an API key.</div>
+        <h2>Deleting API Keys</h2>
+        <p>You can delete API keys that are from your own account.</p>
+        <div class="info"><b>Note</b>: Only global and organization administrators can delete API keys for all users.</div>
+        <ul>
+            <li>Select the <strong>Settings → Secrets &amp; Keys</strong>tab to view the list of API keys.</li>
+            <li>You can sort by the Name or User column to find the API key that you want to delete. Show or hide the API key, as needed. If you don’t see the API key you want, select from the next page at the bottom.</li>
+            <li>To delete the API key, click <strong>Delete</strong> in the manage column.</li>
+        </ul>
+        <div class="info"><b>Note</b>: When an API key is deleted, the key is rejected and returns an error.</div>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="Settings_Overview.htm">Settings Overview</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Secrets_Management.htm">Secrets Management</MadCap:xref>
+            </li>
+        </ul>
+    </body>
+</html>

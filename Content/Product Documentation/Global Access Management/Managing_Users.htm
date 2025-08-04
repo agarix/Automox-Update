@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Describes how a user with global permissions can manage users in the account." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Managing Users</h1>
+        <p>From the <strong>Setup &amp; Configuration → Users</strong> tab, you can manage users associated with organizations. You can access this page from the Manage Orgs and Users button at the top right of the Automox console.</p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/Prerequisites.flsnp" />
+        <h2>Viewing Users</h2>
+        <p>From the <strong>Setup &amp; Configuration</strong> page, click the <strong>Users</strong> tab to view a detailed list of all users across all organizations.</p>
+        <p>The following information is available in the <strong>Users</strong> table:</p>
+        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p><strong>Users Table</strong>
+                        </p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p><strong>Description</strong>
+                        </p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Email</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Email address of the user</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>First Name</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>First name of the user</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Last Name</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Last name (surname) of the user</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Organizations</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Name of the organizations the user is added to</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Status</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This shows if the user account is Active or if the user was Invited</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Global Administrator</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>This shows if the user has global administrator permissions</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>2FA</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This shows the setting for two-factor authentication for this user. This can be email, mobile, or disabled. </p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>Actions</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body2">
+                        <p>Options available:</p>
+                        <ul>
+                            <li>Remove User</li>
+                            <li>Edit User</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Adding Users to Organizations</h2>
+        <p>You can add users to organizations and configure their level of permissions from the <strong>Setup &amp; Configuration → Users</strong> tab.</p>
+        <div class="prereqs"><b>Prerequisites</b>: You have the required permissions for the specific organization you want to add users to.</div>
+        <ol start="1">
+            <li>Click <strong>Add User</strong>.</li>
+            <li>On the Add User page, enter the email address for the user you want to add.</li>
+            <li>Decide if the user should have global permissions or not. The default is no global access.</li>
+            <li>Select the organization and the role (RBAC) the user will have for that organization.</li>
+            <li>Click <strong>Add Organization</strong>.</li>
+            <li>If required, add the user to multiple organizations and set the required permissions.</li>
+            <li>Click <strong>Save</strong>.</li>
+        </ol>
+        <div class="info"><b>Note</b>:
+        <ul><li>A user who is new to the account, will receive an invitation to join the organization. The status of the user’s account will show as Pending Invite until the user responds. The details for the user remain incomplete until the invitation is accepted.<br /><br /></li><li>Existing users to the account do not receive an invitation.</li></ul></div>
+        <h2>Editing Users</h2>
+        <p>You can edit the details about a user from the <strong>Setup &amp; Configuration → Users&#160;</strong>tab.</p>
+        <ol start="1">
+            <li>You can access the Edit User page in two ways:<ul><li>Click the email address of the user you want to edit. The<strong>&#160;Edit User</strong> page opens.</li><li>Go to the <strong>Actions</strong> column and click <strong>Edit User</strong>.</li></ul></li>
+            <li>From here you can modify the access, organization, role, or add another organization.</li>
+            <li>Click <strong>Save</strong>.</li>
+        </ol>
+        <div class="info"><b>Note</b>: If a user wants to use a different email address, they must first be removed from the organization and then invited using the new email address. This requires a user with permissions to delete and invite users.</div>
+        <h2>Deleting Users</h2>
+        <p>You can remove users from an organization from the <strong>Setup &amp; Configuration</strong><strong> → </strong><strong>Users</strong> tab. There are two ways to remove a user.</p>
+        <div class="info"><strong>Note</strong>: When you remove a user, they are removed from all organizations they had access to.</div>
+        <p>You can remove users from the <strong>Edit User </strong>page:</p>
+        <ol start="1">
+            <li>Click the email address of the user you want to remove. The Edit User window opens.</li>
+            <li>At the bottom of the window, click <strong>Remove User</strong>.</li>
+            <li>Confirm the message to delete the user.</li>
+        </ol>
+        <p>You can remove users from the <strong>Users</strong> page:</p>
+        <ol start="1">
+            <li>From the <strong>Setup &amp; Configuration → Users</strong> table, find the user you want to remove.</li>
+            <li>Open the <strong>Actions</strong> menu for that user on the right.</li>
+            <li>Click <strong>Remove User</strong>.</li>
+            <li>Confirm the message to delete the user.</li>
+        </ol>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="Roles_and_Permissions.htm">Roles and Permissions</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Understanding_Global_Organization_Management.htm">Understanding Global Organization Management</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Managing_Organizations.htm">Managing Organizations</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Global_Session_Settings.htm">Global Session Settings</MadCap:xref>
+            </li>
+        </ul>
+    </body>
+</html>

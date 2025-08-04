@@ -1,0 +1,557 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Configure your firewall settings for [%=General.ProductName%]" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Agent Firewall Allowlisting Rules</h1>
+        <p>Refer to this document for a list of addresses to optimize Automox agent functionality as well as addresses needed to patch Microsoft OS versions from Windows update.</p>
+        <div class="info"><strong>Regarding Ad Blockers</strong> - We recommended disabling ad blockers (such as uBlock Origin) for the Automox Console, as ad blockers can adversely impact the functionality of the product.</div>
+        <h2>Network and firewall requirements for running the Automox agent</h2>
+        <p>If your organization has egress filtering on the firewall, you will need to allow access to the following hostnames / IP addresses for the Automox agent to communicate with the cloud platform. All agent communications take place over port 443 (https).</p>
+        <p>Agent access to content uploaded for use with Worklets and Required Software Policies:</p>
+        <ul>
+            <li><code>automox-policy-files.s3.us-west-2.amazonaws.com</code>
+            </li>
+        </ul>
+        <div class="info"><strong>Note: The platform-IP addresses are subject to change</strong>. Add the hostnames to your list of trusted sites, if possible, or regularly check for the latest IPs assigned to the platform.</div>
+        <h3>Recommended approach using URL</h3>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">Domain</th>
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">Protocol(s)</th>
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">Direction</th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">Ports</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>*.automox.com</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>TCP</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Outbound</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>443</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>*.digicert.com</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>TCP</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Outbound</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>80</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                        <p>*.digicertcdn.com</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                        <p>TCP</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                        <p>Outbound</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+                        <p>80</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Additional recommendations for Automox Remote Control</h3>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">Domain</th>
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">Protocol(s)</th>
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">Direction</th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">Ports</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p><a href="http://d1ovafk2iqpmhd.cloudfront.net/" rel="nofollow">http://d1ovafk2iqpmhd.cloudfront.net/</a>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>TCP, UDP</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Outbound</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>80</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>*.rc.automox.net</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>TCP, UDP</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Outbound</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>7844</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p><a href="http://region1.v2.argotunnel.com" rel="nofollow">region1.v2.argotunnel.com</a>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>TCP, UDP</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Outbound</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>7844</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p><a href="http://region2.v2.argotunnel.com" rel="nofollow">region2.v2.argotunnel.com</a>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>TCP, UDP</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Outbound</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>7844</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p><a href="http://cftunnel.com" rel="nofollow">cftunnel.com</a>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>TCP, UDP</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Outbound</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>7844</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p><a href="http://h2.cftunnel.com" rel="nofollow">h2.cftunnel.com</a>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>TCP, UDP</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Outbound</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>7844</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p><a href="http://quic.cftunnel.com" rel="nofollow">quic.cftunnel.com</a>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>TCP, UDP</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Outbound</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>7844</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p><a href="http://api.cloudflare.com" rel="nofollow">http://api.cloudflare.com</a>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>TCP, UDP</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Outbound</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>443</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p><a href="http://update.cloudflare.com" rel="nofollow">update.cloudflare.com</a>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>TCP, UDP</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Outbound</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>443</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p><a href="http://pqtunnels.cloudflareresearch.com" rel="nofollow">http://pqtunnels.cloudflareresearch.com</a>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>TCP, UDP</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>Outbound</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body2">
+                        <p>443</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <ul>
+            <li>Alternative approach using IP addresses:<ul><li>Check for current IP addresses by running the following command: <code>nslookup api.automox.com</code></li></ul></li>
+        </ul>
+        <h3>Recommended Approach Using Specific URLs</h3>
+        <p>In addition to the URLs shown above, the following URLs should be added to your allowlist, particularly if your firewall does not support the use of wildcards:</p>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">Domain</th>
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">Protocol(s)</th>
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">Direction</th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">Ports</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p><a href="http://api.automox.com" rel="nofollow">api.automox.com</a>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>TCP</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Outbound</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>443</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p><a href="http://console.automox.com" rel="nofollow">console.automox.com</a>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>TCP</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Outbound</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>443</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p><a href="https://ct.automox.com" rel="nofollow">ct.automox.com</a>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>TCP</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Outbound</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>443</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p><a href="https://rc.automox.com" rel="nofollow">rc.automox.com</a>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>TCP, UDP</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Outbound</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>443</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p><a href="https://storage-cdn.prod.automox.com" rel="nofollow">storage-cdn.prod.automox.com</a>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>TCP</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Outbound</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>443</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p><a href="https://worklet-signing.prod.automox.com" rel="nofollow">worklet-signing.prod.automox.com</a>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>TCP</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Outbound</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>443</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p><a href="https://installation-reporting-service.prod.automox.com" rel="nofollow">installation-reporting-service.prod.automox.com</a>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>TCP</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Outbound</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>443</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p><a href="https://llm.automox.com" rel="nofollow">llm.automox.com</a>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>TCP</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Outbound</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>443</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p><a href="https://downloadexport.automox.com" rel="nofollow">downloadexport.automox.com</a>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>TCP</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Outbound</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>443</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p><a href="http://policyreport.automox.com" rel="nofollow">policyreport.automox.com</a>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>TCP</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Outbound</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>443</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p><a href="http://download-export-cdn.prod.automox.com" rel="nofollow">download-export-cdn.prod.automox.com</a>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>TCP</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Outbound</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>443</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p><a href="http://rtt.automox.com" rel="nofollow">rtt.automox.com</a>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>TCP</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Outbound</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>443</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                        <p><a href="http://agent-content-cdn.automox.com" rel="nofollow">agent-content-cdn.automox.com</a>
+                        </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                        <p>TCP</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                        <p>Outbound</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+                        <p>443</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Proxy and Firewall Considerations</h2>
+        <h3>Windows</h3>
+        <p>See <a href="https://docs.microsoft.com/en-us/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy" rel="nofollow">Windows Update troubleshooting: Issues related to HTTP/Proxy</a></p>
+        <p>You might choose to apply a rule to permit HTTP RANGE requests for the following URLs:</p>
+        <p><code>*.download.windowsupdate.com</code>
+        </p>
+        <p><code>*.dl.delivery.mp.microsoft.com</code>
+        </p>
+        <p><code>*.delivery.mp.microsoft.com</code>
+        </p>
+        <h3>Firewall</h3>
+        <p>See <a href="https://docs.microsoft.com/en-us/windows/deployment/update/windows-update-troubleshooting#device-cannot-access-update-files" rel="nofollow">Windows Update troubleshooting: Device cannot access update files</a></p>
+        <table style="width: 100%;mc-table-style: url('../../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">Protocol</th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">Endpoint URL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>TLS 1.2</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p><code>*.prod.do.dsp.mp.microsoft.com</code>
+                        </p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>HTTP</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p><code>emdl.ws.microsoft.com</code>
+                        </p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>HTTP</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p><code>*.dl.delivery.mp.microsoft.com</code>
+                        </p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>HTTP</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p><code>*.windowsupdate.com</code>
+                        </p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>HTTPS</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p><code>*.delivery.mp.microsoft.com</code>
+                        </p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>TLS 1.2</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p><code>*.update.microsoft.com</code>
+                        </p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                        <p>TLS 1.2</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+                        <p><code>tsfe.trafficshaping.dsp.mp.microsoft.com</code>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <div class="info"><strong>Note</strong>: Make sure to not use HTTPS for those endpoints that specify HTTP, and vice versa. The connection will fail.</div>
+        <br />
+        <div class="info"><strong>Note</strong>: When leveraging split-tunneling with a VPN, make sure to include these endpoints in your list of sites with direct access to the internet.</div>
+        <br />
+        <div class="tip">The Automox Agent Notifier must be added to the Windows Defender Firewall Allowed Applications.</div>
+        <h3>Microsoft Windows 10 Connection Points</h3>
+        <p>Microsoft provides a complete list of connection points per Windows 10 feature version. Here is a link to the connection point document for Windows 10 version 20H2 (refer to the links on the left for other feature versions).</p>
+        <p><a href="https://docs.microsoft.com/en-us/windows/privacy/manage-windows-20h2-endpoints" rel="nofollow">https://docs.microsoft.com/en-us/windows/privacy/manage-windows-20h2-endpoints</a>
+        </p>
+        <h3>macOS</h3>
+        <p>See <a href="https://support.apple.com/en-us/HT210060" rel="nofollow">Use Apple products on enterprise networks</a>.</p>
+    </body>
+</html>

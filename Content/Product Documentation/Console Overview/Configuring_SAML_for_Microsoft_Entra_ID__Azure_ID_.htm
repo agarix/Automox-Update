@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Explains how to configure SAML for Microsoft Entra ID / Azure ID" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Configuring SAML for Microsoft Entra ID (Azure ID)</h1>
+        <p>This describes how you can set up SAML with Microsoft Entra ID. Microsoft renamed Azure Active Directory (Azure AD) to Entra ID. If you are currently using Azure AD in your organization, you can continue to use the service without interruption.</p>
+        <div class="prereqs"><strong>Prerequisites</strong>: You have the required administrative permissions to configure SAML support in the Automox console and in the Microsoft management service.</div>
+        <h2>Automox Configure SAML Window</h2>
+        <p>To complete this procedure, you must log in to the Automox console and have the information available from the Configure SAML window. Refer to SAML-based Single Sign-on (SSO) in <MadCap:xref href="../Settings/Security.htm">Security</MadCap:xref> for details about accessing the <strong>Security &gt; SAML</strong> data.</p>
+        <h2>Setting Up SAML with Microsoft Admin Center</h2>
+        <p>In the Microsoft admin center, you must configure an Enterprise Application (Automox) and enable users for it. Refer to the Microsoft <a href="https://learn.microsoft.com/en-us/entra/" rel="nofollow"><u>documentation</u></a> for the most up-to-date version of the process. The basic outline is described here:</p>
+        <p>Log in to the<a href="https://entra.microsoft.com/" rel="nofollow"> Microsoft admin center</a>:</p>
+        <div class="info"><strong>Note</strong>: We refer to <strong>Microsoft</strong> in general for Microsoft Entra ID or Azure AD.</div>
+        <ol start="1">
+            <li>Go to <strong>Enterprise applications. </strong>See also: <a href="https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/add-application-portal" rel="nofollow">https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/add-application-portal</a>.</li>
+            <li>Click <strong>New Application</strong>.</li>
+            <li>Click <strong>Create your own application</strong>.</li>
+            <li>Enter a name for your app.<ul><li>Under “What are you planning to do with your application”, select<strong> Integrate any other application you don’t find in the gallery (Non-gallery)</strong>.</li><li>Click <strong>Create</strong>.</li></ul></li>
+            <li>Go to <strong>Manage &gt;</strong><strong>Single sign-on</strong> and select <strong>SAML</strong>.</li>
+            <li> Under <strong>Basic SAML Configuration,</strong> click <strong>Edit</strong>. Now refer to your <strong>Automox console</strong>:<ul><li>From the Automox console, navigate to Settings (⋮).</li><li>Select <b>Security</b> and click the <b>Enable</b> button for SAML. Follow the 2FA prompts to launch the configuration window with the information you need.</li><li>Copy and paste these entries into the <strong>Microsoft Basic SAML Configuration.</strong> Remember to modify the URL to point to your org:<ul><li>Automox Entity ID → Identifier (Entity ID)</li><li>Automox ACS URL → Reply URL (Assertion Consumer Service URL)</li><li>Automox Dashboard URL including org id → Relay State. <br />For example: <code>https://console.automox.com/dashboard?o=&lt;Your Org ID&gt;</code></li></ul></li><li>Click <strong>Save</strong>. Close this configuration window.</li></ul></li>
+            <li>In Microsoft, go to <strong>SAML</strong><strong>Certificates</strong> and download the <strong>Certificate (Base64)</strong>.<ul><li>Open the certificate using a basic text editor and <strong>copy the certificate </strong>(excluding any trailing blank lines). This is known as x509 for the next step.</li><li>Go to the <strong>Automox &gt; Configure SAML window</strong> andpaste into the <strong>x509 </strong>field.</li></ul></li>
+            <li>In Microsoft, scroll to <strong>Set up Automox</strong> (where “Automox” is whatever you named your Enterprise Application in Microsoft). Refer to this page to configure SAML in Automox.<ul><li>Copy and paste the following from <strong>Microsoft </strong>to the<strong> Automox Configure SAML </strong>window:<ul><li>Login URL → Login URL</li><li>Microsoft Entra Identifier → Entity ID</li><li>Logout URL → Logout URL</li></ul></li><li>Select <strong>(Optional) Provision New Users.</strong> (<strong>Note</strong>: This setting is recommended to make it easier to add users who are new to Automox.)</li><li>Switch on <strong>Enable SAML for users of the organization</strong>. (This is at the top of the Automox Configure SAML window.)</li><li>Save the SAML configuration in Automox.</li><li>Logout of Automox.</li></ul></li>
+            <li>Enable Automox (your Enterprise App) to be seen in the users app launcher (<a href="https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/access-panel-collections" rel="nofollow">https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/access-panel-collections</a>)<ul><li>Microsoft → <strong>Manage</strong>, click <strong>User Settings.</strong></li><li>“User feature previews” section → click Manage user feature preview settings</li><li>“Users can use preview features for My Apps” → select <b>All</b>.</li></ul></li>
+            <li>You can enable users to access Automox from within Microsoft.<ul><li>Go to <strong>Manage → Enterprise Applications → Automox</strong> (or whatever you called your enterprise app).</li><li>In the Getting Started section, click <strong>Assign users and groups</strong>.</li><li><strong>+ Add user/group.</strong></li><li>Select and assign the user(s). Use the search to find users, as needed.</li></ul></li>
+            <li>The newly displayed user can access Automox with this same email address by going to <strong>My Apps</strong> in Microsoft 365. Select the new enterprise app (Automox) tile.</li>
+        </ol>
+        <h2>User Provisioning</h2>
+        <p>To automatically provision a user, select the <strong>(Optional) Provision New users </strong>checkbox in the Automox Configure SAML window. Then do as follows:</p>
+        <ul>
+            <li>The user must log in to <a href="https://myapplications.microsoft.com/" rel="nofollow">https://myapplications.microsoft.com/</a></li>
+            <li>The Automox Enterprise Application should appear. Click the tile to launch Automox.</li>
+        </ul>
+        <h2>Manual Provisioning</h2>
+        <p>To manually provision a user with SAML/SSO enabled, follow these steps in Automox:</p>
+        <ol start="1">
+            <li>Navigate to the Global Users management page (Manage Organizations and Users button underneath the Org selection tab).</li>
+            <li>Click <strong>Users</strong>, then click <strong>Add User</strong>. Enter the same email address that is associated with the user account that you added to the Enterprise Application on the Microsoft side.</li>
+            <li>Once you add the user, an invitation email is sent to the address for the user to authorize their account.</li>
+        </ol>
+        <p>After that is completed, the user will be able to log in through <a href="http://console.automox.com/" rel="nofollow">console.automox.com</a> with their email address; this will forward them to Microsoft for authentication. Users can also log in to the console with the tile from the My Apps page in Microsoft.</p>
+        <div class="info"><b>Note</b>: When provisioning users, the user is created in Automox as a Read Only user. You must have the required permissions to adjust the role for the newly-created users. This can be done from the Global View, Setup &amp; Configuration &gt; Users page. Refer to <MadCap:xref href="../Global Access Management/Understanding_Global_Access_Management.htm">Understanding Global Access Management</MadCap:xref> and <MadCap:xref href="../Global Access Management/Roles_and_Permissions.htm">Roles and Permissions</MadCap:xref>.</div>
+        <h2>Related Topics</h2>
+        <ul>
+            <li><a href="https://university.automox.com/ax-azure-ad-saml-walkthrough" rel="nofollow">Automox University: Microsoft Entra ID (Azure AD) SAML Walkthrough</a>
+            </li>
+            <li>SAML-based Single Sign-on (SSO) in <u><MadCap:xref href="../Settings/Security.htm">Security</MadCap:xref></u></li>
+            <li><a href="https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/add-application-portal" rel="nofollow">Microsoft Entra Quickstart</a>
+            </li>
+            <li>
+                <MadCap:xref href="../Global Access Management/Managing_Users.htm">Managing Users</MadCap:xref>
+            </li>
+        </ul>
+    </body>
+</html>

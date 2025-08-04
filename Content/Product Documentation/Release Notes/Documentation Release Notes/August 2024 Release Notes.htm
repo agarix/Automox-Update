@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+    </head>
+    <body>
+        <h1>August 2024 Release Notes</h1>
+        <h2>August 30, 2024</h2>
+        <p>Added:</p>
+        <p>We added support for these new third-party software titles:</p>
+        <ul>
+            <li>IntelliJ IDEA Ultimate <strong>2024.1</strong></li>
+            <li>IntelliJ IDEA Community Edition <strong>2024.1</strong></li>
+            <li>DataGrip <strong>2024.1</strong></li>
+            <li>We no longer use Google’s built-in updater to patch <strong>Chrome for Windows</strong></li>
+            <li>Chrome for Windows still patches when running, but this can be overridden so we force-close Chrome before patching.</li>
+        </ul>
+        <p>Updated:</p>
+        <ul>
+            <li>Our Roles and Permissions documentation now includes details about API key permissions.</li>
+        </ul>
+        <h2>August 23, 2024</h2>
+        <p>Added:</p>
+        <ul>
+            <li>The Device Explorer now includes device details directly from the query results table. Select a checkbox to open a sidebar with status details and action options, such as restart, scan, or delete the device. See Device Explorer: Device Details Sidebar.</li>
+        </ul>
+        <p>Updated:</p>
+        <ul>
+            <li>We now include <strong>naming rules</strong> (character length, etc.) for creating a new zone. See Managing Zones: Adding Zones.</li>
+            <li>We consolidated documentation related to deploying the Automox agent using Windows GPO into one document: Deploy the Latest Automox Agent using a Powershell Script via Windows GPO Policy</li>
+            <li>We revised our Agent Firewall Allowlisting Rules. <em>UDP</em> is only recommended for Automox Remote Control. Regarding Ad Blockers: We recommend <em>disabling ad blockers</em> (such as uBlock Origin) for the Automox console, as ad blockers can adversely impact the functionality of the product.</li>
+        </ul>
+        <h2>August 16, 2024</h2>
+        <p>Updated:</p>
+        <ul>
+            <li>Remote Control Module FAQs<ul><li>Updated TightVNC binary version to <code>2.8.84</code></li><li>Note: For Windows only, when the session ends we remove the TightVNC.msi and TightVNC binary. We reinstall these for every session.</li></ul></li>
+        </ul>
+        <h2>August 2, 2024</h2>
+        <p>Updated:</p>
+        <ul>
+            <li>On the Dashboard, the following are <strong>not</strong> included in the outstanding patch count:<ul><li>Software marked as ignored (set directly in the software table and not through a policy filter)</li><li>Devices that are excluded from reports</li><li>See Automox Console Dashboard and Viewing Software Inventory.</li></ul></li>
+            <li>Updated and improved the previously named Azure AD SAML documentation. See Configuring SAML for Microsoft Entra ID (Azure ID).</li>
+        </ul>
+    </body>
+</html>

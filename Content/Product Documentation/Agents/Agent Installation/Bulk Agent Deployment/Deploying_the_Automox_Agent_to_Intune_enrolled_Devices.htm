@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Explains how to deploy the [%=General.ProductName%] agent to Windows devices enrolled in Microsoft Intune." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Deploying the Automox Agent to Intune-enrolled Devices</h1>
+        <p>This article describes how to deploy the Automox agent to Intune-enrolled devices.</p>
+        <div class="prereqs"><b>Prerequisites:</b> The following applications are required to deploy the Automox agent to Intune-enrolled devices:
+        <ul><li>Intune</li><li>Microsoft Endpoint Manager</li><li>Azure AD, P1 or P2 Enterprise License.</li><li>Microsoft 365 E3, E5, F1, F3, G3, or G5 license for end users.</li><li>Intune/Endpoint Manager administration role in Azure AD.</li></ul></div>
+        <h2>Video Walkthrough</h2>
+        <p><a href="https://university.automox.com/microsoft-intune-instructions/1072541" rel="nofollow">https://university.automox.com/microsoft-intune-instructions/1072541</a>
+        </p>
+        <h2>Procedure</h2>
+        <ol>
+            <li>Log into your AzureAD Instance: <a href="https://aad.portal.azure.com/">https://aad.portal.azure.com/</a></li>
+            <li>Create a target group for the application deployment.<ul><li>Select <b>All Groups &gt; New group</b>.<br /><img src="../../../../Resources/Images/intune-create-target.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li></ul></li>
+            <li>Specify the group type, name, description, and membership type.<ul><li> Optional, add your group members (devices) at this time.<br /><img src="../../../../Resources/Images/intune-new-group.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li></ul></li>
+            <li> Open Microsoft Endpoint Manager: <a href="https://endpoint.microsoft.com/">https://endpoint.microsoft.com/</a></li>
+            <li>Click <b>Apps</b> on the left-hand panel.<br /><img src="../../../../Resources/Images/intune-apps.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li>
+            <li>Select your target operating system platform (our example targets Windows devices).<br /><img src="../../../../Resources/Images/intune-platform.png" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li>
+            <li>Click <b>Add</b>.<br /><img src="../../../../Resources/Images/intune-add-win.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li>
+            <li>Select LOB (line of business) app from the drop-down menu and click <b>Select</b> to confirm.<br /><img src="../../../../Resources/Images/intune-apptype.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li>
+            <li>Click <b>Select app package file</b> then click the blue folder icon from the new window that opens. Select your Automox MSI installer file. Click <b>OK</b>.
+				<div class="info"><b>Note:</b> The latest Automox installation media for Windows can be found here: <a href="https://console.automox.com/installers/Automox_Installer-latest.msi">https://console.automox.com/installers/Automox_Installer-latest.msi</a></div><br /><img src="../../../../Resources/Images/intune-app-pkgfile.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li>
+            <li>Confirm your application deployment variables. Set the required <b>Publisher</b> field and any other optional fields.<br /><img src="../../../../Resources/Images/intune-confirm-var.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /><br /><ul><li>Enter the command-line argument as noted, where ACCESSKEY is the key to your Automox organization.<MadCap:codeSnippet><MadCap:codeSnippetCopyButton /><MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">/qn /norestart ACCESSKEY=XXXXXXXXXXXXXX</MadCap:codeSnippetBody></MadCap:codeSnippet></li></ul></li>
+            <ul>
+                <li>See <MadCap:xref href="../../../Settings/Managing_Keys.htm">Managing Keys</MadCap:xref> for information about finding your access key.</li>
+                <li>To target a specific Automox server group, append <code>GROUP="groupname"</code> to the command line arguments. For example, to target the “Test” server group, use this command line argument:<MadCap:codeSnippet><MadCap:codeSnippetCopyButton /><MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">/qn /norestart ACCESSKEY=XXXXXXXXXXXXXX GROUP="Default Group/Test"</MadCap:codeSnippetBody></MadCap:codeSnippet></li>
+                <li>
+                    Your destination group can either be under a parent group or stand alone. A parent group parameter is only required if the destination group is under a parent group. If you do not specify a parent group, it ignores the group assignment. When the group is the child of a child group, use the following syntax: <code>GROUP="Default Group/Parent Group/Child Group"</code></li>
+            </ul>
+            <li>After completing the app information page, click next to associate your target groups. Select <b>Add Group</b> under Required. Locate the target you created.  Select and confirm it, and click <b>Next</b>.<br /><img src="../../../../Resources/Images/intune-assoc-target.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /><ul><li>Optionally, instead of targeting a specific group you can select the <b>Add all device</b> option to target all devices within your Azure AD instance.</li></ul></li>
+            <li>Review your app configuration and click <b>Create</b>.<br /><img src="../../../../Resources/Images/intune-app-config-save.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /><br /><img src="../../../../Resources/Images/intune-app-config-create.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li>
+            <li>A confirmation notice is sent when the MSI has been uploaded and the application package has been finalized.<br /><img src="../../../../Resources/Images/intune-upload-finish.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li>
+            <li>The next time your Intune-enrolled devices that are within your target group check in/sync, they download and install the Automox agent based on the application package that was just created.</li>
+        </ol>
+        <h2>Troubleshooting Steps</h2>
+        <ul>
+            <li><a href="https://docs.microsoft.com/en-us/troubleshoot/mem/intune/troubleshoot-app-install">Troubleshooting Intune app installation issues</a>
+            </li>
+        </ul>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="../../../Settings/Managing_Keys.htm">Managing Keys</MadCap:xref>
+            </li>
+        </ul>
+    </body>
+</html>

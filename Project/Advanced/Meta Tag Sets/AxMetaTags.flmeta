@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultMetaTagSet Comment="Meta Tag Set" name="AX Meta Tags" desc="Meta tags for product docs">
+    <meta name="Author" content="" type="EnumUrl" fileTagSet="File Tags/FileTagSetAuthor.flfts" desc="Document Author" />
+    <meta name="description" content="" type="Text" desc="Description meta tag" />
+    <meta name="Status" content="" type="EnumUrl" fileTagSet="File Tags/FileTagSetStatus.flfts" desc="Document Status" />
+</CatapultMetaTagSet>

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title>Automox Agent Requirements</title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="System requirements to install the [%=General.ProductName%] agent." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Automox Agent Requirements</h1>
+        <p>This table lists the system requirements for implementing the Automox agent.</p>
+        <br />
+        <table class="TableStyle-ax_tables" cellspacing="0" style="mc-table-style: url('../../../Resources/TableStyles/ax_tables.css');">
+            <col class="TableStyle-ax_tables-Column-Columnhead" MadCap:pattern="5" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Columnhead-Header1">&#160;</th>
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">Windows</th>
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">macOS</th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">Linux</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <th class="TableStyle-ax_tables-BodyE-Columnhead-Body1">Memory utilization</th>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">100 MB*</td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">150 MB*</td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">100 MB*</td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Columnhead-Body2">Disk space requirements</td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">70 MB<sup>‡</sup></td>
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">150 MB<sup>‡</sup></td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">280 MB<sup>†‡</sup></td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Columnhead-Body1">OS support</td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1" colspan="3">For details about the operating systems and versions that Automox supports, see <MadCap:xref href="Supported_Operating_Systems.htm">Supported Operating Systems</MadCap:xref>. </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyB-Columnhead-Body2">PowerShell</td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body2" colspan="3">PowerShell 5.1 or later</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="info">
+            <ul>
+                <li>For agents 1.45.48 and later, the Automox agent uses <code>osqueryi</code> for some portions of its device inventory process. This executable is shipped as part of the agent installer. On Windows systems, <code>osqueryi.exe</code> is used. On other platforms, <code>osqueryi</code> is used.</li>
+                <li>For agents 2.1.44 and later, the Automox Tray introduces a new executable: <code>amagent-ui.exe</code>, a dedicated UI process responsible for the persistent tray experience. This binary is signed on Windows to ensure a trusted and secure experience for both users and IT administrators. This is separate from <code>amagent.exe</code> and not associated with <code>osqueryi</code>.</li>
+            </ul>
+        </div>
+        <p><b>Notation</b>:</p>
+        <p>* Varies based on agent activity.<br />† Varies depending on distro.<br />‡ Additional free space will be needed to download and install updates.</p>
+    </body>
+</html>

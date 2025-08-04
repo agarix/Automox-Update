@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Explains how we define &quot;Compliance&quot; in [%=General.ProductName%]" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Automox Compliance</h1>
+        <p>How does compliance work in Automox?</p>
+        <h2>Compliant and Ready Statuses and their Meanings</h2>
+        <p>You can view the device, connection, and policy status of a device from the Device Details page. The statuses and meanings are described in <MadCap:xref href="What_the_Statuses_Found_in_the_Automox_Console_Mean.htm">What the Statuses Found in the Automox Console Mean</MadCap:xref>. See also <MadCap:xref href="../Device Management/Device_Details.htm">Device Details</MadCap:xref>.</p>
+        <p>The Device Details page will show the current status, as in this example:</p>
+        <p>
+            <img src="../../Resources/Images/device-details-status.png" />
+        </p>
+        <p>A policy is <strong>Compliant</strong> when it has no Scheduled Patches or failed remediations.</p>
+        <p>A device is labeled as <strong>Ready</strong> when it has no command impacting the device.</p>
+        <p>Any device that has a scheduled patch count greater than zero will fall into the Ready status until it is actually running when it shows a status of either Installing or Pending. This can change a device from Compliant to Non-Compliant as soon as a new patch is detected--assuming that the new patch is applicable to the device’s patch policies.</p>
+        <h2>Scheduled Patches vs Total Patches</h2>
+        <p><strong>Scheduled Patches</strong> are the number of patches that are available to a device and are applicable to its current policy assignments and policy rules.</p>
+        <div class="info"><strong>Note</strong>: For a patch to be counted as Scheduled, the patch policy must have a Policy Status of Active (On). Policies that are set to Inactive (Off) are not considered in this count. See also Creating a Patch Policy.</div>
+        <p><strong>Total Patches</strong> are the number of total patches currently available to a device regardless of policy assignments or filters.</p>
+        <p>
+            <img src="../../Resources/Images/devices-scheduled-total-patches.png" />
+        </p>
+        <h2>What Does This Mean for Me?</h2>
+        <p>Device, Policy, and Connection statuses are updated once per scan and are based on the latest software inventory and policy settings. This takes into account anything that has changed since the previous scan of the device.&#160;</p>
+        <p>When new patches are detected, the Policy status will change. The Device status is Ready until any processes are started, such as installing.</p>
+        <h2>Example of different device statuses using three devices</h2>
+        <ul>
+            <li><strong>Device A</strong> has a Patch All policy</li>
+            <li><strong>Device B</strong> only has a Patch by Critical Severity policy</li>
+            <li><strong>Device C</strong> has no policies</li>
+        </ul>
+        <p>The devices are all currently Compliant. Device C will also show a status of <em>Unmanaged</em> because no policies are associated with it.&#160;</p>
+        <h3>A new patch releases with a severity rating of Low:</h3>
+        <ul>
+            <li>
+                <p>For <strong>Device A</strong>, the Policy Status shows <strong>Non-Compliant</strong>. The Device Status shows Installing when the policy is remedying. The patch is installed the next time the policy runs on schedule. This device’s entry in the Device page list shows 1 under Scheduled Patches and 1 under Total Patches. After the policy runs, the Policy Status shows Compliant.</p>
+            </li>
+            <li>
+                <p>For <strong>Device B</strong>, the Policy Status remains <strong>Compliant</strong>. This new patch is not applicable to its associated policy and will not be installed. Since the patch isn’t relevant to this device’s policy rules, it is considered Ready. This device’s entry in the list shows 0 under Scheduled Patches and 1 under Total Patches.&#160;</p>
+            </li>
+            <li>
+                <p>For <strong>Device C</strong>, the Policy Status also remains <strong>Compliant</strong>. The Device Status shows Ready. With no associated or enabled patch policies, no patches are considered to be Scheduled. This device’s entry in the list also shows 0 under Scheduled Patches and 1 under Total Patches.</p>
+            </li>
+        </ul>
+        <h2>Related Topics:</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="What_the_Statuses_Found_in_the_Automox_Console_Mean.htm">What the Statuses Found in the Automox Console Mean</MadCap:xref>
+            </li>
+        </ul>
+    </body>
+</html>

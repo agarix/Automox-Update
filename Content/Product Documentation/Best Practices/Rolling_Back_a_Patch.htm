@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Explains how to roll back a patch using [%=General.ProductName%]" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Rolling Back a Patch</h1>
+        <p>When patching, there might be times that rolling back a patch is necessary. Here are some steps and related information to that process.</p>
+        <div class="info">
+            <p>Rolling back a patch is currently only available for Windows-based devices. If a patch offers a rollback option, refer to these instructions:<br /><br /><MadCap:xref href="../Miscellaneous/How_to_Roll_Back_an_Installed_Patch_on_Devices.htm">How to Roll Back an Installed Patch on Devices</MadCap:xref></p>
+        </div>
+        <br />
+        <div class="info"><strong>Note</strong>: Not all patches can be rolled back.</div>
+        <ul>
+            <li>Another option is to use the Automox Verified Worklet called Rollback Windows Patches.</li>
+        </ul>
+        <ol start="1">
+            <li>In the console, go to <strong>Automate → Worklet Catalog.</strong></li>
+            <li>Search for and select <strong>Rollback Windows Patches</strong>.</li>
+            <li>Select the <strong>Code Preview</strong> arrow to open the Evaluation and Remediation Code details.</li>
+            <li>This worklet is designed to remove one or multiple KBs from a device. Add KBs by placing the KB number (for example, KB1234567) between single quotes in the <code>$KBNumbers</code> variable.</li>
+        </ol>
+        <p> <img src="../../Resources/Images/select-worklet.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /><br /></p>
+        <p>
+            <img src="../../Resources/Images/rollback-worklet.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <p>If you want to block something that is released, refer to the following instructions. This reduces the remediation footprint.</p>
+        <ul>
+            <li>
+                <MadCap:xref href="../Miscellaneous/Adding_Patches_to_the_Block_List_in_the_Automox_Console.htm">Adding Patches to the Block List in the Automox Console</MadCap:xref>
+            </li>
+        </ul>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="../Miscellaneous/How_to_Roll_Back_an_Installed_Patch_on_Devices.htm">How to Roll Back an Installed Patch on Devices</MadCap:xref>
+            </li>
+        </ul>
+    </body>
+</html>

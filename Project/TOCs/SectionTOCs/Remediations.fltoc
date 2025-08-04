@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultToc
+  Version="1">
+  <TocEntry
+    Title="Automated Vulnerability Remediation"
+    Link="/Project/TOCs/SectionTOCs/AutomatedVulnRemediation.fltoc"></TocEntry>
+  <TocEntry
+    Title="Manual Vulnerability Sync"
+    Link="/Project/TOCs/SectionTOCs/ManualVulnerabilitySync.fltoc"></TocEntry>
+</CatapultToc>

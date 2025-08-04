@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultSkin
+  Version="3"
+  SkinType="Component"
+  Comment="HTML5 Search Bar skin"
+  ComponentType="SearchBar"
+  EnableResponsiveOutput="True">
+  <Stylesheet>
+    <Styles>
+      <Style
+        Name="Search Bar">
+        <Properties>
+          <Property
+            Name="Height">3em</Property>
+          <Property
+            Name="BorderTopLeftRadius">10px</Property>
+          <Property
+            Name="BorderTopRightRadius">10px</Property>
+          <Property
+            Name="BorderBottomRightRadius">10px</Property>
+          <Property
+            Name="BorderBottomLeftRadius">10px</Property>
+          <Property
+            Name="MarginBottom">50px</Property>
+          <Property
+            Name="Width">65%</Property>
+        </Properties>
+      </Style>
+      <Style
+        Name="Search Submit Button">
+        <Properties>
+          <Property
+            Name="BackgroundColor">#ffffff</Property>
+        </Properties>
+      </Style>
+      <Medium
+        Name="Mobile">
+        <Style
+          Name="Search Bar">
+          <Properties>
+            <Property
+              Name="Width">75%</Property>
+          </Properties>
+        </Style>
+      </Medium>
+      <Style
+        Name="Search Input">
+        <Properties>
+          <Property
+            Name="Placeholder">Search our help and documentation</Property>
+        </Properties>
+      </Style>
+      <Medium
+        Name="Tablet"></Medium>
+    </Styles>
+    <Stylesheet></Stylesheet>
+  </Stylesheet>
+  <Strings>
+    <Stylesheet
+      lang="en-us">
+      <Stylesheet>
+        <Styles>
+          <Style
+            Name="Search Bar">
+            <Properties>
+              <Property
+                Name="BorderTopLeftRadius">0px</Property>
+              <Property
+                Name="BorderTopRightRadius">0px</Property>
+              <Property
+                Name="BorderBottomRightRadius">0px</Property>
+              <Property
+                Name="BorderBottomLeftRadius">0px</Property>
+              <Property
+                Name="Width">50%</Property>
+            </Properties>
+          </Style>
+          <Style
+            Name="Search Submit Button">
+            <Properties>
+              <Property
+                Name="BackgroundColor">#ffffff</Property>
+            </Properties>
+          </Style>
+          <Medium
+            Name="Mobile">
+            <Style
+              Name="Search Bar">
+              <Properties>
+                <Property
+                  Name="Width">75%</Property>
+              </Properties>
+            </Style>
+          </Medium>
+          <Style
+            Name="Search Input">
+            <Properties>
+              <Property
+                Name="Placeholder">Search our help</Property>
+            </Properties>
+          </Style>
+        </Styles>
+        <Stylesheet></Stylesheet>
+      </Stylesheet>
+    </Stylesheet>
+  </Strings>
+</CatapultSkin>

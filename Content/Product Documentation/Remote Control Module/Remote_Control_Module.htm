@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
+        <script src="../../Resources/js/tabs.js" type="text/javascript">
+        </script>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Describes starting, configuring, and using a remote session on Windows or macOS devices." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Remote Control Module</h1>
+        <p>You can use the Automox Remote Control Module (RCM) to remotely connect to and take control of devices in your Automox console. This is available for Windows and macOS devices. You can copy and paste text between devices engaged in the remote session, configure remote user consent notifications, and adjust for multiple monitors on the remote device.</p>
+        <div class="prereqs"><b>Prerequisites:</b>
+            <ul>
+                <li>To remotely connect to devices, you must have organization administrator, organization operator, or helpdesk operator permissions for the organization where the device is located.</li>
+                <br />
+                <li>Your organization must be under a plan that includes RCM. Contact your customer support representative for more information.</li>
+                <br />
+                <li>To configure consent notifications, you must have global or organization administrator permissions.</li>
+            </ul>
+        </div>
+        <br />
+        <div class="info"><strong>Note</strong>: If a device is disconnected, it is not possible to use remote control.
+        </div>
+        <br />
+        <div class="info"><strong>Note</strong>: Sometimes the first attempt to establish a connection can take longer. The installation process can get delayed while the binaries are being downloaded. Please give it more time and, if necessary, stop the process and try again.
+        </div>
+        <h3><a name="Configur"></a>
+            <MadCap:toggler targets="macOS Permissions Note;macOS Permissions list;macOS Permissions Conclusion;macOS Permissions">Configuring Permissions for macOS</MadCap:toggler>
+        </h3>
+        <p MadCap:targetName="macOS Permissions">When a remote session is initiated with a macOS device, the remote user must grant permissions for Screen Recordings and Accessibility. The module prompts the user to open the System Settings dialog window with pre-populated settings for the <strong>Automox Remote Control</strong> application. 
+				The user then needs to authenticate (enter a password or use Touch ID) and click the toggle to enable these permissions. <br /><ol MadCap:targetName="macOS Permissions list"><li>The local administrator initiates a remote session. Refer to <MadCap:xref href="#Starting">Starting a Remote Session</MadCap:xref>. If consent is enabled on the device details page, the remote user is prompted to grant consent.<br /><img src="../../Resources/Images/permissions.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li><li>The remote user sees a macOS Screen Recording prompt, which automatically shows up when the session connects.<br /><img src="../../Resources/Images/Perm_SR_1NativePrompt.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li><li>The remote user clicks <strong>Open System Settings</strong> and the <strong>System Settings → Privacy &amp; Security → Screen Recording</strong> window opens, where it is pre-populated with the application <strong>Automox Remote Control</strong>.<br /><img src="../../Resources/Images/Perm_SR_2OpensSystemSettings.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li><li>The user clicks the toggle to enable Screen Recording, and is prompted for a password (or TouchID, if enabled).<br /><img src="../../Resources/Images/Perm_SR_3ToggleRequiresPassword.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li><li>After entering the password to enable Screen Recording, a macOS prompt informs the user that they might need to quit and reopen the application. However, <em>that step is not necessary</em>. The user can click <strong>Later</strong>.<br /><img src="../../Resources/Images/Perm_SR_4GrantedPromptsReopen.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li><li>Next, when the session connects, the administrator sees the remote desktop. As soon as the administrator mouses over or clicks on the blank desktop, the remote user sees a macOS Accessibility Access prompt.<br /><img src="../../Resources/Images/Perm_TAC_1NativePrompt.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li><li>The remote user clicks <strong>Open System Settings</strong>, and the <strong>System Settings → Privacy &amp; Security → Accessibility</strong> window opens, where it is pre-populated with the application <strong>Automox Remote Control</strong>.<br /><img src="../../Resources/Images/Perm_TAC_2OpensSystemSettings.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li><li>The remote user clicks the toggle to enable Accessibility. The password might need to be entered again. However, if the System Settings window is kept open, the user should not need to re-enter their password here, having already done so for Screen Recording.            
+            		</li></ol></p>
+        <p MadCap:targetName="macOS Permissions Conclusion">This concludes the permission-granting experience. The remote user is not directly notified.</p>
+        <div class="info" MadCap:targetName="macOS Permissions Note">
+            <ul>
+                <li>When Screen Recording is granted, the administrator can see the remote user screen contents.</li>
+                <br />
+                <li>When Accessibility is granted, the administrator has full control.</li>
+                <br />
+                <li>The remote user will not need to go through this experience on subsequent Remote Control sessions, unless the permissions are disabled.</li>
+            </ul>
+        </div>
+        <h2 id="RemoteControlModule-StartingARemoteSession"><a name="Starting"></a>Starting a Remote Session</h2>
+			Follow these steps to create a remote connection to a device in your organization.
+				<ol start="1"><li>From the Automox console, log in to the organization where the device that you want to create a remote connection to is located.</li><li>There are two ways to start a remote control session:
+        <ul><li>On the Devices page, find the device that you want to connect to. Click the <strong>Actions</strong> menu.</li><li>You can also open the <b>Device Details</b> page to start a session.<br />If your organization is under plan with RCM, the Remote Control button is available at the top of the device details page. When the button is grayed out, you either do not have the required plan or the permissions to use this feature.</li></ul></li><li>Click <b>Remote Control</b>.</li><li>Depending on the settings for consent notification for the device, the remote user may or may not get a pop-up for consent. See the Consent Notification section for more details.</li><li>A separate browser window opens. The remote control module is automatically installed as part of the connection process.</li><li>Your remote control session has started.</li></ol><div class="info">macOS users must configure permissions for screen recording and accessibility in order for Remote Control to function. See <MadCap:xref href="#Configur">Configuring Permissions for macOS</MadCap:xref> for more information.</div><h2 id="RemoteControlModule-ConfiguringConsentNotification">Configuring Consent Notification</h2><p>By default, all devices require consent by the remote user before a remote session can be established. This requirement can be configured by global and organization administrators, as described later in this section.</p><p>A consent notification allows remote users the option to accept or deny a remote connection with the administrator.</p><ul><li>If the remote user clicks <strong>Proceed</strong>, the remote control module establishes a secure connection between the remote and admin devices.</li><li>If the remote user clicks <strong>Cancel</strong>, the remote control module stops trying to establish a connection between the remote and admin devices.</li><li>By default, consent is required to remotely connect to any device.</li></ul><p>Global and organization administrators can decide which devices need consent from the remote user before establishing the remote session. You can configure this for individual devices on the Device Details page, or in a bulk action for multiple devices on the Devices page.</p><div class="info"><p>Only Global and Organization Administrators can make changes to the consent settings.</p></div><h3 id="RemoteControlModule-Configuringconsentforanindividualdevice">Configuring consent for an individual device</h3><p><img alt="device-details-exclude-rc.png" src="../../Resources/Images/device-details-exclude-rc.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;"></img></p><p>To configure the consent required settings, follow these steps:</p><ul><li>Identify the device that you need consent required for.<ul><li>Go to the device details page of this device.
+                        </li><li>
+                            Ensure that the toggle is switched to the off (left) position.<br></br><img alt="rc-exclude-toggleOFF.png" src="../../Resources/Images/rc-exclude-toggleOFF.png" style="width: 258px;height: 75px;mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;"></img></li></ul></li></ul><p>To bypass consent required settings, follow these steps:</p><ul><li>
+                    Identify the device that you want to exclude from the consent requirement. The remote user is not asked for consent to establish a connection.
+                    <ul><li>
+                            Go to the device details page of this device.
+                        </li><li>
+                            Ensure the toggle is switched to the on (right) position.<br></br><img alt="rc-exclude-toggleON.png" src="../../Resources/Images/rc-exclude-toggleON.png" style="width: 256px;height: 78px;mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;"></img></li></ul></li></ul><h3 id="RemoteControlModule-Configuringconsentformultipledevices(bulkupdate)">Configuring consent for multiple devices (bulk update)</h3><p>To configure the consent settings for multiple devices, follow these steps:</p><p><img src="../../Resources/Images/devices-action-rc.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;"></img></p><ol start="1"><li>
+                    From the Devices page, select the checkboxes for the devices that you want to configure consent for.
+                    <ul><li>
+                            You can select up to 500 devices for this setting.
+                        </li><li><strong>Note</strong>: The RCM is only available on Windows and macOS devices. If you select any Linux-based device, you will be prompted to modify your selection.
+                        </li></ul></li><li>
+                    Select<strong> Actions → Configure Remote Control.</strong></li><li>
+                    From the Remote Control Configuration window, select how you want to configure the selected devices:
+                    <ul><li><strong>Require consent for the selected devices. </strong>This is the default setting that requires consent from the selected devices.
+                        </li><li><strong>Do not require consent for the selected devices</strong>. This setting will bypass the consent requirement for the selected devices. Users will not be asked for consent to establish a connection.
+                        </li></ul></li><li><strong>Apply</strong> your setting.
+                </li></ol><h2 id="RemoteControlModule-Disconnectingaremotesession">Disconnecting a remote session</h2><ul><li><p>To disconnect from the remote session, click <strong>Disconnect </strong>or close the browser window. A notification confirms that the session has ended.</p></li></ul><h2 id="RemoteControlModule-DetailsoftheRemoteControlSession">Details of the Remote Control Session</h2><p>The following features are available within a remote session.</p><p><img src="../../Resources/Images/remote_control.png" class="thumbnail"></img></p><div><table class="TableStyle-ax_tables" cellspacing="0" style="mc-table-style: url('../../Resources/TableStyles/ax_tables.css');"><colgroup><col style="width: 162.0px;"></col><col style="width: 677px;"></col></colgroup><thead><tr class="TableStyle-ax_tables-Head-Header1"><th class="TableStyle-ax_tables-HeadE-Column1-Header1"><strong>Remote Session Symbols</strong></th><th class="TableStyle-ax_tables-HeadD-Column1-Header1"><strong>Description</strong></th></tr></thead><tbody><tr class="TableStyle-ax_tables-Body-Body1"><td class="TableStyle-ax_tables-BodyE-Column1-Body1"><img src="../../Resources/Images/connected.png" style="width: 158px;height: 53px;"></img></td><td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                                The green indicator shows the connection status.
+                            </td></tr><tr class="TableStyle-ax_tables-Body-Body2"><td class="TableStyle-ax_tables-BodyE-Column1-Body2"><img src="../../Resources/Images/disconnect.png" style="width: 58px;height: 52px;"></img></td><td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                                Click the disconnect symbol to end the session, or close the browser.
+                            </td></tr><tr class="TableStyle-ax_tables-Body-Body1"><td class="TableStyle-ax_tables-BodyE-Column1-Body1"><img src="../../Resources/Images/clipboard.png" style="width: 59px;height: 51px;"></img></td><td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                                Copy and paste text between the remote device and your local device. (See <strong><a href="#Using2">Using the Shared Clipboard</a></strong>)
+                            </td></tr><tr class="TableStyle-ax_tables-Body-Body2"><td class="TableStyle-ax_tables-BodyE-Column1-Body2"><img src="../../Resources/Images/special_keys.png" style="width: 55px;height: 55px;"></img></td><td class="TableStyle-ax_tables-BodyD-Column1-Body2"><p>
+                                Click the Special Key Command button to access the shortcut for Ctrl+Alt+Del to open the Windows Task Manager. </p><p>You can also use modifier keys. <br />The modifier keys available for macOS are control, option, and command. <br />For details, see <strong><a href="#Using">Using Special Key Commands</a></strong>.
+                            </p></td></tr><tr class="TableStyle-ax_tables-Body-Body1"><td class="TableStyle-ax_tables-BodyE-Column1-Body1"><img src="../../Resources/Images/zoom.png" style="width: 57px;height: 50px;"></img></td><td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                                Adjust Size/Zoom option. Refer to the <MadCap:xref href="#Remote">Remote Control - Zooming and Scrolling</MadCap:xref> description for details.
+                            </td></tr><tr class="TableStyle-ax_tables-Body-Body2"><td class="TableStyle-ax_tables-BodyB-Column1-Body2"><img src="../../Resources/Images/full_screen.png" style="width: 55px;height: 60px;"></img></td><td class="TableStyle-ax_tables-BodyA-Column1-Body2">
+                                Enter and exit full screen mode
+                            </td></tr></tbody></table></div><h3 id="RemoteControlModule-UsingtheSharedClipboard"><a name="Using2"></a>Using the Shared Clipboard</h3><p>In general, when you have an active remote session, you can copy and paste directly from your device to the remote device, without using the shared clipboard. The shared clipboard is used to copy and paste text to and from the remote device, and is a requirement when using the Firefox browser. <br></br>In addition, with the shared clipboard you can enable individual keystrokes to safely send sensitive text to the remote device while keeping it hidden from the remote user.</p><p><img src="../../Resources/Images/shared_clipboard.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;"></img></p><p><strong>Copying from the administrator device to the remote device:</strong></p><ol start="1"><li><p>On your Administrator (local) device highlight and copy the text that you want to send to the remote device.</p></li><li>
+                    Click the clipboard icon. <br /><img src="../../Resources/Images/shared_clipboard_a.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;"></img><br />                    Paste text in the <strong>Shared Clipboard </strong>field.
+                </li><li>
+                    When you perform a paste operation on the remote device desktop, you will paste the copied text.
+                </li></ol><p><strong>Copying from the remote device to the administrator device:</strong></p><ol start="1"><li>
+                    On the remote device, highlight and copy the text that you want to send to the administrator device.
+                </li><li>
+                    Click the clipboard icon.
+                </li><li>
+                    The text appears in the<strong> Shared Clipboard</strong> field. When you perform a paste operation on the administrator device, you will paste the copied text.
+                </li></ol><h3 id="RemoteControlModule-Sendingtextusingtheindividualkeystrokesoption">Sending text using the individual keystrokes option</h3><p>You can copy and paste sensitive text by enabling individual keystrokes.</p><p><img src="../../Resources/Images/shared_clipboard_keystroke.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;"></img></p><ol start="1"><li>
+                    When you are connected to the remote device, make sure the field where the text should be entered is selected.
+                </li><li>
+                    On your Administrator device, click the clipboard icon.
+                </li><li>
+                    Select the <strong>Send text as individual strokes</strong> checkbox.
+                </li><li>
+                    Enter the text in the <strong>Shared Clipboard</strong> field. Text entered is only visible on the administrator (local) device. The text is pasted in the selected field on the remote device hidden from the remote user.
+                </li></ol><h3 id="RemoteControlModule-UsingSpecialKeyCommands"><a name="Using"></a>Using Special Key Commands</h3><p>The special key command button enables you to access shortcuts and modifier keys.</p><ul class="tabs"><li class="tab-link current" data-tab="tab-1">Windows</li><li class="tab-link" data-tab="tab-2">macOS</li></ul><div class="tab-content current" id="tab-1"><ul><li>
+						To open the Windows Task Manager, click Ctrl + Alt + Del
+					</li></ul><p>For remote devices running Windows, the available modifier keys include:</p><div><table class="TableStyle-ax_tables" cellspacing="0" style="mc-table-style: url('../../Resources/TableStyles/ax_tables.css');"><colgroup><col style="width: 181.0px;"></col><col style="width: 577.0px;"></col></colgroup><thead><tr class="TableStyle-ax_tables-Head-Header1"><th class="TableStyle-ax_tables-HeadE-Column1-Header1"><strong>Windows Key</strong></th><th class="TableStyle-ax_tables-HeadD-Column1-Header1"><strong>Description</strong></th></tr></thead><tbody><tr class="TableStyle-ax_tables-Body-Body1"><td class="TableStyle-ax_tables-BodyE-Column1-Body1"><img src="../../Resources/Images/ctrl.png"></img></td><td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+									Ctrl or Control
+								</td></tr><tr class="TableStyle-ax_tables-Body-Body2"><td class="TableStyle-ax_tables-BodyE-Column1-Body2"><img src="../../Resources/Images/win.png"></img></td><td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+									Win or Windows logo
+								</td></tr><tr class="TableStyle-ax_tables-Body-Body1"><td class="TableStyle-ax_tables-BodyB-Column1-Body1"><img src="../../Resources/Images/alt.png"></img></td><td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+									Alt or Alternate
+								</td></tr></tbody></table></div><p><img src="../../Resources/Images/remote-control-special-key.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;"></img></p></div><div class="tab-content" id="tab-2"><p>For remote devices running macOS, the available modifier keys include:</p><div><table class="TableStyle-ax_tables" cellspacing="0" style="mc-table-style: url('../../Resources/TableStyles/ax_tables.css');"><colgroup><col style="width: 181.0px;"></col><col style="width: 334px;"></col></colgroup><thead><tr class="TableStyle-ax_tables-Head-Header1"><th class="TableStyle-ax_tables-HeadE-Column1-Header1"><strong>macOS Key</strong></th><th class="TableStyle-ax_tables-HeadD-Column1-Header1"><strong>Description</strong></th></tr></thead><tbody><tr class="TableStyle-ax_tables-Body-Body1"><td class="TableStyle-ax_tables-BodyE-Column1-Body1"><img src="../../Resources/Images/control-key.png"></img></td><td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+									Control
+								</td></tr><tr class="TableStyle-ax_tables-Body-Body2"><td class="TableStyle-ax_tables-BodyE-Column1-Body2"><img src="../../Resources/Images/option-key.png"></img></td><td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+									Option
+								</td></tr><tr class="TableStyle-ax_tables-Body-Body1"><td class="TableStyle-ax_tables-BodyB-Column1-Body1"><img src="../../Resources/Images/command-key.png"></img></td><td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+									Command
+								</td></tr></tbody></table></div><p><img src="../../Resources/Images/macOS-keys.png" class="thumbnail"></img></p></div><p>To use a modifier, select the corresponding button. Then a message appears below to let you know you can then use the keys on your keyboard for further action. Your keystroke is sent to the remote device along with your selected modifier key(s).</p><div class="example"><p><b>Example:</b> If you select the Windows modifier key and then press the <b>X</b> key on your physical keyboard, the remote device will receive the <strong>Windows + X</strong> key combination (this key combination opens the Quick Link menu in the Windows operating system). For other key combinations, refer to Microsoft support documentation.</p></div><h4>Example Remote Session</h4><p><object MadCap:HTML5Video="true" src="../../Resources/Videos/Automox Remote Control Demo.mp4" MadCap:Param_controls="true" MadCap:Param_muted="true" MadCap:Param_loop="true" MadCap:Param_autoplay="true" style="min-width: 0;width: 800px;height: 500px;"></object></p><h2 id="RemoteControlModule-StatusMessages">Status Messages</h2><p>The following is a list of Remote Control connection status messages and meanings.</p><p><img src="../../Resources/Images/status-rc.png" style="width: 380px;height: 126px;mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;"></img></p><div><table class="TableStyle-ax_tables" cellspacing="0" style="mc-table-style: url('../../Resources/TableStyles/ax_tables.css');"><colgroup><col style="width: 340.0px;"></col><col style="width: 340.0px;"></col></colgroup><thead><tr class="TableStyle-ax_tables-Head-Header1"><th class="TableStyle-ax_tables-HeadE-Column1-Header1"><strong>Status</strong></th><th class="TableStyle-ax_tables-HeadD-Column1-Header1"><strong>Description</strong></th></tr></thead><tbody><tr class="TableStyle-ax_tables-Body-Body1"><td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                                Authenticating
+                            </td><td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                                Automox is authenticating with the Remote Control API.
+                            </td></tr><tr class="TableStyle-ax_tables-Body-Body2"><td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                                Initializing
+                            </td><td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                                During this time, dependencies and session packages are installed on the remote device.
+                            </td></tr><tr class="TableStyle-ax_tables-Body-Body1"><td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                                Asking Remote User for Permission
+                            </td><td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                                When consent is required for the device, this status indicates that a prompt has been shown to the remote user asking for consent to proceed with the remote control session.
+                            </td></tr><tr class="TableStyle-ax_tables-Body-Body2"><td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                                Permission Granted
+                            </td><td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                                This status displays for a brief moment to indicate that consent was provided by the remote device’s user.
+                            </td></tr><tr class="TableStyle-ax_tables-Body-Body1"><td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                                Opening Secure Tunnel
+                            </td><td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                                Waiting for a VNC server to become available using web socket tunnel.
+                            </td></tr><tr class="TableStyle-ax_tables-Body-Body2"><td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                                Connecting
+                            </td><td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                                The VNC connection is being established.
+                            </td></tr><tr class="TableStyle-ax_tables-Body-Body1"><td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                                Connected
+                            </td><td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                                The VNC connection is active
+                            </td></tr><tr class="TableStyle-ax_tables-Body-Body2"><td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                                Connection Failed
+                            </td><td class="TableStyle-ax_tables-BodyD-Column1-Body2"><ul><li>
+                                        The CloudFlare tunnel failed to open, or
+                                    </li><li>
+                                        The connection to the VNC server failed
+                                    </li></ul></td></tr><tr class="TableStyle-ax_tables-Body-Body1"><td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                                Disconnected
+                            </td><td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                                Either the VNC or Remote Control API web socket connections are closed
+                            </td></tr><tr class="TableStyle-ax_tables-Body-Body2"><td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                                Disconnecting
+                            </td><td class="TableStyle-ax_tables-BodyA-Column1-Body2">
+                                The RCM signals that it is closing the tunnel. (In this case, the administrative user did not click Disconnect.)
+                            </td></tr></tbody></table></div><h2 id="RemoteControlModule-ErrorNotifications">Error Notifications</h2><div><table class="TableStyle-ax_tables" cellspacing="0" style="mc-table-style: url('../../Resources/TableStyles/ax_tables.css');"><colgroup><col style="width: 340.0px;"></col><col style="width: 340.0px;"></col></colgroup><thead><tr class="TableStyle-ax_tables-Head-Header1"><th class="TableStyle-ax_tables-HeadE-Column1-Header1"><strong>Error Notification Message</strong></th><th class="TableStyle-ax_tables-HeadD-Column1-Header1"><strong>Meaning</strong></th></tr></thead><tbody><tr class="TableStyle-ax_tables-Body-Body1"><td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                                “Error - Remote Control setup failed, try again later.”
+                            </td><td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                                The CloudFlare tunnel failed to open
+                            </td></tr><tr class="TableStyle-ax_tables-Body-Body2"><td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                                “Error - Unable to connect to a Remote Control session, try again later.”
+                            </td><td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                                The VNC server connection failed
+                            </td></tr><tr class="TableStyle-ax_tables-Body-Body1"><td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                                “Error - Unauthorized to start a Remote Control session.”
+                            </td><td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                                Authorization failed
+                                <ul><li>
+                                        Org does not have an Account ID (That means the organization was not migrated to Global Access Management)
+                                    </li><li>
+                                        Your role does not have permission to use Remote Control
+                                    </li><li>
+                                        JWT minting service might be down
+                                    </li></ul></td></tr><tr class="TableStyle-ax_tables-Body-Body2"><td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                                “There is either no active user or the user did not grant permission for the remote session.”
+                            </td><td class="TableStyle-ax_tables-BodyA-Column1-Body2">
+                                The device is configured to required consent from the remote user but that consent was not provided
+                            </td></tr></tbody></table></div><h2 id="RemoteControlModule-ZoomingandScrolling"><a name="Remote"></a>Remote Control - Zooming and Scrolling</h2><p>The Automox Remote Control Module (RCM) allows you to adjust the size and zoom of a remote control session. Once you are zoomed in, there are multiple ways to scroll your view of the remote device’s screens.</p><h3 id="RemoteControlModule-Zooming/Scaling">Zooming / Scaling</h3><p>If the remote device has multiple monitors, it can be difficult to view contents on each of them in a remote session. You can use the Adjust Size/Zoom options to better position monitors within the RCM.</p><p><img alt="rc-zooming-scaling.png" src="../../Resources/Images/rc-zooming-scaling.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></p><ol start="1"><li>Establish a remote session.</li><li>
+                    In the toolbar, click the <strong>Adjust Size/Zoom</strong> icon.<br /><img alt="rc-adjust-size-zoom.png" src="../../Resources/Images/rc-adjust-size-zoom.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li><li>
+                    Select from four options to manage how you select your view and position on the remote device.
+                </li></ol><p>This table describes each option and how you might use them.</p><div><table class="TableStyle-ax_tables" cellspacing="0" style="mc-table-style: url('../../Resources/TableStyles/ax_tables.css');"><colgroup><col style="width: 140.0px;" /><col style="width: 744px;" /></colgroup><thead><tr class="TableStyle-ax_tables-Head-Header1"><th class="TableStyle-ax_tables-HeadE-Column1-Header1"><p><strong>Option</strong></p></th><th class="TableStyle-ax_tables-HeadD-Column1-Header1"><p><strong>Description</strong></p></th></tr></thead><tbody><tr class="TableStyle-ax_tables-Body-Body1"><td class="TableStyle-ax_tables-BodyE-Column1-Body1"><p>Fit to my window</p></td><td class="TableStyle-ax_tables-BodyD-Column1-Body1"><p>The screen(s) on the remote device is automatically scaled up or down to match the available space in your (admin) browser window.</p></td></tr><tr class="TableStyle-ax_tables-Body-Body2"><td class="TableStyle-ax_tables-BodyE-Column1-Body2"><p>Fit height</p></td><td class="TableStyle-ax_tables-BodyD-Column1-Body2"><p>The screen(s) on the remote device is scaled to match the height of your (admin) browser window, while allowing the width to extend beyond your browser window’s width. A horizontal scrollbar appears and can be used to scroll across the width of the remote device’s screen.</p></td></tr><tr class="TableStyle-ax_tables-Body-Body1"><td class="TableStyle-ax_tables-BodyE-Column1-Body1"><p>Actual size</p></td><td class="TableStyle-ax_tables-BodyD-Column1-Body1"><p>The screen(s) on the remote device is displayed at its native resolution. Depending on the size, you might be presented with both horizontal and vertical scroll bars.</p></td></tr><tr class="TableStyle-ax_tables-Body-Body2"><td class="TableStyle-ax_tables-BodyB-Column1-Body2"><p>Zoom manually</p></td><td class="TableStyle-ax_tables-BodyA-Column1-Body2"><p>This option allows you to use a slider to manually increase the zoom level. Both horizontal and vertical scroll bars are available.</p></td></tr></tbody></table></div><p><img alt="rc-zoom-slider.png" src="../../Resources/Images/rc-zoom-slider.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></p><h3 id="RemoteControl:ZoomingandScrolling-Scrolling/Dragging">Scrolling / Dragging</h3><p>After you have zoomed in, there are multiple ways to scroll around.</p><p><img alt="rc-scroll-drag.png" src="../../Resources/Images/rc-scroll-drag.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></p><ul><li>
+                    To turn on Drag/Scroll Mode, click the icon. <br /><br /><img src="../../Resources/Images/toggle.png" style="width: 406px;height: 115px;" /></li><li>
+                    When the toggle is highlighted, it is on. Click again to turn it off.
+                </li></ul><div class="tip"><p>After you move the remote screen/monitor to the position you want, you must turn off “Drag/Scroll Mode”. Then you can continue to interact with the remote device.</p></div><br /><div><table class="TableStyle-ax_tables" cellspacing="0" style="mc-table-style: url('../../Resources/TableStyles/ax_tables.css');"><colgroup><col style="width: 340.0px;" /><col style="width: 340.0px;" /></colgroup><thead><tr class="TableStyle-ax_tables-Head-Header1"><th class="TableStyle-ax_tables-HeadE-Column1-Header1"><strong>Scrolling Method</strong></th><th class="TableStyle-ax_tables-HeadD-Column1-Header1"><strong>Requires “Drag/Scroll Mode” to be turned on</strong></th></tr></thead><tbody><tr class="TableStyle-ax_tables-Body-Body1"><td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                                Dragging the slider of the scrollbars
+                            </td><td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                                No
+                            </td></tr><tr class="TableStyle-ax_tables-Body-Body2"><td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                                Scrolling with mouse wheel or touchpad gestures
+                            </td><td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                                Yes
+                            </td></tr><tr class="TableStyle-ax_tables-Body-Body1"><td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                                Dragging the screen by clicking and dragging with your mouse or touchpad.
+                            </td><td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+                                Yes
+                            </td></tr></tbody></table></div><h2>Related Topics</h2><ul><li><MadCap:xref href="Remote Control - FAQs, Known Issues, and Troubleshooting Guide.htm">Remote Control - FAQs, Known Issues, and Troubleshooting Guide</MadCap:xref></li><li><MadCap:xref href="Remote Control and JAMF.htm">Remote Control and JAMF</MadCap:xref></li></ul></body>
+</html>

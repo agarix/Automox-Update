@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultFileTagSet
+  Type="Author"
+  Comment="My set of author tags">
+  <FileTag
+    Name="Valerie Bailey"
+    Comment="" />
+  <FileTag
+    Name="Laurie Laidley"
+    Comment="" />
+</CatapultFileTagSet>

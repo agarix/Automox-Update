@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" />
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Describes how to create a configuration profile in Jamf related to using [%=General.ProductName%] Remote Control." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Remote Control and JAMF</h1>
+        <h2 id="RemoteControlandJAMF-AccessingAutomoxRemoteControlThroughJamf">Accessing Automox Remote Control Through Jamf</h2>
+        <p>This article provides a step-by-step guide to enable the seamless integration of Automox Remote Control with Jamf Zero Trust Network Access (ZTNA). By following the outlined process users will be able to utilize remote control while Jamf Trust is in the active state.</p>
+        <p>The process entails creating a bespoke application within the Jamf ZTNA environment and configuring the allowlist domains as route-able components. The second part of the process ensures that traffic circumvents internal gateways and routes externally instead.</p>
+        <h3 id="RemoteControlandJAMF-Instructions">Instructions</h3>
+        <ol start="1">
+            <li>
+                Go to <strong>Access</strong> → <strong>Access Policy</strong> within the Jamf ZTNA console.
+            </li>
+            <li>
+                Click <strong>New App Policy</strong> and select <strong>Create Policy</strong> under SaaS Apps. Then select <strong>Custom</strong> at the bottom.<br /><img alt="jamf-custom.png" src="../../Resources/Images/jamf-custom.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li>
+            <li>
+                The important areas to configure here are <strong>Traffic Matching Rules</strong> and <strong>Routing</strong>. Traffic Matching requires you to input the allowlist rules to route from the device. Within routing, you’ll want to route it through a Shared IP Pool instead of an Internal Gateway.<br /><br /><img src="../../Resources/Images/Traffic-Matching-Rules.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /><br /><img src="../../Resources/Images/Routing.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li>
+            <li>
+                It’s important to note that you can utilize <strong>Default Device Routing</strong> and encrypted traffic routed through ZTNA with this solution. The <strong>Routing Mode</strong> must be IPv4 due to compatibility issues.
+            </li>
+        </ol>
+        <div class="info">
+            <p>After this configuration is set up, the user must disconnect and reconnect Jamf Trust or wait approximately 15 minutes for the config to push to their device.</p>
+        </div>
+        <h2>Deploying Automox Remote Control Permissions Configuration Profile via Jamf Pro</h2>
+        <p>While Automox Remote Control will prompt the end user to enable the Screen Recording and Accessibility privacy settings, deploying a configuration profile to set those settings ahead of time can be a time saver, and may be necessary for non-admin users.</p>
+        <p>These settings can be set ahead of time by creating a configuration Profile in Jamf or amending an existing one. To do so, navigate to <strong>Configuration Profiles → Add or Edit Existing Profile → Privacy Preferences Policy Control </strong>in your Jamf Pro tenant and use the settings below:</p>
+        <div class="table-wrap">
+            <table class="TableStyle-ax_tables" cellspacing="0" style="mc-table-style: url('../../Resources/TableStyles/ax_tables.css');">
+                <colgroup>
+                    <col style="width: 760.0px;" />
+                </colgroup>
+                <thead>
+                    <tr class="TableStyle-ax_tables-Head-Header1">
+                        <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                            <p>Payload Configuration:</p>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="TableStyle-ax_tables-Body-Body1">
+                        <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                            App Access
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-ax_tables-Body-Body2">
+                        <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                            Identifier: com.automox.RemoteControl
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-ax_tables-Body-Body1">
+                        <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                            Identifier Type: Bundle ID
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-ax_tables-Body-Body2">
+                        <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                            Code Requirement: <code>identifier "com.automox.RemoteControl" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = DAEQ58A4ES</code></td>
+                    </tr>
+                    <tr class="TableStyle-ax_tables-Body-Body1">
+                        <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                            Validate the Static Code Requirement: Off
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-ax_tables-Body-Body2">
+                        <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                            App or Service: ScreenCapture
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-ax_tables-Body-Body1">
+                        <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                            <ul>
+                                <li>
+                                    Access: Allow Standard Users to Allow Access
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-ax_tables-Body-Body2">
+                        <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                            App or Service: Accessibility
+                        </td>
+                    </tr>
+                    <tr class="TableStyle-ax_tables-Body-Body1">
+                        <td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+                            <ul>
+                                <li>
+                                    Access: Allow
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p>The resulting configuration profile should look like the screenshot below, and the end user should no longer be required to grant those permissions when Automox Remote Control starts on their computer.</p>
+        <p>
+            <img src="../../Resources/Images/jamf-payload.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+    </body>
+</html>

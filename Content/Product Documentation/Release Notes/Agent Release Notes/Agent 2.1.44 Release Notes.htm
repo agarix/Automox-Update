@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+    </head>
+    <body>
+        <h1>Agent 2.1.44 &amp; Automox Tray Release Notes</h1>
+        <p>Release Date: March 31, 2025</p>
+        <h2>Summary</h2>
+        <p>We’re excited to announce the General Availability (GA) of the Automox Tray for Windows and macOS. This release delivers a significantly improved patching experience for end users and IT administrators by offering clearer restart deadlines, greater flexibility, and reduced support burdens.</p>
+        <div class="warning"><b>Important Security Note</b>
+            <p>The Automox Tray introduces a new executable: <code>amagent-ui.exe</code>, a dedicated UI process responsible for the persistent tray experience. This binary is signed on Windows to ensure a trusted and secure experience for both users and IT administrators.</p>
+            <p>This is separate from <code>amagent.exe</code> and not associated with <code>osqueryi</code>. Customers can expect to see this new process running as part of the updated agent footprint.</p>
+        </div>
+        <h2>Notification Experience Update</h2>
+        <p>When upgrading to this version of the agent, end users will transition from transient notifications to a persistent system tray experience. The tray provides ongoing visibility into restart and installation deadlines, making it easier for users to take timely action.</p>
+        <h3>No Policy Changes Required — But Behavior Will Differ</h3>
+        <p>The Automox Tray works out of the box with your existing policies — no changes are required for it to function. It automatically reads the deferral settings from your current patch and reboot policies and uses them to calculate and display a single restart deadline to end users.</p>
+        <div class="info">With Automox Tray, the option for Automatic Deferrals no longer applies, as the user does not need to actively defer within the established update period. </div>
+        <h3>However, please be aware of these behavioral differences:</h3>
+        <ul>
+            <li><b>Custom Messaging Not Supported:</b> Any custom messaging configured in existing policies (e.g., warnings about closing apps) will not appear in tray notifications. While the custom text fields remain visible in the console, the Automox Tray does not currently support displaying custom content.</li>
+            <li><b>Custom Deferral Intervals Are Ignored:</b> If your policy includes multiple deferral intervals (e.g., 2, 6, and 8 hours), the Automox Tray will only use the longest interval (8 hours) to calculate a fixed deadline. Intermediate reminders at earlier deferral points (like 2 or 6 hours) will not be shown. This simplifies the experience for end users, but may differ from how deferrals functioned previously.</li>
+            <li><b>Proactive Notifications Are Based on the Final Deadline:</b> Users will receive a standardized set of tray notifications as the deadline approaches — daily reminders, and then alerts at 3 hours, 1 hour, 5 minutes, and 1 minute before restart is required.</li>
+        </ul>
+        <h2>Automox Tray- New Features</h2>
+        <ul>
+            <li><b>Persistent System Tray App:</b> The Automox Tray now appears in the system tray at all times, providing a consistent interface for restart and update notifications.</li>
+            <li><b>Restart Deadline Visibility:</b> Users can clearly see the date and time by which they must restart their device.</li>
+            <li><b>Restart &amp; Install from Tray:</b> Users can reboot or install updates directly from the tray with one click.</li>
+            <li><b>Proactive Reminders:</b> Users receive notifications leading up to restart deadlines, including:<ul><li>Daily reminders, plus alerts at 3 hours, 1 hour, 5 minutes, and 1 minute before the deadline.</li><li><b>Works Even in DND Mode:</b> Notifications appear even when Do Not Disturb is enabled, ensuring visibility of critical actions.</li></ul></li>
+        </ul>
+        <h2>Agent 2.0 Improvements</h2>
+        <ul>
+            <li>Behind-the-scenes Improvements:<ul><li><b>Agent 2.0 Stability &amp; Performance Enhancements:</b> Includes refinements originally introduced in the Agent 2.0 series, such as improved policy durability, enhanced communication reliability, and better handling of policy retries and large command results.</li><li><b>Bug Fixes:</b> Resolves several customer-reported issues related to script syncing, command execution errors, oversized result handling, and missing version metadata. (See full list in the <MadCap:xref href="#Bug">Bug fixes</MadCap:xref> section below.)</li><li><b>New Monitoring Capability:</b> The agent now includes basic tracking for changes to TeamViewer installations</li></ul></li>
+            <li>Policy Flow Enhancements<ul><li><b>Policy Result Capacity:</b> We’ve increased the size limit for policy results. Results too large for communication pipelines will return a result indicating so, enabling policy flow to continue.</li><li><b>Limited Automatic Policy Retries:</b> If a policy is interrupted by an agent shutdown, it will automatically retry running up to a set number of attempts.</li><li><b>Policy Durability:</b> We’ve improved the reliability persisting policies on the agent.</li></ul></li>
+            <li><b>Improved Communication:</b> We’ve updated our communication layer to fix bugs and increase visibility of connection issues.</li>
+        </ul>
+        <h2><a name="Bug"></a>Bug fixes</h2>
+        <ul>
+            <li><b>Devices not updating local DCU scripts:</b> Some customers experienced an issue where updated versions of ax_platform_health_check were not being reflected in the local repository on devices. This release ensures that local scripts are correctly updated when changes are pushed live.</li>
+            <li><b>Missing metadata in Windows agent executable:</b> The <code>amagent.exe</code> file was missing details in its file properties on Windows (e.g., version info). This has now been corrected to improve transparency and trust.</li>
+            <li><b>Help message missing version flag:</b> The agent’s CLI help output now includes the version command, improving usability for IT admins.</li>
+            <li><b>Command processor </b><code style="font-weight: bold;">database not open</code><b> error:</b> This fix resolves instability in the command history database that caused command failures. The database connection logic has been rewritten to improve reliability.</li>
+            <li><b>Oversized command results blocked execution:</b> Large command results (&gt;1 MB) previously caused policies to hang. These are now handled gracefully by returning a placeholder response and allowing policy flow to continue.</li>
+            <li><b>Notifications keep spawning with ACK or Timeout response:</b> This resolves an issue that caused user responses to notifications to be ignored.</li>
+        </ul>
+        <h2>Related Topics</h2>
+        <ul>
+            <li><a href="https://docs.automox.com/product/Product_Documentation/Notifications___Restarts/End_User_Notifications.htm">End-User Notifications</a>
+            </li>
+            <li><a href="https://docs.automox.com/product/Product_Documentation/Notifications___Restarts/Automox_Tray_FAQ.htm">Automox Tray FAQ</a>
+            </li>
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Explains how to deploy the [%=General.ProductName%] agent in bulk, to multiple devices." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Deploying the Automox Agent in Bulk</h1>
+        <p>There are different methods available to do remote, bulk deployment of the agent using scripts for the various tools for each of the supported operating systems.</p>
+        <h2>OS Deployment Scripts</h2>
+        <p>You can use scripts to deploy to devices for each of the supported operating systems. Your access key must be added to a specific section of the script before running the scripts.</p>
+        <div class="prereqs"><strong>Prerequisites</strong>: Administrative privileges required.<br /><br />The deployment tool or target device must have administrator privileges to successfully deploy and install the Automox agent.</div>
+        <br />
+        <div class="info"><strong>Note</strong>: You will need your access key for the following scripts. When adding a new device, the Add Devices window provides the access key. From the console you can also retrieve your access key from the <strong>Settings → Secrets &amp; Keys&#160;</strong>tab.</div>
+        <h3>Deploying on macOS</h3>
+        <p>You can deploy the Automox agent on a macOS operating system by using the original command that was required to download the agent installer.</p>
+        <h4><strong style="font-weight: normal;">Copying the Agent Installer Command</strong>
+        </h4>
+        <p>Follow these steps to copy the curl command:</p>
+        <ol start="1">
+            <li>From the Devices page, click <strong>Add Devices</strong>.</li>
+            <li>In the Add Devices dialog window, you can see your access key. You will need this key for the script.</li>
+            <li>Select <strong>macOS</strong> from the drop-down menu.</li>
+            <li>From the install options, click <strong>Run Command</strong>.
+        <br /><img src="../../../../Resources/Images/add-device-mac-cmd.png" style="width: auto;height: auto;mc-thumbnail-max-width: 310px;mc-thumbnail-max-height: auto;" class="thumbnail" /></li>
+        </ol>
+        <h4><strong style="font-weight: normal;">Editing the Run Command for macOS Bulk Deployment</strong>
+        </h4>
+        <p>To bulk deploy the agent on macOS, you must edit the installer command. Add the following code to the deployment command:</p>
+        <br />
+        <div class="info"><strong>Note</strong>: You must replace <code>accesskey</code> in the following command with your access key. Your key can be found in the <strong>Add Devices</strong> dialog window.</div>
+        <br />
+        <MadCap:codeSnippet>
+            <br />
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">curl -sS "https://console.automox.com/downloadInstaller?accesskey=Your-Access-Key-Here" | sudo bash</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <br />
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">sudo launchctl bootstrap system /Library/LaunchDaemons/com.automox.agent.plist</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h3>Deploying on Windows Using PowerShell</h3>
+        <p>You can deploy the Automox agent using the following Windows PowerShell script. This performs an unattended, silent install of the Automox agent on Windows devices. This script performs the following actions:‌</p>
+        <ol start="1">
+            <li>The script downloads the agent from Automox if it hasn’t already been downloaded.</li>
+            <li>The script installs the agent on the device if it isn’t already installed.</li>
+            <li>The script starts the Automox agent service if it is stopped.</li>
+        </ol>
+        <p><strong>Windows PowerShell Script</strong>
+        </p>
+        <ol start="1">
+            <li>Download the installer script from this page: <a href="https://github.com/AutomoxCommunity/se-utilities-public/blob/main/Scripts/Install-AXAgentMSI.ps1" rel="nofollow">Install-AxAgentMsi.ps1</a>.‌<br />This script takes the following command line parameters:
+                <MadCap:codeSnippet><MadCap:codeSnippetCopyButton /><MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">-AccessKey YOUR-ACCESS-KEY-HERE</MadCap:codeSnippetBody></MadCap:codeSnippet> This is a required parameter that associates the device with your Automox organization.<br />‌</li>
+            <li>Optionally, if you want your device to join a group at the time of installation, you need to specify a destination Group Name and a Parent Group Name. &#160;</li>
+            <MadCap:codeSnippet>
+                <MadCap:codeSnippetCopyButton />
+                <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">-GroupName "My Group Name"</MadCap:codeSnippetBody>
+            </MadCap:codeSnippet>
+            <br />
+            <MadCap:codeSnippet>
+                <MadCap:codeSnippetCopyButton />
+                <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">-ParentGroupName "My Parent Group Name"</MadCap:codeSnippetBody>
+            </MadCap:codeSnippet>
+        </ol>
+        <div class="info"><strong>Note</strong>: Your destination group can either be under a parent group or stand alone. A parent group parameter is only required if the destination group is under a parent group. If you do not specify a parent group, it ignores the group assignment</div>
+        <p>See the code examples here:</p>
+        <p><strong>Example 1</strong>: Deploy the Automox agent to your organization inside the group "Accounts Payable", which belongs to a parent group "Finance".</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">Install-AxAgentMsi.ps1 -AccessKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -GroupName "Accounts Payable" -ParentGroupName "Finance"</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p><strong>Example 2</strong>: Deploy the Automox agent to your organization inside the group "Accounts Payable", which does not belong to a parent group.</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">Install-AxAgentMsi.ps1 -AccessKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -GroupName "Accounts Payable"</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p><strong>Example 3:</strong> Deploy the Automox agent for your organization inside the default group.</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">Install-AxAgentMsi.ps1 -AccessKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h4><strong style="font-weight: normal;">Debugging the Installation Process</strong>
+        </h4>
+        <p>If you need to debug the installation process performed by this script, you can find logging information in the following file on the device:</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">$env:TEMP\Install-AxAgentMsi.log</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h3><strong>Deploying on Linux</strong>
+        </h3>
+        <p>You can deploy the Automox agent on a Linux operating system by using the original command that was required to download the agent installer.</p>
+        <h4><strong style="font-weight: normal;">Copying the Agent Installer Command</strong>
+        </h4>
+        <p>Follow these steps to copy the curl command.</p>
+        <ol start="1">
+            <li>From the Devices page, click <strong>Add Devices</strong>.</li>
+            <li>In the <strong>Add Devices</strong> dialog window, you can see your access key. You will need this key for the script.</li>
+            <li>Select <strong>Linux</strong> from the drop-down list.</li>
+            <li>Copy the curl command.
+        <br /><img src="../../../../Resources/Images/add-device-linux.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li>
+        </ol>
+        <h4><strong style="font-weight: normal;">Editing the Curl Command for Linux Bulk Deployment‌</strong>
+        </h4>
+        <p>To bulk deploy the agent for Linux, you must edit the installer command. Add the following to the deployment command:</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Python;">service amagent start</MadCap:codeSnippetBody>
+            <br />
+        </MadCap:codeSnippet>
+        <br />
+        <div class="info"><strong>Note</strong>: You must replace <code>accesskey</code> in the following command with your access key. Your key can be found in Add Devices dialog window.</div>
+        <br />
+        <MadCap:codeSnippet>
+            <br />
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Python;">curl -sS "https://console.automox.com/downloadInstaller?accesskey=Your-ACCESS-Key-Here" | sudo bash service amagent start</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h2>Deploying with Ansible</h2>
+        <p>You can distribute the Automox agent with Ansible using the Ansible playbook: <a href="https://patch.automox.com/rs/923-VQX-349/images/get-automox.yml" rel="nofollow">get-automox.yml</a>. Contact Automox Support for further assistance.</p>
+        <p>From the directory where the <code>get-automox.yml</code> file is located, invoke the playbook with the following command, substituting your access key as indicated:&#160;</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Python;">ansible-playbook get-automox.yml --extra-vars "organization=YOUR-ACCESS-KEY-HERE&#160;</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h2>Deploying with JumpCloud</h2>
+        <p>JumpCloud® is a cloud-based Directory-as-a-Service platform that provides authentication, authorization, and management of a company’s employees and the systems and IP resources they need access to. The JumpCloud platform provides a Commands tab that lets you run commands across any number of devices. This makes it possible to quickly and easily automate tasks across a number of servers, launch those tasks based on a number of different types of events, and get full auditing of all command results.</p>
+        <h3>macOS Version</h3>
+        <ol start="1">
+            <li>Navigate to the Commands tab of the JumpCloud console and click the + button to create a new command.</li>
+            <li>Select Mac as the target operating system, provide a name for the command, and in the RUN AS: drop-down list, select root.</li>
+            <li>Paste the deployment script as specified in Deploying on OS X / Mac into the COMMAND: text field. Select the systems or tags that will receive the Automox agent, and then press save command to create the command on the JumpCloud platform.</li>
+            <li>Click the Run Now button adjacent to the command you just created to execute the script on all the target devices.</li>
+            <li>You will see the Exit Code (0 = success) when the command finishes running on each system. Click the details button to view the execution log.</li>
+            <li>Finally, as the Automox agent registers itself with the Automox platform, you will be able to see the new devices on the Devices page of the Automox console.</li>
+        </ol>
+        <h3>Windows Version</h3>
+        <ol start="1">
+            <li>Navigate to the Commands tab of the JumpCloud console and click the + button to create a new command.</li>
+            <li>Select Windows as the target operating system.</li>
+            <li>Provide a name for the command and select the target devices that will receive the Automox agent.</li>
+            <li>Select Windows PowerShell and copy and paste the script into the script box.</li>
+            <li>Click the Save button and you will return to the command tab. Your command will show in the list of available commands that will be run. Click the Run Now button adjacent to the command that you just created to execute the script on all target devices.</li>
+            <li>Finally, as the Automox agent registers itself with the Automox platform, you will be able to see the new devices on the Devices page of the Automox console.‌</li>
+        </ol>
+        <h3>Linux Version</h3>
+        <ol start="1">
+            <li>Navigate to the Commands tab of the JumpCloud console and click the + button to create a new command.</li>
+            <li>Select Linux as the target operating system, provide a name for the command and in the RUN AS: drop-down list, select root.</li>
+            <li>Paste the deployment script as specified in Deploying on Linux into the COMMAND: text field. Select the systems or tags that will receive the Automox agent, and then press save command to create the command on the JumpCloud platform.</li>
+            <li>Click the Run Now button adjacent to the command you just created to execute the script on all the target devices.</li>
+            <li>You will see the Exit Code (0 = success) when the command finishes running on each system. Click the details button to view the execution log.</li>
+            <li>Finally, as the Automox agent registers itself with the Automox platform, you will be able to see the new devices on the Devices page of the Automox console. </li>
+        </ol>
+        <h2>Deploying with Chef</h2>
+        <p>Use this Chef recipe to deploy the Automox agent:</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Ruby;"># Note: This will deploy the agent to the Default Group.
+# To specify a target Automox group, update the options line with the appropriate
+# GROUP = &lt; group name here &gt; 
+# see: https://help.automox.com/hc/en-us/articles/5352260844564-Silent-Agent-Deployment-on-Windows
+
+windows_package 'Automox Installer' do
+  source 'https://console.automox.com/installers/Automox_Installer-latest.msi'
+  retries 2
+  installer_type :custom
+  options '/qn /norestart ACCESSKEY=insert_your_installer_access_key_here'
+  action :install
+end</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+    </body>
+</html>

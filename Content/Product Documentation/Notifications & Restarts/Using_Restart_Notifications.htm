@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Describes how to configure restart notifications for Windows and macOS devices." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Using Restart Notifications</h1>
+        <p>For Windows and macOS devices, a restart notification warns end users when their computer needs to restart.</p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/agent-version-req.flsnp" />
+        <p>It is possible to customize restart notifications and configure deferral options that allow you to control when a restart will happen. Note: We formerly showed this as “reboot notifications”.</p>
+        <h2>What is a restart notification?</h2>
+        <p>When a Windows or macOS device update requires a restart, a restart notification lets the end user know that a restart of their system needs to occur. This allows the end user to save any work that might otherwise be lost during a restart of their computer. You can configure the message from the Create Policy page.</p>
+        <p>
+            <img src="../../Resources/Images/what-is-restart.png" style="width: 592px;height: 278px;" />
+        </p>
+        <br />
+        <div class="info">You must enable Automatic Restart for the associated policy, and the policy must be active and scheduled.</div>
+        <p>
+            <img src="../../Resources/Images/enable-restart.png" />
+        </p>
+        <h2 id="UsingRestartNotifications-Whatdoesarestartnotificationlooklike?">What does a restart notification look like?</h2>
+        <p>The information in the restart notification can differ depending on the operating system and how the message is configured.</p>
+        <p>For <strong>macOS</strong> users, a notification will look similar to this:</p>
+        <p>
+            <img src="../../Resources/Images/system-reboot-required-with-button.png" />
+        </p>
+        <p>For <strong>Windows</strong> users, a notification will look similar to this:</p>
+        <p>
+            <img src="../../Resources/Images/restart-required-win.png" />
+        </p>
+        <h2 id="UsingRestartNotifications-Whatdoesarestartnotificationindicate?">What does a restart notification indicate?</h2>
+        <p>In general, the notification informs the end user that an update that requires a restart has been installed.</p>
+        <p>The restart notification message allows the end user to select from the configured deferral times. A menu indicates how many deferrals are allowed and for how long a restart can be deferred.&#160;</p>
+        <p>
+            <img src="../../Resources/Images/system-restart-required.png" />
+        </p>
+        <p>The default deferral options are 1 hour, 4 hours, and 8 hours and the default number of times you can select from the available hours is 6 times.&#160;</p>
+        <p>For the example shown, if the number of deferrals is set to 3 then when the message appears the first time, you could select to defer 4 hours before the restart notification appears for the second time. Then you can decide if you need one more deferral before you want the device to restart. When the notification appears for the third time, the only option available is to select <strong>Options → Now</strong> (macOS) to restart. For Windows select <strong>Reboot Now</strong>. If you just ignore this message, the system restarts automatically after 15 minutes.</p>
+        <div class="info"><strong>Note</strong>: Five minutes prior to a restart, the system sends a final notification warning. This is described in <MadCap:xref href="Managing_End_User_Notifications.htm">Managing End-User Notifications</MadCap:xref>.</div>
+        <br />
+        <div class="info"><b>Note</b>:
+                <ul><li>It is possible to configure how long the message is displayed: See <strong>How to Configure the Notification Duration</strong>.&#160;</li><li>It is also possible to configure automatic deferrals, so that a user is not surprised by a missed notification message.</li></ul></div>
+        <h2 id="UsingRestartNotifications-HowtoconfiguretheNotificationDuration">How to configure the Notification Duration</h2>
+        <p>The notification duration is the amount of time a notification message is displayed to the user.</p>
+        <ul>
+            <li>The default notification duration is 15 minutes.</li>
+            <li>You can configure the duration between 15 minutes and 8 hours (480 minutes).</li>
+        </ul>
+        <p>
+            <img src="../../Resources/Images/notification-duration.png" />
+        </p>
+        <p>Users might regularly have longer video conferences in which notifications can easily be missed. For this you can extend the duration that the message shows on a device. When the video conference ends, the user will still see the notification and can take appropriate action: update now or defer.</p>
+        <h2 id="UsingRestartNotifications-Howrestartdeferraloptionswork">How restart deferral options work</h2>
+        <p>Deferrals are the action of the end user delaying a restart according to the configured deferral settings. After the restart deferral maximum is reached, the system will show only a "Reboot Now" or “Now” option, depending on your OS, and it will restart in 15 minutes if the message is closed or is not interacted with.</p>
+        <p>If the end user clicks the "Reboot Now" or “Now” option, the restart process is initiated, and the patch completes installation.</p>
+        <div class="info"><strong>Note</strong>: The system will still send a five-minute warning notification to users who have no restart deferrals remaining. See <MadCap:xref href="Managing_End_User_Notifications.htm">Managing End-User Notifications</MadCap:xref> for details.</div>
+        <h2 id="UsingRestartNotifications-Whatareautomaticdeferrals">What are automatic deferrals</h2>
+        <p>You can decide to allow automatic deferrals in the case a user does not acknowledge the restart notification. When you enable automatic deferrals, any notification that is present for longer than the notification duration is automatically deferred for the maximum deferral time option. This also counts as one of the allowed number of deferrals. </p>
+        <h2 id="UsingRestartNotifications-HowcanIconfigurerestartnotifications?">How can I configure restart notifications?</h2>
+        <p>Administrators can configure restart notifications when they create or edit a policy. To be able to send customized restart notifications, you must select <b>Enable automatic restart after updates are installed</b>.</p>
+        <p>For a detailed description of configuring restart notification messages and deferral settings, see <MadCap:xref href="Managing_End_User_Notifications.htm">Managing End-User Notifications</MadCap:xref>.</p>
+        <h2 id="UsingRestartNotifications-RelatedTopics">Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="Managing_End_User_Notifications.htm">Managing End-User Notifications</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Understanding_Restart_Error_Notifications.htm">Understanding Restart Error Notifications</MadCap:xref>
+            </li>
+        </ul>
+    </body>
+</html>

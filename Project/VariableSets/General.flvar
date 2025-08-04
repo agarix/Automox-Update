@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultVariableSet>
+  <Variable
+    Comment=""
+    Name="CompanyName"
+    EvaluatedDefinition="Automox, Inc">Automox, Inc</Variable>
+  <Variable
+    Comment=""
+    Name="PhoneNumber"
+    EvaluatedDefinition="720.334.8473">720.334.8473</Variable>
+  <Variable
+    Name="StreetAddress"
+    Comment=""
+    Definition="Some text"
+    OriginalName="StreetAddress"
+    EvaluatedDefinition="1606 Headway Circle, Suite 9043">1606 Headway Circle, Suite 9043</Variable>
+  <Variable
+    Name="ProductName"
+    Comment=""
+    OriginalName="ProductName"
+    EvaluatedDefinition="Automox">Automox</Variable>
+  <Variable
+    Name="Fax"
+    Comment=""
+    OriginalName="Fax">Fax 123-987-654</Variable>
+  <Variable
+    Name="CityStateZip"
+    Comment=""
+    Definition="Some text"
+    EvaluatedDefinition="Austin, Texas 78754 USA">Austin, Texas 78754 USA</Variable>
+  <Variable
+    Name="Year"
+    Comment=""
+    Type="DateTime"
+    LastUpdated="2016-02-16T18:02:51.1357833-08:00"
+    EvaluatedDefinition="yyyy">yyyy</Variable>
+  <Variable
+    Name="Email"
+    Comment=""
+    EvaluatedDefinition="support@automox.com">support@automox.com</Variable>
+  <Variable
+    Name="Instagram"
+    Comment=""
+    EvaluatedDefinition="https://www.instagram.com/patchautomox">https://www.instagram.com/patchautomox</Variable>
+  <Variable
+    Name="LinkedIn"
+    Comment=""
+    EvaluatedDefinition="https://www.linkedin.com/company/automox/">https://www.linkedin.com/company/automox/</Variable>
+  <Variable
+    Name="Facebook"
+    Comment=""
+    EvaluatedDefinition="http://www.facebook.com/automox">http://www.facebook.com/automox</Variable>
+  <Variable
+    Name="Twitter"
+    Comment=""
+    EvaluatedDefinition="https://twitter.com/Automox">https://twitter.com/Automox</Variable>
+  <Variable
+    Name="LastUpdated"
+    Comment=""
+    Type="DateTimeFileSaved"
+    LastUpdated="2024-11-12T15:19:37.5543402-05:00"
+    EvaluatedDefinition="MMMM dd, yyyy">MMMM dd, yyyy</Variable>
+</CatapultVariableSet>

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Describes how to move devices from one organization to another." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Moving Devices From One Organization to Another</h1>
+        <p>At times, it is necessary to move a device from one organization to another within the console. This process involves two steps, both of which are performed directly on the target device.</p>
+        <div class="info"><strong>Note:</strong> This operation should not be attempted as a Worklet.</div>
+        <br />
+        <MadCap:snippetBlock src="../../Resources/Snippets/Prerequisites.flsnp" />
+        <h2>Manually moving a device</h2>
+        <p>Manually moving a device to a new organization requires running just one command directly on the target device. The second step is to restart the device.</p>
+        <h3>Update Agent Key</h3>
+        <p>To move a device from one organization to another, you must update the access key the Automox agent is using to the target organization. This can be done with the help of the <code>--setkey</code> option. This will deregister the device from the previous organization and set the agent key for the new organization.</p>
+        <div class="warning">
+            <ul>
+                <li>A string needs to be passed to the <code>--setkey</code> argument, even if it is an invalid key.<br /><br /></li>
+                <li>The access key passed cannot be the last one used.</li>
+            </ul>
+        </div>
+        <p><strong>macOS</strong>
+        </p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve">sudo /usr/local/bin/amagent --setkey &lt;NEW_ORGANIZATION_ACCESS_KEY&gt;</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p><strong>Windows</strong>
+        </p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve">C:\Program Files (x86)\Automox\amagent.exe --setkey &lt;NEW_ORGANIZATION_ACCESS_KEY&gt;</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p><strong>Linux</strong>
+        </p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve">sudo /opt/amagent/amagent --setkey &lt;NEW_ORGANIZATION_ACCESS_KEY&gt;</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h3>Restart the Automox Agent</h3>
+        <p>After setting the new organization access key, you will need to restart the Automox Agent service on the device using the following commands:</p>
+        <h4>macOS</h4>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">sudo launchctl bootout system/com.automox.agent
+sudo launchctl bootstrap system /Library/LaunchDaemons/com.automox.agent.plist</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h4>Windows</h4>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve">net stop amagent
+net start amagent</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h4>Linux</h4>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve">sudo service amagent restart</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="Understanding_Global_Access_Management.htm">Understanding Global Access Management</MadCap:xref>
+            </li>
+        </ul>
+    </body>
+</html>

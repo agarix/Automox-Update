@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Describes how to manage end-user notifications." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Managing End-User Notifications</h1>
+        <p>User notification messages allow you to give end users notice of important updates or restarts on Windows and macOS devices. It is also possible to configure deferral options that allow users to control when an update or restart happens.</p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/agent-version-req.flsnp" />
+        <h2>Default User Notifications</h2>
+        <p>When a policy or worklet is active and scheduled and uses default settings, Automox automatically sends notifications to users for updates and system restarts. These user notifications are configured on each policy page.</p>
+        <p><strong>Summary of our notifications: </strong>If you create a new policy, and use all default settings, the users will be notified about possible restarts, and they will automatically have the option to defer according to the default settings.</p>
+        <p>Here is an example of the default view:</p>
+        <p>
+            <img src="../../Resources/Images/user-notifications.png" style="width: 1012px; height: 1158px;" />
+        </p>
+        <p>When you create a new policy, the<strong>&#160;default settings&#160;</strong>are as follows:</p>
+        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" style="width: 363px;" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p><strong>Default User Notification Settings</strong>
+                        </p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p><strong>Description</strong>
+                        </p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Enable automatic restart after updates are installed</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This means that after updating, the device automatically restarts the operating system.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Install Notification Settings is on</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>The default notification messages will be issued. These can be edited.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Before installing any update is selected</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>The notification message is sent prior to any update install.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Hourly Deferral Options</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>In the default setting, a user can select to defer an update by 1 hour, 4 hours, or 8 hours.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Max number of Deferrals</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>The default value is 6. This indicates the number of times a user can delay that an update is installed. This default setting can be configured between 1 and 10 deferrals.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Restart Notification Settings is on</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>If the update requires a restart, the default restart notification message is issued after an update installs.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Notification Duration</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>The notification duration is the length of time a message appears on the target device prior to the user dismissing or setting a deferral. The default time is 15 minutes. The user can decide to dismiss the message, install now, or defer the restart. (Note: This can be configured.)</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>Enable Automatic Deferrals is selected</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body2">
+                        <p>A user can select to defer a restart by 1 hour, 4 hours, or 8 hours for a maximum of three times before the system restarts.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="info"><strong>Note:</strong> You can allow notifications on macOS when screen sharing. In the Notification Center, select the Automox Notifier, Allow Notifications, and under Allow notifications, select <strong>When mirroring or sharing the display.&#160;</strong><![CDATA[
+        ]]><br /><br />See also <MadCap:xref href="Allowing_Automox_Notifications_on_macOS_When_Screen_Sharing.htm">Allowing Automox Notifications on macOS When Screen Sharing</MadCap:xref><strong>.</strong></div>
+        <h3>What to expect for default user notifications</h3>
+        <p>If you choose to use the default settings for a policy, a user will experience the following for an update that requires a restart. The associated policy is active and scheduled. Examples are shown for macOS and Windows.</p>
+        <div class="warning"><strong>Notice: </strong>There is a new behavior prior to a restart depending on your OS. See descriptions about <strong>Final notification flow </strong>after this section.</div>
+        <ol start="1">
+            <li>A system update <strong>install</strong> notification is issued with the option of deferral.<br />            macOS:<br /><img src="../../Resources/Images/install-required-options-mac.png" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" /><br />            Windows:<br /><img src="../../Resources/Images/updates-need-install-win.png" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" /><br /><br /></li>
+            <li>The user can select any of the deferral options, up to 6 times.</li>
+            <li>After the update install completes, a restart notification is issued with the option of deferral.<br />macOS:<br /><img src="../../Resources/Images/restart-required-options-mac.png" /><br />Windows:<br /><img src="../../Resources/Images/restart-required-win.png" /><br /><br /></li>
+            <li>After exhausting all deferrals, or by selecting Now / Reboot Now, the system is now prepared to shut down the device (restarts) to complete the update.</li>
+            <li>Refer to the next sections about final notifications, depending on your OS.</li>
+        </ol>
+        <div class="info"><strong>Note</strong>: The length of time a notification shows on a device is configurable. See <MadCap:xref href="#Customiz">Customizing Restart Notifications</MadCap:xref> for details.</div>
+        <h3><strong>Final notification flow</strong> (Windows)</h3>
+        <div class="warning">The following behavior applies to <strong>Windows systems only</strong>. This is valid for policies or worklets using the default notification settings or if the notification settings have been customized. To opt out, please contact support.</div>
+        <p>After exhausting all deferrals or if all deferral notifications are ignored, when a restart is approaching, a final notification is sent that the user has 5 minutes to save any work in progress. The following message is displayed:</p>
+        <p>
+            <img src="../../Resources/Images/final-notification.png" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <ul>
+            <li>If the user closes the notification or does nothing, after the 5-minute notification duration, the system will restart.</li>
+        </ul>
+        <div class="info"><strong>Note</strong>: These notifications cannot be configured.</div>
+        <p>See also <MadCap:xref href="Understanding_Restart_Error_Notifications.htm">Understanding Restart Error Notifications</MadCap:xref>.</p>
+        <h3><strong>Final notification flow</strong> (macOS)</h3>
+        <div class="warning">The following behavior applies to <strong>macOS systems only</strong>. This is valid for policies or worklets using the default notification settings or if the notification settings have been customized.</div>
+        <p>After exhausting all deferrals or if all deferral notifications are ignored, when a restart is approaching, a final notification is sent that the user has 5 minutes to save any work in progress. The following message is displayed:</p>
+        <p>
+            <img src="../../Resources/Images/restart-required.png" />
+        </p>
+        <ul>
+            <li>You can decide to immediately initiate the restart. Hover over the message and select <strong>Restart</strong>.</li>
+        </ul>
+        <p>
+            <img src="../../Resources/Images/restart-required-with-button.png" />
+        </p>
+        <ul>
+            <li>If there is no interaction after 5 minutes, the update begins automatically.</li>
+        </ul>
+        <p>See also <MadCap:xref href="Understanding_Restart_Error_Notifications.htm">Understanding Restart Error Notifications</MadCap:xref>.</p>
+        <h2><a name="Customiz2"></a>Customizing Install Notifications</h2>
+        <p>You can configure how a user receives notice of an update that is scheduled to be installed.&#160;</p>
+        <div class="info"><strong>Note</strong>:
+        <ul><li>The policy must be <strong>Active</strong> and scheduled for the notifications to take effect.&#160;</li><li>If a policy is triggered manually, install notifications are not sent, however, restart notifications (if configured) will still show up.</li></ul></div>
+        <p>
+            <img src="../../Resources/Images/patch-install.png" style="width: 1056px;height: 631px;" />
+        </p>
+        <ol start="1">
+            <li>From the create or edit policy page, go to <strong>User Notifications → Automatic Restart.</strong> Then select if you want the device to automatically restart or not after the update is installed.<ul><li>If you want the device to restart after updating, select <strong>Enable automatic restart after updates are installed</strong>.</li><li>If you do not want the device to automatically restart after updating, select <strong>Do not enable automatic restart after updates are installed</strong>.</li></ul></li>
+            <li>Go to <strong>End User Notifications → Install Notifications Settings</strong>.<ul><li>To configure notification messages, turn on <strong>Install Notifications Settings</strong>.</li><li>If you do not want user notification messages to be sent, turn off<strong>&#160;Install Notification Settings</strong>.<br /><strong>Note</strong>: If you disable this notification setting for end users, an unannounced update might result in the loss of unsaved work.</li></ul></li>
+            <li>Choose when to send an install notification:<ul><li>To send notification messages before the update occurs, select <strong>Before installing any update</strong>.</li><li>To only send notification messages prior to an update that requires a restart, select <strong>Before an install that requires a restart</strong>.</li></ul></li>
+            <li>Review and edit <strong>Install Notification Messages</strong>. If you do not configure the notification message, the default message is sent.<br />You can use the default notification messages for end users or configure them as described here:<ul><li>For updates that do not require a restart, configure the <strong>Install - No Restart Notification Message</strong>. Fill in the text box with the messaging of your choice. The message can be up to 125 characters for Windows or 70 characters in length for macOS.</li><li>For updates that require a restart, configure the <strong>Install - Restart Notification Message</strong>. Fill in the text box with the messaging of your choice. The message can be up to 125 characters for Windows or 70 characters in length for macOS.<br /><br /><img src="../../Resources/Images/system-updates-need-install.png" /><br /><br /></li></ul></li>
+            <li>Choose the <strong>Deferral Settings:</strong><ul><li><strong>Hourly Deferral Options:</strong> You can set three or fewer deferral times for notifications, which allow end users to delay an update install for a number of hours. By default, users are able to defer for 1, 4, or 8 hours. To set custom deferral times, fill in the three boxes for the first, second, and third deferral options, as needed. Leave a field blank to have fewer options. All numbers are represented in hours, only integers are accepted, and the maximum single deferral time is 24 hours.<br /><br /><img src="../../Resources/Images/restart-required-options-mac.png" /><br /><br /></li><li><strong>Max Number of Deferrals</strong>: &#160;<br />You can set a custom number of deferrals for notifications. This setting allows the end user to defer the install for up to the provided number of deferrals. On the last possible deferral, the patch is applied as guided by the policy. </li><li>To set the number of deferrals, fill in a number in the <strong>Max Number of Deferrals&#160;</strong>field. The default number of deferrals is 6. You can set as few as 1 deferral or as many as 10.</li><li>If a user misses the patch notification, their system is automatically patched 15 minutes after the missed notification. <strong>Note</strong>: Five minutes prior to a restart, the system sends a final notification warning. This is described in <strong>What to expect for default user notifications</strong>.</li><li>(<strong>Note</strong>: The patch notification timeout can be customized using the <a href="https://developer.automox.com/openapi/axconsole/operation/updatePolicy/" rel="nofollow">API</a>.)<br />A user can proactively install the update by clicking<strong>&#160;Install Now</strong> (Windows) or <strong>Options: Now</strong> (macOS).</li><li><strong>Enable Automatic Deferrals:</strong><br />Automatic deferrals are enabled by default. For more information, see <MadCap:xref href="#Enable">Enable Automatic Deferrals</MadCap:xref>.</li></ul></li>
+        </ol>
+        <h2><a name="Customiz"></a>Customizing Restart Notifications</h2>
+        <p>For updates requiring a restart, you can configure the restart notification message and deferrals as described here. These restart notifications and deferral messages are configured on each policy as well as worklets.</p>
+        <p>Prerequisite for configuring restart notifications:</p>
+        <ul>
+            <li>Select <strong>Enable automatic restart after updates are installed. (</strong>See Step 1 in <MadCap:xref href="#Customiz2">Customizing Install Notifications</MadCap:xref>.)</li>
+            <li>Turn on <strong>Restart Notification Settings</strong>.<br /><br /><img src="../../Resources/Images/restart-notification.png" /><br /></li>
+        </ul>
+        <h3>Restart Notification Settings</h3>
+        <ol start="1">
+            <li>From the create or edit policy page, go to <strong>Restart Notification Settings</strong>. This setting must be turned on in order to send restart notification messages.<br /><strong>Note</strong>: If Restart Notification Settings is turned off, the user might lose unsaved work if the system restarts without warning.</li>
+            <li>Configure the <strong>Restart Notification Message</strong>&#160;for end users:<ul><li>You can do nothing and use the default message.</li><li>You can enter a custom message for restart. Fill in the text box with the messaging of your choice. The message can be up to 125 characters for Windows or 70 characters in length for macOS. How long this notification message is displayed on the device is configured in the next step.<br /><br /><img src="../../Resources/Images/system-restart-required.png" /><br /><br /></li></ul></li>
+            <li>The <strong>Notification Duration</strong> is the amount of time a notification message is displayed to the user.&#160;<ul><li>The default is 15 minutes.&#160;</li><li>You can configure this between 15 minutes and 8 hours (480 minutes).</li><li><strong>For example</strong>, if you set the notification duration to 2 hours, the following happens: <br />If the user misses seeing a restart notification in the middle of a 1-hour Zoom presentation, that message will still be available after the meeting. Depending on the deferral settings, the user can decide to defer or select reboot.</li></ul></li>
+            <li>From <strong>Deferral Settings</strong> you can allow users to defer system restarts.<ul><li>Click the<strong>&#160;Enable&#160;Deferrals&#160;</strong>checkbox to allow a user to defer a restart. Clear the checkbox to not allow a user to defer a restart.</li><li>For more information see <MadCap:xref href="#Enable">Enable Automatic Deferrals</MadCap:xref>.</li><li><strong>Hourly Deferral Options</strong><br />You can set three or fewer deferral times for notifications, allowing end users to delay a restart. By default, users are able to defer for 1, 4, or 8 hours.&#160;<br />To set custom deferral times, fill in the three boxes for the first, second, and third deferral options, as needed. Leave a field blank to have fewer options. All numbers are represented in hours, only integers are accepted, and the maximum single deferral time is 24 hours.<br /><br /><img src="../../Resources/Images/restart-required-options-mac.png" /><br /><br /></li><li><strong>Max Number of Deferrals:</strong><br />You can set a custom number of deferrals for notifications. When set, the end user is able to defer a restart up to the provided number of deferrals. After the last possible deferral, the device restarts.<br />To set the number of deferrals, fill in a number in the <strong>Max Number of Deferrals</strong> field. The default number of deferrals is 6. You can set as few as 1 deferral or as many as 10.<br /><br />A user can choose to initiate the restart process by clicking <strong>Reboot Now&#160;</strong>(Windows) or <strong>Options &gt; Now</strong> (macOS).</li></ul></li>
+        </ol>
+        <div class="info"><strong>Important</strong>: If a user misses or closes the notification, their system is automatically restarted 15 minutes after the missed notification is sent.
+        <br /><br /><strong>Note</strong>: Five minutes prior to a restart, the system sends a final notification warning. This is described in <strong>What to expect for default user notifications</strong>. <br /><br />       To avoid unexpected restarts and take advantage of deferrals, enable automatic deferrals as described in the following section.</div>
+        <h4><a name="Enable"></a><strong>Enable Automatic Deferrals</strong>
+        </h4>
+        <p>You can decide to allow automatic deferrals in case a user does not acknowledge the restart notification at all.</p>
+        <p>If you enable automatic deferrals, any notification that is present for longer than the specified duration is automatically deferred for the maximum deferral time option. This counts as one of the allowed number of deferrals.</p>
+        <div class="info"><strong>Note</strong>: When a/ tomatic deferrals is enabled, the action of closing the notification message also counts as one of the allowed number of deferrals.</div>
+        <br />
+        <div class="info"><b>Requirement</b>: You must select <b>Enable Deferrals</b>.</div>
+        <p>
+            <img src="../../Resources/Images/automatic-deferrals.png" style="width: 807px;height: 272px;" />
+        </p>
+        <p><b>Example:</b>  In this example Enable Automatic Deferrals  is selected. The deferral time options allowed are 1, 4, and 8 hours for restarts. If the user does not see the restart notification message and the notification timeout has passed, then the 8-hour deferral is automatically consumed. The next restart notification is sent in 8 hours until the user either acknowledges the notification, or runs out of deferrals.</p>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="Using_Restart_Notifications.htm">Using Restart Notifications</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Understanding_Restart_Error_Notifications.htm">Understanding Restart Error Notifications</MadCap:xref>
+            </li>
+        </ul>
+    </body>
+</html>

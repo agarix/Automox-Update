@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:fileTags="File Tags/FileTagSetAuthor.Valerie Bailey">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Explains how to deploy the latest [%=General.ProductName%] agent using a PowerShell script." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Deploy the Latest Automox Agent using a PowerShell Script via Windows GPO Policy</h1>
+        <h2>Prepare Your Installer</h2>
+        <p><a href="https://github.com/AutomoxCommunity/se-utilities-public/blob/main/Scripts/Install-AXAgentMSI.ps1" style="font-weight: bold;">Download</a> the Automox Installer PowerShell script directly to your local device or Windows Server. If file transfers from your local device to the server are restricted, run the download process directly on the Windows Server.</p>
+        <h2>Create Your GPO - Run at Logon</h2>
+        <h3>PowerShell Script</h3>
+        <ol start="1">
+            <li>Store the script file in a location that is accessible to your target devices. You can use the SYSVOL directory or a network share that is accessible to your device.</li>
+            <li>Create a new Group Policy Object (GPO) and add the script to your GPO. The path is <b>Computer Configuration → Policies → Windows Settings → Scripts (Startup/Shutdown)</b></li>
+            <li>From the right pane, double-click <b>Startup</b>.</li>
+            <li>In the dialog box, click the <b>PowerShell Scripts</b> tab then click <b>Add...</b>.<br /><img src="../../../../Resources/Images/win-gpo-addscript.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li>
+            <li>Click <b>Browse</b> to locate the script file and click <b>Open</b>.</li>
+            <li>Edit the following script parameter by adding your Automox access key. Enter the parameter in the <b>Script Parameters</b> field and save the script.
+			<br /><MadCap:codeSnippet><MadCap:codeSnippetCopyButton /><MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve">-AccessKey your-access-key-goes-here</MadCap:codeSnippetBody></MadCap:codeSnippet></li>
+            <li>Now that these values are set, you can assign the GPO to your target audience.</li>
+        </ol>
+        <p>On startup, the script checks for the agent. If it's not present, it downloads, installs, and starts the service. If it's already there, it will not take any further action.</p>
+        <h3>MSI Installer</h3>
+        <p>With a minor modification, you can deploy the Automox Installer MSI  using the Software Installation GPO. This method requires that you include your Automox access key as a parameter. Since deployment using this method doesn't allow for command line arguments, you must either create a Transform file (.mst) or modify the installer file to include the access key.</p>
+        <p>Follow these steps to deploy the installer:</p>
+        <ol start="1">
+            <li>For details about modifying the MSI file, see <MadCap:xref href="../Embedding_Your_Access_Key_into_the_Automox_MSI.htm">Embedding Your Access Key into the Automox MSI</MadCap:xref>.</li>
+            <li>After you modify the MSI file, store it in a location that is accessible to your target devices. This requires that you store this in your SYSVOL directory or set up a network share that is accessible to your devices.</li>
+            <li>When your file is in the desired location, add the file to your GPO. The path is <b>Computer Configuration → Policies → Software Settings → Software Installation → New → Package...</b><br /><img src="../../../../Resources/Images/win-gpo-newpackage.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /><br /></li>
+            <li>Browse to and select the modified MSI file and click <b>OK</b>.</li>
+            <li>In the next dialog box select <b>Assigned</b> then click <b>OK</b>.</li>
+            <li>After you set these values, assign the GPO to your desired audience.</li>
+        </ol>
+        <div class="info"><b>Note:</b> You should periodically update this deployment to use the latest Automox installer. An outdated MSI file will not harm existing installations, but it is best to install the latest version when possible.</div>
+        <p>The latest file downloads can be found here: <MadCap:xref href="../Download_Links_for_the_Latest_Automox_Installers.htm">Download Links for the Latest Automox Installers</MadCap:xref>  or alternatively, you can use the PowerShell script method to download the latest version. If you modified the MSI file to include the access key, you will need to do this again after downloading a newer MSI file.</p>
+        <h2>Create Your GPO - Scheduled Task</h2>
+        <p>How to bulk deploy the Automox agent using Windows Group Policy for devices that connect to company networks through a VPN.</p>
+        <p>Remote computers connecting to company networks through a VPN present a challenge for the most common GPO solutions. Many VPNs do not automatically connect at startup. Due to the way Startup scripts and GPO MSI installations policies are designed, they most likely will fail to apply for remote devices.</p>
+        <p>Here is an alternative method to use Active Directory GPOs to deploy the Automox agent for your remote users.</p>
+        <h3>The Challenge</h3>
+        <p>We must distribute the file, and then the file must be installed with elevated rights. Preferably, this should be fully automated.</p>
+        <h3>The Solution</h3>
+        <p>Leverage Group Policy preferences to distribute a PowerShell script to each device, and then after it is in place, create a scheduled task to run the installation.</p>
+        <h4>Distribute the File</h4>
+        <ol start="1">
+            <li>Create a new GPO, and open the <b>Group Policy Management Editor</b>.</li>
+            <li>Navigate to <b>Computer Configuration → Preferences → Windows Settings → Files</b></li>
+            <li>Right click <b>Files</b> and select <b>New → File</b></li>
+            <li>From the <b>General</b> tab, update the following:
+<ul><li>Source File(s): <code>\\YOUR_DOMAIN.COM\NETLOGON\Install-AXAgentMSI.ps1</code></li><li>Destination File: <code>C:\Windows\Temp\Install-AXAgentMSI.ps1</code> <b>Note:</b> Leave the rest of the General settings as default.</li></ul></li>
+            <li>From the <b>Common</b> tab, select the checkbox for <b>Remove this item when it is no longer applied</b>. This will clean up the MSI file when the policy is no longer applied.</li>
+            <li>Create a new GPO, and open the <b>Group Policy Management Editor</b>.</li>
+            <li>Navigate to <b>Computer Configuration → Preferences → Control Panel Settings → Scheduled Tasks</b></li>
+            <li>Right click <b>Scheduled Tasks</b> and select <b>New → Scheduled Task</b> (Windows 7 or later)</li>
+            <li>Click the <b>General</b> tab, update the following:
+<ul><li>Select the Action: <b>Replace</b></li><li>Enter a name and optional description.</li><li>Set the user account to <code>NT AUTHORITY\System</code></li><li>Run whether logged in or not and with the highest privileges.
+<br /><img src="../../../../Resources/Images/create-gpo-axinstall-prop.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li></ul></li>
+            <li>Click the <b>Triggers</b> tab, start a new trigger and set the following: <ul><li>Begin the task: <b>At task creation/modification</b></li><li>Clear the checkbox <b>Delay task for:</b></li><li>Select <b>Stop task if it runs longer than:</b> and set to <b>1 hour</b></li><li>Set the preferred activate time and select the checkbox</li><li>Set to Enabled<br /><img src="../../../../Resources/Images/create-gpo-triggers-prop.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li></ul></li>
+            <li>Click the <b>Actions</b> tab and start a program with these settings:
+<ul><li><b>Program/script:</b> <code>C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe</code></li><li><b>Add arguments (with quotes):</b><code> "C:\Windows\Temp\Install-AXAgentMSI.ps1" "-AccessKey YOUR_AUTOMOX_KEY"</code><br /><img src="../../../../Resources/Images/create-gpo-actions.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /><ul><li>Your Automox access key is in your console under <b>Devices → Add Devices</b>.</li></ul></li></ul></li>
+            <li>Click the <b>Conditions</b> tab.
+<ul><li>Select Start only if the following network connection is available: Any connection<br /><img src="../../../../Resources/Images/create-gpo-conditions.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li></ul></li>
+            <li>Click the <b>Settings</b> tab and select the following:
+<ul><li>Stop the task if it runs longer than: 1 hour</li><li>If the running task does not end when requested, force it to stop.</li><li>If the task is already running, then the following rule applies: Do not start a new instance.<br /><img src="../../../../Resources/Images/create-gpo-settings.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li></ul></li>
+            <li>Click the <b>Common</b> tab and select the following:
+<ul><li>Remove the item when it is no longer applied.</li><li><b>Item-level targeting →</b> click <b>Targeting</b></li><li>In the Targeting Editor, click <b>New Item → File Match</b>.</li><li>For Match type, select File exists<br /></li><li>In the Path field enter: <code>C:\Windows\Temp\Install-AXAgentMSI.ps1</code><br /><img src="../../../../Resources/Images/create-gpo-common.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li><li> 
+After these values are set, assign the GPO to your desired audience.</li></ul></li>
+        </ol>
+        <h4>Additional Group Handling</h4>
+        <p>If you need to add devices that are deployed with the GPO policy to a specific Group in Automox, you can amend the arguments in Step 6 with the following:</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">C:\Windows\Temp\Install-AXAgentMSI.ps1" "-AccessKey YOUR_AUTOMOX_KEY" "-GroupName 'My Group Name'" "-ParentGroupName 'My Parent Group Name'</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <br />
+        <div class="info"><b>Note</b>: <code>ParentGroupName </code>is only required if the target Group is a child Group in the Automox Console.</div>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="../Embedding_Your_Access_Key_into_the_Automox_MSI.htm">Embedding Your Access Key into the Automox MSI</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="../Download_Links_for_the_Latest_Automox_Installers.htm">Download Links for the Latest Automox Installers</MadCap:xref>
+            </li>
+        </ul>
+    </body>
+</html>

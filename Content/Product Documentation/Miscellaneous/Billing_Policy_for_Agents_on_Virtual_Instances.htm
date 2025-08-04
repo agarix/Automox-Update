@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+    </head>
+    <body>
+        <h1>Billing Policy for Agents on Virtual Instances</h1>
+        <p>This describes how Automox agents on virtual machine (VM) instances are billed.</p>
+        <p>It is important to keep in mind that if Automox agents are part of your VM image build, those agents check in as unique and become active when you launch any temporary or test instances.</p>
+        <p>Avoid overage charges by monitoring your device usage and removing unwanted, test, or dormant instances. Automox uses your total number of unique instances at the end of the month to calculate your bill. Deregister agents by the 25th of each month at 0:00 UTC to avoid charges.</p>
+        <h2>Deregistering the Agent</h2>
+        <p>Using the command line or terminal, run the following command corresponding to your operating system:</p>
+        <h3>macOS</h3>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">sudo /usr/local/bin/amagent --deregister</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h3>Windows</h3>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">"C:\Program Files (x86)\Automox\amagent.exe" --deregister  </MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h3>Linux</h3>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">sudo /opt/amagent/amagent –-deregister</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p>Agent re-registration happens automatically when you run this command again. If the device was listed on the Devices page of the console, the device entry is automatically updated with the new registration identity. If the device was previously deleted from the Devices page, deregistering the device adds it back to the list of devices being managed by Automox.</p>
+    </body>
+</html>

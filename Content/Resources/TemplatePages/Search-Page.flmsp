@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <!-- Google Tag Manager -->
+        <script src="../../Resources/js/GTM.js" type="text/javascript">
+        </script>
+        <!-- End Google Tag Manager -->
+        <script src="../../Resources/js/segment.js" type="text/javascript">
+        </script>
+        <meta http-equiv="Cache-control" content="no-cache" />
+        <link href="../Stylesheets/MainStyles.css" rel="stylesheet" type="text/css" />
+        <link href="../../robots.txt" type="text/plain" />
+    </head>
+    <body class="search-topics">
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WMZR7S" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        <div class="body-layout">
+            <div>
+                <div class="content-container">
+                    <MadCap:breadcrumbsProxy />
+                </div>
+                <div class="customNextPrev">
+                </div>
+                <MadCap:searchResultsProxy data-mc-skin="/Project/Skins/Search.flskn" />
+            </div>
+            <div class="content-container">
+                <div class="customBar">
+                    <div>
+                        <div class="theme-toggle" id="theme-toggle">
+                            <button id="light-btn" class="sunIcon active">
+                                <img class="sun-inactive" src="../Images/sunday.png" />
+                                <img class="sun-active" src="../Images/suntan.png" />
+                            </button>
+                            <button id="dark-btn" class="moonIcon">
+                                <img class="moon-inactive" src="../Images/moonlight.png" />
+                                <img class="moon-active" src="../Images/darkmoon.png" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer center">
+            <div class="home-master-page-footer">
+                <div>
+                    <p> Copyright  ©<MadCap:variable name="General.Year" /> <MadCap:variable name="General.CompanyName" /> AUTOMOX is a registered trademark in the US and other countries</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

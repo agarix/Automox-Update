@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="How to invite users to [%=General.ProductName%] when using SSO, using provisioning." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Inviting Users When Single Sign-on (SSO) is Enabled</h1>
+        <p>When single sign-on (SSO) is enabled in Automox, the way that users can be invited has changed. Currently, users <strong>cannot</strong> be invited to an organization with SSO enabled. This is to prevent a password from being set for the new user.&#160;</p>
+        <p>To invite users to an organization with SSO enabled, you must enable Provisioning within Automox's SSO settings. Today, users can only be provisioned when attempting login through <strong>IdP (Identity Provider)&#160;</strong>initiated SSO.</p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/provision-users-from-idp.flsnp" />
+        <p>Here's how to get started:</p>
+        <ol start="1">
+            <li>Load or create your SSO configuration in Automox on the <strong>Settings → Security</strong> page.&#160;<ul><li>If you are configuring SSO for the first time, follow the SAML-based Single Sign-on (SSO) instructions.&#160;</li><li>If you already have SSO enabled, and have not enabled Provisioning, simply click the SAML <strong>Enable</strong> box again until the configuration screen appears.<br /><br /><img src="../../Resources/Images/security-saml-provision-users.png" class="thumbnail" alt="" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /><br /></li></ul></li>
+            <li>Select the checkbox for <strong>(Optional) Provision New Users</strong>.</li>
+            <li>Assign users in your Identity Provider to the app or connector.&#160;<ul><li>As new users attempt login to Automox through your internal Identity dashboard or SSO app listing, they will be issued an Automox license with default permissions.</li></ul></li>
+            <li>Click <strong>Save Configuration</strong>.</li>
+        </ol>
+    </body>
+</html>

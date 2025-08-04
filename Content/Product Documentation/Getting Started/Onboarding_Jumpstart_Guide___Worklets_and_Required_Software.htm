@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+    </head>
+    <body>
+        <h1>Onboarding Jumpstart Guide - Worklets and Required Software</h1>
+        <p>As you begin to build out your new Automox organization, understanding what is available, and having access to best practices will help you install software where you need it, and build some amazing Worklets with fewer gotchas on the way.</p>
+        <h2 id="OnboardingJumpstartGuide-WorkletsandRequiredSoftware-RequiredSoftware">Required Software</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="../Worklets &amp; Required Software/Using_the_Required_Software_Policy.htm">Using the Required Software Policy</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="../Worklets &amp; Required Software/How_to_Find_Application_Names_and_Versions_for_Required_Software_Policies.htm">How to Find Application Names and Versions for Required Software Policies</MadCap:xref>
+            </li>
+        </ul>
+        <h2>Worklets</h2>
+        <p>What can you use Worklets for? Well, pretty much anything you can script! You can install software, customize settings and configurations, or copy items to your devices. Being a SaaS solution, you can apply Worklets to devices that are anywhere! They just need to have an agent, and internet access.</p>
+        <ul>
+            <li>Video: How to use Automox Worklets:<ul><li><a href="https://patch.automox.com/video-automox-product-feature-overview-using-worklets" rel="nofollow" target="_blank">Automox Product Feature Overview: Using Automox Worklets</a></li></ul></li>
+            <li>
+                <MadCap:xref href="../Policies/Creating_a_Worklet.htm">Creating a Worklet</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="../Worklets &amp; Required Software/How_to_Use_Worklets.htm">How to Use Worklets</MadCap:xref>
+            </li>
+        </ul>
+        <h3>Evaluation</h3>
+        <p>The Evaluation code block is used to determine if devices are compliant, or require remediation to bring your device into compliance. As an example, you can check if software is installed, review registry settings, check folders or files, or simply set to non-zero to continuously apply remediation scripts on a schedule.</p>
+        <ul>
+            <li>Evaluation and Remediation happens at different times. Evaluations run based on the scan interval set in the Group the device is placed in. Evaluations also run after policies run.</li>
+            <li>Evaluations can be used in different ways. The way you configure the evaluation may change the status for your device. Here are a few options based on your need:<ul><li>PRIMARY USE - define evaluation code to verify if your Worklet is already compliant, or if it needs remediation.</li><li>If you want a policy to only run on-demand and always show as compliant, you can set your evaluation to <code>exit 0</code>.</li><li>If you want to enforce a Worklet to re-apply on a schedule, you can set the evaluation code to <code>exit -1</code> (or anything that is not <code>0</code>). This will always show status for the devices in groups where the policy is assigned to show as "pending".</li></ul></li>
+        </ul>
+        <h3>Remediation</h3>
+        <ul>
+            <li>You can run policies automatically on a schedule, or on-demand.</li>
+            <li>You can run policies on-demand per device or group.</li>
+            <li>If you run a Worklet policy on demand, the evaluation is ignored, and only the remediation is run.</li>
+        </ul>
+        <h4>Error Handling</h4>
+        <p>Best practice</p>
+        <ul>
+            <li>Add the following exit code handler at the beginning of your script: </li>
+        </ul>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">trap { $host.ui.WriteErrorLine($_.Exception); exit 90 }</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <ul>
+            <li>All scripts must return zero for success, and non-zero for failure</li>
+        </ul>
+        <div class="info"><strong>Note</strong>: Worklets currently do not properly work as a monitoring tool. The process you run in your Worklet must exit before the agent continues on to its next task. Make sure your Worklet runs a process and exits out on success or failure to keep the agent active and functional.</div>
+        <h4>Logging and Reporting</h4>
+        <p>Logging is integral with automation. Consider adding output to a local log, centralizing output to the Automox activity log, or both.</p>
+        <p>Worklets return either the success or failure return stream in the activity log based on the outcome of the Worklet process. If the worklet completes successfully, all success returns are listed in the activity log. If the worklet process fails, the error returns are listed in the activity log instead.</p>
+        <p>Return information from a Worklet:</p>
+        <ul>
+            <li>Linux - <code>stdout</code> or <code>stderr</code> to write to the activity log</li>
+            <li>Windows - <code>Write-Output</code> or <code>Write-Error</code> to the activity log</li>
+        </ul>
+        <p>Creating a local log: A more verbose log can be useful for audit and/or troubleshooting. Here is an example of a PowerShell installation command line including a local log creation:</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">Start-Process -FilePath 'msiexec.exe' -ArgumentList ('/i', '7z1900-x64.msi', '/qn', “/L*V`“C:\Windows\Temp\7z1900-x64.log`””) -Wait -Passthru</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h3>Windows</h3>
+        <h4>OS Architecture</h4>
+        <p>When writing Worklets for Windows, consider the OS architecture you are targeting. If you are targeting both 64-bit and 32-bit devices, additional sections of code might be required for both to work.</p>
+        <p>As an example, 32-bit applications typically are installed into the “Program Files” directory on 32-bit operating systems, and in the “Program Files (x86)” directory on 64-bit systems. Another example is where SOFTWARE registry keys are stored. This can become even more complex when you consider the Automox agent is a 32-bit application, and runs 32-bit PowerShell by default.</p>
+        <h4>Running Profile</h4>
+        <p>Automox runs a system. Worklets do not have access to current user resources such as mapped drives, or user based network share permissions.</p>
+        <h4>System vs User</h4>
+        <p>The Automox agent runs under the system context. This is important to consider when testing your scripts.</p>
+        <ul>
+            <li>System context allows installation of applications for all users, and may make system wide changes.</li>
+            <li>The system profile does not have access to network resources, current user registry or directories that are available when running your tests as yourself (even when running ISE x86 in an elevated context).</li>
+            <li>User prompts are not displayed. The script must complete and close successfully without user interaction.</li>
+        </ul>
+        <h4>Manage User Profiles</h4>
+        <p>Managing user profiles and settings can be a challenge as configured today. Most solutions involve the use of a scheduled task to run as user, or querying the registry to detect all users profile registry hives, then mounting user registry of each user to identify shell folder paths for file placement, or to set user based key values.</p>
+        <p>Here is an example of managing user based registry settings from a Worklet: <a href="https://community.automox.com/worklets-12/modify-registry-key-value-under-hkey-users-hkcu-workaround-1371" rel="nofollow">Modify registry key/value under HKEY_USERS (HKCU Workaround)</a></p>
+        <h4>Testing - Best Practices</h4>
+        <p>Testing your scripts locally before attempting to run them through a worklet can save a good deal of time and help to avoid applying changes to remote devices that may be difficult to reverse.</p>
+        <p>PowerShell ISE x86. This is preinstalled on modern versions of Windows, and comes in both 32-bit and 64-bit versions. When testing for use with Automox, use the 32-bit version which runs in the same environmental context as a script runs through the Automox agent.</p>
+        <h5 id="OnboardingJumpstartGuide-WorkletsandRequiredSoftware-RunasSystem">Run as System</h5>
+        <p>The Automox agent runs under SYSTEM context. When testing your scripts, you can verify your scripts have access to the local resources (drives, profiles and directories, registry hives) and environmental resources (network shares, remote applications, access to other systems and the internet) required for your script to successfully run.</p>
+        <p>One way to test your script using SYSTEM context is by using PsExec from the SysInternals suite (<a href="https://docs.microsoft.com/en-us/sysinternals/downloads/psexec" rel="nofollow">PsExec - Windows Sysinternals</a>) to run PowerShell ISE (x86). This will mimic both the 32-bit PowerShell environment, and running in SYSTEM context as the Automox agent will when running your script in production.</p>
+        <p>Command to launch PowerShell ISE (x86) with psexec:</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: PowerShell;">PsExec.exe -s -i %windir%\syswow64\WindowsPowerShell\v1.0\PowerShell_ISE.exe</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p>
+            <MadCap:xref href="../Worklets &amp; Required Software/Enforce_Windows_Registry_Settings_Worklet.htm">Enforce Windows Registry Settings Worklet</MadCap:xref>
+        </p>
+        <div class="info">
+            <ul>
+                <li>When not testing under SYSTEM context , always use an elevated Windows PowerShell ISE (x86) instance.<br /><br /></li>
+                <li>When you need to access 64-bit resources like HKLM:\SOFTWARE and don’t want your code to redirect to the WOW6432Node, try wrapping your code in the following script block, and running it from an elevated PowerShell ISE (x86). It will force the code within the scriptblock to run in the appropriate environment for your system.</li>
+            </ul>
+        </div>
+        <p><strong>Example of Scriptblock</strong>
+        </p>
+        <p><a href="https://github.com/AutomoxCommunity/Templates_And_Examples/blob/main/Example_ScriptBlock.ps1" rel="nofollow" target="_blank">https://github.com/AutomoxCommunity/Templates_And_Examples/blob/main/Example_ScriptBlock.ps1</a> </p>
+        <p><strong>Tips</strong>
+        </p>
+        <ul>
+            <li>Ensure your evaluation and remediation code properly exit (even on failure). If a process is left running, it can cause the Automox agent to hang (it will wait for the process to complete before additional actions can be applied).<ul><li>Worklets are not currently built to run as monitoring processes for this reason. Monitoring processes is something we are working on for a future feature improvement.</li></ul></li>
+            <li>Consider adding output logging into your Remediation code. It will be written into your activity log and made available in the Activity Log Report.</li>
+            <li>Content uploaded for Required Applications or Worklets will be stored in Amazon s3. If you use a proxy application or strict firewall rules, consider allowlisting: automox-policy-files.s3.us-west-2.amazonaws.com</li>
+            <li>For backwards compatibility, Automox uses -NoProfile. When invoking web requests in a Worklet, consider adding support for newer security protocols to ensure the connection is made. Here is an example of some code you can add to your scripts in this scenario:<br /></li>
+            <li><a href="https://github.com/AutomoxCommunity/Templates_And_Examples/blob/main/Example_SecurityProtocol.ps1" rel="nofollow">https://github.com/AutomoxCommunity/Templates_And_Examples/blob/main/Example_SecurityProtocol.ps1</a> </li>
+        </ul>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Ssl3,
+[Net.SecurityProtocolType]::Tls, [Net.SecurityProtocolType]::Tls11,
+[Net.SecurityProtocolType]::Tls12;</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <p>Further, you can define the required protocol only.</p>
+        <h3>Examples</h3>
+        <h4>Windows Executable (.exe) Evaluation and Remediation</h4>
+        <p><em>Evaluation using 64 bit script block (Will work for 64-bit OS):</em>
+        </p>
+        <p><a href="https://github.com/AutomoxCommunity/Templates_And_Examples/blob/main/Example_EXE_EVALUATION_ScriptBlock.ps1" rel="nofollow">https://github.com/AutomoxCommunity/Templates_And_Examples/blob/main/Example_EXE_EVALUATION_ScriptBlock.ps1</a> </p>
+        <p><em>Remediation - Install .exe with switches and msi pass through switches</em>
+        </p>
+        <p>Example remediation code as a function. This could be used as part of a more complex script.</p>
+        <p><a href="https://github.com/AutomoxCommunity/Templates_And_Examples/blob/main/Example_EXE_EVALUATION_ScriptBlock.ps1" rel="nofollow">https://github.com/AutomoxCommunity/Templates_And_Examples/blob/main/Example_EXE_REMEDIATION.ps1</a>
+        </p>
+        <h4>Microsoft Installer (.msi) Evaluation and Remediation</h4>
+        <p><em>Evaluation - Example (Will work for 32-bit and 64-bit Software):</em>
+            <br />Example MSI Installer Evaluation and Remediation - Evaluate for either 32-bit or 64-bit software via registry.</p>
+        <p>This example is based off of the following Worklet to Uninstall existing Software: <a href="https://community.automox.com/worklets-12/enforced-application-uninstall-for-windows-1552" rel="nofollow">Worklet:Enforced Application Uninstall for Windows - Worklets</a></p>
+        <p><strong>Example Code:</strong>
+        </p>
+        <p><a href="https://github.com/AutomoxCommunity/Templates_And_Examples/blob/main/Example_EVALUATION_32and64Bit_Architecture.ps1" rel="nofollow">https://github.com/AutomoxCommunity/Templates_And_Examples/blob/main/Example_EVALUATION_32and64Bit_Architecture.ps1</a> </p>
+        <p><em>Remediation - Install .msi</em>
+        </p>
+        <p><strong>Example Code:</strong>
+        </p>
+        <p><a href="https://github.com/AutomoxCommunity/Templates_And_Examples/blob/main/Example_MSI_REMEDIATION.ps1" rel="nofollow">https://github.com/AutomoxCommunity/Templates_And_Examples/blob/main/Example_MSI_REMEDIATION.ps1</a> </p>
+        <h2>Worklet Catalog</h2>
+        <p>We have a growing number of Automox Verified Worklets, available for immediate use. To access the Worklet Catalog, in the console go to <strong>Automate → Worklet Catalog</strong>. See <a href="https://help.automox.com/hc/en-us/articles/5603324231700" rel="nofollow">Creating a Worklet</a>.&#160;</p>
+        <h2>Community Resources</h2>
+        <p><a href="https://community.automox.com/worklets-12" rel="nofollow" target="_blank">Community Worklets</a>
+        </p>
+    </body>
+</html>

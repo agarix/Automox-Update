@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Explains how to remove the [%=General.ProductName%] agent." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Removing the Automox Agent</h1>
+        <p>Depending on your operating system, there are different steps to remove the Automox agent from your device.</p>
+        <h2>Removing the Agent Using the Console (Recommended)</h2>
+        <p>You can remove the agent by going to the Devices page. Using the console to remove the agent is the recommended method. For details, see <MadCap:xref href="../../Device Management/Managing_Devices.htm">Managing Devices</MadCap:xref>.</p>
+        <p>
+            <img src="../../../Resources/Images/remove-device.png" class="thumbnail" style="mc-thumbnail-max-width: 310px;mc-thumbnail-max-height: auto;" />
+        </p>
+        <p>To manually remove the Automox agent from a device, you must follow the steps specific to your operating system.</p>
+        <h2 id="RemovingtheAutomoxAgent-RemovingtheAgentforApplemacOS">Removing the Agent for Apple macOS</h2>
+        <ol start="1">
+            <li>Open a terminal.</li>
+            <li>Run the following commands:</li>
+            <MadCap:codeSnippet>
+                <MadCap:codeSnippetCopyButton />
+                <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">sudo launchctl bootout system/com.automox.agent || true
+sudo /usr/local/bin/amagent --deregister 
+sudo rm -f /usr/local/bin/amagent* 
+sudo rm -rf "/Library/Application Support/Automox/"
+sudo rm -f /Library/LaunchDaemons/com.automox.agent*
+sudo rm -rf /var/tmp/automox/ || true
+sudo rm -f /var/tmp/amagent* || true
+sudo /usr/bin/dscl . -delete /Users/_automoxserviceaccount</MadCap:codeSnippetBody>
+            </MadCap:codeSnippet>
+            <br />
+            <li>If Automox Tray (Agent version 2.1+) is still showing after running the previous commands, run this command: <code>sudo launchctl bootout gui/${uid}/com.automox.agent-ui</code>, where <code>uid</code> is the uid of the logged in user.</li>
+        </ol>
+        <h2 id="RemovingtheAutomoxAgent-RemovingtheAgentforMicrosoftWindows">Removing the Agent for Microsoft Windows</h2>
+        <ul>
+            <li>Go to <strong>Local Services</strong> and stop the agent.<br /><img src="../../../Resources/Images/win-stop-services.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /><br /></li>
+            <li>Open a command prompt in Administrator mode and <strong>deregister</strong> the Automox agent.<br /><img src="../../../Resources/Images/deregister-agent.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /><br /></li>
+            <li>Uninstall the agent.<br /><img src="../../../Resources/Images/uninstall-agent.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /><br /></li>
+        </ul>
+        <h2>Removing the Agent for Debian-based Linux Operating Systems</h2>
+        <ol start="1">
+            <li>Open a terminal.</li>
+            <li>Run the following commands:</li>
+            <MadCap:codeSnippet>
+                <MadCap:codeSnippetCopyButton />
+                <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Python;">sudo service amagent stop
+sudo /opt/amagent/amagent --deregister
+sudo apt-get purge amagent </MadCap:codeSnippetBody>
+            </MadCap:codeSnippet>
+        </ol>
+        <h2>Removing the Agent for SLES/SuSE and Red Hat-based Linux Operating Systems (SLES, Red Hat, CentOS, Amazon Linux, Fedora):</h2>
+        <ol start="1">
+            <li>Open a terminal.</li>
+            <li>Run the following commands:</li>
+        </ol>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Python;">sudo service amagent stop
+sudo /opt/amagent/amagent --deregister
+sudo rpm -qa | grep amagent 
+sudo rpm -e amagent-1.0-19.x86_64 # (for example, should match what previous command returns)</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h2>Reinstalling the Automox Agent</h2>
+        <p>To reinstall the Automox agent, ensure that the agent has first been deregistered and then removed.</p>
+        <ol start="1">
+            <li>Deregister the agent. See <MadCap:xref href="Agent_Command_Line_Guide.htm">Agent Command Line Guide</MadCap:xref>.</li>
+            <li>Remove the agent, as described here.</li>
+            <li>Follow the instructions in <MadCap:xref href="Automox_Agent_Installation_Overview.htm">Automox Agent Installation Overview</MadCap:xref>.</li>
+        </ol>
+    </body>
+</html>

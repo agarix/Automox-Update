@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Explains how to configure SAML/SSO for multiple organizations." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Multi-Organization SAML Single Sign-On</h1>
+        <p>This describes how to use SAML/SSO for multi-organization environments.</p>
+        <div class="prereqs"><b>Prerequisites</b>: You have the required permissions for all organizations that you want to manage in this configuration. </div>
+        <p>Automox supports multiple SAML configurations for all organization that you manage. Multi-organization SAML allows you to create a SAML configuration for each organization, providing specific access based on the organization and users.</p>
+        <p>Currently, multi-organization SAML only supports a one-to-one relationship with organization. Each organization will need its own configuration and its own SAML app.</p>
+        <h2>Configuration</h2>
+        <p>The process for configuring multi-organization SAML is the same as single-organization SAML. In any organization, follow <MadCap:xref href="../Settings/Security.htm" title="SAML-based Single Sign-on (SSO)">Security</MadCap:xref> to setup a SAML configuration.</p>
+        <p>Once configured, any user with an account in the organization with SAML enabled will be redirected to the IDP for login, unless they specify an organization at login.</p>
+        <h2>Logging In</h2>
+        <h3>IDP-Initiated</h3>
+        <p>IDP-initiated logins behave as expected. When a user clicks on a specific app in your IDP for an organization, they are redirected to that organization. After they log in, they can optionally navigate to another organization that they are part of if they use the Automox multi-organization drop-down menu.</p>
+        <h3>SP-Initiated</h3>
+        <p>SP-initiated logins behave in many different ways depending on how you want users to reach their specific organizations:</p>
+        <p><strong>Generic Login:</strong>If a user visits <a href="http://console.automox.com/" rel="nofollow">console.automox.com</a> and attempts to log in, Automox defaults to the SAML configuration of the lowest organization ID that the specific user has access to. If organization A for the user has SAML, the SAML configuration for organization A is used. If organization A has password login, and organization B has SAML enabled, organization B’s SAML configuration is used.</p>
+        <p><strong>Define an Organization ID:</strong>Users can login directly to a specific organization if they specify an organization ID in the URL at login. If a user specifies organization A in their login URL, they will use organization A’s SAML configuration to login.</p>
+        <p>Specify an organization ID in the login URL as follows:</p>
+        <ul>
+            <li>The organization ID for any given account can be found when logged into the console. The URL shows a parameter for “?o=XXXX,” where XXXX is the organization ID.</li>
+            <li>Copy and paste the same “?o=XXXX” parameter into the login URL (https://console.automox.com/login) to force login to that specific organization.</li>
+        </ul>
+        <div class="tip">Automox recommends bookmarking specific login URLs so that users can navigate directly to specific accounts.</div>
+        <h2>Inviting and Provisioning Users</h2>
+        <h3>Inviting Users</h3>
+        <p>With Multi-organization SAML enabled, users can be invited to other organization through the regular user invite workflow. If SAML is enabled in the organization that you are inviting them to, they will need appropriate access to the SAML app in your IDP.</p>
+        <h3>Provisioning</h3>
+        <p>Provisioning users from the IDP is only supported on IDP-initiated login. To provision a user to a specific organization, enable provisioning when setting up the SAML configuration and give the user access to the appropriate app in your IDP. When they attempt login, an account will be created for them in the appropriate organization.</p>
+    </body>
+</html>

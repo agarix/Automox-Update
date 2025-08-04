@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+    </head>
+    <body>
+        <h1>OS Patch Management Settings for Groups</h1>
+        <p>You can configure how you want to handle patching for the devices in a group. </p>
+        <ol start="1">
+            <li>Go to <strong>Manage → Groups.</strong></li>
+            <li>Click the name of the Group to open the <strong>Edit Group</strong> page.<br /></li>
+            <li>In the OS Patch Management area, configure the settings for the respective group according to the following:
+            <strong><br />Windows and macOS Patch Management</strong><br />Use this field to configure automatic update settings for devices. By default, devices from Microsoft and Apple are configured to patch any automatic updates that may become available. As these automatic updates can interfere with the Automox patching process, we recommend disabling automatic updates when possible.
+                <br /><img src="../../Resources/Images/groups-os-patch-management.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" /></li>
+            <li>Click the drop-down menu to select from the following configuration options:<ul><li><strong>Keep Device’s Setting</strong>: Automox does not modify the automatic update configuration for the device. Whatever is configured on the device will persist when it is added to the respective group.</li><li><strong>Disable OS automatic updates</strong>: Automox modifies the device configuration by disabling automatic updates. This configuration will persist. If the device configuration changes, it will be changed back during the next scan.</li><li><strong>Enable OS automatic updates</strong>: Automox modifies the device configuration by enabling automatic updates. This configuration will persist. If the device configuration changes, it will be changed back during the next scan.</li></ul></li>
+            <br />
+            <li><b>Windows Update Source</b>
+                Use the <b>Windows Update Source</b> field to configure the source from which Windows devices will pull updates. By default, Microsoft distributes their devices to use the Windows Update catalog for pulling updates.<br /><img src="../../Resources/Images/groups-wu-source.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" /><ol style="list-style-type: lower-alpha;"><li>Click the drop-down menu to select from the following configuration options:<br /><ul><li><strong>Keep Device’s Setting:</strong> Automox does not modify the update source configured on the device. Whatever is configured on the device will persist when it is added to the respective group.</li><li><strong>Windows Update:</strong> Automox will modify the device configuration to use the Windows Update Catalog as its update source. The configuration will persist, whenever an endpoint configuration changes it will be changed back during the next scan.</li><li><strong>WSUS:</strong> Automox will modify the device configuration to use a WSUS server. This option should only be selected if you already have a WSUS environment configured in your domain. When this option is selected a third field will appear as described in the following:</li><li><strong>WSUS Server Address:</strong> This field is used to provide the WSUS server URL that will be used when configuring a device to use WSUS. (for example, <a href="http://lab-wsus:8530/" rel="nofollow">http://Lab-WSUS:8530</a>)<br /><img src="../../Resources/Images/groups-wsus-server.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />|</li></ul></li></ol></li>
+            <li>Click <strong>Update Group</strong> to save these settings.</li>
+        </ol>
+        <div class="warning"><b>Windows Environment Advisory:</b> <br /><br />These settings can be, and often are, configured through Group Policies (GPOs) in a Windows domain/enterprise environment. We do not recommend using Automox and GPOs to configure these settings concurrently. The GPO takes precedence in such a scenario. Therefore, if you are already using GPOs to configure these settings, select <b>Keep Device’s Setting</b> for the fields described earlier in this topic</div>
+    </body>
+</html>

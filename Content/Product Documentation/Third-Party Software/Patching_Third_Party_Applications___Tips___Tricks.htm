@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="This provides a few additional tips and tricks related to third-party software patching." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Patching Third-Party Applications - Tips &amp; Tricks</h1>
+        <h2>
+            <MadCap:toggler targets="cyberduck">Patching Cyberduck on Windows</MadCap:toggler>
+        </h2>
+        <div MadCap:targetName="cyberduck">
+            <p>Cyberduck has a version limitation on 32-bit installs. The latest 32-bit version is 7.0.2. Automox will patch to that version if a 32-bit install exists. Automox will not install newer 32-bit versions because of a vendor behavior that we cannot change or control. 64-bit versions will be updated to the latest available version of Cyberduck.</p>
+        </div>
+        <h2>
+            <MadCap:toggler targets="filesync">Patching File Sync Applications on Automox (Box Drive, Dropbox)</MadCap:toggler>
+        </h2>
+        <div MadCap:targetName="filesync">
+            <p>This describes the behavior when patching file sync applications, such as Dropbox and Box Drive, through Automox.</p>
+            <p>Even if a file sync app has been shutdown, it might relaunch after an update. This is a vendor behavior that we cannot control or change. If the app is open during the patch, Automox will relaunch it.</p>
+            <p>The behavior described here applies to the following file sync apps supported by Automox:</p>
+            <ul>
+                <li>Dropbox</li>
+                <li>Box Drive</li>
+            </ul>
+            <div class="info"><strong>Note:</strong> If a file sync application is open when patching begins, Automox will always relaunch it after patching.</div>
+        </div>
+        <h2>
+            <MadCap:toggler targets="oracle8">Oracle SE Java 8 Support Shift and How It Impacts Automox Users</MadCap:toggler>
+        </h2>
+        <div MadCap:targetName="oracle8">
+            <p>Effective immediately, Automox is no longer able to support patching for Oracle SE Java 8.</p>
+            <p>Many third-party software providers have EULAs (End User License Agreements) that prevent patching solutions from directly redistributing patches or software updates. Recently, Oracle’s Java SE 8 went through the “End of Public Updates” process for legacy releases. Patches can vary by system architecture and platform, but the fundamentals remain the same.</p>
+            <p>What this means for Automox users is that Automox will no longer be able to enable third-party application patching for Oracle SE Java 8 without violating the EULA from Oracle. Customers currently reliant on Automox to help automate this process will need to adopt a new approach to patch Java 8 moving forward. This process is detailed here as well as in a community post on the Automox Alive Community.</p>
+            <p>Automox can still help to automate patching of third-party applications like Java 8 on your terms through Automox Worklets.</p>
+            <h3 id="PatchingThird-PartyApplications-Tips&amp;Tricks-HowtoUpdateOracleSEJava8Software">How to Update Oracle SE Java 8 Software</h3>
+            <p>Oracle SE Java 8 requires a login to the Oracle support portal and the acceptance of the Oracle EULA. The patch is then available for download and can be uploaded to the Automox console for distribution.</p>
+            <p>The key actions for adding third-party patches into the Automox console are as follows:</p>
+            <h3 id="PatchingThird-PartyApplications-Tips&amp;Tricks-Obtainthepatchthroughmanualdownloadofthe“offline”installfileorthroughaWorklet">Obtain the patch through manual download of the “offline” install file or through a Worklet</h3>
+            <p>
+                <img src="../../Resources/Images/java-downloads.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+            </p>
+            <p>Review all required third-party EULA terms and conditions ensuring alignment with your company policies and legal charter. Manually download the patch or leverage Automox Worklets to automate the process altogether.</p>
+            <h3>Upload the patch to the Automox console</h3>
+            <div class="info"><strong>Note: </strong>You must create a Required Software Policy to be able to upload the patch. See <MadCap:xref href="../Policies/Creating_a_Required_Software_Policy.htm">Creating a Required Software Policy.</MadCap:xref></div>
+            <p>By uploading the file to the Automox console, the patch is added to the ecosystem for your organizational use. This step ensures that devices are able to obtain the required patch from the Automox console. Make adjustments to policies (if necessary).</p>
+            <p>Make any necessary adjustments to policies in applying the patch to devices in scope. This might mean altering the installation syntax if command line parameters have changed. If no existing required software policy exists for the patch, create a new one and add the name, version, and installation script syntax.</p>
+        </div>
+        <h2>
+            <MadCap:toggler targets="skype">Patching Skype on Windows and macOS</MadCap:toggler>
+        </h2>
+        <div MadCap:targetName="skype">
+            <p>The Skype application will only be patched when it is not in use.</p>
+            <p>You might see that a patch for Skype will fail if the application is being used during the patch window for Skype. Automox will show that a patch is available pending. The patch will be updated the next time the policy runs if the application is not in use. Because updates to the Skype application require a restart, the operation can only be successful when Skype is closed and does not appear in the system tray.</p>
+            <h3 id="PatchingThird-PartyApplications-Tips&amp;Tricks-PatchingSkypefromtheSoftwarepage">Patching Skype from the Software page</h3>
+            <p>To view a scheduled patch, you can go to the Software Page and search for Skype. When a version of Skype listed has a patch available, it will list a number under <strong>Impacted Devices</strong>. If you are not using the application, you can immediately patch by clicking <strong>Actions</strong> → <strong>Patch Now</strong>. Confirm your selection.</p>
+            <p>
+                <img src="../../Resources/Images/patching-skype.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+            </p>
+            <h3 id="PatchingThird-PartyApplications-Tips&amp;Tricks-PatchingSkypefromtheDeviceDetailspage">Patching Skype from the Device Details page</h3>
+            <p>You can also view scheduled patches from the Software section of the Device Details page. The patch for Skype will show as Update Available. If you are not using the Skype application, from here you can decide to immediately apply the patch. From the Bulk Actions menu, select <strong>Patch</strong>. Additionally, you can navigate to the Overview Report and it will reflect the pending patch in the list of Available.</p>
+            <p>
+                <img src="../../Resources/Images/patching-skype-devicedetails.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+            </p>
+            <h3 id="PatchingThird-PartyApplications-Tips&amp;Tricks-CreatingaPatchPolicyforSkype">Creating a Patch Policy for Skype</h3>
+            <p>You can decide to patch Skype with a separate policy that focuses on the patch schedule. Your workflow and use of Skype will determine how you schedule the update and how you notify users.</p>
+            <p>You can set up a Patch Only policy, filter for the appropriate patch, and schedule it to be applied outside of working hours. For the basics of creating a policy, see the following articles:</p>
+            <ul>
+                <li>
+                    <MadCap:xref href="../Policies/Creating_a_Patch_Policy.htm">Creating a Patch Policy</MadCap:xref>
+                </li>
+                <li>
+                    <MadCap:xref href="../Policies/Setting_a_Patching_Schedule.htm">Setting a Patching Schedule</MadCap:xref>
+                </li>
+                <li>
+                    <MadCap:xref href="../Notifications &amp; Restarts/Managing_End_User_Notifications.htm">Managing End-User Notifications</MadCap:xref>
+                </li>
+            </ul>
+            <p>When you schedule this policy as desired, you can create a message to inform your users that Skype updates only occur outside of the use of the application and therefore it is possible the patch could occur upon restarting the device.</p>
+            <MadCap:snippetBlock src="../../Resources/Snippets/submit-request.flsnp" />
+        </div>
+    </body>
+</html>

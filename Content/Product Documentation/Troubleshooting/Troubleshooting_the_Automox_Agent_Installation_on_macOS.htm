@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="This describes the commands to install, restart, and remove the [%=General.ProductName%] agent on macOS devices." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Troubleshooting the Automox Agent Installation on macOS</h1>
+        <p>To install, restart, and remove the Automox agent on macOS devices, refer to the commands listed here.</p>
+        <h2 id="TroubleshootingtheAutomoxAgentInstallationonmacOS-InstalltheAutomoxagent">Install the Automox agent</h2>
+        <p>To install the Automox agent on macOS, run this command. (This requires your access key. See <MadCap:xref href="../Settings/Managing_Keys.htm">Managing Keys</MadCap:xref>.)</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">curl -sS "https://console.automox.com/downloadInstaller?accesskey=YOUR_ORGANIZATION_KEY_HERE" | sudo bash &amp;&amp; sudo launchctl load /Library/LaunchDaemons/com.automox.agent.plist</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h2 id="TroubleshootingtheAutomoxAgentInstallationonmacOS-Inspecttheprocess">Inspect the process</h2>
+        <p>Determine if the Automox agent is running:</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">ps aux | grep amagent</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h2 id="TroubleshootingtheAutomoxAgentInstallationonmacOS-Restarttheagent">Restart the agent</h2>
+        <h3 id="TroubleshootingtheAutomoxAgentInstallationonmacOS-Unloadtheagent:">Unload the agent:</h3>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">sudo launchctl bootout system/com.automox.agent
+</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h3 id="TroubleshootingtheAutomoxAgentInstallationonmacOS-Loadtheagent:">Load the agent:</h3>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">sudo launchctl bootstrap system /Library/LaunchDaemons/com.automox.agent.plist</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h2 id="TroubleshootingtheAutomoxAgentInstallationonmacOS-Uninstallagent:">Uninstall agent:</h2>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">sudo launchctl bootout system/com.automox.agent || true
+sudo /usr/local/bin/amagent --deregister 
+sudo rm -f /usr/local/bin/amagent* 
+sudo rm -rf "/Library/Application Support/Automox/"
+sudo rm -f /Library/LaunchDaemons/com.automox.agent*
+sudo rm -rf /var/tmp/automox/ || true
+sudo rm -f /var/tmp/amagent* || true
+sudo /usr/bin/dscl . -delete /Users/_automoxserviceaccount</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="../Agents/Agent Installation/Automox_Agent_Installation_Overview.htm">Automox Agent Installation Overview</MadCap:xref>
+            </li>
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Describes how to create a configuration profile in Jamf Pro for [%=General.ProductName%] notifications" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Deploying Automox Notification Configuration Profile via Jamf Pro</h1>
+        <p><MadCap:variable name="General.ProductName" /> notifications are critical and need to be turned on for each and every macOS device that is managed by Automox. If the <MadCap:variable name="General.ProductName" /> Notifier is not enabled, a device might queue up a patch, but it will never actually restart and apply the patch properly.</p>
+        <p>You can solve this by either creating a new Configuration Profile in Jamf or amending an existing one. </p>
+        <h2>Create or amend a Configuration Profile</h2>
+        <p>To create or amend the configuration in Jamf Pro, navigate to <strong>Configuration Profiles. </strong>Select to add or edit the existing profile then select<strong> Notifications</strong>. Use the configuration listed here:</p>
+        <table class="TableStyle-ax_tables" cellspacing="0" style="mc-table-style: url('../../Resources/TableStyles/ax_tables.css');">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">Payload Configuration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>App Name: Automox</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Bundle ID: com.automox.automox-notifier</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Critical Alerts: Enabled</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Notifications: Enabled</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Banner alert type: Persistent</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Notifications on Lock screen: Display</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Notifications in Notification Center: Display</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Badge app icon: Display</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+                        <p>Play sound for notifications: Enable</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+            <img src="../../Resources/Images/jamf-ax-notifications.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <p>When configured properly, this is what the settings look like on the device under <strong>System Settings → Notifications:</strong></p>
+        <p>
+            <img src="../../Resources/Images/axnotifier-settings.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <div class="info"><strong>Note</strong>: If a device has never had an <MadCap:variable name="General.ProductName" /> notification appear, you will not see the <MadCap:variable name="General.ProductName" /> Notifier in the Apple Notifications Center. However, it will still be allowlisted automatically when a notification appears for the first time. If you want to trigger the notification to test it, you can either run a policy manually or navigate to <code>/Library/Application Support/Automox/</code> and run the "<MadCap:variable name="General.ProductName" /> Notifier."</div>
+    </body>
+</html>

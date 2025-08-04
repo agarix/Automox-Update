@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Explains how to configure software on an [%=General.ProductName%] device." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Configuring Software on a Device</h1>
+        <p>You can configure how you want software to be updated on your devices from the Device Details page. It is possible to configure actions for individual or multiple software patches on a device.</p>
+        <h2>Configuring Individual Software Patches on a Device</h2>
+        <p>The following actions can be taken to configure the software patches available on a device.</p>
+        <ol start="1">
+            <li>Go to the <strong>Devices</strong> page.</li>
+            <li>Click the name of the device to open the Device Details page.</li>
+            <li>From the Software section, you can use the <strong>Filter</strong> field to search for software.</li>
+            <li>Click the <strong>Bulk Actions</strong> drop-down list associated with the software. See the following table for details.<br /><strong>Note</strong>: When you select an action, you must confirm any action selected.</li>
+        </ol>
+        <p>The following table describes the possible configuration actions that can be applied to individual software.</p>
+        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p><strong>Actions</strong>
+                        </p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p><strong>Description</strong>
+                        </p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Roll Back</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>If available, this means you can downgrade the software selected.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Patch</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>If a patch is available, select Patch Now to update to the available version.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Ignore</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This will ignore any updates available.</p>
+                        <p><b>Note</b>: Perform a scan on the device after selecting this option to ensure it is recorded on the device.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Defer</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>If a version is available, select Defer and enter a date to resume the patch.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                        <p>Use Global Setting</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+                        <p>Package will patch in the next patch window for the policy that governs it.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Configuring Multiple Software Patches on a Device</h2>
+        <p>You can decide to select an action that will apply to multiple available software patches for a device.&#160;</p>
+        <ol start="1">
+            <li>Go to the <strong>Devices</strong> page.</li>
+            <li>Click the name of the device to open the <strong>Device Details</strong> page.</li>
+            <li>From the <strong>Software</strong> section, you can select the checkbox for multiple individual packages, or select all on the current page.&#160;</li>
+            <li>You can use the page selector to change the number of packages displayed on one page. The maximum number is 100.</li>
+            <li>Click the <strong>Bulk Actions</strong> drop-down list. Refer to the previous table for details about these actions.</li>
+            <li>Select the action to be applied. In the actions message window, you can see a list of all packages that are selected for that action. Confirm your selection.</li>
+            <li>This action can then be applied to more packages by scrolling to the next page of packages.</li>
+        </ol>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="Device_Details.htm">Device Details</MadCap:xref>
+            </li>
+        </ul>
+    </body>
+</html>

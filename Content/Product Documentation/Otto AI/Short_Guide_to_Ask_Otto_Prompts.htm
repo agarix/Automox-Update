@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+    </head>
+    <body>
+        <h1>Short Guide to Ask Otto Prompts</h1>
+        <p>This guide is aimed at helping you effectively use the Ask Otto script writing assistant to draft PowerShell and BASH-based Worklets.</p>
+        <p>For requirements and details, refer to <MadCap:xref href="Enabling_and_Using_Ask_Otto_by_Automox.htm">Enabling and Using Ask Otto by Automox</MadCap:xref>.</p>
+        <h2>Things to note when using Ask Otto</h2>
+        <p>When you are creating a new worklet and request assistance from Ask Otto, there are two ways to initiate help.</p>
+        <ul>
+            <li>If you are trying to create an evaluation script, make sure to use to the chatbot assistant within the Evaluation Code section.</li>
+            <li>Correspondingly, to create a remediation script, make sure to use the chatbot assistant within the Remediation Code section.</li>
+        </ul>
+        <h2>Use cases and prompt examples</h2>
+        <p>The following use cases and examples are provided to help you test the functionality.</p>
+        <h3>Vulnerability Remediation</h3>
+        <p>This example script is designed to find and then fix the Oracle CredSSP remote code execution vulnerability.</p>
+        <p><strong>Evaluation Prompt Entry:</strong>
+        </p>
+        <p>Create a PowerShell Evaluation script that&#160;mitigates CVE-2018-0886. The script should check for a registry key named "AllowEncryptionOracle" under the "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System\CredSSP\Parameters" hive.</p>
+        <p>If the key does not exist or does not have a value of 1, Write-Output "The device is not compliant" and Exit 1.</p>
+        <p>If the key exists and has a value of 1, Write-Output "The device is compliant." And Exit 0.</p>
+        <p><strong>Remediation Prompt Entry:</strong>
+        </p>
+        <p>Create a PowerShell Remediation script&#160;that sets the "AllowEncryptionOracle" registry under "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System\CredSSP\Parameters" to a value of 1.</p>
+        <p>If the key does not exist, create it. If it already exists, but is not a value of 1, set it to 1. Perform this in a Try/Catch block and return error logging.</p>
+        <p>If the Try is successful, Write-Output "Remediation was successful." And Exit 0</p>
+        <p>If the Try fails, Write-Output "Remediation failed." Provide the error exception message, and Exit 1.</p>
+        <h3>Audit scripts to check and report on configurations, settings, and status</h3>
+        <p><strong>Remediation Code:</strong>
+        </p>
+        <p>Write a worklet to validate that Intune auto-enrollment was successful in PowerShell. If the worklet was successful, write-output “Intune auto-enrollment successful.” If the auto-enrollment was unsuccessful, write-output “Intune auto-enrollment is unsuccessful”</p>
+        <h3>Fix a help desk issue</h3>
+        <p>There are many examples of scripts that can fix help desk-related issues such as rebuilding an Outlook profile, printer configurations, clearing a browser cache, etc.</p>
+        <p>This example checks to see if a specific network printer is installed on a device, if it isn’t, then we will install it.</p>
+        <p><strong>Evaluation Code</strong>
+        </p>
+        <p>Write a PowerShell worklet to check if a network printer is installed on a device. If the network printer is installed Exit 0, if it is not installed Exit 1</p>
+        <p><strong>Remediation Code</strong>
+        </p>
+        <p>Write a PowerShell script to install a network printer on a Windows 10 device. If successfully installed, write-output "network printer installed". If the install is not successful, write-output "network printer install failed"</p>
+        <h3>Other use cases</h3>
+        <ul>
+            <li>Audit type worklets that report against a state configuration that's unique to their environment.</li>
+            <li>Specific software installs/uninstalls</li>
+            <li>homebrew apps or special non-general configurations</li>
+            <li>larger scale project type worklets such as domain migrations, email alerting, write-backs to other APIs, etc.</li>
+        </ul>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="About_Ask_Otto.htm">About Ask Otto</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Enabling_and_Using_Ask_Otto_by_Automox.htm">Enabling and Using Ask Otto by Automox</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Otto_AI_FAQs.htm">Otto AI FAQs</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="../Policies/Creating_a_Worklet.htm">Creating a Worklet</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="../Worklets &amp; Required Software/How_to_Use_Worklets.htm">How to Use Worklets</MadCap:xref>
+            </li>
+        </ul>
+    </body>
+</html>

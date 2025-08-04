@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" />
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Explains the different types of reports you can create using [%=General.ProductName%]." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Creating Reports</h1>
+        <p>You can create reports that provide information about the devices in your organization. The following reports are available from the <strong>Reports</strong> page. To view each type of report, click the corresponding <strong>View </strong>button</p>
+        <h2>Activity Log</h2>
+        <p>The activity log tracks all automated and manual actions taken over a given period of time on the devices in your organization.</p>
+        <ul>
+            <li>Use the filter options to create the desired report.</li>
+            <li>Click the <strong>Export CSV</strong> button to export this information to a CSV file.</li>
+            <li>Click the name of the device to view the Device Details page.</li>
+            <li>Select <strong>Full Logs</strong> for more information.</li>
+        </ul>
+        <p>
+            <img src="../../Resources/Images/activity-log.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <div class="info"><strong>Note</strong>: The logs that are generated represent complete and unfiltered data from your organization. The following filtering and searching options enable you to fine-tune and export the results you want.</div>
+        <h2>Filtering and Searching in the Activity Log</h2>
+        <p>The filter panel to the left of the activity log list is made up of different types of options to fine-tune your report. You can filter the list of activity logs by date, policy type, policy name,  device name, and group. When you select any of the individual filters, the resulting log list automatically updates. You can clear selections individually, or select <strong>Reset Filters</strong> to clear all.</p>
+        <p>
+            <img src="../../Resources/Images/activity-log-filter.png" class="thumbnail" style="mc-thumbnail-max-height: 400px;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <p>You can hide or show the filter panel, as needed. The filter panel shows by default.</p>
+        <table style="width: 100%;mc-table-style: url('../../Resources/TableStyles/ax_tables.css');" class="TableStyle-ax_tables" cellspacing="0">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">Filter</th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Date Range</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Use the <strong>Date Range</strong> options to find the desired activity log results. The last selection is saved in local storage and becomes the new default.</p>
+                        <p><strong>Note</strong>: <ul><li>The Automox console retains 90 days of data, which is accessible in increments of 30 days.<br /></li><li>From the date range options, when you select a Custom report, you are limited to a maximum date range of 31 days.<br /></li><li>Data is filtered by UTC.</li></ul></p>
+                        <p>Select from the filter options to show log results for <b>Today</b>, <b>Yesterday</b>, <b>Last 7 Days</b>, <b>Last 30 Days</b>, or <b>Custom</b>. Use the calendar options to create a custom search.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Policies: Policy Type</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Click the <strong>All Policy Types</strong> drop-down list to filter results by <b>Patch</b>, <b>Worklet</b>, or <b>Required Software</b>.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Policies: Policy Name</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Click the <strong>All Policies</strong> drop-down list to filter results by the name of any policy in your organization.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Devices </p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Use the <strong>Device Name</strong> field to search for a specific device or devices. This search shows all entries that match any of the individual search criteria you set.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">Groups</td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1">Use the <b>Groups</b> field to search for specific groups of devices. This search allows you to select multiple groups.</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Search by log details</h3>
+        <p>Use the <b>search bar</b> at the top of the Activity Log to find specific details listed in the Log Summary column, such as package names and KB numbers. This helps you quickly find useful log entries.</p>
+        <p>Click Full Logs for complete information about the logged activity. You can also show all details by turning on the <b>Expand All Log Details</b> toggle.</p>
+        <p>Each log entry also includes a <b>View Additional Logs</b> link. Clicking this opens the <b>Device Logs</b> on the <b>Device Details</b> page, where you can see logs from recent scans of the device. The types of data shown in these logs are described in <MadCap:xref href="../Device Management/Device_Details.htm">Device Details</MadCap:xref>.</p>
+        <div class="info"><b>Note</b>: This search bar does not search for devices or policies.</div>
+        <p>
+            <img src="../../Resources/Images/activity-log-searchlog.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <p>By entering a string, the list populates with matching entries. You can use multiple strings to narrow your search results.</p>
+        <h3>Sorting search results</h3>
+        <p>You can sort the list of results by clicking the arrow at the column heading. This type of sort is available for Device Name, Policy Name, Group, and Event Time columns.</p>
+        <div class="info"><strong>Note</strong>: The search parameters you select are now stored in the page URL. The back button in your browser functions as expected and filter searches can now be bookmarked and shared.</div>
+        <h2>Overview Report</h2>
+        <p>The overview report provides a summary of the state of devices in your organization. This includes the device overview, history of patches applied, and patches by group. You can export this report to a PDF.</p>
+        <h3>Navigating the Overview Report</h3>
+        <p>
+            <img src="../../Resources/Images/overview-report.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <ul>
+            <li>Hover over points on the charts to reveal details.</li>
+            <li>Use the drop-down menu to change the time span of the history.</li>
+            <li>Click the severity level legend to turn details on and off.</li>
+            <li>Click highlighted text to jump to a filtered list of devices.</li>
+            <li>Click <strong>Export PDF</strong> to download a PDF of this report.</li>
+        </ul>
+        <h4>Overview Report - Device Overview</h4>
+        <p>The <b>Device Overview</b> section provides status insights for managed devices.</p>
+        <ul>
+            <li><b>Needs Attention</b>
+                <br />This is the percentage of devices requiring action due to one or more of the following conditions:
+            <ul><li>Not Compliant: For example, a new patch is detected.</li><li>Needs Restart: A restart is needed to complete installation.</li><li>Disconnected for 30+ Days: The device has not checked in with the Automox API for over 30 days.</li></ul></li>
+            <li><b>Up To Date</b>
+                <br />Devices that are compliant with policies and require no further action.</li>
+            <li><b>Scheduled Update</b>
+                <br />This is the percentage of devices with scheduled updates.</li>
+            <li><b>Excluded from Reports</b>
+                <br />Indicates the percentage of devices excluded from reports, which are not included in outstanding patch counts.</li>
+            <li><b>Needs Approval</b>
+                <br />Pertains to manual approval policies where patches await approval before deployment.</li>
+        </ul>
+        <h2>Needs Attention Report</h2>
+        <p>This report provides a list of devices that need attention, defined as devices which have one or more of the following statuses:</p>
+        <ul>
+            <li>Not Compliant</li>
+            <li>Needs Restart</li>
+            <li>Disconnected for 30+ Days</li>
+        </ul>
+        <p>Any relevant information about the devices is listed here. This report can be run for an individual group or all groups.</p>
+        <div class="info">The Needs Attention report will show devices that are excluded from reports.</div>
+        <h3>Creating a Needs Attention report</h3>
+        <ol start="1">
+            <li>From the Reports page, click <strong>View</strong> for Needs Attention Report.</li>
+            <li>Click <strong>Select Group</strong> from the drop-down menu. Scroll to select the group you want a report for.<br /><strong>Note</strong>: You can select an individual group or All Groups.</li>
+            <li>The report opens in a new window.</li>
+            <li>To switch between groups, select <strong>Choose Group Option</strong>.<br /></li>
+            <p>
+                <img src="../../Resources/Images/reports-needs-attention.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+            </p>
+        </ol>
+        <ul>
+            <li>You can use the search bar to narrow down results</li>
+            <li>You can sort by clicking on the column heading</li>
+            <li>You can set the page view up to 500 rows</li>
+        </ul>
+        <p>You can easily spot any devices that need attention. The report includes the following information:</p>
+        <table class="TableStyle-ax_tables" cellspacing="0" style="mc-table-style: url('../../Resources/TableStyles/ax_tables.css');">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">Needs Attention Report Details</th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Device Name</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This is the name of the device in your organization. This name can be searched for on the Devices page.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Policy</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>This field lists any policies the device is associated with.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Status</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This shows the connection status of the device.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Last Scanned</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>This shows the last time the system scanned the device.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Issue</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>The reason the device needs attention is listed here.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Severity</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>The severity level is provided here. See also the following <MadCap:xref href="#CVE">CVE severity scoring</MadCap:xref> table.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                        <p>Days Exposed</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+                        <p>Calculated based on the first time the package was detected.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3 id="CreatingReports-CVEseverityscoring"><a name="CVE"></a>CVE severity scoring</h3>
+        <p>Severity levels are defined by Automox in the following manner:</p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/Severity Scoring.flsnp" />
+        <br />
+        <div class="info"><strong>Note</strong>: If an Ubuntu, Red Hat, or Debian-related software package does not have any CVEs associated with it, Automox shows the severity status <strong>No Known CVEs</strong>. See also <MadCap:xref href="../Patching/Understanding_Automox_Severity_Data.htm">Understanding Automox Severity Data</MadCap:xref>.</div>
+        <h2>Pre-patch Report</h2>
+        <p>This report shows you a list of all scheduled patches per device. The severity and exposure information allows you to effectively assess any internal impact to your organization. You can run this report for an individual group or all groups.</p>
+        <h3>Creating a Pre-patch report</h3>
+        <ol start="1">
+            <li>From the Reports page, click <strong>View</strong> for Pre-Patch Report.</li>
+            <li>Click <strong>Select Group</strong> from the drop-down menu. Scroll to select the group you want a report for.<br /><strong>Note:</strong> You can select an individual group or All Groups.</li>
+            <li>The report opens in a new window.</li>
+            <li>To switch between groups, select <strong>Choose Group Option</strong>.</li>
+            <li>To download the report, click <strong>Export PDF</strong>.</li>
+        </ol>
+        <p>
+            <img src="../../Resources/Images/reports-prepatch.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <p>The report includes the following information:</p>
+        <table class="TableStyle-ax_tables" cellspacing="0" style="mc-table-style: url('../../Resources/TableStyles/ax_tables.css');">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p>Pre-patch Report Details</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p>Description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Device name and status</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Click the device name to open the corresponding device details page.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Software Name</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Name of the available software</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>CVE</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>CVE associated with the scheduled patch</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Severity</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Severity level of the scheduled patch. See also <MadCap:xref href="../Patching/Understanding_Automox_Severity_Data.htm">Understanding Automox Severity Data</MadCap:xref>.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Days Exposed</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Calculated based on the first time the package was detected</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>Patch Window</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body2">
+                        <p>The date and time that the update will start</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <div class="info"><strong>Note</strong>: You must manually refresh the page to see any updated data.</div>
+        <h2>Related Topics
+        </h2>
+        <ul>
+            <li>
+                <MadCap:xref href="Policy_Results_Report.htm">Policy Results Report</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Data_Extracts.htm">Data Extracts</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="../Patching/Understanding_Automox_Severity_Data.htm">Understanding Automox Severity Data</MadCap:xref>
+            </li>
+        </ul>
+    </body>
+</html>

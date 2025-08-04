@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultToc
+  Version="1">
+  <TocEntry
+    Title="Agent Requirements"
+    Link="/Project/TOCs/SectionTOCs/AgentRequirements.fltoc"></TocEntry>
+  <TocEntry
+    Title="Basic Agent Installation"
+    Link="/Project/TOCs/SectionTOCs/BasicAgentInstallation.fltoc"></TocEntry>
+</CatapultToc>

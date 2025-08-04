@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Description of security-related tasks for accounts." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Security</h1>
+        <p>You can manage security-related tasks for accounts and organizations from the <strong>Settings → Security</strong> page.</p>
+        <p>
+            <img src="../../Resources/Images/security.png" />
+        </p>
+        <h2>Account</h2>
+        <p>The account refers to the individual user account. From the <strong>Settings → Security</strong> tab, you can configure authentication for your account.&#160;</p>
+        <p>To access the account details, go to the Settings menu (<strong>⋮</strong>) in the console.</p>
+        <div class="info"><b>Note</b>: Email two-factor authentication is required by default. To access the console, you must use a form of two-factor authentication (email or mobile) or single sign-on.</div>
+        <h3>Two-factor Authentication: Email or Mobile</h3>
+        <p>Email two-factor authentication (2FA) is enabled by default. When you log in to the Automox console using your email address and password, you will also need to enter the verification code sent to your email address.</p>
+        <p>You can select between email or mobile authentication from the <strong>Account &gt; Two-factor Authentication</strong> section.</p>
+        <ul>
+            <li>When you select <strong>Mobile</strong> from the Two-factor Authentication section, the next time you log in to the Automox console using your email address and password, you will also need to enter the verification code from the mobile app you are using. See the next section for details about setting up authentication using a mobile method.</li>
+        </ul>
+        <h3>Enabling Mobile Two-factor Authentication</h3>
+        <p>You can enable mobile two-factor authentication (2FA) using Google Authenticator, Authy, or other mobile app.</p>
+        <ol start="1">
+            <li>Download a 2FA mobile app such as Google Authenticator or Authy.</li>
+            <li>Install the app and open it.</li>
+            <li>From the Automox console, go to Settings → Security and select <strong>Mobile</strong> from the Two-factor Authentication section.</li>
+            <li>From the Mobile Two-factor Authentication window, you must scan the QR code with your mobile device to pair it with the Automox console.</li>
+            <li>Enter the code that appears. Depending on the mobile app you are using, you might need to enter a second code.</li>
+        </ol>
+        <h4>Resetting mobile two-factor authentication</h4>
+        <div class="info">If you lose access to the mobile authentication method, contact your administrator to regain access to the user account.</div>
+        <br />
+        <div class="info"><b>Note</b>: Global Administrators cannot reset 2FA for other Global Administrators. For assistance, please <a href="https://help.automox.com/hc/en-us/requests/new">submit a  request</a> in our help center.</div>
+        <h2>Organizations</h2>
+        <p>Only Organization Administrators have permission to configure the following organization security settings:</p>
+        <ul>
+            <li>Login Attempt Settings</li>
+            <li>SAML (single sign-on)</li>
+        </ul>
+        <h3>Login Attempt Settings</h3>
+        <p>You can set the number of login attempts to the Automox platform that a user can make within a time frame before the account is locked.</p>
+        <ol start="1">
+            <li>Click <strong>Update</strong> to open the Login Attempts Configuration dialog box.</li>
+            <li>You can set the following:<br />a. Enter the maximum number of login attempts a user can make within a set time frame.<br />b. Enter a time frame in minutes. If the user exceeds the allowed number of login attempts during this time frame, the account is locked.</li>
+            <li>Click <strong>Update.</strong></li>
+        </ol>
+        <p>In this example, the user can attempt to login 5 times within a time frame of 5 minutes. If the user exceeds the number of attempts within the 5-minute time frame, the account is locked.</p>
+        <p>
+            <img src="../../Resources/Images/settings_security-loginattempts.png" />
+        </p>
+        <p>For assistance, contact Automox Support.</p>
+        <h3>SAML-based Single Sign-on (SSO)</h3>
+        <p>You can enable SAML-based single sign-on (SSO) for all of your Automox users. Automox supports SAML-authentication through Microsoft Entra ID (Azure AD).</p>
+        <MadCap:snippetBlock src="../../Resources/Snippets/Prerequisites.flsnp" />
+        <br />
+        <div class="info"><b>Note</b>: When SAML-based SSO is enabled, you can no longer sign in using email address and password.</div>
+        <p>Security Assertion Markup Language (SAML) is a standard for exchanging authentication data between an identity provider and a service provider. With SAML, users can use corporate credentials at a single point of authentication. There are two types of authentication flows. Automox-to-IDP and IDP-to-Automox.</p>
+        <p><strong>Automox-to-IDP</strong>
+        </p>
+        <p>The Automox-to-IDP authentication flow allows users to provide their email address from the Automox console login page, and be redirected to their configured Identity Provider (IDP) for authentication before being redirected back to the Automox console as the expected user.</p>
+        <p>For Automox-to-IDP, follow these steps:</p>
+        <ol start="1">
+            <li>From the <strong>Settings → Security</strong> tab in your Automox console, go to <strong>SAML</strong>.</li>
+            <li>Click <strong>Enable</strong>.</li>
+            <li>Enter the authentication code for your two-factor authentication (2FA) method.</li>
+            <li>In the Configure SAML window, enter the following information that is provided by your Identity Provider:<ul><li>Entity ID</li><li>x509</li><li>Login URL</li></ul></li>
+            <li>Click <strong>Save Configuration</strong>.</li>
+        </ol>
+        <p>When you save the configuration, the 2FA method is disabled.</p>
+        <p>
+            <img src="../../Resources/Images/configure-saml.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <p><strong>IDP-to-Automox</strong>
+        </p>
+        <p>The IDP-to-Automox authentication flow allows users to log into the Automox console directly from their IDP dashboard. This is a common flow in organizations that utilize more than one SSO-enabled service.</p>
+        <p>For IDP-to-Automox, follow these steps:</p>
+        <ol start="1">
+            <li>From the <strong>Settings → Security</strong> tab in your Automox console, go to <strong>SAML.</strong></li>
+            <li>Click <strong>Enable</strong>.</li>
+            <li>Enter the authentication code for your two-factor authentication (2FA) method.</li>
+            <li>In the Configure SAML window, switch on <strong>Use XML Configuration</strong>.</li>
+            <li>Enter the XML Configuration information and click <strong>Save Configuration</strong>.</li>
+        </ol>
+        <p>When you save the configuration, the 2FA method is disabled.</p>
+        <p>
+            <img src="../../Resources/Images/configure-saml-xml.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <h2>Disabling SAML</h2>
+        <p>You can disable SAML-based single sign-on (SSO) for all of your Automox users.&#160;</p>
+        <ol start="1">
+            <li>From the <strong>Settings&#160; &gt; Security</strong> tab, go to SAML.</li>
+            <li>Click <strong>Disable</strong>.</li>
+        </ol>
+        <div class="info"><b>Note</b>: When you disable SAML for an organization, user security settings are automatically updated to require email two-factor authentication. They must re-authenticate their session using email verification.</div>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="Settings_Overview.htm">Settings Overview</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="../Global Access Management/Roles_and_Permissions.htm">Roles and Permissions</MadCap:xref>
+            </li>
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Explains how to configure the [%=General.ProductName%] WSUS integration." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Configuring WSUS for Automox Integration</h1>
+        <p>To configure Windows Server Update Service (WSUS) for Automox, follow these instructions.</p>
+        <div class="prereqs"><b>Prerequisites</b>: Configure your desired products and classifications, languages, synchronization schedule, and Automatic approvals. These settings will be specific to your environment.</div>
+        <h2>Configure Update Files and Languages (Local Caching)</h2>
+        <ul>
+            <li>The <strong>Update Languages</strong> tab of this wizard is specific to your environment.</li>
+            <li>Configure the <strong>Update Files</strong> tab as follows:<ul><li>Select <b>Store update files locally on this server </b>&gt;<b> Download update files to this server only when updates are approved</b>.<br /><img src="../../../Resources/Images/update-files.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li></ul></li>
+        </ul>
+        <h3>Automatic Approvals</h3>
+        <ul>
+            <li><strong>Update Rules</strong>: This is specific to your environment. The goal here is to have WSUS automatically approve any update it finds. This rule should mirror the products and classifications that you have configured on your WSUS server.</li>
+            <li><strong>Advanced</strong>: This is specific to your environment.<br /><img src="../../../Resources/Images/automatic-approvals.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li>
+        </ul>
+        <h2>Configure Devices</h2>
+        <ul>
+            <li>Configure WSUS Server in the Automox console for desired groups.</li>
+            <li>Disable OS automatic updates in the Automox console for desired groups (recommended for all groups).<br /><img src="../../../Resources/Images/configure-wsus.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 370px;" /></li>
+        </ul>
+        <h2>Maintaining your WSUS Environment</h2>
+        <ul>
+            <li>Periodically remove unneeded update files using the following command:<br /><MadCap:codeSnippet><MadCap:codeSnippetCopyButton /><MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve">Invoke-WsusServerCleanup -CleanupObsoleteComputers -CleanupUnneededContentFiles -CompressUpdates -CleanupObsoleteUpdates -DeclineExpiredUpdates -DeclineSupersededUpdates</MadCap:codeSnippetBody></MadCap:codeSnippet></li>
+        </ul>
+        <ul>
+            <li>Schedule task to run at least once a month.</li>
+            <li>Additional Documentation: <a href="https://docs.microsoft.com/en-us/powershell/module/wsus/invoke-wsusservercleanup?view=win10-ps" rel="nofollow">https://docs.microsoft.com/en-us/powershell/module/wsus/invoke-wsusservercleanup?view=win10-ps</a></li>
+        </ul>
+    </body>
+</html>

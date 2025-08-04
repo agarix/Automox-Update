@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+    </head>
+    <body>
+        <h1>Agent 39 Release Notes</h1>
+        <h2>Release Overview</h2>
+        <p>Agent 1.0.39 is a minor release that addresses multiple issues. This release is for all supported Windows, macOS, and Linux operating systems.&#160;</p>
+        <h2>Changes / New Features</h2>
+        <ul>
+            <li>Increased password complexity for Automox Service Account<br /><strong>Note:</strong> Additional details are provided in the following sections.&#160;</li>
+        </ul>
+        <h2>Bug Fixes</h2>
+        <ul>
+            <li>The <code>amagent</code> directory is not removed after agent uninstall on Windows</li>
+            <li>Multiple agent processes causing high CPU usage</li>
+            <li>Notifications user responses are lost on agent restart</li>
+            <li>Agent service disconnects when Linux devices sleep or STOMP connection is severed and does not reconnect</li>
+            <li>Windows Agent build for version 1.0.38 shows version 1.0.37 on executable file properties&#160;</li>
+        </ul>
+        <h2>Automox Service Account Change Details</h2>
+        <ul>
+            <li>Enabled by default for agent versions 1.0.39+</li>
+        </ul>
+        <h3>Password Complexity Rules</h3>
+        <ul>
+            <li>Minimum password length: 32</li>
+            <li>Password must contain at least one letter and one number</li>
+            <li><strong>New for Agent 1.0.39:</strong> Password cannot contain repeating, ascending, and descending character sequences</li>
+            <li><strong>New for Agent 1.0.39:</strong> Minimum number of complex characters: 4<ul><li>Valid characters:</li><li><code>.'!@#$^&amp;*_-+=`|(){}[]:;/&lt;&gt;,?/</code></li></ul></li>
+        </ul>
+        <h3>In-Place Upgrades from Previous Agent Releases</h3>
+        <ul>
+            <li>For devices that <strong>do not already have an Automox service account</strong>, this change takes effect immediately.</li>
+            <li>For devices that <strong>already have an Automox service account in a bad state</strong>, the additional password complexity requirements take effect <strong>after remediation</strong>. See the following section for options to remediate the account:</li>
+        </ul>
+        <h3>Remediation options for devices with an Automox service account in a bad state</h3>
+        <ul>
+            <li><strong>Option 1 - Automated Remediation</strong>
+                <ol>
+                    <li>Make sure the <code>automox-service-account</code> feature is enabled on the device.</li>
+                    <li>Wait for or manually trigger a scan.</li>
+                    <li>The agent will delete and recreate the account. This newly created account will have the complex password requirements enabled.</li>
+                    <li>This new account still needs to be secure-token enabled.</li>
+                </ol>
+            </li>
+            <li><strong>Option 2 - Manual Intervention</strong>
+                <ol>
+                    <li>As an alternative to Option 1, the Automox service account can be manually deleted by the user.</li>
+                    <li>On the next device scan, an Automox service account is recreated automatically. This newly created account has the complex password requirements enabled.</li>
+                    <li>This new account still needs to be secure-token enabled.</li>
+                </ol>
+            </li>
+        </ul>
+        <p>Option #1 could fail on macOS Monterey devices because Automox might not be able to delete the service account without the terminal having full disk access on the device. The workaround is to use Option #2.<br /></p>
+
+    </body>
+</html>

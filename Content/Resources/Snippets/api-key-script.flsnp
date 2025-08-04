@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+    </head>
+    <body>
+        <p><code>$apiKey = 'YOUR_API_KEY'</code>
+        </p>
+        <p>In your console, go to <strong>Settings → Secrets &amp; Keys</strong> and select the API key. </p>
+        <div class="info"><b>Note:</b> The API key is per user. Each user will have a unique set of API keys.</div>
+    </body>
+</html>

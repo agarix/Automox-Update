@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Explains how to install the [%=General.ProductName%] agent on Linux devices." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Installing the Automox Agent on Linux</h1>
+        <p>To install, restart, and remove the Automox agent on Linux devices, refer to the commands listed here.&#160;</p>
+        <h2>Install the agent</h2>
+        <p>To install the Automox agent, run this command:</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">curl -sS https://console.automox.com/downloadInstaller?accesskey=YOUR-ORGANIZATION-KEY | sudo bash</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h3>Check the status</h3>
+        <p>Use service manager to check the status of the agent.</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">sudo service amagent status</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h3>Inspect the process list</h3>
+        <p>You can also use this command to check the process.</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">ps aux | grep amagent</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h2>Start the agent service</h2>
+        <p>Use this command to start the agent, if it is not already running.</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">sudo service amagent start</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h2>Restart the agent</h2>
+        <p>You might want to restart the agent (for example, during an update).</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">sudo service amagent restart</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h2>Uninstall the agent</h2>
+        <p>You can use these commands to remove the agent from your device.</p>
+        <h3>Red Hat, CentOS</h3>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">sudo yum erase amagent</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h3>Debian, Ubuntu</h3>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">sudo apt-get purge amagent</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h3>Fedora</h3>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">sudo dnf remove amagent</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+    </body>
+</html>

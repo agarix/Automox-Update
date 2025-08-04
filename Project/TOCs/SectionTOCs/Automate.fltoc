@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultToc
+  Version="1">
+  <TocEntry
+    Title="Policies"
+    Link="/Project/TOCs/SectionTOCs/Policies.fltoc"></TocEntry>
+  <TocEntry
+    Title="Remediations"
+    Link="/Project/TOCs/SectionTOCs/Remediations.fltoc"></TocEntry>
+  <TocEntry
+    Title="Worklet Catalog"
+    Link="/Project/TOCs/SectionTOCs/WorkletCatalog.fltoc" />
+</CatapultToc>

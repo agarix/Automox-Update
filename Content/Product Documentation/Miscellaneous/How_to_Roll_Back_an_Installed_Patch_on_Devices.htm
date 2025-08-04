@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Describes how to uninstall a recently applied patch on Windows-based devices." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>How to Roll Back an Installed Patch on Devices</h1>
+        <p>On occasion, it might be necessary to uninstall a recently applied patch due to unexpected system instability or application errors following patch installation. A feature that is currently only available for Windows-based devices, an Automox patch rollback is an excellent way to "undo" the installation of unstable or undesired patches.</p>
+        <h2>Removing a Patch Using the Automox Console</h2>
+        <p>To roll back an installed patch in the Automox console, first navigate to the target device's <strong>Device Details</strong> page and scroll down to the <strong>Software</strong> section. When you locate the patch you would like to roll back, select it and the <strong>Bulk</strong><strong>Actions&#160;</strong>drop-down menu. Click <strong>Roll Back</strong>.</p>
+        <p>Keep in mind that this is an inherently risky process that can cause operating system or application failures, so it is highly recommended to test rollbacks prior to applying them to critical systems.</p>
+        <p>
+            <img src="../../Resources/Images/rollback-patch.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <h2>Uninstallable Patches</h2>
+        <p>It is important to note that not all patches can be rolled back. In order to be flagged as <em>uninstallable</em>, a patch must meet the following criteria:</p>
+        <ul>
+            <li>The target device's operating system must be Windows Server 2008 R2/Windows 7 or newer</li>
+            <li>The applied patch must have an associated Knowledge Base article identifier</li>
+            <li>The applied patch must have been installed with Windows Update, Microsoft Update, or Windows Server Update Services</li>
+            <li>The package must be specifically marked as uninstallable</li>
+        </ul>
+        <p>For more information, refer to Microsoft's <a href="https://docs.microsoft.com/en-us/windows/desktop/Msi/uninstallable-patches" rel="nofollow">Uninstallable Patches</a> documentation.</p>
+    </body>
+</html>

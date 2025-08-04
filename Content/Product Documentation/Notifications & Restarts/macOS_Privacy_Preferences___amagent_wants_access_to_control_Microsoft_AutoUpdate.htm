@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="This describes how to automatically allow [%=General.ProductName%] to patch macOS without a pop-up." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>macOS Privacy Preferences - amagent wants access to control Microsoft AutoUpdate</h1>
+        <p>This describes how to automatically allow Automox to patch macOS without a pop-up.</p>
+        <p>
+            <img src="../../Resources/Images/autoupdate-prompt.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 350px;" />
+        </p>
+        <p>New privacy controls implemented in macOS 10.14 (Mojave) require this prompt which can cause confusion for your end users or worse, prevent them from patching Microsoft Office applications. If you use a Mobile Device Manager (MDM) with your macOS devices, you can hide this prompt and force allow this patching behavior with a Privacy Preferences Policy Control profile and Automox Agent 28 or newer.</p>
+        <p>This profile payload can apply to devices that have a User Approved MDM Profile or devices deployed with Apple Business Manager (previously named Apple Device Enrollment Program).</p>
+        <p>Depending on your MDM, this payload might be named Privacy Preference or Privacy Preferences Policy Control. The following information is needed to populate this profile:</p>
+        <MadCap:codeSnippet>
+            <MadCap:codeSnippetCopyButton />
+            <MadCap:codeSnippetBody MadCap:useLineNumbers="False" MadCap:lineNumberStart="1" MadCap:continue="False" xml:space="preserve" style="mc-code-lang: Bash;">Identifier: /usr/local/bin/amagent
+Identifier Type: Path
+Code Requirement: identifier "com.automox.agent" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = DAEQ58A4ES
+Validate the Static Code Requirement: Off
+
+App or Service: AppleEvents
+Access: Allow
+Receiver Identifier: com.microsoft.autoupdate2
+BundleID: identifier "com.microsoft.autoupdate2" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = UBF8T346G9</MadCap:codeSnippetBody>
+        </MadCap:codeSnippet>
+        <h2>Jamf Pro</h2>
+        <p>
+            <img src="../../Resources/Images/privacy-pref-policy-control.png" />
+        </p>
+        <h2>SimpleMDM</h2>
+        <p>
+            <img src="../../Resources/Images/simplemdm.png" style="width: 783px;height: 804px;" />
+        </p>
+    </body>
+</html>

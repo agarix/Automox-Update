@@ -1,0 +1,556 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+        <link href="../../Resources/TableStyles/ax_tables.css" rel="stylesheet" MadCap:stylesheetType="table" /><title></title>
+        <meta name="Author" content="Valerie Bailey" MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+        <meta name="description" content="Using the [%=General.ProductName%] Policy Results report." MadCap:metaTagSet="Meta Tag Sets/AxMetaTags.flmeta" />
+    </head>
+    <body>
+        <h1>Policy Results Report</h1>
+        <p>The Policy Results report allows you to view historical data for policy runs in an organization. You can see the success rates and understand which devices had failures so that you can take action. You can access this report by selecting <strong>Reports</strong> in the main console.</p>
+        <h2>Policy Results Overview</h2>
+        <p>The policy results report lists the results for the last 400 days for all policy types (patch policies, required software policies, and worklets). Results are shown in a table with status bars.</p>
+        <div class="info"><strong>Note</strong>: Historical data in this report does not pre-date March 1, 2024.</div>
+        <br />
+        <div class="info"><strong>Note</strong>: You can use the Export CSV button to export this report.</div>
+        <h2>Policy Results Report Table</h2>
+        <p>From the Reports page, click <strong>View</strong> for the Policy Results Report. The following information is available from this table.</p>
+        <p>
+            <img src="../../Resources/Images/policy-results-report.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <table class="TableStyle-ax_tables" cellspacing="0" style="mc-table-style: url('../../Resources/TableStyles/ax_tables.css');">
+            <col class="TableStyle-ax_tables-Column-Columnhead" style="width: 175px;" MadCap:pattern="5" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Columnhead-Header1">
+                        <p><strong>Column</strong>
+                        </p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p><strong>Description</strong>
+                        </p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Columnhead-Body1">
+                        <p>Actions</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Possible options:</p>
+                        <ul>
+                            <li>Run Policy</li>
+                            <li>View Policy</li>
+                            <li>View Device Table</li>
+                            <li>View Policy History</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Columnhead-Body2">
+                        <p>Run Time</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>This shows the date and time of when the last run was started for this policy.</p>
+                        <p>Click this timestamp to open the <strong>Device Table</strong>.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Columnhead-Body1">
+                        <p>Devices</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This lists the number of devices that were associated with the policy during the run.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Columnhead-Body2">
+                        <p>Policy Name</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Click the policy name to open the <strong>Policy Run History</strong>.</p>
+                        <p>The current name of the policy is shown with historical information for that policy even if the policy has been renamed. If a policy is deleted, that will be indicated. The most current name of that policy is used.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyB-Columnhead-Body1">
+                        <p>Results</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+                        <p>This visualization provides at a glance results for this policy. Hover over the bar to view details.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2><a name="Status"></a>Status tiles: Legend</h2>
+        <p>You can identify the status of the most recent policy runs by reviewing the status tiles. Use these as a reference for the filters and report details. This legend is hidden by default. Click the arrow to show or hide the details.</p>
+        <p>
+            <img src="../../Resources/Images/legend.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <table class="TableStyle-ax_tables" cellspacing="0" style="mc-table-style: url('../../Resources/TableStyles/ax_tables.css');">
+            <col class="TableStyle-ax_tables-Column-Column1" style="width: 209px;" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p><strong>Status tile name</strong>
+                        </p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p><strong>Description</strong>
+                        </p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Successful</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>The policy successfully ran on the device.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Pending</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>The device was reached, but the policy has not run yet. Check back later to see an updated result.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Failed</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>An error occurred when attempting to run the policy on the device.</p>
+                        <p>You can view the reason for the failure within the report.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Remediation Not Applicable</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>The device was evaluated and no action is required.</p>
+                        <p>The device was already up to date with the policy. Specifically, the device was scanned and no remediation is necessary.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                        <p>Not Included</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+                        <p>The device was not included in this policy run because it was disconnected or filtered out as a result of, for example, device targeting.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Filtering and Searching in the Policy Results Report</h2>
+        <p>The filter panel is made up of different types of options to fine-tune your report. You can filter the list of policy runs by date range, results, policies, and display options. When you select any of the individual filters, the table automatically updates. You can clear selections individually or select Clear All.</p>
+        <p>You can hide or show the filter panel, as needed. The filter panel shows by default.</p>
+        <h3>Date Range</h3>
+        <p>You can filter the list of policy result runs by date.</p>
+        <p>Open the <strong>Date Range</strong> menu and select from the options:</p>
+        <ul>
+            <li>Last 24 Hours</li>
+            <li>Last 48 Hours</li>
+            <li>Last 7 Days</li>
+            <li>Last 30 Days</li>
+            <li>Custom: Use the calendar options to create a custom search. For details, see Using the custom date calendar.</li>
+        </ul>
+        <h3>Using the custom date calendar</h3>
+        <p>You can create a custom date search by using the calendar options.</p>
+        <div class="info"><b>Note</b>: <br /><ul><li>Historical data is unavailable for dates prior to March 1, 2024. The collection of data is ongoing and when we reach 400 days, the oldest date is replaced with new data every 24 hours.<br /></li><li>It is not possible to select more than 100 days at a time.</li></ul></div>
+        <ol start="1">
+            <li>To use the custom calendar, click into the <strong>Start Date</strong> field. The calendar allows you to select the desired start date and time.<br /><img src="../../Resources/Images/custom-date-start.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 200px;" /><br /></li>
+            <li>Use your mouse to select a time, or use the drop-down menu. You can tab to continue to the next field.<br /></li>
+            <li>Select an end date and time. The format for dates are: MM-DD-YY (e.g. 02-14-23). <strong><br />Note</strong>: It is not possible to select more than 100 days at a time.<br /><img src="../../Resources/Images/custom-date-end.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 200px;" /><br />Results are immediately updated.</li>
+        </ol>
+        <h3>Status Results filter</h3>
+        <p>You can filter the policy results report by the status results. You can select multiple policy status results to filter the list by. The corresponding view is updated immediately.</p>
+        <ul>
+            <li>Successful</li>
+            <li>Pending</li>
+            <li>Failed</li>
+            <li>Remediation Not Applicable</li>
+            <li>Not Included</li>
+        </ul>
+        <h3>Policies</h3>
+        <p>You can filter the policy results report by policy. The filter allows you to select by policy type and the individual corresponding policies in your organization.</p>
+        <ul>
+            <li><strong>Select Policy Type</strong>: Patch, Required Software, and Worklet.</li>
+            <li>Depending on the policy type or types you select, the <strong>Select Policies</strong> option shows the corresponding policy names that you can filter by.</li>
+        </ul>
+        <h3>Display Options</h3>
+        <p>Use the <strong>Display Options</strong> filter to sort policy run results by policy name.</p>
+        <ol start="1">
+            <li>Select <strong>Group by policy</strong>.<ul><li>The list automatically groups all runs of a policy together. You can see how many times a policy ran for the date range selected.</li></ul></li>
+            <li>Click the arrow in the <strong>Sort by</strong> filter.<ul><li>Sort by Policy name: The groups are in order by policy name</li><li>Sort by Last run: The groups are in order by the most recent policy run</li><li>Sort by Total runs: The groups are in order by the most runs per policy</li></ul><p>You can switch between ascending and descending (default) order.</p><img src="../../Resources/Images/filters-displayoptions-group.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" /></li>
+        </ol>
+        <h3>Search for a policy</h3>
+        <p>You can narrow down data from the filtered search by using the search bar at the top of the table. This enhanced search allows multiple queries and partial matching.</p>
+        <p>If a policy is deleted, that will be indicated in the table. The most current name of that policy is used.</p>
+        <p>
+            <img src="../../Resources/Images/policy-search.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <h3>Show all columns of data</h3>
+        <p>The default setting of the policy results report does not show all available columns. You can show more data or rearrange how the columns are presented.</p>
+        <ul>
+            <li>Click the <strong>Columns</strong> button and select the checkboxes to show or hide columns.</li>
+            <li>You can rearrange the order of the data by dragging the column names to the desired position.</li>
+        </ul>
+        <h2>Policy Results Device Table</h2>
+        <p>You can view details about a specific policy run. There are two ways to open the Device Table from the main policy results report.</p>
+        <ul>
+            <li>From the Policy Results Report page, for a specific policy select<strong> Actions &gt; View Device Table.</strong></li>
+            <li>For a specific policy, go to the <strong>Run Time</strong> column and click the timestamp.</li>
+        </ul>
+        <p>The Device Table opens as shown in this example.</p>
+        <div class="info"><strong>Note</strong>: You will see <strong>no results</strong> for the following scenarios:<br /><ul><li>If all devices are offline when a scheduled policy runs.<br /><br /></li><li>If all devices are offline and a policy was manually triggered to run.<br /><br /></li><li>A scheduled policy ran, but it had no devices associated with it.<br /><br /></li><li>Currently, if a device was in a deferred state at the time the policy ran (either reboot or policy deferral), there will be no results. The Policy Results Report registers the total number of devices associated with a policy, however, the number of devices listed in the Device Table will not include any deferred devices.</li></ul></div>
+        <br />
+        <div class="info"><strong>Note</strong>: The report can show run results with devices marked as <strong>Not Included</strong>. This result comes from these possible causes, which are evaluated in the following order:<br /><ul><li>The device OS does not match the policy requirement.<br /><br /></li><li>The device was offline.<br /><br /></li><li>The device was filtered out by device targeting.</li></ul></div>
+        <p>
+            <img src="../../Resources/Images/policyrun-device-table.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <table class="TableStyle-ax_tables" cellspacing="0" style="mc-table-style: url('../../Resources/TableStyles/ax_tables.css');">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p><strong>Column</strong>
+                        </p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p><strong>Description</strong>
+                        </p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Device</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Name of the device that is in the policy.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Result</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Possible outcomes (For details see <MadCap:xref href="#Status">Status tiles: Legend</MadCap:xref>):</p>
+                        <p>Successful, Pending, Failed, Remediation Not Applicable, Not Included</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Event Time</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Time that the specific event was recorded.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>Summary</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Use the search box at the top to find logs for specific details listed in the Summary column such as package names and KBs.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>Details</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Click the down arrow for complete information about the logged activity.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body2">
+                        <p>Worklet Exit Code</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body2">
+                        <p>The exit code is listed here, if available. This column is hidden by default.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>From the Device Table, you can do the following:</p>
+        <ul>
+            <li>Select a different run time. Go to the <strong>Run Time</strong> drop-down list and find the date and time of the run you want details for.</li>
+            <li>You can select multiple devices and from the <strong>Actions</strong> menu you can choose to: Run Policy or Reboot.</li>
+        </ul>
+        <h3>Columns (Device Table)</h3>
+        <p>Use the <b>Columns</b> drop-down menu to adjust the Device Table.</p>
+        <p>You can rearrange the order of the data by dragging the column names to the desired position.</p>
+        <p>
+            <img src="../../Resources/Images/device-table-columns.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 200px;" />
+        </p>
+        <h3>Device Table Details</h3>
+        <p>You can view details about each run from the <strong>Details</strong> column of the Device Table.</p>
+        <ol start="1">
+            <li>Make sure you are showing the <b>Details</b> column.</li>
+            <li>Find the device and run time that you want details for.</li>
+            <li>Click the arrow to view information that supplements the summary. Use your cursor to scroll through the details.</li>
+        </ol>
+        <p>
+            <img src="../../Resources/Images/device-table-details.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <h2>Policy Run History</h2>
+        <p>You can view history for a specific policy run. There are two ways to open the Policy Run History page from the main policy results report.</p>
+        <ul>
+            <li>For a specific policy select<strong> Actions &gt; View Policy History.</strong></li>
+            <li>For a specific policy, go to the Policy Name column and click the name.</li>
+        </ul>
+        <p>The Policy Run History page opens.</p>
+        <p>
+            <img src="../../Resources/Images/policyrun-history.png" class="thumbnail" style="mc-thumbnail-max-height: auto;mc-thumbnail-max-width: 310px;" />
+        </p>
+        <p>The event results are shown graphically.</p>
+        <p>This page provides a visual representation of the Device Table event data that you can drill into for specific dates. Use the drop-down menu to adjust the number of days presented.</p>
+        <h2>CSV Export</h2>
+        <p>Description of what you can find in the CSV export files. Use this list for reference.</p>
+        <table class="TableStyle-ax_tables" cellspacing="0" style="mc-table-style: url('../../Resources/TableStyles/ax_tables.css');">
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <col class="TableStyle-ax_tables-Column-Column1" />
+            <thead>
+                <tr class="TableStyle-ax_tables-Head-Header1">
+                    <th class="TableStyle-ax_tables-HeadE-Column1-Header1">
+                        <p>CSV Export column</p>
+                    </th>
+                    <th class="TableStyle-ax_tables-HeadD-Column1-Header1">
+                        <p>Description</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>custom_name</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Name assigned to the device by the user.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>device_count</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>This lists the number of devices included in the policy run.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>device_deleted_at</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Time and date when the device was removed.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>device_id</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Device ID (same as server ID)</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>device_uuid</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Device UUID (universally unique identifier)</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>display_name</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>If configures, this shows the custom name, otherwise this is the hostname.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>event_time</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Time that the specific event was recorded.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>exit_code</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Remediation exit code returned by a worklet or advanced policy.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>failed</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This lists the number of devices with unsuccessful policy runs.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>hostname</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Unique label assigned to a device.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>not_included</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This is the number of devices not included in the policy run because they were disconnected or filtered out as a result of, for example, device targeting.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>org_uuid</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>This is the ID for the current organization.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>pending</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This lists the number of devices for which the policy run has started but is not yet completed.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>policy_deleted_at</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>This lists the specific date and time of when the policy was deleted.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>policy_id</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This is the legacy Policy ID.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>policy_name</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>This is the name of the policy.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>policy_type</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This lists the policy type: Patch, Required Software, or Worklet</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>policy_uuid</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>This is the Policy ID (universally unique identifier).</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>remediation_not_applicable</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This is the number of devices that were evaluated and no action was required. The devices were already up to date with the policy. Specifically, the devices were scanned and no remediation is necessary.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>result_reason</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>This explains the result status.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>result_status</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>This shows one of the known statuses: Successful, Pending, Failed, Remediation Not Applicable, or Not Included</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>run_time</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>This shows the date and time of when this run was started for this policy.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body1">
+                        <p>stderr</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body1">
+                        <p>Standard error: available details listed in the report are included here.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body2">
+                    <td class="TableStyle-ax_tables-BodyE-Column1-Body2">
+                        <p>stdout</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyD-Column1-Body2">
+                        <p>Standard output: available details listed in the report are included here.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-ax_tables-Body-Body1">
+                    <td class="TableStyle-ax_tables-BodyB-Column1-Body1">
+                        <p>success</p>
+                    </td>
+                    <td class="TableStyle-ax_tables-BodyA-Column1-Body1">
+                        <p>The number of devices for which the policy run was successful.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Caveats</h2>
+        <ul>
+            <li>Data does not pre-date March 1, 2024.</li>
+            <li>When a device is available again being offline, it checks for all missed patches and executes them in a single run. This run appears as a new policy run.</li>
+            <li>When a policy or device has been renamed, the report only shows the most current name, but retains all historical information.<ul><li>For example, if a previous run had policy A, and policy A was renamed to policy B, all future runs will show policy B (even the previous run that was run under the old name).</li></ul></li>
+            <li>These results do not include runs initiated using the Run Now (FixNow) feature.</li>
+        </ul>
+        <h2>Related Topics</h2>
+        <ul>
+            <li>
+                <MadCap:xref href="Creating_Reports.htm">Creating Reports</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="Data_Extracts.htm">Data Extracts</MadCap:xref>
+            </li>
+            <li><a href="https://developer.automox.com/openapi/policy-history/overview/" rel="nofollow">Automox Policy Results API</a>
+            </li>
+        </ul>
+    </body>
+</html>

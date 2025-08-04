@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd">
+    <head>
+    </head>
+    <body>
+        <h1>September 2024 Release Notes</h1>
+        <h2>September 27, 2024</h2>
+        <p>Added:</p>
+        <p>New third-party title support:</p>
+        <ul>
+            <li><strong>Microsoft OpenJDK 21 </strong>(Windows, macOS)</li>
+        </ul>
+        <p>Updated:</p>
+        <ul>
+            <li>Enhanced the <strong>Device Explorer</strong> to include a new NOT operator in the query builder. See <MadCap:xref href="../../Device Management/Device_Explorer.htm">Device Explorer</MadCap:xref>.</li>
+            <li>Updated the <strong>TightVNC version</strong> for Remote Control from 2.8.84 to 2.8.85 (for both x64 and x86). See <MadCap:xref href="../../Remote Control Module/Remote Control - FAQs, Known Issues, and Troubleshooting Guide.htm">Remote Control - FAQs, Known Issues, and Troubleshooting Guide</MadCap:xref>.</li>
+            <li>Updated macOS versions to include Sequoia (macOS 15) in <MadCap:xref href="../../Remote Control Module/Remote Control - FAQs, Known Issues, and Troubleshooting Guide.htm">Remote Control - FAQs, Known Issues, and Troubleshooting Guide</MadCap:xref>.</li>
+        </ul>
+        <h2>September 20, 2024</h2>
+        <p>Added:</p>
+        <p>New third-party title support:</p>
+        <ul>
+            <li><strong>PyCharm Community Edition </strong>(2024.1) (Windows, macOS)</li>
+            <li><strong>PyCharm Professional </strong>(2024.1) (Windows, macOS)</li>
+        </ul>
+        <p>Updated:</p>
+        <ul>
+            <li>Revised content in Automox Agent Update Policy and added link to Agent Versioning and Support.</li>
+            <li>Added support for <strong>macOS 15 (Sequoia) </strong>and removed support for macOS 11 (Big Sur). See Supported Operating Systems.</li>
+        </ul>
+        <h2>September 13, 2024</h2>
+        <p>Added:</p>
+        <ul>
+            <li>We now support <strong>Debian 12</strong> and <strong>Ubuntu 24</strong>. See Supported Operating Systems</li>
+            <li>New: Agent Versioning and Support</li>
+        </ul>
+        <p>Updated:</p>
+        <ul>
+            <li>We updated the Location of Files Required By Automox. For Linux and macOS: <strong>Agent command logs</strong> are written to <code>/var/log/amagent/command.log</code></li>
+            <li>The command to perform a device compatibility check depends on the agent version. See Agent Command Line Guide.</li>
+            <li>We updated the structure of data returned for the <code>getOrganizations</code> endpoint. See <a href="https://developer.automox.com/openapi/axconsole/operation/getOrganizations/" rel="nofollow">Organization Details</a> in the Developer Portal.</li>
+        </ul>
+        <p>Bugfixes:</p>
+        <ul>
+            <li>CVE data was not shown for some RHEL packages. This is now resolved.</li>
+            <li>An issue where device compliance was mismatched between the console and export has been resolved.</li>
+            <li>An issue preventing the policy from being saved when a file &gt; 600MB is uploaded has been resolved.</li>
+            <li>An issue where <code>Function Exclude-WinUpdateApiPreview</code> in <code>GetSoftware</code> was unable to handle a blank <code>UuSSettings.json</code> file has been resolved.</li>
+            <li>An issue where SecureToken is showing as Not Compatible even when the command line returns positive results has been resolved.</li>
+        </ul>
+    </body>
+</html>
