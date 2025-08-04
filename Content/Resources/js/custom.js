@@ -338,26 +338,26 @@ popupObserver.observe(document.body, { childList: true, subtree: true });
 	/* Render published content Conditionally */
 
 document.addEventListener("DOMContentLoaded", function () {
-		const body = document.querySelector('body');
-		const isOtherTopics = body?.classList.contains("other-topics") || body?.getAttribute("body") === "other-topics";
+		// Extract the last updated date from the HTML comment
+		const match = document.documentElement.innerHTML.match(/<!--\s*last-updated-badge:\s*(.*?)\s*-->/);
 
-		if (isOtherTopics) {
-			const mainContent = document.querySelector('div[role="main"]#mc-main-content');
-			const h1 = mainContent?.querySelector("h1");
+		if (match && match[1]) {
+			const badgeDate = match[1]; // e.g., "04 August, 2025"
 
-			if (h1) {
-				const badgeBlock = document.createElement("p");
-				badgeBlock.className = "badge-wrapper"; // Add a class to control visibility if needed
-				badgeBlock.style.display = "none"; // Hide initially
-				badgeBlock.innerHTML = `
-					<label class="badgeNew" > New </label>
-					<span class="last-commit-date"></span>
-					`;
+			// Create the badge wrapper
+			const badge = document.createElement("p");
+			badge.className = "badge-wrapper";
+			badge.style.display = "block";
+			badge.innerHTML = `<label class="badgeNew" > New </label> <span class="last-commit-date">Publish on: ${badgeDate}</span>`;
 
-				h1.insertAdjacentElement("afterend", badgeBlock);
+			// Find the first H1 and insert the badge after it
+			const h1 = document.querySelector("h1");
+			if (h1 && h1.parentNode) {
+				h1.parentNode.insertBefore(badge, h1.nextSibling);
 			}
 		}
 	});
+
 
 
 
